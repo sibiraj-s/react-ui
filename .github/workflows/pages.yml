@@ -10,7 +10,6 @@ env:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -18,8 +17,11 @@ permissions:
 
 jobs:
   build:
-    name: Publish to gh-pages
+    name: Build storybook
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -51,6 +53,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     environment:
       name: github-pages
