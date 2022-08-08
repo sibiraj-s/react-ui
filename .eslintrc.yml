@@ -1,0 +1,45 @@
+root: true
+
+extends:
+  - pegasus
+  - pegasus/node
+
+rules:
+  no-warning-comments: off
+
+overrides:
+  - files:
+      - '**/*.ts'
+    extends:
+      - pegasus/typescript
+      - plugin:prettier/recommended
+    parserOptions:
+      project: './tsconfig.json'
+
+  - files:
+      - '**/*.tsx'
+    extends:
+      - pegasus/typescript
+      - plugin:react/recommended
+      - plugin:react-hooks/recommended
+      - plugin:prettier/recommended
+    parserOptions:
+      project: './tsconfig.json'
+    rules:
+      react/react-in-jsx-scope: off
+
+  - files:
+      - '*.stories.@(ts|tsx|js|jsx|mjs|cjs)'
+    extends:
+      - plugin:storybook/recommended
+      - pegasus/typescript
+      - plugin:react/recommended
+      - plugin:react-hooks/recommended
+      - plugin:prettier/recommended
+    parserOptions:
+      project: './tsconfig.json'
+    rules:
+      react/react-in-jsx-scope: off
+
+ignorePatterns:
+  - '!.storybook/'
