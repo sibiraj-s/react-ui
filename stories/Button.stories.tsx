@@ -6,6 +6,10 @@ export default {
   title: 'Example/Button',
   component: Button,
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'success', 'danger'],
+    },
     children: {
       name: 'label',
     },
