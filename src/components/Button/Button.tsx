@@ -21,6 +21,16 @@ export const StyledButton = styled('button', {
 
         '&:hover': {
           backgroundColor: '$accentDark',
+          borderColor: '$accentDark',
+        },
+
+        '&:active': {
+          backgroundColor: '$accentDark',
+          borderColor: '$accentDark',
+        },
+
+        '&:focus': {
+          boxShadow: 'inset 0 0 0 1px $colors$accentDarker, 0 0 0 1px $colors$accentDarker',
         },
       },
       secondary: {
@@ -30,6 +40,16 @@ export const StyledButton = styled('button', {
 
         '&:hover': {
           backgroundColor: '$secondaryDark',
+          borderColor: '$secondaryDark',
+        },
+
+        '&:active': {
+          backgroundColor: '$secondaryDark',
+          borderColor: '$secondaryDark',
+        },
+
+        '&:focus': {
+          boxShadow: 'inset 0 0 0 1px $colors$secondaryDarker, 0 0 0 1px $colors$secondaryDarker',
         },
       },
       success: {
@@ -39,6 +59,16 @@ export const StyledButton = styled('button', {
 
         '&:hover': {
           backgroundColor: '$successDark',
+          borderColor: '$successDark',
+        },
+
+        '&:active': {
+          backgroundColor: '$successDark',
+          borderColor: '$successDark',
+        },
+
+        '&:focus': {
+          boxShadow: 'inset 0 0 0 1px $colors$successDarker, 0 0 0 1px $colors$successDarker',
         },
       },
       danger: {
@@ -48,6 +78,16 @@ export const StyledButton = styled('button', {
 
         '&:hover': {
           backgroundColor: '$dangerDark',
+          borderColor: '$dangerDark',
+        },
+
+        '&:active': {
+          backgroundColor: '$dangerDark',
+          borderColor: '$dangerDark',
+        },
+
+        '&:focus': {
+          boxShadow: 'inset 0 0 0 1px $colors$dangerDarker, 0 0 0 1px $colors$dangerDarker',
         },
       },
     },
