@@ -1,16 +1,11 @@
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, PropsWithChildren } from 'react';
+import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, PropsWithoutRef } from 'react';
 
-export type AsProp<T extends ElementType> = {
-  as?: T;
-};
+export type PropsWithAs<P, T extends ElementType> = P & { as?: T };
+export type Merge<T, U> = Omit<T, keyof U> & U;
 
-type PropsToOmit<C extends ElementType, P> = keyof (AsProp<C> & P);
-
-type PolymorphicComponentProp<C extends ElementType, Props = {}> = PropsWithChildren<Props & AsProp<C>> &
-  Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
-
-export type PolymorphicComponentPropWithRef<C extends ElementType, Props = {}> = PolymorphicComponentProp<C, Props> & {
-  ref?: PolymorphicRef<C>;
-};
+export type PolymorphicPropsWithoutRef<P, T extends ElementType> = Merge<
+  T extends keyof JSX.IntrinsicElements ? PropsWithoutRef<JSX.IntrinsicElements[T]> : ComponentPropsWithoutRef<T>,
+  PropsWithAs<P, T>
+>;
 
 export type PolymorphicRef<C extends ElementType> = ComponentPropsWithRef<C>['ref'];
