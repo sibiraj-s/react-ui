@@ -1,6 +1,4 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
-import { useObjectRef } from '@react-aria/utils';
-import { AriaButtonProps, useButton } from 'react-aria';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
 import { PolymorphicComponentPropWithRef, PolymorphicRef } from '../../utils/types';
@@ -63,22 +61,10 @@ type ButtonVariants = VariantProps<typeof StyledButton>;
 type ButtonExtraProps = { css?: CSS };
 type ButtonOwnProps = ButtonVariants & ButtonExtraProps;
 
-type ButtonProps<T extends ElementType> = PolymorphicComponentPropWithRef<T, ButtonOwnProps> & AriaButtonProps;
+type ButtonProps<T extends ElementType> = PolymorphicComponentPropWithRef<T, ButtonOwnProps>;
 
-export const BaseButton = <T extends ElementType = 'button'>(
-  props: ButtonProps<T>,
-  forwardedRef: PolymorphicRef<T>
-) => {
-  const ref = useObjectRef<PolymorphicRef<T>>(forwardedRef);
-  const { buttonProps } = useButton(
-    {
-      ...props,
-      elementType: props.as,
-    },
-    ref
-  );
-
-  return <StyledButton {...props} {...buttonProps} ref={ref} />;
+export const BaseButton = <T extends ElementType = 'button'>(props: ButtonProps<T>, ref: PolymorphicRef<T>) => {
+  return <StyledButton {...props} ref={ref} />;
 };
 
 type ButtonComponent = <T extends ElementType = 'button'>(props: ButtonProps<T>) => ReactElement<T>;

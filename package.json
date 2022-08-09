@@ -29,9 +29,7 @@
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
-    "@react-aria/utils": "^3.13.2",
-    "@stitches/react": "^1.2.8",
-    "react-aria": "^3.18.0"
+    "@stitches/react": "^1.2.8"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
