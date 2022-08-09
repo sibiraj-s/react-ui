@@ -1,10 +1,15 @@
-import { styled } from '../../stitches.config';
+import { ElementRef, forwardRef } from 'react';
+import { useButton, AriaButtonProps } from 'react-aria';
+import { useObjectRef } from '@react-aria/utils';
 
-const Button = styled('button', {
+import { styled, VariantProps, CSS } from '../../stitches.config';
+
+export const BaseButton = styled('button', {
   border: '1px solid',
   borderRadius: '$rounded',
   fontWeight: '$bold',
   padding: '$buttonPaddingY $buttonPaddingX',
+  outline: 'none',
 
   // variants
   variants: {
@@ -54,8 +59,21 @@ const Button = styled('button', {
   },
 });
 
-Button.defaultProps = {
-  type: 'button',
-};
+type ButtonVariants = VariantProps<typeof BaseButton>;
+type ButtonProps = AriaButtonProps & ButtonVariants & { css?: CSS };
+
+export const Button = forwardRef<ElementRef<typeof BaseButton>, ButtonProps>((props, forwardedRef) => {
+  const ref = useObjectRef(forwardedRef);
+  const { buttonProps } = useButton(props, ref);
+  const { children } = props;
+
+  return (
+    <BaseButton {...buttonProps} {...props} ref={ref}>
+      {children}
+    </BaseButton>
+  );
+});
+
+Button.displayName = 'Button';
 
 export default Button;
