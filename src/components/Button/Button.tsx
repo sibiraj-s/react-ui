@@ -9,7 +9,6 @@ export const BaseButton = styled('button', {
   borderRadius: '$rounded',
   fontWeight: '$bold',
   padding: '$buttonPaddingY $buttonPaddingX',
-  outline: 'none',
 
   // variants
   variants: {
@@ -60,7 +59,8 @@ export const BaseButton = styled('button', {
 });
 
 type ButtonVariants = VariantProps<typeof BaseButton>;
-type ButtonProps = AriaButtonProps & ButtonVariants & { css?: CSS };
+type ButtonAriaProps = AriaButtonProps<typeof BaseButton>;
+type ButtonProps = ButtonAriaProps & ButtonVariants & { css?: CSS };
 
 export const Button = forwardRef<ElementRef<typeof BaseButton>, ButtonProps>((props, forwardedRef) => {
   const ref = useObjectRef(forwardedRef);
@@ -68,7 +68,7 @@ export const Button = forwardRef<ElementRef<typeof BaseButton>, ButtonProps>((pr
   const { children } = props;
 
   return (
-    <BaseButton {...buttonProps} {...props} ref={ref}>
+    <BaseButton {...props} {...buttonProps} ref={ref}>
       {children}
     </BaseButton>
   );
