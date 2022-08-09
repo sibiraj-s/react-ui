@@ -63,14 +63,14 @@ type ButtonVariants = VariantProps<typeof StyledButton>;
 type ButtonExtraProps = { css?: CSS };
 type ButtonOwnProps = ButtonVariants & ButtonExtraProps & AriaButtonProps;
 
-type ButtonProps<E extends ElementType> = ButtonOwnProps & PolymorphicComponentProps<E, ButtonOwnProps>;
-type ButtonComponent = <E extends ElementType = 'button'>(props: ButtonProps<E>) => ReactElement;
+type ButtonProps<T extends ElementType> = ButtonOwnProps & PolymorphicComponentProps<T, ButtonOwnProps>;
+type ButtonComponent = <T extends ElementType = 'button'>(props: ButtonProps<T>) => ReactElement;
 
-export const BaseButton = <E extends ElementType = 'button'>(
-  props: ButtonProps<E>,
-  forwardedRef: PolymorphicRef<E>
+export const BaseButton = <T extends ElementType = 'button'>(
+  props: ButtonProps<T>,
+  forwardedRef: PolymorphicRef<T>
 ) => {
-  const ref = useObjectRef<PolymorphicRef<E>>(forwardedRef);
+  const ref = useObjectRef<PolymorphicRef<T>>(forwardedRef);
   const { buttonProps } = useButton(props, ref);
 
   return <StyledButton {...props} {...buttonProps} ref={ref} />;
