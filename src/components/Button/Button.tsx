@@ -111,7 +111,13 @@ type ButtonComponent = <T extends ElementType = 'button'>(
 
 export const BaseButton = <T extends ElementType = 'button'>(props: ButtonProps<T>, ref?: PolymorphicRef<T>) => {
   const buttonRef = useObjectRef<PolymorphicRef<T>>(ref);
-  const { buttonProps } = useButton(props, buttonRef);
+  const { buttonProps } = useButton(
+    {
+      ...props,
+      elementType: props.as,
+    },
+    buttonRef
+  );
 
   return <StyledButton {...mergeProps(buttonProps, props)} ref={buttonRef} />;
 };
