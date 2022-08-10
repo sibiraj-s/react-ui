@@ -6,11 +6,15 @@ import { styled, VariantProps, CSS } from '../../stitches.config';
 import { PolymorphicPropsWithoutRef, PolymorphicRef } from '../../utils/types';
 
 export const StyledButton = styled('button', {
+  all: 'unset',
+  display: 'inline-block',
   border: '1px solid',
   borderRadius: '$rounded',
   fontWeight: '$bold',
   padding: '$buttonPaddingY $buttonPaddingX',
-  outline: 0,
+  userSelect: 'none',
+  whiteSpace: 'nowrap',
+  textAlign: 'center',
 
   // variants
   variants: {
