@@ -125,15 +125,6 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       accentText: '$blue11',
       accentTextContrast: '$blue12',
 
-      // accent simple shades
-      accentLightest: '$accentBase',
-      accentLighter: '$accentBgSubtle',
-      accentLight: '$accentBg',
-      accent: '$accentSolid',
-      accentDark: '$accentSolidHover',
-      accentDarker: '$accentText',
-      accentDarkest: '$accentTextContrast',
-
       // secondary shades
       secondaryBase: '$slate1',
       secondaryBgSubtle: '$slate2',
@@ -147,15 +138,6 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       secondarySolidHover: '$slate10',
       secondaryText: '$slate11',
       secondaryTextContrast: '$slate12',
-
-      // secondary simple shades
-      secondaryLightest: '$secondaryBase',
-      secondaryLighter: '$secondaryBgSubtle',
-      secondaryLight: '$secondaryBg',
-      secondary: '$secondarySolid',
-      secondaryDark: '$secondarySolidHover',
-      secondaryDarker: '$secondaryText',
-      secondaryDarkest: '$secondaryTextContrast',
 
       // success
       successBase: '$green1',
@@ -171,15 +153,6 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       successText: '$green11',
       successTextContrast: '$green12',
 
-      // success simple shades
-      successLightest: '$successBase',
-      successLighter: '$successBgSubtle',
-      successLight: '$successBg',
-      success: '$successSolid',
-      successDark: '$successSolidHover',
-      successDarker: '$successText',
-      successDarkest: '$successTextContrast',
-
       // danger
       dangerBase: '$red1',
       dangerBgSubtle: '$red2',
@@ -193,15 +166,6 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       dangerSolidHover: '$red10',
       dangerText: '$red11',
       dangerTextContrast: '$red12',
-
-      // danger simple shades
-      dangerLightest: '$dangerBase',
-      dangerLighter: '$dangerBgSubtle',
-      dangerLight: '$dangerBg',
-      danger: '$dangerSolid',
-      dangerDark: '$dangerSolidHover',
-      dangerDarker: '$dangerText',
-      dangerDarkest: '$dangerTextContrast',
     },
     space: {
       ...spaces,

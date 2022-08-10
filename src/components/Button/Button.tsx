@@ -10,84 +10,85 @@ export const StyledButton = styled('button', {
   borderRadius: '$rounded',
   fontWeight: '$bold',
   padding: '$buttonPaddingY $buttonPaddingX',
+  outline: 0,
 
   // variants
   variants: {
     variant: {
       primary: {
         color: '$white', // TODO: implement with YIQ
-        backgroundColor: '$accent',
-        borderColor: '$accent',
+        backgroundColor: '$accentSolid',
+        borderColor: '$accentSolid',
 
         '&:hover': {
-          backgroundColor: '$accentDark',
-          borderColor: '$accentDark',
+          backgroundColor: '$accentSolidHover',
+          borderColor: '$accentSolidHover',
         },
 
         '&:active': {
-          backgroundColor: '$accentDark',
-          borderColor: '$accentDark',
+          backgroundColor: '$accentSolidHover',
+          borderColor: '$accentSolidHover',
         },
 
         '&:focus': {
-          boxShadow: 'inset 0 0 0 1px $colors$accentDarker, 0 0 0 1px $colors$accentDarker',
+          boxShadow: '0 0 0 3px $colors$accentBgActive',
         },
       },
       secondary: {
         color: '$white',
-        backgroundColor: '$secondary',
-        borderColor: '$secondary',
+        backgroundColor: '$secondarySolid',
+        borderColor: '$secondarySolid',
 
         '&:hover': {
-          backgroundColor: '$secondaryDark',
-          borderColor: '$secondaryDark',
+          backgroundColor: '$secondarySolidHover',
+          borderColor: '$secondarySolidHover',
         },
 
         '&:active': {
-          backgroundColor: '$secondaryDark',
-          borderColor: '$secondaryDark',
+          backgroundColor: '$secondarySolidHover',
+          borderColor: '$secondarySolidHover',
         },
 
         '&:focus': {
-          boxShadow: 'inset 0 0 0 1px $colors$secondaryDarker, 0 0 0 1px $colors$secondaryDarker',
+          boxShadow: '0 0 0 3px $colors$secondaryBgActive',
         },
       },
       success: {
         color: '$white',
-        backgroundColor: '$success',
-        borderColor: '$success',
+        backgroundColor: '$successSolid',
+        borderColor: '$successSolid',
 
         '&:hover': {
-          backgroundColor: '$successDark',
-          borderColor: '$successDark',
+          backgroundColor: '$successSolidHover',
+          borderColor: '$successSolidHover',
         },
 
         '&:active': {
-          backgroundColor: '$successDark',
-          borderColor: '$successDark',
+          backgroundColor: '$successSolidHover',
+          borderColor: '$successSolidHover',
         },
 
         '&:focus': {
-          boxShadow: 'inset 0 0 0 1px $colors$successDarker, 0 0 0 1px $colors$successDarker',
+          boxShadow: '0 0 0 3px $colors$successBgActive',
         },
       },
       danger: {
         color: '$white',
-        backgroundColor: '$danger',
-        borderColor: '$danger',
+        backgroundColor: '$dangerSolid',
+        borderColor: '$dangerSolid',
 
         '&:hover': {
-          backgroundColor: '$dangerDark',
-          borderColor: '$dangerDark',
+          backgroundColor: '$dangerSolidHover',
+          borderColor: '$dangerSolidHover',
         },
 
         '&:active': {
-          backgroundColor: '$dangerDark',
-          borderColor: '$dangerDark',
+          backgroundColor: '$dangerSolidHover',
+          borderColor: '$dangerSolidHover',
         },
 
         '&:focus': {
-          boxShadow: 'inset 0 0 0 1px $colors$dangerDarker, 0 0 0 1px $colors$dangerDarker',
+          boxShadow: '0 0 0 3px $colors$dangerBgActive',
         },
       },
     },
