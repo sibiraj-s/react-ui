@@ -108,9 +108,6 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       white: 'white',
       black: 'black',
 
-      // text
-      default: '$gray12',
-
       // primary shades
       accentBase: '$blue1',
       accentBgSubtle: '$blue2',
@@ -166,6 +163,10 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       dangerSolidHover: '$red10',
       dangerText: '$red11',
       dangerTextContrast: '$red12',
+
+      // other colors
+      muted: '$gray11',
+      default: '$gray12',
     },
     space: {
       ...spaces,

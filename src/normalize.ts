@@ -6,7 +6,7 @@ const normalize = (): ReturnType<typeof globalCss> => {
       fontSize: '$html',
     },
     body: {
-      fontSize: '$body',
+      fontSize: '$regular',
       fontFamily: '$body',
       color: '$default',
     },
