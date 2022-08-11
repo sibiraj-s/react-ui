@@ -35,7 +35,8 @@ export const StyledButton = styled('button', {
         },
 
         '&:focus': {
-          boxShadow: '0 0 0 3px $colors$accentBgActive',
+          outline: '2px solid $accentSolid',
+          outlineOffset: '2px',
         },
       },
       secondary: {
@@ -54,7 +55,8 @@ export const StyledButton = styled('button', {
         },
 
         '&:focus': {
-          boxShadow: '0 0 0 3px $colors$secondaryBgActive',
+          outline: '2px solid $secondarySolid',
+          outlineOffset: '2px',
         },
       },
       success: {
@@ -73,7 +75,8 @@ export const StyledButton = styled('button', {
         },
 
         '&:focus': {
-          boxShadow: '0 0 0 3px $colors$successBgActive',
+          outline: '2px solid $successSolid',
+          outlineOffset: '2px',
         },
       },
       danger: {
@@ -92,7 +95,8 @@ export const StyledButton = styled('button', {
         },
 
         '&:focus': {
-          boxShadow: '0 0 0 3px $colors$dangerBgActive',
+          outline: '2px solid $dangerSolid',
+          outlineOffset: '2px',
         },
       },
     },
