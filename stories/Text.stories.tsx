@@ -61,3 +61,8 @@ export const Danger = Template.bind({});
 Danger.args = {
   variant: 'danger',
 };
+
+export const Muted = Template.bind({});
+Muted.args = {
+  variant: 'muted',
+};
