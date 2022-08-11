@@ -71,7 +71,7 @@ const spaces = {
 };
 
 export const { styled, createTheme, globalCss, keyframes, config, getCssText, css } = createStitches({
-  prefix: 'hrx',
+  prefix: 'rxui',
 
   theme: {
     colors: {
