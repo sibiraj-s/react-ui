@@ -198,6 +198,11 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
       12: '3rem', // 48px
 
       // user tokens
+      '4xl': '$10',
+      '3xl': '$8',
+      '2xl': '$7',
+      xl: '$6',
+      l: '$5',
       regular: '$4',
       sm: '$3',
       xs: '$2',
@@ -253,9 +258,10 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
     },
     lineHeights: {
       1: 1,
-      2: 1.5,
+      2: 1.3,
+      3: 1.5,
 
-      default: '$2',
+      default: '$3',
     },
     letterSpacings: {},
     borderWidths: {},
@@ -292,6 +298,12 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText } =
 
     // height, width
     size: (value: Stitches.PropertyValue<'width'>) => ({ height: value, width: value }),
+
+    // computed sytles
+
+    // heading margin
+    // https://spectrum.adobe.com/page/heading/#Margins
+    hmr: (value: Stitches.PropertyValue<'fontSize'>) => ({ marginBottom: `calc(${value} * 0.25)` }), //
   },
 });
 
