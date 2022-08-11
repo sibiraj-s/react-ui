@@ -70,7 +70,7 @@ const spaces = {
   96: '24rem',
 };
 
-export const { styled, createTheme, globalCss, keyframes, config, getCssText } = createStitches({
+export const { styled, createTheme, globalCss, keyframes, config, getCssText, css } = createStitches({
   prefix: 'hrx',
 
   theme: {

@@ -1,5 +1,5 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
-import { useButton } from 'react-aria';
+import { useButton, useFocusRing } from 'react-aria';
 import { useObjectRef, mergeProps } from '@react-aria/utils';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
@@ -33,11 +33,6 @@ export const StyledButton = styled('button', {
           backgroundColor: '$accentSolidHover',
           borderColor: '$accentSolidHover',
         },
-
-        '&:focus': {
-          outline: '2px solid $accentSolid',
-          outlineOffset: '2px',
-        },
       },
       secondary: {
         color: '$white',
@@ -52,11 +47,6 @@ export const StyledButton = styled('button', {
         '&:active': {
           backgroundColor: '$secondarySolidHover',
           borderColor: '$secondarySolidHover',
-        },
-
-        '&:focus': {
-          outline: '2px solid $secondarySolid',
-          outlineOffset: '2px',
         },
       },
       success: {
@@ -73,11 +63,6 @@ export const StyledButton = styled('button', {
           backgroundColor: '$successSolidHover',
           borderColor: '$successSolidHover',
         },
-
-        '&:focus': {
-          outline: '2px solid $successSolid',
-          outlineOffset: '2px',
-        },
       },
       danger: {
         color: '$white',
@@ -93,14 +78,55 @@ export const StyledButton = styled('button', {
           backgroundColor: '$dangerSolidHover',
           borderColor: '$dangerSolidHover',
         },
-
-        '&:focus': {
-          outline: '2px solid $dangerSolid',
-          outlineOffset: '2px',
-        },
       },
     },
+    isFocusVisible: {
+      true: {},
+    },
   },
+
+  compoundVariants: [
+    {
+      variant: 'primary',
+      isFocusVisible: true,
+      css: {
+        outline: '2px solid $accentSolid',
+        outlineOffset: '2px',
+      },
+    },
+    {
+      variant: 'secondary',
+      isFocusVisible: true,
+      css: {
+        outline: '2px solid $secondarySolid',
+        outlineOffset: '2px',
+      },
+    },
+    {
+      variant: 'success',
+      isFocusVisible: true,
+      css: {
+        outline: '2px solid $successSolid',
+        outlineOffset: '2px',
+      },
+    },
+    {
+      variant: 'danger',
+      isFocusVisible: true,
+      css: {
+        outline: '2px solid $dangerSolid',
+        outlineOffset: '2px',
+      },
+    },
+    {
+      variant: 'primary',
+      isFocusVisible: true,
+      css: {
+        outline: '2px solid $accentSolid',
+        outlineOffset: '2px',
+      },
+    },
+  ],
 
   // defaults
   defaultVariants: {
@@ -108,9 +134,10 @@ export const StyledButton = styled('button', {
   },
 });
 
+type UserIgnoredProps = 'isFocusVisible';
 type ButtonVariants = VariantProps<typeof StyledButton>;
 type ButtonExtraProps = { css?: CSS };
-type ButtonOwnProps = ButtonVariants & ButtonExtraProps;
+type ButtonOwnProps = Omit<ButtonVariants, UserIgnoredProps> & ButtonExtraProps;
 
 type ButtonProps<T extends ElementType> = PolymorphicPropsWithoutRef<ButtonOwnProps, T>;
 type ButtonComponent = <T extends ElementType = 'button'>(
@@ -119,6 +146,8 @@ type ButtonComponent = <T extends ElementType = 'button'>(
 
 export const BaseButton = <T extends ElementType = 'button'>(props: ButtonProps<T>, ref?: PolymorphicRef<T>) => {
   const buttonRef = useObjectRef<PolymorphicRef<T>>(ref);
+  const { isFocusVisible, focusProps } = useFocusRing();
+
   const { buttonProps } = useButton(
     {
       ...props,
@@ -127,7 +156,9 @@ export const BaseButton = <T extends ElementType = 'button'>(props: ButtonProps<
     buttonRef
   );
 
-  return <StyledButton {...mergeProps(buttonProps, props)} ref={buttonRef} />;
+  return (
+    <StyledButton {...mergeProps(buttonProps, focusProps, props)} isFocusVisible={isFocusVisible} ref={buttonRef} />
+  );
 };
 
 export const Button = forwardRef(BaseButton) as ButtonComponent;
