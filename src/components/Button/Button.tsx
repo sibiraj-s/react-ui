@@ -83,6 +83,12 @@ export const StyledButton = styled('button', {
     isFocusVisible: {
       true: {},
     },
+    disabled: {
+      true: {
+        opacity: 0.7,
+        pointerEvents: 'none',
+      },
+    },
   },
 
   compoundVariants: [

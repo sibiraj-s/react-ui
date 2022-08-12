@@ -41,3 +41,9 @@ Danger.args = {
   variant: 'danger',
   children: 'Danger Button',
 };
+
+export const Disabeld = Template.bind({});
+Disabeld.args = {
+  children: 'Disabeld Button',
+  disabled: true,
+};
