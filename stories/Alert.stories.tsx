@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Alert, styled } from '../index';
 
 export default {
-  title: 'Components/Forms/Alert',
+  title: 'Components/Alert',
   component: Alert,
   argTypes: {},
 } as ComponentMeta<typeof Alert>;
