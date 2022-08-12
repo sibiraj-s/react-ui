@@ -150,6 +150,20 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       successText: '$green11',
       successTextContrast: '$green12',
 
+      // warning
+      warningBase: '$yellow1',
+      warningBgSubtle: '$yellow2',
+      warningBg: '$yellow3',
+      warningBgHover: '$yellow4',
+      warningBgActive: '$yellow5',
+      warningLine: '$yellow6',
+      warningBorder: '$yellow7',
+      warningBorderHover: '$yellow8',
+      warningSolid: '$yellow9',
+      warningSolidHover: '$yellow10',
+      warningText: '$yellow11',
+      warningTextContrast: '$yellow12',
+
       // danger
       dangerBase: '$red1',
       dangerBgSubtle: '$red2',
