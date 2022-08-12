@@ -18,11 +18,13 @@ const Template: ComponentStory<typeof Switch> = (args) => (
   <SwitchContainer>
     <Switch {...args} size='sm' />
     <Switch {...args} />
-    <Switch {...args} size='sm' variant='danger' />
-    <Switch {...args} variant='danger' />
   </SwitchContainer>
 );
 
 export const Default = Template.bind({});
 Default.args = {};
-Default.storyName = 'Switch';
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};

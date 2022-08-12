@@ -13,9 +13,8 @@ const StyledThumb = styled(SwitchPrimitive.Thumb, {
 
   display: 'block',
   size: '$$thumbSize',
-  backgroundColor: 'white',
+  backgroundColor: '$white',
   borderRadius: '$circle',
-  boxShadow: `0 2px 2px $muted`,
   transition: 'transform 100ms',
   transform: 'translateX($$initialTranslatePos)',
   willChange: 'transform',
@@ -30,20 +29,18 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
   position: 'relative',
   width: '$10',
   height: '$6',
-  backgroundColor: '$accentBgActive',
+  backgroundColor: '$neutralLine',
   borderRadius: '$pill',
   border: '1px solid',
-  borderColor: '$accentBorder',
+  borderColor: '$neutralBorder',
 
   variants: {
-    variant: {
-      danger: {
-        backgroundColor: '$dangerBgActive',
-        borderColor: '$dangerBorder',
-
-        '&[data-state="checked"]': {
-          backgroundColor: '$dangerSolid',
-        },
+    disabled: {
+      true: {
+        opacity: 0.7,
+        pointerEvents: 'none',
+        borderColor: '$neutralLine',
+        backgroundColor: '$neutralBg',
       },
     },
     size: {

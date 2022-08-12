@@ -164,9 +164,23 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       dangerText: '$red11',
       dangerTextContrast: '$red12',
 
+      // primary shades
+      neutralBase: '$gray1',
+      neutralBgSubtle: '$gray2',
+      neutralBg: '$gray3',
+      neutralBgHover: '$gray4',
+      neutralBgActive: '$gray5',
+      neutralLine: '$gray6',
+      neutralBorder: '$gray7',
+      neutralBorderHover: '$gray8',
+      neutralSolid: '$gray9',
+      neutralSolidHover: '$gray10',
+      neutralText: '$gray11',
+      neutralTextContrast: '$gray12',
+
       // other colors
-      muted: '$gray11',
-      default: '$gray12',
+      muted: '$neutralSolid',
+      default: '$neutralTextContrast',
     },
     space: {
       ...spaces,
