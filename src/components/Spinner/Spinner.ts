@@ -27,6 +27,12 @@ export const Spinner = styled('div', {
       sm: {
         size: '$6',
       },
+      md: {
+        size: '$8',
+      },
+      lg: {
+        size: '$12',
+      },
     },
   },
 

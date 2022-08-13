@@ -18,10 +18,12 @@ const Template: ComponentStory<typeof Spinner> = (args) => (
   <StyledContainer>
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
+    <Spinner {...args} size='lg' />
     <Spinner {...args} variant='success' size='sm' />
     <Spinner {...args} variant='success' />
+    <Spinner {...args} variant='success' size='lg' />
     <Spinner {...args} variant='danger' size='sm' />
-    <Spinner {...args} variant='danger' />
+    <Spinner {...args} variant='danger' size='lg' />
   </StyledContainer>
 );
 
