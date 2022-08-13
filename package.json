@@ -18,9 +18,9 @@
   ],
   "scripts": {
     "test": "jest",
-    "dev": "rollup -c -w",
+    "build:watch": "rollup -c -w",
     "build": "rollup -c",
-    "storybook": "start-storybook -p 6006",
+    "dev": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "lint": "eslint . --ignore-path=.gitignore --ext=.js,.ts,.tsx",
     "prepare": "husky install"
