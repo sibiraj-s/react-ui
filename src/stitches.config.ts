@@ -198,11 +198,6 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
     },
     space: {
       ...spaces,
-
-      inputPaddingY: '$1_5',
-      inputPaddingX: '$3',
-      buttonPaddingY: '$inputPaddingY',
-      buttonPaddingX: '$inputPaddingX',
     },
     sizes: {
       ...spaces,

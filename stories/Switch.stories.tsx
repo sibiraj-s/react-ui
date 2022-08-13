@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Switch, styled } from '../index';
 
 export default {
-  title: 'Components/Forms/Switch',
+  title: 'Components/Switch',
   component: Switch,
   argTypes: {},
 } as ComponentMeta<typeof Switch>;

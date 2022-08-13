@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../index';
 
 export default {
-  title: 'Components/Forms/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     variant: {

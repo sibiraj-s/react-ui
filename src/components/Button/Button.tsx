@@ -11,7 +11,7 @@ export const StyledButton = styled('button', {
   border: '1px solid',
   borderRadius: '$rounded',
   fontWeight: '$bold',
-  padding: '$buttonPaddingY $buttonPaddingX',
+  padding: '$1_5 $3',
   userSelect: 'none',
   whiteSpace: 'nowrap',
   textAlign: 'center',
