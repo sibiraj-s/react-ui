@@ -6,17 +6,16 @@ import { styled, VariantProps, CSS } from '../../stitches.config';
 
 const StyledThumb = styled(SwitchPrimitive.Thumb, {
   $$switchWidth: '$sizes$10',
-  $$switchHeight: '$sizes$6',
-  $$thumbSize: 'calc($$switchHeight - 3px)',
-  $$initialTranslatePos: '2px',
-  $$finalTranslatePos: 'calc($$switchWidth - $$thumbSize - $$initialTranslatePos)',
+  $$switchHeight: '$sizes$5',
+  $$thumbSize: '$$switchHeight',
+  $$finalTranslatePos: 'calc($$switchWidth - $$switchHeight)',
 
   display: 'block',
   size: '$$thumbSize',
   backgroundColor: '$white',
   borderRadius: '$circle',
   transition: 'transform 100ms',
-  transform: 'translateX($$initialTranslatePos)',
+  transform: 'translateX(0)',
   willChange: 'transform',
 
   '&[data-state="checked"]': {
@@ -28,11 +27,12 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
   all: 'unset',
   position: 'relative',
   width: '$10',
-  height: '$6',
+  height: '$5',
   backgroundColor: '$neutralLine',
   borderRadius: '$pill',
   border: '1px solid',
   borderColor: '$neutralBorder',
+  padding: '$px',
 
   variants: {
     disabled: {
@@ -64,6 +64,7 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
 
   '&[data-state="checked"]': {
     backgroundColor: '$accentSolid',
+    borderColor: '$accentSolid',
   },
 });
 
