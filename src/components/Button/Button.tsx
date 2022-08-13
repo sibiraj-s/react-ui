@@ -29,10 +29,13 @@ export const StyledButton = styled('button', {
     size: {
       sm: {
         padding: '$1 $2',
+        borderRadius: '$roundedSm',
+        fontSize: '$sm',
       },
       xs: {
         padding: '0 $1_5',
         borderRadius: '$roundedSm',
+        fontSize: '$sm',
       },
     },
     variant: {
