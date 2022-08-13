@@ -12,6 +12,7 @@ const Template: ComponentStory<typeof Switch> = (args) => (
   <Flex align='center' gap='md'>
     <Switch {...args} size='sm' />
     <Switch {...args} />
+    <Switch {...args} size='lg' />
   </Flex>
 );
 

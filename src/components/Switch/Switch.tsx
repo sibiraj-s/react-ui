@@ -53,6 +53,15 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
           $$switchHeight: '$sizes$4',
         },
       },
+      lg: {
+        width: '$12',
+        height: '$6',
+
+        [`${StyledThumb}`]: {
+          $$switchWidth: '$sizes$12',
+          $$switchHeight: '$sizes$6',
+        },
+      },
     },
     isFocusVisible: {
       true: {
