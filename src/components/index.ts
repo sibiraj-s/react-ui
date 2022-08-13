@@ -7,3 +7,4 @@ export * from './Input';
 export * from './Textarea';
 export * from './Spinner';
 export * from './Link';
+export * from './Badge';
