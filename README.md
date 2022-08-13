@@ -4,16 +4,10 @@
 
 ## Development
 
-Run rollup to watch and compile changes
+Run storybook
 
 ```bash
 npm run dev
-```
-
-Run storybook
-
-```
-npm run storybook
 ```
 
 [stitches]: https://stitches.dev
