@@ -44,6 +44,9 @@ const Template: ComponentStory<typeof Button> = (args) => (
       Small Button
     </Button>
     <Button {...args}>Default Button</Button>
+    <Button {...args} variantType='outline'>
+      Outline Button
+    </Button>
   </Flex>
 );
 

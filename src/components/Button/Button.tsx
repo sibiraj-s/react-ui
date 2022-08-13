@@ -18,6 +18,14 @@ export const StyledButton = styled('button', {
 
   // variants
   variants: {
+    variantType: {
+      solid: {},
+      outline: {
+        '&:hover': {
+          color: '$white',
+        },
+      },
+    },
     size: {
       sm: {
         padding: '$1 $2',
@@ -110,11 +118,27 @@ export const StyledButton = styled('button', {
       },
     },
     {
+      variant: 'primary',
+      variantType: 'outline',
+      css: {
+        backgroundColor: '$white',
+        color: '$accentSolid',
+      },
+    },
+    {
       variant: 'secondary',
       isFocusVisible: true,
       css: {
         outline: '2px solid $secondarySolid',
         outlineOffset: '2px',
+      },
+    },
+    {
+      variant: 'secondary',
+      variantType: 'outline',
+      css: {
+        backgroundColor: '$white',
+        color: '$secondarySolid',
       },
     },
     {
@@ -126,6 +150,14 @@ export const StyledButton = styled('button', {
       },
     },
     {
+      variant: 'success',
+      variantType: 'outline',
+      css: {
+        backgroundColor: '$white',
+        color: '$successSolid',
+      },
+    },
+    {
       variant: 'danger',
       isFocusVisible: true,
       css: {
@@ -134,11 +166,11 @@ export const StyledButton = styled('button', {
       },
     },
     {
-      variant: 'primary',
-      isFocusVisible: true,
+      variant: 'danger',
+      variantType: 'outline',
       css: {
-        outline: '2px solid $accentSolid',
-        outlineOffset: '2px',
+        backgroundColor: '$white',
+        color: '$dangerSolid',
       },
     },
   ],
