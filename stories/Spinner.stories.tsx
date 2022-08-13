@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Spinner, styled } from '../index';
+import { Spinner, Flex } from '../index';
 
 export default {
   title: 'Components/Spinner',
@@ -8,14 +8,8 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Spinner>;
 
-const StyledContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1rem',
-});
-
 const Template: ComponentStory<typeof Spinner> = (args) => (
-  <StyledContainer>
+  <Flex align='center' gap='md'>
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
     <Spinner {...args} size='lg' />
@@ -24,7 +18,7 @@ const Template: ComponentStory<typeof Spinner> = (args) => (
     <Spinner {...args} variant='success' size='lg' />
     <Spinner {...args} variant='danger' size='sm' />
     <Spinner {...args} variant='danger' size='lg' />
-  </StyledContainer>
+  </Flex>
 );
 
 export const Default = Template.bind({});

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Alert, styled } from '../index';
+import { Alert, Flex } from '../index';
 
 export default {
   title: 'Components/Alert',
@@ -8,15 +8,8 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Alert>;
 
-const SwitchContainer = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '1rem',
-  maxWidth: '35rem',
-});
-
 const Template: ComponentStory<typeof Alert> = () => (
-  <SwitchContainer>
+  <Flex gap='md'>
     <Alert variant='primary'>
       This is a primary alert! It can have links inside it <a>Click Me!</a>
     </Alert>
@@ -32,7 +25,7 @@ const Template: ComponentStory<typeof Alert> = () => (
     <Alert variant='danger'>
       Danger: This is a danger alert! It can have links inside it <a>Click Me!</a>
     </Alert>
-  </SwitchContainer>
+  </Flex>
 );
 
 export const Default = Template.bind({});

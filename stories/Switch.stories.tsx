@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Switch, styled } from '../index';
+import { Switch, Flex } from '../index';
 
 export default {
   title: 'Components/Switch',
@@ -8,17 +8,11 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Switch>;
 
-const SwitchContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1rem',
-});
-
 const Template: ComponentStory<typeof Switch> = (args) => (
-  <SwitchContainer>
+  <Flex align='center' gap='md'>
     <Switch {...args} size='sm' />
     <Switch {...args} />
-  </SwitchContainer>
+  </Flex>
 );
 
 export const Default = Template.bind({});

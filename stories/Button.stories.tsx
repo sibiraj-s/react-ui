@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button, styled } from '../index';
+import { Button, Flex } from '../index';
 
 export default {
   title: 'Components/Button',
@@ -35,14 +35,8 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const StyledContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1rem',
-});
-
 const Template: ComponentStory<typeof Button> = (args) => (
-  <StyledContainer>
+  <Flex gap='md' align='center'>
     <Button {...args} size='xs'>
       Extra Small Button
     </Button>
@@ -50,7 +44,7 @@ const Template: ComponentStory<typeof Button> = (args) => (
       Small Button
     </Button>
     <Button {...args}>Default Button</Button>
-  </StyledContainer>
+  </Flex>
 );
 
 export const Primary = Template.bind({});
