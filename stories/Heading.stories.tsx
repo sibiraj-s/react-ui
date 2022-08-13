@@ -7,6 +7,9 @@ export default {
   title: 'Typography/Heading',
   component: Heading,
   argTypes: {},
+  subcomponents: {
+    Text,
+  },
 } as ComponentMeta<typeof Heading>;
 
 const Template: ComponentStory<typeof Heading> = () => (
