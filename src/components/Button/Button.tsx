@@ -18,6 +18,15 @@ export const StyledButton = styled('button', {
 
   // variants
   variants: {
+    size: {
+      sm: {
+        padding: '$1 $2',
+      },
+      xs: {
+        padding: '0 $1_5',
+        borderRadius: '$roundedSm',
+      },
+    },
     variant: {
       primary: {
         color: '$white', // TODO: implement with YIQ

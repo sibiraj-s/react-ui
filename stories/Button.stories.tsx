@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from '../index';
+import { Button, styled } from '../index';
 
 export default {
   title: 'Components/Button',
@@ -10,40 +10,71 @@ export default {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'danger'],
     },
-    children: {
-      name: 'label',
+    disabled: {
+      control: 'boolean',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'xs'],
+    },
+    as: {
+      table: {
+        disable: true,
+      },
+    },
+    css: {
+      table: {
+        disable: true,
+      },
+    },
+    ref: {
+      table: {
+        disable: true,
+      },
     },
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const StyledContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+});
+
+const Template: ComponentStory<typeof Button> = (args) => (
+  <StyledContainer>
+    <Button {...args} size='xs'>
+      Extra Small Button
+    </Button>
+    <Button {...args} size='sm'>
+      Small Button
+    </Button>
+    <Button {...args}>Default Button</Button>
+  </StyledContainer>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
   variant: 'primary',
-  children: 'Primary Button',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
-  children: 'Secondary Button',
 };
 
 export const Success = Template.bind({});
 Success.args = {
   variant: 'success',
-  children: 'Success Button',
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
   variant: 'danger',
-  children: 'Danger Button',
 };
 
 export const Disabeld = Template.bind({});
 Disabeld.args = {
-  children: 'Disabeld Button',
+  variant: 'primary',
   disabled: true,
 };
