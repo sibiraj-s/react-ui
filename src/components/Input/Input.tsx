@@ -10,7 +10,7 @@ export const StyledInput = styled('input', {
   width: '100%',
   borderRadius: '$rounded',
   border: '1px solid',
-  borderColor: '$muted',
+  borderColor: '$neutralBorderHover',
   backgroundColor: '$white',
 
   '&:focus': {
