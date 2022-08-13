@@ -13,14 +13,18 @@ const Template: ComponentStory<typeof Spinner> = (args) => (
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
     <Spinner {...args} size='lg' />
-    <Spinner {...args} variant='success' size='sm' />
-    <Spinner {...args} variant='success' />
-    <Spinner {...args} variant='success' size='lg' />
-    <Spinner {...args} variant='danger' size='sm' />
-    <Spinner {...args} variant='danger' size='lg' />
   </Flex>
 );
 
 export const Default = Template.bind({});
-Default.storyName = 'Spinner';
 Default.args = {};
+
+export const Success = Template.bind({});
+Success.args = {
+  variant: 'success',
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  variant: 'danger',
+};
