@@ -34,9 +34,9 @@ const StyledAlert = styled('div', {
 });
 
 type AlertVariants = VariantProps<typeof StyledAlert>;
-type AlertExtraVariants = { css?: CSS };
+type AlertExtraProps = { css?: CSS };
 
-type AlertProps = AlertVariants & AlertExtraVariants & ComponentProps<typeof StyledAlert>;
+type AlertProps = AlertVariants & AlertExtraProps & ComponentProps<typeof StyledAlert>;
 
 export const Alert = (props: AlertProps) => {
   const { children, ...rest } = props;
