@@ -1,5 +1,5 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
-import { AriaTextFieldProps, useTextField } from 'react-aria';
+import { AriaTextFieldProps, LabelAriaProps, useTextField } from 'react-aria';
 import { useObjectRef } from '@react-aria/utils';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
@@ -24,7 +24,7 @@ type InputVariants = VariantProps<typeof StyledInput>;
 type InputExtraProps = { css?: CSS };
 type InputOwnProps = InputVariants & InputExtraProps;
 
-type InputProps = InputOwnProps & ComponentProps<typeof StyledInput> & AriaTextFieldProps;
+type InputProps = InputOwnProps & ComponentProps<'input'> & Omit<AriaTextFieldProps, keyof LabelAriaProps>;
 
 export const Input = forwardRef<ElementRef<typeof StyledInput>, InputProps>((props, ref) => {
   const inputRef = useObjectRef(ref);
