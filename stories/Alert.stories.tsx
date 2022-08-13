@@ -1,33 +1,20 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Alert, Flex, Link } from '../index';
+import { Alert, Flex } from '../index';
 
 export default {
   title: 'Components/Alert',
   component: Alert,
   argTypes: {},
-  subcomponents: {
-    Link,
-  },
 } as ComponentMeta<typeof Alert>;
 
 const Template: ComponentStory<typeof Alert> = () => (
-  <Flex gap='md'>
-    <Alert variant='primary'>
-      This is a primary alert! It can have links inside it <Link>Click Me!</Link>
-    </Alert>
-    <Alert variant='secondary'>
-      This is a secondary alert! It can have links inside it <Link>Click Me!</Link>
-    </Alert>
-    <Alert variant='success'>
-      Success: This is a success alert! It can have links inside it <Link>Click Me!</Link>
-    </Alert>
-    <Alert variant='warning'>
-      Warning: This is a warning alert! It can have links inside it <Link>Click Me!</Link>
-    </Alert>
-    <Alert variant='danger'>
-      Danger: This is a danger alert! It can have links inside it <Link>Click Me!</Link>
-    </Alert>
+  <Flex gap='md' direction='c' css={{ maxWidth: '40%' }}>
+    <Alert variant='primary'>This is a primary alert! Check it out.</Alert>
+    <Alert variant='secondary'>This is a secondary alert! Check it out.</Alert>
+    <Alert variant='success'>Success: This is a success alert! Check it out.</Alert>
+    <Alert variant='warning'>Warning: This is a warning alert! Check it out.</Alert>
+    <Alert variant='danger'>Danger: This is a danger alert! Check it out.</Alert>
   </Flex>
 );
 
