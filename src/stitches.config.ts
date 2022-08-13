@@ -284,6 +284,8 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       2: 1.3,
       3: 1.5,
 
+      xs: '$1',
+      sm: '$2',
       default: '$3',
     },
     letterSpacings: {},
