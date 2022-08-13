@@ -18,6 +18,10 @@ export const Spinner = styled('div', {
         borderColor: '$successSolid',
         borderTopColor: '$white',
       },
+      danger: {
+        borderColor: '$dangerSolid',
+        borderTopColor: '$white',
+      },
     },
     size: {
       sm: {
