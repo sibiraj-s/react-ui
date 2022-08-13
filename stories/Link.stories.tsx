@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Link>;
 
 const Template: ComponentStory<typeof Link> = (args) => (
-  <Link {...args} href='ggogle'>
+  <Link {...args} href='https://sibiraj.dev' target='_blank'>
     Click Me!
   </Link>
 );
