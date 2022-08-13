@@ -4,7 +4,7 @@ import { useObjectRef } from '@react-aria/utils';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
 
-const StyledInput = styled('input', {
+export const StyledInput = styled('input', {
   display: 'block',
   padding: '$1_5 $3',
   width: '100%',
