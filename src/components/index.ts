@@ -10,6 +10,7 @@ export * from './Switch';
 export * from './Spinner';
 
 export * from './FormControl';
+export * from './Label';
 export * from './Input';
 export * from './Textarea';
 export * from './TextField';
