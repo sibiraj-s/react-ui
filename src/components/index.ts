@@ -14,3 +14,4 @@ export * from './Label';
 export * from './Input';
 export * from './Textarea';
 export * from './TextField';
+export * from './FormText';
