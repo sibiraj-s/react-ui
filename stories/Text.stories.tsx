@@ -66,3 +66,6 @@ export const Muted = Template.bind({});
 Muted.args = {
   variant: 'muted',
 };
+
+export const Regular = Template.bind({});
+Regular.args = {};
