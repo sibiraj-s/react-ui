@@ -1,10 +1,14 @@
 export * from './Button';
+export * from './Badge';
+
 export * from './Text';
 export * from './Heading';
-export * from './Switch';
 export * from './Alert';
+export * from './Link';
+
+export * from './Switch';
+export * from './Spinner';
+
 export * from './Input';
 export * from './Textarea';
-export * from './Spinner';
-export * from './Link';
-export * from './Badge';
+export * from './TextField';

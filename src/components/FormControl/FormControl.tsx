@@ -10,7 +10,7 @@ export interface FormControlOwnProps {
   isInvalid?: boolean;
 }
 
-type FormControlValues = Pick<FormControlOwnProps, 'isInvalid'>;
+export type FormControlValues = Pick<FormControlOwnProps, 'isInvalid'>;
 const FormControlContext = createContext<FormControlValues>({
   isInvalid: false,
 });
@@ -20,7 +20,14 @@ export const useFormControlContext = () => useContext(FormControlContext);
 type FormControlProps = FormControlOwnProps & ComponentProps<typeof BaseFormControl>;
 
 export const FormControl = forwardRef<ElementRef<typeof BaseFormControl>, FormControlProps>((props, ref) => {
-  return <BaseFormControl direction='c' spacing='xs' {...props} ref={ref} />;
+  const formControlValue: FormControlValues = {
+    isInvalid: props.isInvalid,
+  };
+  return (
+    <FormControlContext.Provider value={formControlValue}>
+      <BaseFormControl direction='c' spacing='xs' {...props} ref={ref} />
+    </FormControlContext.Provider>
+  );
 });
 
 FormControl.displayName = 'FormControl';
