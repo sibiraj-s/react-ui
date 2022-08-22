@@ -185,6 +185,9 @@ export const Grid = styled(Box, {
       },
     },
     spacing: {
+      xs: {
+        gap: '$1',
+      },
       sm: {
         gap: '$2',
       },
@@ -202,6 +205,9 @@ export const Grid = styled(Box, {
       },
     },
     spacingX: {
+      xs: {
+        columnGap: '$1',
+      },
       sm: {
         columnGap: '$2',
       },
@@ -219,6 +225,9 @@ export const Grid = styled(Box, {
       },
     },
     spacingY: {
+      xs: {
+        rowGap: '$1',
+      },
       sm: {
         rowGap: '$2',
       },
