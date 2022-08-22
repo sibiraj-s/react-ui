@@ -119,21 +119,6 @@ export const Grid = styled(Box, {
       10: {
         gap: '$10',
       },
-      sm: {
-        gap: '$2',
-      },
-      md: {
-        gap: '$4',
-      },
-      lg: {
-        gap: '$6',
-      },
-      xl: {
-        gap: '$8',
-      },
-      xxl: {
-        gap: '$10',
-      },
     },
     gapX: {
       1: {
@@ -165,21 +150,6 @@ export const Grid = styled(Box, {
       },
       10: {
         columnGap: '$9',
-      },
-      sm: {
-        gap: '$2',
-      },
-      md: {
-        gap: '$4',
-      },
-      lg: {
-        gap: '$6',
-      },
-      xl: {
-        gap: '$8',
-      },
-      xxl: {
-        gap: '$10',
       },
     },
     gapY: {
@@ -213,6 +183,8 @@ export const Grid = styled(Box, {
       10: {
         rowGap: '$10',
       },
+    },
+    spacing: {
       sm: {
         gap: '$2',
       },
@@ -227,6 +199,40 @@ export const Grid = styled(Box, {
       },
       xxl: {
         gap: '$10',
+      },
+    },
+    spacingX: {
+      sm: {
+        columnGap: '$2',
+      },
+      md: {
+        columnGap: '$4',
+      },
+      lg: {
+        columnGap: '$6',
+      },
+      xl: {
+        columnGap: '$8',
+      },
+      xxl: {
+        columnGap: '$10',
+      },
+    },
+    spacingY: {
+      sm: {
+        rowGap: '$2',
+      },
+      md: {
+        rowGap: '$4',
+      },
+      lg: {
+        rowGap: '$6',
+      },
+      xl: {
+        rowGap: '$8',
+      },
+      xxl: {
+        rowGap: '$10',
       },
     },
   },

@@ -89,6 +89,8 @@ export const Flex = styled(Box, {
       9: {
         gap: '$9',
       },
+    },
+    spacing: {
       sm: {
         gap: '$2',
       },

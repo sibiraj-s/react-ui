@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Alert>;
 
 const Template: ComponentStory<typeof Alert> = () => (
-  <Flex gap='md' direction='c' css={{ maxWidth: '40%' }}>
+  <Flex spacing='md' direction='c' css={{ maxWidth: '40%' }}>
     <Alert variant='primary'>This is a primary alert! Check it out.</Alert>
     <Alert variant='secondary'>This is a secondary alert! Check it out.</Alert>
     <Alert variant='success'>Success: This is a success alert! Check it out.</Alert>

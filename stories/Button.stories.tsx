@@ -36,7 +36,7 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
-  <Flex gap='md' align='center'>
+  <Flex spacing='md' align='center'>
     <Button {...args} size='xs'>
       Extra Small Button
     </Button>

@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Switch>;
 
 const Template: ComponentStory<typeof Switch> = (args) => (
-  <Flex align='center' gap='md'>
+  <Flex align='center' spacing='md'>
     <Switch {...args} size='sm' />
     <Switch {...args} />
     <Switch {...args} size='lg' />

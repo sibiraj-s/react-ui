@@ -36,7 +36,7 @@ export default {
 } as ComponentMeta<typeof Badge>;
 
 const Template: ComponentStory<typeof Badge> = (args) => (
-  <Flex gap='md' align='center'>
+  <Flex spacing='md' align='center'>
     <Badge {...args}>Premium</Badge>
     <Badge {...args} variant='secondary'>
       Pro

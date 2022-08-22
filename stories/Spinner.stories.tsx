@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Spinner>;
 
 const Template: ComponentStory<typeof Spinner> = (args) => (
-  <Flex align='center' gap='md'>
+  <Flex align='center' spacing='md'>
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
     <Spinner {...args} size='lg' />
