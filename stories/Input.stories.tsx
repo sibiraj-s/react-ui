@@ -11,7 +11,12 @@ export default {
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Default = Template.bind({});
-Default.storyName = 'Input';
 Default.args = {
   placeholder: 'Type something...',
+};
+
+export const Invalid = Template.bind({});
+Invalid.args = {
+  placeholder: 'Type something...',
+  isInvalid: true,
 };

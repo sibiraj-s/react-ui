@@ -11,7 +11,12 @@ export default {
 const Template: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />;
 
 export const Default = Template.bind({});
-Default.storyName = 'Textarea';
 Default.args = {
   placeholder: 'Type something...',
+};
+
+export const Invalid = Template.bind({});
+Invalid.args = {
+  placeholder: 'Type something...',
+  isInvalid: true,
 };
