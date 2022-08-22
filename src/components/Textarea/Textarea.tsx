@@ -7,7 +7,7 @@ export const StyledTextarea = styled(StyledInput, {
   resize: 'vertical',
 });
 
-type TextareaVariants = VariantProps<typeof StyledTextarea>;
+type TextareaVariants = VariantProps<typeof StyledInput>;
 type TextareaExtraProps = { css?: CSS };
 type TextareaOwnProps = TextareaVariants & TextareaExtraProps;
 
