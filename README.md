@@ -26,6 +26,7 @@ npm run dev
 - Text
 - Textarea
 - TextField
+- TextareaField
 
 ### Layout
 
