@@ -20,12 +20,15 @@ export const useFormControlContext = () => useContext(FormControlContext);
 type FormControlProps = FormControlOwnProps & ComponentProps<typeof BaseFormControl>;
 
 export const FormControl = forwardRef<ElementRef<typeof BaseFormControl>, FormControlProps>((props, ref) => {
+  const { isInvalid, ...rest } = props;
+
   const formControlValue: FormControlValues = {
-    isInvalid: props.isInvalid,
+    isInvalid,
   };
+
   return (
     <FormControlContext.Provider value={formControlValue}>
-      <BaseFormControl direction='c' spacing='xs' {...props} ref={ref} />
+      <BaseFormControl direction='c' spacing='xs' {...rest} ref={ref} />
     </FormControlContext.Provider>
   );
 });
