@@ -5,7 +5,6 @@ import { styled, VariantProps, CSS } from '../../stitches.config';
 import { Merge, PolymorphicPropsWithoutRef, PolymorphicRef } from '../../utils/types';
 
 export const StyledHeading = styled(StyledText, {
-  fontWeight: '$bold',
   lineHeight: '$2',
 
   compoundVariants: [
@@ -48,6 +47,7 @@ export const StyledHeading = styled(StyledText, {
   ],
   defaultVariants: {
     size: '1',
+    weight: 'bold',
   },
 });
 

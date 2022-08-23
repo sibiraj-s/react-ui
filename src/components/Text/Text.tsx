@@ -65,6 +65,11 @@ export const StyledText = styled('p', {
         marginTop: '$6',
       },
     },
+    weight: {
+      bold: {
+        fontWeight: '$bold',
+      },
+    },
   },
   defaultVariants: {
     size: 'regular',
