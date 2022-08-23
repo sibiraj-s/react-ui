@@ -5,32 +5,10 @@ import { Badge, Flex } from '../index';
 export default {
   title: 'Components/Badge',
   component: Badge,
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    size: {
-      control: 'select',
-      options: ['sm', 'xs'],
-    },
-    as: {
-      table: {
-        disable: true,
-      },
-    },
-    css: {
-      table: {
-        disable: true,
-      },
-    },
-    ref: {
-      table: {
-        disable: true,
-      },
+  argTypes: {},
+  parameters: {
+    controls: {
+      disabled: true,
     },
   },
 } as ComponentMeta<typeof Badge>;

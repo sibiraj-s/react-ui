@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Button, Flex } from '../index';
+import { disableControls } from './utils';
 
 export default {
   title: 'Components/Button',
@@ -13,25 +14,7 @@ export default {
     disabled: {
       control: 'boolean',
     },
-    size: {
-      control: 'select',
-      options: ['sm', 'xs'],
-    },
-    as: {
-      table: {
-        disable: true,
-      },
-    },
-    css: {
-      table: {
-        disable: true,
-      },
-    },
-    ref: {
-      table: {
-        disable: true,
-      },
-    },
+    ...disableControls(['size', 'ref', 'variantType']),
   },
 } as ComponentMeta<typeof Button>;
 

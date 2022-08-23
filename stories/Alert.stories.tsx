@@ -6,6 +6,11 @@ export default {
   title: 'Components/Alert',
   component: Alert,
   argTypes: {},
+  parameters: {
+    controls: {
+      disabled: true,
+    },
+  },
 } as ComponentMeta<typeof Alert>;
 
 const Template: ComponentStory<typeof Alert> = () => (

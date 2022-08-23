@@ -1,11 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Switch, Flex } from '../index';
+import { disableControls } from './utils';
 
 export default {
   title: 'Components/Switch',
   component: Switch,
-  argTypes: {},
+  argTypes: {
+    ...disableControls(['size']),
+  },
 } as ComponentMeta<typeof Switch>;
 
 const Template: ComponentStory<typeof Switch> = (args) => (

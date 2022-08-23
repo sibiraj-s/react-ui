@@ -5,7 +5,12 @@ import { Spinner, Flex } from '../index';
 export default {
   title: 'Components/Spinner',
   component: Spinner,
-  argTypes: {},
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'success', 'danger'],
+    },
+  },
 } as ComponentMeta<typeof Spinner>;
 
 const Template: ComponentStory<typeof Spinner> = (args) => (

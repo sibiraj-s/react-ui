@@ -29,4 +29,5 @@ Invalid.args = {
   placeholder: 'Type something...',
   isInvalid: true,
   errorMessage: 'pretium lectus quam id leo in vitae turpis massa sed',
+  autoFocus: true,
 };

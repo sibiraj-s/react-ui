@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Fragment } from 'react';
 
 import { Text } from '../index';
+import { disableControls } from './utils';
 
 export default {
   title: 'Typography/Text',
@@ -11,9 +12,7 @@ export default {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'danger'],
     },
-    children: {
-      name: 'label',
-    },
+    ...disableControls(['size', 'spacing', 'css', 'as', 'ref']),
   },
 } as ComponentMeta<typeof Text>;
 
@@ -65,5 +64,5 @@ Muted.args = {
   variant: 'muted',
 };
 
-export const Regular = Template.bind({});
-Regular.args = {};
+export const Default = Template.bind({});
+Default.args = {};
