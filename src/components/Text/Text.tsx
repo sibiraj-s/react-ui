@@ -51,6 +51,20 @@ export const StyledText = styled('p', {
         color: '$muted',
       },
     },
+    spacing: {
+      xs: {
+        marginTop: '$1',
+      },
+      sm: {
+        marginTop: '$2',
+      },
+      md: {
+        marginTop: '$4',
+      },
+      lg: {
+        marginTop: '$6',
+      },
+    },
   },
   defaultVariants: {
     size: 'regular',

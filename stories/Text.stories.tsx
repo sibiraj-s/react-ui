@@ -25,15 +25,13 @@ const Template: ComponentStory<typeof Text> = (args) => (
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque
       varius morbi enim nunc faucibus. Arcu risus quis varius quam.
     </Text>
-    <br />
-    <Text {...args} size='sm'>
+    <Text {...args} size='sm' spacing='md'>
       Small: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua. Id ornare arcu odio ut sem. Elit at imperdiet dui accumsan. Id volutpat lacus laoreet non.
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque
       varius morbi enim nunc faucibus. Arcu risus quis varius quam.
     </Text>
-    <br />
-    <Text {...args} size='xs'>
+    <Text {...args} size='xs' spacing='md'>
       Extra Small: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
       et dolore magna aliqua. Id ornare arcu odio ut sem. Elit at imperdiet dui accumsan. Id volutpat lacus laoreet non.
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque
