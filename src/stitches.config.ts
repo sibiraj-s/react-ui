@@ -221,9 +221,9 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       12: '3rem', // 48px
 
       // user tokens
-      '4xl': '$10',
-      '3xl': '$8',
-      '2xl': '$7',
+      xxxxl: '$10',
+      xxxl: '$8',
+      xxl: '$7',
       xl: '$6',
       l: '$5',
       regular: '$4',

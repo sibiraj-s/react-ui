@@ -11,19 +11,19 @@ export const StyledHeading = styled(StyledText, {
     {
       size: '1',
       css: {
-        hmr: '$fontSizes$4xl',
+        hmr: '$fontSizes$xxxxl',
       },
     },
     {
       size: '2',
       css: {
-        hmr: '$fontSizes$3xl',
+        hmr: '$fontSizes$xxxl',
       },
     },
     {
       size: '3',
       css: {
-        hmr: '$fontSizes$2xl',
+        hmr: '$fontSizes$xxl',
       },
     },
     {

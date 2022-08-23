@@ -16,13 +16,13 @@ export const StyledText = styled('p', {
         fontSize: '$xs',
       },
       '1': {
-        fontSize: '$4xl',
+        fontSize: '$xxxxl',
       },
       '2': {
-        fontSize: '$3xl',
+        fontSize: '$xxxl',
       },
       '3': {
-        fontSize: '$2xl',
+        fontSize: '$xxl',
       },
       '4': {
         fontSize: '$xl',
