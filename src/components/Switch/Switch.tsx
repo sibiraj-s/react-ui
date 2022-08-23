@@ -80,9 +80,9 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
 type UserIgnoredProps = 'isFocusVisible';
 type SwitchVariants = VariantProps<typeof StyledSwitch>;
 type SwitchExtraProps = { css?: CSS };
-type SwitchOwnProps = Omit<SwitchVariants, UserIgnoredProps> & SwitchExtraProps;
+type SwitchOwnProps = ComponentProps<typeof StyledSwitch> & SwitchVariants & SwitchExtraProps;
 
-type SwitchProps = SwitchOwnProps & ComponentProps<typeof StyledSwitch>;
+type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 
 export const Switch = forwardRef<ElementRef<typeof StyledSwitch>, SwitchProps>((props, ref) => {
   const { isFocusVisible, focusProps } = useFocusRing();
