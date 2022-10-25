@@ -1,7 +1,8 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 
-import pkg from './package.json';
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url)));
 
 export default defineConfig({
   input: './index.ts',
