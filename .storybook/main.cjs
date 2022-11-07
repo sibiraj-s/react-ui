@@ -1,3 +1,5 @@
+const { mergeConfig } = require('vite');
+
 module.exports = {
   stories: [
     '../stories/**/*.stories.mdx',
@@ -16,6 +18,16 @@ module.exports = {
     strictMode: true,
   },
   core: {
+    builder: '@storybook/builder-vite',
     disableTelemetry: true,
+  },
+  viteFinal(config) {
+    // Merge custom configuration into the default config
+    return mergeConfig(config, {
+      // Use the same "resolve" configuration as your app
+      define: {
+        global: {},
+      },
+    });
   },
 };
