@@ -1,17 +1,21 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from '@stitches/react';
 
 import { Switch, Flex } from '../index';
 import { disableControls } from './utils';
 
-export default {
+const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
   argTypes: {
     ...disableControls(['size']),
   },
-} as ComponentMeta<typeof Switch>;
+};
 
-const Template: ComponentStory<typeof Switch> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Switch>;
+
+const Template = (args: ComponentProps<typeof Switch>) => (
   <Flex align='center' spacing='md'>
     <Switch {...args} size='sm' />
     <Switch {...args} />
@@ -19,10 +23,14 @@ const Template: ComponentStory<typeof Switch> = (args) => (
   </Flex>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  args: {},
+  render: (args) => <Template {...args} />,
+};
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  ...Default,
+  args: {
+    disabled: true,
+  },
 };

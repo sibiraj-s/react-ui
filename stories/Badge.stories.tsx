@@ -1,8 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from '@stitches/react';
 
 import { Badge, Flex } from '../index';
 
-export default {
+const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
   argTypes: {},
@@ -11,9 +12,12 @@ export default {
       disabled: true,
     },
   },
-} as ComponentMeta<typeof Badge>;
+};
 
-const Template: ComponentStory<typeof Badge> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Badge>;
+
+const Template = (args: ComponentProps<typeof Badge>) => (
   <Flex spacing='md' align='center'>
     <Badge {...args}>Premium</Badge>
     <Badge {...args} variant='secondary'>
@@ -28,6 +32,8 @@ const Template: ComponentStory<typeof Badge> = (args) => (
   </Flex>
 );
 
-export const Default = Template.bind({});
-Default.storyName = 'Badge';
-Default.args = {};
+export const Default: Story = {
+  name: 'Badge',
+  args: {},
+  render: () => <Template />,
+};

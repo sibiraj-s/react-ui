@@ -1,22 +1,26 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Link } from '../index';
 import { disableControls } from './utils';
 
-export default {
+const meta: Meta<typeof Link> = {
   title: 'Components/Link',
   component: Link,
   argTypes: {
     ...disableControls(['ref']),
   },
-} as ComponentMeta<typeof Link>;
+};
 
-const Template: ComponentStory<typeof Link> = (args) => (
-  <Link {...args} href='https://sibiraj.dev' target='_blank'>
-    Click Me!
-  </Link>
-);
+export default meta;
+type Story = StoryObj<typeof Link>;
 
-export const Default = Template.bind({});
-Default.storyName = 'Link';
-Default.args = {};
+export const Default: Story = {
+  name: 'Link',
+  render: (args) => {
+    return (
+      <Link {...args} href='https://sibiraj.dev' target='_blank'>
+        Click Me!
+      </Link>
+    );
+  },
+};

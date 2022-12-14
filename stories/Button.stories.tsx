@@ -1,9 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from '@stitches/react';
 
 import { Button, Flex } from '../index';
 import { disableControls } from './utils';
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   argTypes: {
@@ -16,9 +17,12 @@ export default {
     },
     ...disableControls(['size', 'ref', 'variantType']),
   },
-} as ComponentMeta<typeof Button>;
+};
 
-const Template: ComponentStory<typeof Button> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+const Template = (args: ComponentProps<typeof Button>) => (
   <Flex spacing='md' align='center'>
     <Button {...args} size='xs'>
       Extra Small Button
@@ -33,28 +37,40 @@ const Template: ComponentStory<typeof Button> = (args) => (
   </Flex>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
-  variant: 'primary',
+const Default: Story = {
+  args: {
+    variant: 'primary',
+  },
+  render: (args) => <Template {...args} />,
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: 'secondary',
+export const Primary: Story = Default;
+
+export const Secondary: Story = {
+  ...Default,
+  args: {
+    variant: 'secondary',
+  },
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  variant: 'success',
+export const Success: Story = {
+  ...Default,
+  args: {
+    variant: 'success',
+  },
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-  variant: 'danger',
+export const Danger: Story = {
+  ...Default,
+  args: {
+    variant: 'danger',
+  },
 };
 
-export const Disabeld = Template.bind({});
-Disabeld.args = {
-  variant: 'primary',
-  disabled: true,
+export const Disabled: Story = {
+  ...Default,
+  args: {
+    variant: 'primary',
+    disabled: true,
+  },
 };

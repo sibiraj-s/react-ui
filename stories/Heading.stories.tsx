@@ -1,18 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Fragment } from 'react';
 
-import { Heading, Text } from '../index';
+import { Heading } from '../index';
 
-export default {
+const meta: Meta<typeof Heading> = {
   title: 'Typography/Heading',
   component: Heading,
-  argTypes: {},
-  subcomponents: {
-    Text,
-  },
-} as ComponentMeta<typeof Heading>;
+};
 
-const Template: ComponentStory<typeof Heading> = () => (
+export default meta;
+type Story = StoryObj<typeof Heading>;
+
+const Template = () => (
   <Fragment>
     <Heading size='1'>h1: This is a heading level 1</Heading>
     <Heading size='2'>h2: This is a heading level 2</Heading>
@@ -44,8 +43,10 @@ const VariantsTemplate = () => (
   </Fragment>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  render: () => <Template />,
+};
 
-export const Variants = VariantsTemplate.bind({});
-Default.args = {};
+export const Variants: Story = {
+  render: () => <VariantsTemplate />,
+};

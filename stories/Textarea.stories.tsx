@@ -1,26 +1,31 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Textarea } from '../index';
 import { disableControls } from './utils';
 
-export default {
+const meta: Meta<typeof Textarea> = {
   title: 'Components/Forms/Textarea',
   component: Textarea,
   argTypes: {
     ...disableControls('ref'),
   },
-} as ComponentMeta<typeof Textarea>;
-
-const Template: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Type something...',
 };
 
-export const Invalid = Template.bind({});
-Invalid.args = {
-  placeholder: 'Type something...',
-  isInvalid: true,
-  autoFocus: true,
+export default meta;
+type Story = StoryObj<typeof Textarea>;
+
+export const Default: Story = {
+  args: {
+    placeholder: 'Type something...',
+  },
+  render: (args) => <Textarea {...args} />,
+};
+
+export const Invalid: Story = {
+  ...Default,
+  args: {
+    placeholder: 'Type something...',
+    isInvalid: true,
+    autoFocus: true,
+  },
 };

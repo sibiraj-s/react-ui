@@ -1,8 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Alert, Flex } from '../index';
 
-export default {
+const meta: Meta<typeof Alert> = {
   title: 'Components/Alert',
   component: Alert,
   argTypes: {},
@@ -11,9 +11,12 @@ export default {
       disabled: true,
     },
   },
-} as ComponentMeta<typeof Alert>;
+};
 
-const Template: ComponentStory<typeof Alert> = () => (
+export default meta;
+type Story = StoryObj<typeof Alert>;
+
+const Template = () => (
   <Flex spacing='md' direction='c' css={{ maxWidth: '40%' }}>
     <Alert variant='primary'>This is a primary alert! Check it out.</Alert>
     <Alert variant='secondary'>This is a secondary alert! Check it out.</Alert>
@@ -23,6 +26,8 @@ const Template: ComponentStory<typeof Alert> = () => (
   </Flex>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
-Default.storyName = 'Alert';
+export const Default: Story = {
+  name: 'Alert',
+  args: {},
+  render: () => <Template />,
+};

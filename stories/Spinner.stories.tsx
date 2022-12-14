@@ -1,8 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from '@stitches/react';
 
 import { Spinner, Flex } from '../index';
 
-export default {
+const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
   component: Spinner,
   argTypes: {
@@ -11,9 +12,12 @@ export default {
       options: ['primary', 'success', 'danger'],
     },
   },
-} as ComponentMeta<typeof Spinner>;
+};
 
-const Template: ComponentStory<typeof Spinner> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Spinner>;
+
+const Template = (args: ComponentProps<typeof Spinner>) => (
   <Flex align='center' spacing='md'>
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
@@ -21,15 +25,21 @@ const Template: ComponentStory<typeof Spinner> = (args) => (
   </Flex>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Success = Template.bind({});
-Success.args = {
-  variant: 'success',
+export const Default: Story = {
+  args: {},
+  render: (args) => <Template {...args} />,
 };
 
-export const Danger = Template.bind({});
-Danger.args = {
-  variant: 'danger',
+export const Success: Story = {
+  ...Default,
+  args: {
+    variant: 'success',
+  },
+};
+
+export const Danger: Story = {
+  ...Default,
+  args: {
+    variant: 'danger',
+  },
 };

@@ -1,10 +1,11 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Fragment } from 'react';
+import { ComponentProps } from '@stitches/react';
 
 import { Text } from '../index';
 import { disableControls } from './utils';
 
-export default {
+const meta: Meta<typeof Text> = {
   title: 'Typography/Text',
   component: Text,
   argTypes: {
@@ -14,9 +15,12 @@ export default {
     },
     ...disableControls(['size', 'spacing', 'css', 'as', 'ref']),
   },
-} as ComponentMeta<typeof Text>;
+};
 
-const Template: ComponentStory<typeof Text> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Text>;
+
+const Template = (args: ComponentProps<typeof Text>) => (
   <Fragment>
     <Text {...args}>
       Regular: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -39,30 +43,39 @@ const Template: ComponentStory<typeof Text> = (args) => (
   </Fragment>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
-  variant: 'primary',
+export const Default: Story = {
+  args: {},
+  render: (args) => <Template {...args} />,
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: 'secondary',
+export const Primary: Story = {
+  ...Default,
+  args: {
+    variant: 'primary',
+  },
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  variant: 'success',
+export const Secondary: Story = {
+  ...Default,
+  args: {
+    variant: 'secondary',
+  },
 };
-
-export const Danger = Template.bind({});
-Danger.args = {
-  variant: 'danger',
+export const Success: Story = {
+  ...Default,
+  args: {
+    variant: 'success',
+  },
 };
-
-export const Muted = Template.bind({});
-Muted.args = {
-  variant: 'muted',
+export const Danger: Story = {
+  ...Default,
+  args: {
+    variant: 'danger',
+  },
 };
-
-export const Default = Template.bind({});
-Default.args = {};
+export const Muted: Story = {
+  ...Default,
+  args: {
+    variant: 'muted',
+  },
+};
