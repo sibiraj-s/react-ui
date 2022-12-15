@@ -30,7 +30,4 @@ module.exports = {
 
     return mergeConfig(config, customConfig);
   },
-  docs: {
-    docsPage: 'automatic',
-  },
 };
