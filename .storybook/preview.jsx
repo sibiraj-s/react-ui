@@ -20,5 +20,4 @@ export const parameters = {
       boolean: /(?:disabled|isInvalid)$/i,
     },
   },
-  backgrounds: { default: 'light' },
 };
