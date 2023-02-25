@@ -27,7 +27,7 @@ const Template = (args: ComponentProps<typeof Badge>) => (
       Available Now
     </Badge>
     <Badge {...args} variant='danger'>
-      Beware!
+      Danger Zone!
     </Badge>
   </Flex>
 );

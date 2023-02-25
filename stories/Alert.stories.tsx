@@ -18,11 +18,11 @@ type Story = StoryObj<typeof Alert>;
 
 const Template = () => (
   <Flex spacing='md' direction='c' css={{ maxWidth: '40%' }}>
-    <Alert variant='primary'>This is a primary alert! Check it out.</Alert>
-    <Alert variant='secondary'>This is a secondary alert! Check it out.</Alert>
-    <Alert variant='success'>Success: This is a success alert! Check it out.</Alert>
-    <Alert variant='warning'>Warning: This is a warning alert! Check it out.</Alert>
-    <Alert variant='danger'>Danger: This is a danger alert! Check it out.</Alert>
+    <Alert variant='primary'>Be the first to know! Get our latest updates.</Alert>
+    <Alert variant='secondary'>You{"'"}re awesome! Keep taking care of yourself.</Alert>
+    <Alert variant='success'>Woohoo! Task completed successfully.</Alert>
+    <Alert variant='warning'>Hold on tight! Your account is about to expire.</Alert>
+    <Alert variant='danger'>Uh oh! Something went wrong. Let{"'"}s fix it together.</Alert>
   </Flex>
 );
 
