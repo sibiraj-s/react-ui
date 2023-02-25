@@ -80,7 +80,7 @@ type TextVariants = VariantProps<typeof StyledText>;
 type TextExtraProps = { css?: CSS };
 type TextOwnProps = TextVariants & TextExtraProps;
 
-type TextProps<T extends ElementType> = PolymorphicPropsWithoutRef<TextOwnProps, T>;
+type TextProps<T extends ElementType> = PolymorphicPropsWithoutRef<T, TextOwnProps>;
 type TextComponent = <T extends ElementType = 'p'>(
   props: TextProps<T> & { ref?: PolymorphicRef<T> }
 ) => ReactElement<T>;

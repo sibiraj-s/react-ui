@@ -189,7 +189,7 @@ type ButtonVariants = VariantProps<typeof StyledButton>;
 type ButtonExtraProps = { css?: CSS };
 type ButtonOwnProps = Omit<ButtonVariants, UserIgnoredProps> & ButtonExtraProps;
 
-type ButtonProps<T extends ElementType> = PolymorphicPropsWithoutRef<ButtonOwnProps, T>;
+type ButtonProps<T extends ElementType> = PolymorphicPropsWithoutRef<T, ButtonOwnProps>;
 type ButtonComponent = <T extends ElementType = 'button'>(
   props: ButtonProps<T> & { ref?: PolymorphicRef<T> }
 ) => ReactElement<T>;
@@ -207,7 +207,11 @@ export const BaseButton = <T extends ElementType = 'button'>(props: ButtonProps<
   );
 
   return (
-    <StyledButton {...mergeProps(buttonProps, focusProps, props)} isFocusVisible={isFocusVisible} ref={buttonRef} />
+    <StyledButton
+      {...mergeProps(buttonProps, focusProps, props as Record<string, unknown>)}
+      isFocusVisible={isFocusVisible}
+      ref={buttonRef}
+    />
   );
 };
 

@@ -57,7 +57,7 @@ type HeadingExtraProps = { css?: CSS };
 type HeadingSizes = { size: Extract<HeadingVariants['size'], HeadingLevels> };
 type HeadingOwnProps = Merge<HeadingVariants, HeadingSizes> & HeadingExtraProps;
 
-type HeadingProps<T extends ElementType> = PolymorphicPropsWithoutRef<HeadingOwnProps, T>;
+type HeadingProps<T extends ElementType> = PolymorphicPropsWithoutRef<T, HeadingOwnProps>;
 type HeadingComponent = <T extends ElementType = 'p'>(
   props: HeadingProps<T> & { ref?: PolymorphicRef<T> }
 ) => ReactElement<T>;
