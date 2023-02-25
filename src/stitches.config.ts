@@ -328,7 +328,7 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
 
     // heading margin
     // https://spectrum.adobe.com/page/heading/#Margins
-    hmr: (value: Stitches.PropertyValue<'fontSize'>) => ({ marginBottom: `calc(${value} * 0.25)` }), //
+    hmr: (value: Stitches.PropertyValue<'fontSize'>) => ({ marginBottom: `calc(${value} * 0.25)` }),
   },
 });
 
