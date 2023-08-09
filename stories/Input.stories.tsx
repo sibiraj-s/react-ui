@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { DotsHorizontalIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 import { Input } from '../index';
 import { disableControls } from './utils';
@@ -19,6 +20,13 @@ export const Default: Story = {
     placeholder: 'Type something...',
   },
   render: (args) => <Input {...args} />,
+};
+
+export const WithIcons: Story = {
+  args: {
+    placeholder: 'Type something...',
+  },
+  render: (args) => <Input {...args} prepend={<MagnifyingGlassIcon />} append={<DotsHorizontalIcon />} />,
 };
 
 export const Invalid: Story = {

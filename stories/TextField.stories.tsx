@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { TextField } from '../index';
+import { DotsHorizontalIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 const meta: Meta<typeof TextField> = {
   title: 'Components/Forms/TextField',
@@ -17,6 +18,14 @@ export const Default: Story = {
     placeholder: 'Type something...',
   },
   render: (args) => <TextField {...args} />,
+};
+
+export const WithIcons: Story = {
+  args: {
+    label: 'Enter your name',
+    placeholder: 'Type something...',
+  },
+  render: (args) => <TextField {...args} prepend={<MagnifyingGlassIcon />} append={<DotsHorizontalIcon />} />,
 };
 
 export const WithFormText: Story = {
