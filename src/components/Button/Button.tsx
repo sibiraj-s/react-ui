@@ -40,7 +40,7 @@ export const StyledButton = styled('button', {
     },
     variant: {
       primary: {
-        color: '$white', // TODO: implement with YIQ
+        color: '$white', // @todo: implement with YIQ
         backgroundColor: '$accentSolid',
         borderColor: '$accentSolid',
 
