@@ -3,7 +3,6 @@ export * from './Badge';
 
 export * from './Text';
 export * from './Heading';
-export * from './Alert';
 export * from './Link';
 
 export * from './Switch';

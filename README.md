@@ -22,7 +22,6 @@ npm run dev
 
 ## Components
 
-- Alert
 - Badge
 - Button
 - FormControl
