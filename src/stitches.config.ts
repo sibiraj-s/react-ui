@@ -197,8 +197,8 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       max: '999',
     },
     fonts: {
-      arial: 'Arial, Helvetica, sans-serif',
-      body: '$arial',
+      system: `-apple-system, BlinkMacSystemFont, 'Segoe UI (Custom)', Roboto, 'Helvetica Neue', 'Open Sans (Custom)', system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'`,
+      body: '$system',
     },
     fontWeights: {
       1: 100,
