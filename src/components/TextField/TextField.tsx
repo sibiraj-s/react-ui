@@ -2,29 +2,33 @@ import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { AriaTextFieldProps, useTextField } from 'react-aria';
 import { useObjectRef } from '@react-aria/utils';
 
-import FormControl, { FormControlOwnProps } from '../FormControl';
+import { Flex } from '../../layouts';
 import Label from '../Label';
 import Input from '../Input';
-import FormText from '../FormText';
+import Text from '../Text';
 
 type TextFieldOwnProps = ComponentProps<typeof Input>;
-type TextFieldProps = FormControlOwnProps & TextFieldOwnProps & AriaTextFieldProps;
+type TextFieldProps = TextFieldOwnProps & AriaTextFieldProps;
 
 export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((props, ref) => {
   const inputRef = useObjectRef(ref);
   const { labelProps, inputProps, descriptionProps, errorMessageProps } = useTextField(props, inputRef);
 
   return (
-    <FormControl isInvalid={props.isInvalid}>
+    <Flex direction='c' spacing='xs'>
       <Label {...labelProps}>{props.label}</Label>
-      <Input {...inputProps} ref={inputRef} />
-      {props.description && <FormText {...descriptionProps}>{props.description}</FormText>}
-      {props.errorMessage && (
-        <FormText variant='danger' {...errorMessageProps}>
-          {props.errorMessage}
-        </FormText>
+      <Input {...inputProps} ref={inputRef} isInvalid={props.isInvalid} />
+      {props.description && (
+        <Text size='xs' variant='muted' {...descriptionProps}>
+          {props.description}
+        </Text>
       )}
-    </FormControl>
+      {props.errorMessage && (
+        <Text size='xs' variant='danger' {...errorMessageProps}>
+          {props.errorMessage}
+        </Text>
+      )}
+    </Flex>
   );
 });
 

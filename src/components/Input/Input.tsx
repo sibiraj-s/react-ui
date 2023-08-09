@@ -1,7 +1,6 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
-import { useFormControlContext } from '../FormControl';
 
 export const StyledInput = styled('input', {
   display: 'block',
@@ -39,11 +38,7 @@ type InputOwnProps = InputVariants & InputExtraProps;
 type InputProps = InputOwnProps & ComponentProps<'input'>;
 
 export const Input = forwardRef<ElementRef<typeof StyledInput>, InputProps>((props, ref) => {
-  const fomControl = useFormControlContext();
-
-  const isInvalid = props.isInvalid ?? fomControl.isInvalid ?? false;
-
-  return <StyledInput {...props} isInvalid={isInvalid} ref={ref} />;
+  return <StyledInput {...props} ref={ref} />;
 });
 
 Input.displayName = 'Input';

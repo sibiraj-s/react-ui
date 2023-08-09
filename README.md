@@ -24,7 +24,6 @@ npm run dev
 
 - Badge
 - Button
-- FormControl
 - FormText
 - Heading
 - Input
