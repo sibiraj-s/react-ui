@@ -19,6 +19,8 @@ type Story = StoryObj<typeof Spinner>;
 
 const Template = (args: ComponentProps<typeof Spinner>) => (
   <Flex align='center' spacing='md'>
+    <Spinner {...args} size='xxs' />
+    <Spinner {...args} size='xs' />
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
     <Spinner {...args} size='lg' />
