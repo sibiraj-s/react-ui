@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof Badge>;
 
 const Template = (args: ComponentProps<typeof Badge>) => (
-  <Flex spacing='md' align='center'>
+  <Flex spacing='sm' align='center'>
     <Badge {...args}>Premium</Badge>
     <Badge {...args} variant='secondary'>
       Pro

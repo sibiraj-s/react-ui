@@ -3,14 +3,13 @@ import { styled } from '../../stitches.config';
 export const Badge = styled('span', {
   display: 'inline-block',
   border: '1px solid',
-  borderRadius: '$pill',
-  padding: '$0_5 $1',
+  borderRadius: '$roundedSm',
+  padding: '$0_5 $1_5',
   whiteSpace: 'nowrap',
   textAlign: 'center',
   fontSize: '$xs',
   lineHeight: '$xs',
   verticalAlign: 'baseline',
-  fontWeight: '$bold',
   color: '$white',
   minWidth: '$10',
 
