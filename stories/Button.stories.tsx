@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from '@stitches/react';
 
-import { Button, Flex } from '../index';
+import { Button, Flex, Link } from '../index';
 import { disableControls } from './utils';
 
 const meta: Meta<typeof Button> = {
@@ -33,6 +33,11 @@ const Template = (args: ComponentProps<typeof Button>) => (
     <Button {...args}>Default Button</Button>
     <Button {...args} variantType='outline'>
       Outline Button
+    </Button>
+    <Button {...args} variantType='outline' asChild>
+      <Link href='https://sibiraj.dev' target='_blank'>
+        Visit Github (Link Button)
+      </Link>
     </Button>
   </Flex>
 );

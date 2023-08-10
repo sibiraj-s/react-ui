@@ -1,16 +1,16 @@
-import { ElementType, forwardRef, ReactElement } from 'react';
-import { useButton, useFocusRing } from 'react-aria';
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
+import { AriaButtonProps, useButton, useFocusRing } from 'react-aria';
 import { useObjectRef, mergeProps } from '@react-aria/utils';
+import { Slot } from '@radix-ui/react-slot';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
-import { PolymorphicPropsWithoutRef, PolymorphicRef } from '../../utils/types';
 
 export const StyledButton = styled('button', {
   all: 'unset',
   display: 'inline-block',
   border: '1px solid',
   borderRadius: '$rounded',
-  fontWeight: '$bold',
+  fontWeight: '$semiBold',
   padding: '$1_5 $3',
   userSelect: 'none',
   whiteSpace: 'nowrap',
@@ -186,34 +186,40 @@ export const StyledButton = styled('button', {
 
 type UserIgnoredProps = 'isFocusVisible';
 type ButtonVariants = VariantProps<typeof StyledButton>;
-type ButtonExtraProps = { css?: CSS };
+type ButtonExtraProps = { css?: CSS; asChild?: boolean };
 type ButtonOwnProps = Omit<ButtonVariants, UserIgnoredProps> & ButtonExtraProps;
 
-type ButtonProps<T extends ElementType> = PolymorphicPropsWithoutRef<T, ButtonOwnProps>;
-type ButtonComponent = <T extends ElementType = 'button'>(
-  props: ButtonProps<T> & { ref?: PolymorphicRef<T> }
-) => ReactElement<T>;
+type ButtonProps = AriaButtonProps & ComponentPropsWithoutRef<'button'> & ButtonOwnProps;
 
-export const BaseButton = <T extends ElementType = 'button'>(props: ButtonProps<T>, ref?: PolymorphicRef<T>) => {
-  const buttonRef = useObjectRef<PolymorphicRef<T>>(ref);
+export const Button = forwardRef<ElementRef<'button'>, ButtonProps>((props, forwardedRef) => {
+  const { asChild, variant, variantType, size, css, children, ...rest } = props;
+
+  const variantProps = { variant, variantType, size, css, disabled: props.disabled };
+  const Comp = asChild ? Slot : 'button';
+
+  const buttonRef = useObjectRef(forwardedRef);
   const { isFocusVisible, focusProps } = useFocusRing();
 
   const { buttonProps } = useButton(
     {
-      ...props,
-      elementType: props.as,
+      ...rest,
+      elementType: Comp,
     },
     buttonRef
   );
 
   return (
     <StyledButton
-      {...mergeProps(buttonProps, focusProps, props as Record<string, unknown>)}
+      {...mergeProps(buttonProps, focusProps, variantProps)}
       isFocusVisible={isFocusVisible}
       ref={buttonRef}
-    />
+      as={Comp}
+    >
+      {children}
+    </StyledButton>
   );
-};
+});
 
-export const Button = forwardRef(BaseButton) as ButtonComponent;
+Button.displayName = 'Button';
+
 export default Button;
