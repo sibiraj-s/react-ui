@@ -13,3 +13,5 @@ export * from './Input';
 export * from './Textarea';
 export * from './TextareaField';
 export * from './TextField';
+
+export * from './AlertDialog';
