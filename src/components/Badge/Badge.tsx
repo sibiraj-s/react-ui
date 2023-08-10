@@ -8,6 +8,8 @@ export const Badge = styled('span', {
   whiteSpace: 'nowrap',
   textAlign: 'center',
   fontSize: '$xs',
+  fontWeight: '$medium',
+  letterSpacing: '$space',
   lineHeight: '$xs',
   verticalAlign: 'baseline',
   color: '$white',

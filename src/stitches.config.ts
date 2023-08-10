@@ -214,6 +214,7 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       // user tokens
       normal: '$4',
       semiBold: '$6',
+      medium: '$5',
       bold: '$7',
     },
     lineHeights: {
@@ -225,7 +226,12 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       sm: '$2',
       default: '$3',
     },
-    letterSpacings: {},
+    letterSpacings: {
+      space: '0.0025em',
+      wide: '0.025em',
+      wider: '0.05em',
+      widest: '1em',
+    },
     borderWidths: {},
     borderStyles: {},
     shadows: {},
