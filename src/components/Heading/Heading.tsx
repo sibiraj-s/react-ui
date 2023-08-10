@@ -1,8 +1,8 @@
-import { ElementType, forwardRef, ReactElement } from 'react';
+import { forwardRef } from 'react';
 
 import { StyledText } from '../Text';
 import { styled, VariantProps, CSS } from '../../stitches.config';
-import { Merge, PolymorphicPropsWithoutRef, PolymorphicRef } from '../../utils/types';
+import { Slot } from '@radix-ui/react-slot';
 
 export const StyledHeading = styled(StyledText, {
   lineHeight: '$2',
@@ -16,19 +16,21 @@ export const StyledHeading = styled(StyledText, {
 
 type HeadingLevels = '1' | '2' | '3' | '4' | '5' | '6';
 type HeadingVariants = VariantProps<typeof StyledText>;
-type HeadingExtraProps = { css?: CSS };
+type HeadingExtraProps = { css?: CSS; asChild?: boolean };
 type HeadingSizes = { size?: Extract<HeadingVariants['size'], HeadingLevels> };
-type HeadingOwnProps = Merge<HeadingVariants, HeadingSizes> & HeadingExtraProps;
+type HeadingOwnProps = HeadingVariants & HeadingSizes & HeadingExtraProps;
 
-type HeadingProps<T extends ElementType> = PolymorphicPropsWithoutRef<T, HeadingOwnProps>;
-type HeadingComponent = <T extends ElementType = 'p'>(
-  props: HeadingProps<T> & { ref?: PolymorphicRef<T> }
-) => ReactElement<T>;
+type HeadingProps = HeadingOwnProps;
 
-export const BaseHeading = <T extends ElementType = 'p'>(props: HeadingProps<T>, ref?: PolymorphicRef<T>) => {
-  const tag = props.size ? `h${props.size}` : 'h1';
-  return <StyledHeading as={tag} {...props} ref={ref} />;
-};
+export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, forwardedRef) => {
+  const { asChild, ...rest } = props;
 
-export const Heading = forwardRef(BaseHeading) as HeadingComponent;
+  const tag = props.size ? `h${rest.size}` : 'h1';
+  const Comp = asChild ? Slot : tag;
+
+  return <StyledHeading as={Comp} {...rest} ref={forwardedRef} />;
+});
+
+Heading.displayName = 'Heading';
+
 export default Heading;

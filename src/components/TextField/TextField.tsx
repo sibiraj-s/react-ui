@@ -18,7 +18,9 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
 
   return (
     <Flex direction='c' spacing='xs'>
-      <Label {...labelProps}>{props.label}</Label>
+      <Label {...labelProps} size='2'>
+        {props.label}
+      </Label>
       <Input {...inputProps} ref={inputRef} isInvalid={props.isInvalid} prepend={prepend} append={append} />
       {props.description && (
         <Text size='xs' variant='muted' {...descriptionProps}>
