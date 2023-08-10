@@ -1,10 +1,11 @@
-import { ComponentPropsWithoutRef, forwardRef } from 'react';
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
 import Text from '../Text';
 
-type AlertDialogDescriptionElement = HTMLParagraphElement;
+type AlertDialogDescriptionElement = ElementRef<typeof Text>;
 type AlertDialogDescriptionProps = ComponentPropsWithoutRef<typeof Text>;
+
 const AlertDialogDescription = forwardRef<AlertDialogDescriptionElement, AlertDialogDescriptionProps>(
   (props, forwardedRef) => (
     <AlertDialogPrimitive.Description asChild>
