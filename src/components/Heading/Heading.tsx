@@ -6,45 +6,8 @@ import { Merge, PolymorphicPropsWithoutRef, PolymorphicRef } from '../../utils/t
 
 export const StyledHeading = styled(StyledText, {
   lineHeight: '$2',
+  marginBottom: '$2',
 
-  compoundVariants: [
-    {
-      size: '1',
-      css: {
-        hmr: '$fontSizes$xxxxl',
-      },
-    },
-    {
-      size: '2',
-      css: {
-        hmr: '$fontSizes$xxxl',
-      },
-    },
-    {
-      size: '3',
-      css: {
-        hmr: '$fontSizes$xxl',
-      },
-    },
-    {
-      size: '4',
-      css: {
-        hmr: '$fontSizes$xl',
-      },
-    },
-    {
-      size: '5',
-      css: {
-        hmr: '$fontSizes$l',
-      },
-    },
-    {
-      size: '6',
-      css: {
-        hmr: '$fontSizes$regular',
-      },
-    },
-  ],
   defaultVariants: {
     size: '1',
     weight: 'bold',
@@ -54,7 +17,7 @@ export const StyledHeading = styled(StyledText, {
 type HeadingLevels = '1' | '2' | '3' | '4' | '5' | '6';
 type HeadingVariants = VariantProps<typeof StyledText>;
 type HeadingExtraProps = { css?: CSS };
-type HeadingSizes = { size: Extract<HeadingVariants['size'], HeadingLevels> };
+type HeadingSizes = { size?: Extract<HeadingVariants['size'], HeadingLevels> };
 type HeadingOwnProps = Merge<HeadingVariants, HeadingSizes> & HeadingExtraProps;
 
 type HeadingProps<T extends ElementType> = PolymorphicPropsWithoutRef<T, HeadingOwnProps>;

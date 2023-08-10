@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Fragment } from 'react';
 import { ComponentProps } from '@stitches/react';
 
-import { Text } from '../index';
+import { Flex, Text } from '../index';
 import { disableControls } from './utils';
 
 const meta: Meta<typeof Text> = {
@@ -21,26 +20,26 @@ export default meta;
 type Story = StoryObj<typeof Text>;
 
 const Template = (args: ComponentProps<typeof Text>) => (
-  <Fragment>
+  <Flex direction='c' gap='4'>
     <Text {...args}>
       Regular: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua. Id ornare arcu odio ut sem. Elit at imperdiet dui accumsan. Id volutpat lacus laoreet non.
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque
       varius morbi enim nunc faucibus. Arcu risus quis varius quam.
     </Text>
-    <Text {...args} size='sm' spacing='md'>
+    <Text {...args} size='sm'>
       Small: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua. Id ornare arcu odio ut sem. Elit at imperdiet dui accumsan. Id volutpat lacus laoreet non.
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque
       varius morbi enim nunc faucibus. Arcu risus quis varius quam.
     </Text>
-    <Text {...args} size='xs' spacing='md'>
+    <Text {...args} size='xs'>
       Extra Small: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
       et dolore magna aliqua. Id ornare arcu odio ut sem. Elit at imperdiet dui accumsan. Id volutpat lacus laoreet non.
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque
       varius morbi enim nunc faucibus. Arcu risus quis varius quam.
     </Text>
-  </Fragment>
+  </Flex>
 );
 
 export const Default: Story = {
