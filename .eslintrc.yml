@@ -5,25 +5,9 @@ extends:
   - pegasus/browser
   - pegasus/node
 
-rules:
-  no-warning-comments: off
-
 overrides:
   - files:
       - '**/*.ts'
-    extends:
-      - pegasus/typescript
-      - plugin:prettier/recommended
-    parserOptions:
-      project: './tsconfig.json'
-
-  - files:
-      - '**/*.jsx'
-    extends:
-      - pegasus/react
-      - plugin:prettier/recommended
-
-  - files:
       - '**/*.tsx'
     extends:
       - pegasus/typescript
