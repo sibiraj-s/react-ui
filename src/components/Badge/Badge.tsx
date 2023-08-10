@@ -10,10 +10,10 @@ export const Badge = styled('span', {
   fontSize: '$xs',
   fontWeight: '$medium',
   letterSpacing: '$space',
-  lineHeight: '$xs',
-  verticalAlign: 'baseline',
+  lineHeight: '$sm',
   color: '$white',
   minWidth: '$10',
+  userSelect: 'none',
 
   // variants
   variants: {
