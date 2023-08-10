@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react';
-import { gray, slate, tomato, blue, green, indigo } from '@radix-ui/colors';
-import type * as Stitches from '@stitches/react';
+import { gray, slate, tomato, blue, green, indigo, whiteA, blackA } from '@radix-ui/colors';
+import * as Stitches from '@stitches/react';
 
 // Read this first
 // https://stitches.dev/docs/tokens#naming-convention
@@ -52,6 +52,8 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       ...green,
       ...tomato,
       ...gray,
+      ...whiteA,
+      ...blackA,
 
       // black and white
       white: 'white',
