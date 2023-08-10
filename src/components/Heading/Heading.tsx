@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { ComponentPropsWithoutRef, forwardRef } from 'react';
 
 import { StyledText } from '../Text';
 import { styled, VariantProps, CSS } from '../../stitches.config';
@@ -14,13 +14,11 @@ export const StyledHeading = styled(StyledText, {
   },
 });
 
-type HeadingLevels = '1' | '2' | '3' | '4' | '5' | '6';
 type HeadingVariants = VariantProps<typeof StyledText>;
 type HeadingExtraProps = { css?: CSS; asChild?: boolean };
-type HeadingSizes = { size?: Extract<HeadingVariants['size'], HeadingLevels> };
-type HeadingOwnProps = HeadingVariants & HeadingSizes & HeadingExtraProps;
+type HeadingOwnProps = HeadingVariants & HeadingExtraProps;
 
-type HeadingProps = HeadingOwnProps;
+type HeadingProps = HeadingOwnProps & ComponentPropsWithoutRef<'h1'>;
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, forwardedRef) => {
   const { asChild, ...rest } = props;
