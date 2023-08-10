@@ -18,6 +18,7 @@ export const StyledButton = styled('button', {
   userSelect: 'none',
   whiteSpace: 'nowrap',
   textAlign: 'center',
+  cursor: 'default',
 
   // variants
   variants: {
