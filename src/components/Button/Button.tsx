@@ -7,8 +7,11 @@ import { styled, VariantProps, CSS } from '../../stitches.config';
 
 export const StyledButton = styled('button', {
   all: 'unset',
-  display: 'inline-block',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   border: '1px solid',
+  gap: '$2',
   borderRadius: '$rounded',
   fontWeight: '$semiBold',
   padding: '$1_5 $3',

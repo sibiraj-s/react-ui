@@ -3,6 +3,7 @@ import { ComponentProps } from '@stitches/react';
 
 import { Button, Flex, Link } from '../index';
 import { disableControls } from './utils';
+import { BookmarkIcon } from '@radix-ui/react-icons';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -77,5 +78,20 @@ export const Disabled: Story = {
   args: {
     variant: 'primary',
     disabled: true,
+  },
+};
+
+export const WithIcon: Story = {
+  ...Default,
+  args: {
+    variant: 'primary',
+  },
+  render: (args) => {
+    return (
+      <Button {...args}>
+        <BookmarkIcon />
+        Bookmark
+      </Button>
+    );
   },
 };
