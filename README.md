@@ -22,17 +22,17 @@ npm run dev
 
 ## Components
 
+- Alert Dialog
 - Badge
 - Button
-- FormText
+- Text
 - Heading
 - Input
+- Textarea
 - Label
 - Link
 - Spinner
 - Switch
-- Text
-- Textarea
 - TextField
 - TextareaField
 
