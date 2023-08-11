@@ -39,7 +39,7 @@ export const Default: Story = {
         <AlertDialogDescription>
           Are you sure? this application will no longer be accessible and any existing sessions will be expired.
         </AlertDialogDescription>
-        <Flex gap='2' justify='end' css={{ mt: '$4' }}>
+        <Flex gap='2' justify='end' mt='$4'>
           <AlertDialogCancel>
             <Button variant='secondary'>Cancel</Button>
           </AlertDialogCancel>

@@ -41,6 +41,46 @@ const spaces = {
   96: '24rem',
 };
 
+export const utils = {
+  // margin
+  m: (value: Stitches.PropertyValue<'margin'>) => ({ margin: value }),
+  mt: (value: Stitches.PropertyValue<'marginTop'>) => ({ marginTop: value }),
+  mr: (value: Stitches.PropertyValue<'marginRight'>) => ({ marginRight: value }),
+  mb: (value: Stitches.PropertyValue<'marginBottom'>) => ({ marginBottom: value }),
+  ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({ marginLeft: value }),
+  my: (value: Stitches.PropertyValue<'marginTop'>) => ({ marginTop: value, marginBottom: value }),
+  mx: (value: Stitches.PropertyValue<'marginLeft'>) => ({ marginLeft: value, marginRight: value }),
+
+  // padding
+  p: (value: Stitches.PropertyValue<'padding'>) => ({ padding: value }),
+  pr: (value: Stitches.PropertyValue<'paddingRight'>) => ({ paddingRight: value }),
+  pt: (value: Stitches.PropertyValue<'paddingTop'>) => ({ paddingTop: value }),
+  pb: (value: Stitches.PropertyValue<'paddingBottom'>) => ({ paddingBottom: value }),
+  pl: (value: Stitches.PropertyValue<'paddingLeft'>) => ({ paddingLeft: value }),
+  py: (value: Stitches.PropertyValue<'paddingTop'>) => ({ paddingTop: value, paddingBottom: value }),
+  px: (value: Stitches.PropertyValue<'paddingLeft'>) => ({ paddingLeft: value, paddingRight: value }),
+
+  // border
+  br: (value: Stitches.PropertyValue<'borderRadius'>) => ({ borderRadius: value }),
+  brl: (value: Stitches.PropertyValue<'borderTopLeftRadius'>) => ({ borderTopLeft: value, borderBottomLeft: value }),
+  brr: (value: Stitches.PropertyValue<'borderTopRightRadius'>) => ({
+    borderTopRight: value,
+    borderBottomRight: value,
+  }),
+
+  // height, width
+  size: (value: Stitches.PropertyValue<'width'>) => ({ height: value, width: value }),
+
+  // computed sytles
+
+  // heading margin
+  // https://spectrum.adobe.com/page/heading/#Margins
+  hmr: (value: Stitches.PropertyValue<'fontSize'>) => ({
+    marginTop: `calc(${value} / 1.125)`,
+    marginBottom: `calc(${value} * 0.25)`,
+  }),
+};
+
 export const { styled, createTheme, globalCss, keyframes, config, getCssText, css } = createStitches({
   prefix: 'rxui',
 
@@ -245,45 +285,7 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
     },
     transitions: {},
   },
-  utils: {
-    // margin
-    m: (value: Stitches.PropertyValue<'margin'>) => ({ margin: value }),
-    mt: (value: Stitches.PropertyValue<'marginTop'>) => ({ marginTop: value }),
-    mr: (value: Stitches.PropertyValue<'marginRight'>) => ({ marginRight: value }),
-    mb: (value: Stitches.PropertyValue<'marginBottom'>) => ({ marginBottom: value }),
-    ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({ marginLeft: value }),
-    my: (value: Stitches.PropertyValue<'marginTop'>) => ({ marginTop: value, marginBottom: value }),
-    mx: (value: Stitches.PropertyValue<'marginLeft'>) => ({ marginLeft: value, marginRight: value }),
-
-    // padding
-    p: (value: Stitches.PropertyValue<'padding'>) => ({ padding: value }),
-    pr: (value: Stitches.PropertyValue<'paddingRight'>) => ({ paddingRight: value }),
-    pt: (value: Stitches.PropertyValue<'paddingTop'>) => ({ paddingTop: value }),
-    pb: (value: Stitches.PropertyValue<'paddingBottom'>) => ({ paddingBottom: value }),
-    pl: (value: Stitches.PropertyValue<'paddingLeft'>) => ({ paddingLeft: value }),
-    py: (value: Stitches.PropertyValue<'paddingTop'>) => ({ paddingTop: value, paddingBottom: value }),
-    px: (value: Stitches.PropertyValue<'paddingLeft'>) => ({ paddingLeft: value, paddingRight: value }),
-
-    // border
-    br: (value: Stitches.PropertyValue<'borderRadius'>) => ({ borderRadius: value }),
-    brl: (value: Stitches.PropertyValue<'borderTopLeftRadius'>) => ({ borderTopLeft: value, borderBottomLeft: value }),
-    brr: (value: Stitches.PropertyValue<'borderTopRightRadius'>) => ({
-      borderTopRight: value,
-      borderBottomRight: value,
-    }),
-
-    // height, width
-    size: (value: Stitches.PropertyValue<'width'>) => ({ height: value, width: value }),
-
-    // computed sytles
-
-    // heading margin
-    // https://spectrum.adobe.com/page/heading/#Margins
-    hmr: (value: Stitches.PropertyValue<'fontSize'>) => ({
-      marginTop: `calc(${value} / 1.125)`,
-      marginBottom: `calc(${value} * 0.25)`,
-    }),
-  },
+  utils,
 });
 
 export type CSS = Stitches.CSS<typeof config>;
