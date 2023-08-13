@@ -6,7 +6,9 @@ import { DotsHorizontalIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 const meta: Meta<typeof TextField> = {
   title: 'Components/Forms/TextField',
   component: TextField,
-  argTypes: {},
+  argTypes: {
+    onChange: { action: 'change' },
+  },
 };
 
 export default meta;

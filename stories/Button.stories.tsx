@@ -9,6 +9,7 @@ const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   argTypes: {
+    onClick: { action: 'click' },
     variant: {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'danger'],

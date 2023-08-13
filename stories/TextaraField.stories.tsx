@@ -5,7 +5,9 @@ import { TextareaField } from '../index';
 const meta: Meta<typeof TextareaField> = {
   title: 'Components/Forms/TextareaField',
   component: TextareaField,
-  argTypes: {},
+  argTypes: {
+    onChange: { action: 'change' },
+  },
 };
 
 export default meta;

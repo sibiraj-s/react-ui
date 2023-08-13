@@ -8,6 +8,7 @@ const meta: Meta<typeof Textarea> = {
   component: Textarea,
   argTypes: {
     ...disableControls('ref'),
+    onChange: { action: 'change' },
   },
 };
 

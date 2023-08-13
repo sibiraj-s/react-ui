@@ -9,6 +9,7 @@ const meta: Meta<typeof Switch> = {
   component: Switch,
   argTypes: {
     ...disableControls(['size']),
+    onCheckedChange: { action: 'checked' },
   },
 };
 

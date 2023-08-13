@@ -9,6 +9,7 @@ const meta: Meta<typeof Input> = {
   component: Input,
   argTypes: {
     ...disableControls('ref'),
+    onChange: { action: 'change' },
   },
 };
 
