@@ -22,7 +22,7 @@ npm run dev
 
 ## Components
 
-- Alert Dialog
+- AlertDialog
 - Badge
 - Button
 - Text
@@ -35,6 +35,7 @@ npm run dev
 - Switch
 - TextField
 - TextareaField
+- ProgressCircle
 
 ### Layout
 
