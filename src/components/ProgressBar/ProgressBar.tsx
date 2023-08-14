@@ -46,14 +46,18 @@ const BarFiling = styled(motion.div, {
 });
 
 interface ProgressBarProps {
-  percents: number;
+  min: number;
+  max: number;
+  value: number;
   duration?: number;
   delay?: number;
   striped: VariantProps<typeof BarFiling>['striped'];
   animateStripes: VariantProps<typeof BarFiling>['animateStripes'];
 }
 
-const getValidPercents = (percents: number): number => {
+const getValidPercents = (value: number, min: number, max: number): number => {
+  const percents = ((value - min) / (max - min)) * 100;
+
   if (percents < 0) {
     return 0;
   }
@@ -66,19 +70,22 @@ const getValidPercents = (percents: number): number => {
 };
 
 const ProgressBar: FC<ProgressBarProps> = ({
-  percents = 0,
+  min = 0,
+  max = 100,
+  value = 0,
   duration = 3,
   delay = 0.5,
   striped = false,
   animateStripes = false,
 }) => {
-  const percentsToRender = getValidPercents(percents);
+  const percents = getValidPercents(value, min, max);
+  const barWidth = `${percents}%`;
 
   const { progressBarProps } = useProgressBar({
-    value: percentsToRender,
-    minValue: 0,
-    maxValue: 100,
-    'aria-label': `${percentsToRender}% complete`,
+    value,
+    minValue: min,
+    maxValue: max,
+    'aria-label': barWidth,
   });
 
   return (
@@ -86,7 +93,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
       <BarFiling
         initial={{ width: 0 }}
         animate={{
-          width: `${percentsToRender}%`,
+          width: barWidth,
         }}
         transition={{ duration, delay }}
         striped={striped}

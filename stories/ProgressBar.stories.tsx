@@ -17,14 +17,23 @@ type Story = StoryObj<typeof ProgressBar>;
 
 export const Default: Story = {
   args: {
-    percents: Math.max(25, rand()),
+    value: Math.max(25, rand()),
   },
   render: (args) => {
     return (
-      <Flex css={{ width: '50%' }}>
+      <Flex css={{ width: '40%' }}>
         <ProgressBar {...args} />
       </Flex>
     );
+  },
+};
+
+export const WithCustomRange: Story = {
+  ...Default,
+  args: {
+    ...Default.args,
+    min: 0,
+    max: 200,
   },
 };
 
