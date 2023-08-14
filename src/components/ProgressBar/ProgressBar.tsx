@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
+import { useProgressBar } from 'react-aria';
 
 import { VariantProps, keyframes, styled } from '../../stitches.config';
 
@@ -73,8 +74,15 @@ const ProgressBar: FC<ProgressBarProps> = ({
 }) => {
   const percentsToRender = getValidPercents(percents);
 
+  const { progressBarProps } = useProgressBar({
+    value: percentsToRender,
+    minValue: 0,
+    maxValue: 100,
+    'aria-label': `${percentsToRender}% complete`,
+  });
+
   return (
-    <Bar>
+    <Bar {...progressBarProps}>
       <BarFiling
         initial={{ width: 0 }}
         animate={{

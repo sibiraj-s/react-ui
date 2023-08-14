@@ -1,5 +1,6 @@
 import { type FC, useRef } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
+import { useProgressBar } from 'react-aria';
 
 import Counter from './Counter';
 import { styled } from '../../stitches.config';
@@ -16,7 +17,7 @@ const StyledContainer = styled('div', {
   position: 'relative',
 });
 
-const StyledCounterContainer = styled('div', {
+const StyledCounterContainer = styled('label', {
   position: 'absolute',
   size: '100%',
   display: 'flex',
@@ -72,6 +73,13 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   const percentsToRender = getValidPercents(percents);
   const fillPercents = Math.abs(Math.ceil((circumference / 100) * (percentsToRender - 100)));
 
+  const { progressBarProps, labelProps } = useProgressBar({
+    minValue: 0,
+    maxValue: 100,
+    value: percentsToRender,
+    label: `${percentsToRender}%`,
+  });
+
   const transition: Transition = {
     duration,
     delay,
@@ -91,8 +99,8 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   };
 
   return (
-    <StyledContainer css={{ size, '--rx-progress-circle-size': `${size}px` }} ref={ref}>
-      <StyledCounterContainer>
+    <StyledContainer css={{ size, '--rx-progress-circle-size': `${size}px` }} ref={ref} {...progressBarProps}>
+      <StyledCounterContainer {...labelProps}>
         <Counter from={0} to={percentsToRender} duration={duration + delay} />%
       </StyledCounterContainer>
 
