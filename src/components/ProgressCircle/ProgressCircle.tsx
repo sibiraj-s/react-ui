@@ -134,7 +134,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
       </StyledCounterContainer>
 
       <svg viewBox={`0 0 ${size} ${size}`} version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
-        <StyledCircle cx={center} cy={center} r={radius} strokeWidth={strokeWidth} role='presentation' />
+        <StyledCircle role='presentation' cx={center} cy={center} r={radius} strokeWidth={strokeWidth} />
         <StyledProgressCircle
           role='presentation'
           cx={center}
@@ -155,7 +155,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
               begin='0s'
               dur='1s'
               from={`0 ${center} ${center}`}
-              to={`350 ${center} ${center}`}
+              to={`360 ${center} ${center}`}
               repeatCount='indefinite'
             />
           )}
