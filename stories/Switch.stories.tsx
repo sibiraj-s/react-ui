@@ -10,6 +10,10 @@ const meta: Meta<typeof Switch> = {
   argTypes: {
     ...disableControls(['size']),
     onCheckedChange: { action: 'checked' },
+    variant: {
+      control: 'select',
+      options: ['primary', 'danger', 'success'],
+    },
   },
 };
 
