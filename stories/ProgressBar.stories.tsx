@@ -49,6 +49,6 @@ export const WithStipesAnimation: Story = {
   ...WithStipes,
   args: {
     ...WithStipes.args,
-    animateStripes: true,
+    animated: true,
   },
 };
