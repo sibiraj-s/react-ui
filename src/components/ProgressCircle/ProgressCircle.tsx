@@ -3,17 +3,7 @@ import { type Variants, motion, useInView, Transition } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
 
 import Counter from './Counter';
-import { styled } from '../../stitches.config';
-
-interface ProgressCircleProps {
-  value: number;
-  min?: number;
-  max?: number;
-  duration?: number;
-  delay?: number;
-  size?: number;
-  strokeWidth?: number;
-}
+import { VariantProps, styled } from '../../stitches.config';
 
 const StyledContainer = styled('div', {
   position: 'relative',
@@ -30,16 +20,49 @@ const StyledCounterContainer = styled('label', {
   paddingLeft: 'calc(var(--rx-progress-circle-size) / 20)',
 });
 
+const StyledSvg = styled('svg', {
+  variants: {
+    variant: {
+      primary: {
+        color: '$accentSolid',
+      },
+      success: {
+        color: '$successSolid',
+      },
+      danger: {
+        color: '$dangerSolid',
+      },
+      muted: {
+        color: '$neutralSolid',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'success',
+  },
+});
+
 const StyledCircle = styled('circle', {
-  stroke: '$successSolid',
+  stroke: 'CurrentColor',
   strokeOpacity: 0.1,
   fill: 'transparent',
 });
 
 const StyledProgressCircle = styled(motion.circle, {
-  stroke: '$successSolid',
+  stroke: 'CurrentColor',
   fill: 'transparent',
 });
+
+interface ProgressCircleProps {
+  value: number;
+  min?: number;
+  max?: number;
+  duration?: number;
+  delay?: number;
+  size?: number;
+  strokeWidth?: number;
+  variant?: VariantProps<typeof StyledSvg>['variant'];
+}
 
 const getPercents = (value: number, min: number, max: number): number => {
   const percents = ((value - min) / (max - min)) * 100;
@@ -63,6 +86,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   delay = 0.5,
   size = 100,
   strokeWidth = 6,
+  variant,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useInView(ref);
@@ -104,7 +128,14 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
         <Counter from={0} to={percents} duration={duration + delay} />%
       </StyledCounterContainer>
 
-      <svg viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
+      <StyledSvg
+        viewBox='0 0 100 100'
+        version='1.1'
+        xmlns='http://www.w3.org/2000/svg'
+        width={size}
+        height={size}
+        variant={variant}
+      >
         <StyledCircle cx='50' cy='50' r={radius} strokeWidth={strokeWidth} />
         <StyledProgressCircle
           cx='50'
@@ -118,7 +149,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
           initial='hidden'
           animate={isVisible ? 'show' : 'hidden'}
         />
-      </svg>
+      </StyledSvg>
     </StyledContainer>
   );
 };

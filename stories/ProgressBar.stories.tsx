@@ -62,7 +62,7 @@ export const Variants: Story = {
   render: (args) => {
     return (
       <Flex css={{ width: '40%' }} direction='c' gap='8'>
-        <ProgressBar {...args} value={rand()} variant='sucess' />
+        <ProgressBar {...args} value={rand()} variant='success' />
         <ProgressBar {...args} value={rand()} variant='primary' />
         <ProgressBar {...args} value={rand()} variant='danger' />
         <ProgressBar {...args} value={rand()} variant='muted' />

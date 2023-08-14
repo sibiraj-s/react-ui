@@ -10,20 +10,21 @@ const Bar = styled('div', {
   height: '1.5rem',
   borderRadius: '$rounded',
   overflow: 'hidden',
+  borderColor: 'CurrentColor',
 
   variants: {
     variant: {
       primary: {
-        borderColor: '$accentSolid',
+        color: '$accentSolid',
       },
-      sucess: {
-        borderColor: '$successSolid',
+      success: {
+        color: '$successSolid',
       },
       danger: {
-        borderColor: '$dangerSolid',
+        color: '$dangerSolid',
       },
       muted: {
-        borderColor: '$neutralSolid',
+        color: '$neutralSolid',
       },
     },
   },
@@ -38,24 +39,10 @@ const progressStripes = keyframes({
 });
 
 const BarFiling = styled(motion.div, {
-  backgroundColor: '$successSolid',
+  backgroundColor: 'CurrentColor',
   height: '100%',
 
   variants: {
-    variant: {
-      primary: {
-        backgroundColor: '$accentSolid',
-      },
-      sucess: {
-        backgroundColor: '$successSolid',
-      },
-      danger: {
-        backgroundColor: '$dangerSolid',
-      },
-      muted: {
-        backgroundColor: '$neutralSolid',
-      },
-    },
     striped: {
       true: {
         backgroundImage:
@@ -76,9 +63,6 @@ const BarFiling = styled(motion.div, {
       },
     },
   ],
-  defaultVariants: {
-    variant: 'sucess',
-  },
 });
 
 interface ProgressBarProps {
@@ -87,7 +71,7 @@ interface ProgressBarProps {
   max?: number;
   duration?: number;
   delay?: number;
-  variant?: VariantProps<typeof BarFiling>['variant'];
+  variant?: VariantProps<typeof Bar>['variant'];
   striped?: VariantProps<typeof BarFiling>['striped'];
   animated?: VariantProps<typeof BarFiling>['animated'];
 }
@@ -112,7 +96,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
   value = 0,
   duration = 3,
   delay = 0.5,
-  variant = 'sucess',
+  variant,
   striped = false,
   animated = false,
 }) => {
@@ -134,7 +118,6 @@ const ProgressBar: FC<ProgressBarProps> = ({
           width: barWidth,
         }}
         transition={{ duration, delay }}
-        variant={variant}
         striped={striped}
         animated={animated}
       />
