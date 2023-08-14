@@ -17,6 +17,6 @@ type Story = StoryObj<typeof ProgressCircle>;
 
 export const Default: Story = {
   args: {
-    percent: Math.max(25, rand()),
+    percents: Math.max(25, rand()),
   },
 };
