@@ -7,10 +7,29 @@ import { VariantProps, keyframes, styled } from '../../stitches.config';
 const Bar = styled('div', {
   width: '100%',
   border: '1px solid',
-  borderColor: '$successBorder',
   height: '1.5rem',
   borderRadius: '$rounded',
   overflow: 'hidden',
+
+  variants: {
+    variant: {
+      primary: {
+        borderColor: '$accentSolid',
+      },
+      sucess: {
+        borderColor: '$successSolid',
+      },
+      danger: {
+        borderColor: '$dangerSolid',
+      },
+      muted: {
+        borderColor: '$neutralSolid',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+  },
 });
 
 const progressStripes = keyframes({
@@ -23,6 +42,20 @@ const BarFiling = styled(motion.div, {
   height: '100%',
 
   variants: {
+    variant: {
+      primary: {
+        backgroundColor: '$accentSolid',
+      },
+      sucess: {
+        backgroundColor: '$successSolid',
+      },
+      danger: {
+        backgroundColor: '$dangerSolid',
+      },
+      muted: {
+        backgroundColor: '$neutralSolid',
+      },
+    },
     striped: {
       true: {
         backgroundImage:
@@ -43,6 +76,9 @@ const BarFiling = styled(motion.div, {
       },
     },
   ],
+  defaultVariants: {
+    variant: 'sucess',
+  },
 });
 
 interface ProgressBarProps {
@@ -51,6 +87,7 @@ interface ProgressBarProps {
   max?: number;
   duration?: number;
   delay?: number;
+  variant?: VariantProps<typeof BarFiling>['variant'];
   striped?: VariantProps<typeof BarFiling>['striped'];
   animated?: VariantProps<typeof BarFiling>['animated'];
 }
@@ -75,6 +112,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
   value = 0,
   duration = 3,
   delay = 0.5,
+  variant = 'sucess',
   striped = false,
   animated = false,
 }) => {
@@ -89,13 +127,14 @@ const ProgressBar: FC<ProgressBarProps> = ({
   });
 
   return (
-    <Bar {...progressBarProps}>
+    <Bar {...progressBarProps} variant={variant}>
       <BarFiling
         initial={{ width: 0 }}
         animate={{
           width: barWidth,
         }}
         transition={{ duration, delay }}
+        variant={variant}
         striped={striped}
         animated={animated}
       />

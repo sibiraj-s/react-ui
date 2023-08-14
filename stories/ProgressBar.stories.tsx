@@ -11,13 +11,13 @@ const meta: Meta<typeof ProgressBar> = {
 
 export default meta;
 
-const rand = (): number => Math.floor(Math.random() * 100) + 1;
+const rand = (): number => Math.max(25, Math.floor(Math.random() * 100) + 1);
 
 type Story = StoryObj<typeof ProgressBar>;
 
 export const Default: Story = {
   args: {
-    value: Math.max(25, rand()),
+    value: rand(),
   },
   render: (args) => {
     return (
@@ -50,5 +50,24 @@ export const WithStipesAnimation: Story = {
   args: {
     ...WithStipes.args,
     animated: true,
+  },
+};
+
+export const Variants: Story = {
+  ...WithStipes,
+  args: {
+    ...WithStipes.args,
+    animated: true,
+  },
+  render: (args) => {
+    return (
+      <Flex css={{ width: '40%' }} direction='c' gap='8'>
+        <ProgressBar {...args} value={rand()} variant='sucess' />
+        <ProgressBar {...args} value={rand()} variant='primary' />
+        <ProgressBar {...args} value={rand()} variant='danger' />
+        <ProgressBar {...args} value={rand()} variant='muted' />
+        <ProgressBar {...args} value={rand()} />
+      </Flex>
+    );
   },
 };
