@@ -24,9 +24,13 @@ export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFie
     <Flex direction='c' spacing='xs'>
       <Label {...labelProps}>{props.label}</Label>
       <Textarea {...inputProps} ref={inputRef} isInvalid={props.isInvalid} />
-      {props.description && <Text {...descriptionProps}>{props.description}</Text>}
+      {props.description && (
+        <Text size='xs' variant='muted' {...descriptionProps}>
+          {props.description}
+        </Text>
+      )}
       {props.errorMessage && (
-        <Text variant='danger' {...errorMessageProps}>
+        <Text size='xs' variant='danger' {...errorMessageProps}>
           {props.errorMessage}
         </Text>
       )}
