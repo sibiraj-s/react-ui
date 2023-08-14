@@ -88,7 +88,8 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useInView(ref);
 
-  const radius = 45;
+  const center = size / 2;
+  const radius = center - strokeWidth;
   const circumference = Math.ceil(2 * Math.PI * radius);
 
   const percents = getPercents(value, min, max);
@@ -130,16 +131,17 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
         <Counter from={0} to={percents} duration={duration + delay} />%
       </StyledCounterContainer>
 
-      <svg viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
-        <StyledCircle cx='50' cy='50' r={radius} strokeWidth={strokeWidth} />
+      <svg viewBox={`0 0 ${size} ${size}`} version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
+        <StyledCircle cx={center} cy={center} r={radius} strokeWidth={strokeWidth} role='presentation' />
         <StyledProgressCircle
-          cx='50'
-          cy='50'
+          role='presentation'
+          cx={center}
+          cy={center}
           r={radius}
           strokeWidth={strokeWidth}
           strokeDashoffset={fillPercents}
           strokeDasharray={circumference}
-          transform='rotate(-90 50 50)'
+          transform={`rotate(-90 ${center} ${center})`}
           variants={variants}
           initial='hidden'
           animate={isVisible ? 'show' : 'hidden'}
