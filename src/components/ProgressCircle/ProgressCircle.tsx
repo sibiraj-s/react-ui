@@ -6,7 +6,9 @@ import Counter from './Counter';
 import { styled } from '../../stitches.config';
 
 interface ProgressCircleProps {
-  percents: number;
+  min: number;
+  max: number;
+  value: number;
   duration?: number;
   delay?: number;
   size?: number;
@@ -39,7 +41,9 @@ const StyledProgressCircle = styled(motion.circle, {
   fill: 'transparent',
 });
 
-const getValidPercents = (percents: number): number => {
+const getPercents = (value: number, min: number, max: number): number => {
+  const percents = ((value - min) / (max - min)) * 100;
+
   if (percents < 0) {
     return 0;
   }
@@ -52,7 +56,9 @@ const getValidPercents = (percents: number): number => {
 };
 
 export const ProgressCircle: FC<ProgressCircleProps> = ({
-  percents,
+  min = 0,
+  max = 100,
+  value,
   duration = 3,
   delay = 0.5,
   size = 100,
@@ -64,14 +70,14 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   const radius = 45;
   const circumference = Math.ceil(2 * Math.PI * radius);
 
-  const percentsToRender = getValidPercents(percents);
-  const fillPercents = Math.abs(Math.ceil((circumference / 100) * (percentsToRender - 100)));
+  const percents = getPercents(value, min, max);
+  const fillPercents = Math.abs(Math.ceil((circumference / 100) * (percents - 100)));
 
   const { progressBarProps, labelProps } = useProgressBar({
-    minValue: 0,
-    maxValue: 100,
-    value: percentsToRender,
-    label: `${percentsToRender}%`,
+    minValue: min,
+    maxValue: max,
+    value,
+    label: `${percents}%`,
   });
 
   const transition: Transition = {
@@ -95,7 +101,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   return (
     <StyledContainer css={{ size, '--rx-progress-circle-size': `${size}px` }} ref={ref} {...progressBarProps}>
       <StyledCounterContainer {...labelProps}>
-        <Counter from={0} to={percentsToRender} duration={duration + delay} />%
+        <Counter from={0} to={percents} duration={duration + delay} />%
       </StyledCounterContainer>
 
       <svg viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
