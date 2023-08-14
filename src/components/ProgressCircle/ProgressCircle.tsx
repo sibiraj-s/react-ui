@@ -6,9 +6,9 @@ import Counter from './Counter';
 import { styled } from '../../stitches.config';
 
 interface ProgressCircleProps {
-  min: number;
-  max: number;
   value: number;
+  min?: number;
+  max?: number;
   duration?: number;
   delay?: number;
   size?: number;

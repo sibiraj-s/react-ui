@@ -46,13 +46,13 @@ const BarFiling = styled(motion.div, {
 });
 
 interface ProgressBarProps {
-  min: number;
-  max: number;
   value: number;
+  min?: number;
+  max?: number;
   duration?: number;
   delay?: number;
-  striped: VariantProps<typeof BarFiling>['striped'];
-  animated: VariantProps<typeof BarFiling>['animated'];
+  striped?: VariantProps<typeof BarFiling>['striped'];
+  animated?: VariantProps<typeof BarFiling>['animated'];
 }
 
 const getValidPercents = (value: number, min: number, max: number): number => {
