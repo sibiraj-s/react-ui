@@ -10,6 +10,7 @@ export const StyledInput = styled('input', {
   borderRadius: '$rounded',
   border: 'none',
   outline: 'none',
+  backgroundColor: 'transparent',
 
   variants: {
     prepend: {
@@ -32,7 +33,6 @@ const StyledInputGroup = styled('div', {
   borderRadius: '$rounded',
   border: '1px solid',
   borderColor: '$neutralBorderHover',
-  backgroundColor: '$white',
 
   '&:focus-within': {
     outline: '1px solid',

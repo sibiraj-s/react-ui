@@ -11,7 +11,7 @@ export const Spinner = styled('div', {
   variants: {
     variant: {
       primary: {
-        border: '2px solid $accentSolid',
+        borderColor: '$accentSolid',
         borderTopColor: '$white',
       },
       success: {
