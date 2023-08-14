@@ -56,6 +56,7 @@ interface ProgressCircleProps {
   max?: number;
   duration?: number;
   delay?: number;
+  spin?: boolean;
   size?: number;
   strokeWidth?: number;
   variant?: VariantProps<typeof StyledContainer>['variant'];
@@ -78,9 +79,10 @@ const getPercents = (value: number, min: number, max: number): number => {
 export const ProgressCircle: FC<ProgressCircleProps> = ({
   min = 0,
   max = 100,
-  value,
+  value = 0,
   duration = 3,
   delay = 0.5,
+  spin = false,
   size = 100,
   strokeWidth = 6,
   variant,
@@ -145,7 +147,19 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
           variants={variants}
           initial='hidden'
           animate={isVisible ? 'show' : 'hidden'}
-        />
+        >
+          {spin && percents !== 100 && (
+            <animateTransform
+              attributeName='transform'
+              type='rotate'
+              begin='0s'
+              dur='1s'
+              from={`0 ${center} ${center}`}
+              to={`350 ${center} ${center}`}
+              repeatCount='indefinite'
+            />
+          )}
+        </StyledProgressCircle>
       </svg>
     </StyledContainer>
   );

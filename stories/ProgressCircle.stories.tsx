@@ -29,6 +29,13 @@ export const WithCustomRange: Story = {
   },
 };
 
+export const Spin: Story = {
+  args: {
+    value: rand(),
+    spin: true,
+  },
+};
+
 export const Variants: Story = {
   args: {
     min: 0,
