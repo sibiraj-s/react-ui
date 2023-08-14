@@ -34,12 +34,6 @@ const StyledCircle = styled('circle', {
   fill: 'transparent',
 });
 
-const StyledSvg = styled('svg', {
-  position: 'absolute',
-  transform: 'rotate(-90deg)',
-  overflow: 'visible',
-});
-
 const StyledProgressCircle = styled(motion.circle, {
   stroke: '$successSolid',
   fill: 'transparent',
@@ -106,8 +100,6 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
 
       <svg viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
         <StyledCircle cx='50' cy='50' r={radius} strokeWidth={strokeWidth} />
-      </svg>
-      <StyledSvg viewBox='0 0 100 100' width={size} height={size} css={{ mt: -size }}>
         <StyledProgressCircle
           cx='50'
           cy='50'
@@ -115,11 +107,12 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
           strokeWidth={strokeWidth}
           strokeDashoffset={fillPercents}
           strokeDasharray={circumference}
+          transform='rotate(-90 50 50)'
           variants={variants}
           initial='hidden'
           animate={isVisible ? 'show' : 'hidden'}
         />
-      </StyledSvg>
+      </svg>
     </StyledContainer>
   );
 };
