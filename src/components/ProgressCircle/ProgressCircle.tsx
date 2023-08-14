@@ -7,20 +7,6 @@ import { VariantProps, styled } from '../../stitches.config';
 
 const StyledContainer = styled('div', {
   position: 'relative',
-});
-
-const StyledCounterContainer = styled('label', {
-  position: 'absolute',
-  size: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontWeight: '$semiBold',
-  fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
-  paddingLeft: 'calc(var(--rx-progress-circle-size) / 20)',
-});
-
-const StyledSvg = styled('svg', {
   variants: {
     variant: {
       primary: {
@@ -42,6 +28,17 @@ const StyledSvg = styled('svg', {
   },
 });
 
+const StyledCounterContainer = styled('label', {
+  position: 'absolute',
+  size: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontWeight: '$semiBold',
+  fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
+  paddingLeft: 'calc(var(--rx-progress-circle-size) / 20)',
+});
+
 const StyledCircle = styled('circle', {
   stroke: 'CurrentColor',
   strokeOpacity: 0.1,
@@ -61,7 +58,7 @@ interface ProgressCircleProps {
   delay?: number;
   size?: number;
   strokeWidth?: number;
-  variant?: VariantProps<typeof StyledSvg>['variant'];
+  variant?: VariantProps<typeof StyledContainer>['variant'];
 }
 
 const getPercents = (value: number, min: number, max: number): number => {
@@ -123,19 +120,17 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   };
 
   return (
-    <StyledContainer css={{ size, '--rx-progress-circle-size': `${size}px` }} ref={ref} {...progressBarProps}>
+    <StyledContainer
+      css={{ size, '--rx-progress-circle-size': `${size}px` }}
+      ref={ref}
+      {...progressBarProps}
+      variant={variant}
+    >
       <StyledCounterContainer {...labelProps}>
         <Counter from={0} to={percents} duration={duration + delay} />%
       </StyledCounterContainer>
 
-      <StyledSvg
-        viewBox='0 0 100 100'
-        version='1.1'
-        xmlns='http://www.w3.org/2000/svg'
-        width={size}
-        height={size}
-        variant={variant}
-      >
+      <svg viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
         <StyledCircle cx='50' cy='50' r={radius} strokeWidth={strokeWidth} />
         <StyledProgressCircle
           cx='50'
@@ -149,7 +144,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
           initial='hidden'
           animate={isVisible ? 'show' : 'hidden'}
         />
-      </StyledSvg>
+      </svg>
     </StyledContainer>
   );
 };
