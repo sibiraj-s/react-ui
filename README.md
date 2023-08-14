@@ -35,6 +35,7 @@ npm run dev
 - Switch
 - TextField
 - TextareaField
+- ProgressBar
 - ProgressCircle
 
 ### Layout

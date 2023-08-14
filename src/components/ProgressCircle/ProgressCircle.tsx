@@ -44,6 +44,18 @@ const StyledProgressCircle = styled(motion.circle, {
   fill: 'transparent',
 });
 
+const getValidPercents = (percents: number): number => {
+  if (percents < 0) {
+    return 0;
+  }
+
+  if (percents >= 100) {
+    return 100;
+  }
+
+  return percents;
+};
+
 export const ProgressCircle: FC<ProgressCircleProps> = ({
   percents,
   duration = 3,
@@ -57,7 +69,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   const radius = 45;
   const circumference = Math.ceil(2 * Math.PI * radius);
 
-  const percentsToRender = percents >= 100 ? 100 : percents;
+  const percentsToRender = getValidPercents(percents);
   const fillPercents = Math.abs(Math.ceil((circumference / 100) * (percentsToRender - 100)));
 
   const transition: Transition = {
