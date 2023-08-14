@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
+import { ComponentPropsWithRef, ElementRef, forwardRef } from 'react';
 
 import { styled, VariantProps, CSS } from '../../stitches.config';
 import { Slot } from '@radix-ui/react-slot';
@@ -62,17 +62,21 @@ export const StyledText = styled('p', {
   },
 });
 
-type TextVariants = VariantProps<typeof StyledText>;
+type TextVariants = Omit<VariantProps<typeof StyledText>, 'as'>;
 type TextExtraProps = { css?: CSS; asChild?: boolean };
-type TextOwnProps = TextVariants & TextExtraProps;
+type TextOwnProps = TextVariants & TextExtraProps & ComponentPropsWithRef<'p'>;
 
-type TextProps = ComponentPropsWithoutRef<'p'> & TextOwnProps;
+type TextProps = TextOwnProps & ComponentPropsWithRef<'p'>;
 
-export const Text = forwardRef<ElementRef<'p'>, TextProps>((props, forwardedRef) => {
-  const { asChild, ...rest } = props;
-  const Comp = asChild ? Slot : 'p';
+export const Text = forwardRef<ElementRef<typeof StyledText>, TextProps>((props, forwardedRef) => {
+  const { asChild = false, children, ...rest } = props;
+  const Component = asChild ? Slot : 'p';
 
-  return <StyledText {...rest} as={Comp} ref={forwardedRef} />;
+  return (
+    <StyledText as={Component} {...rest} ref={forwardedRef}>
+      {children}
+    </StyledText>
+  );
 });
 
 Text.displayName = 'Text';
