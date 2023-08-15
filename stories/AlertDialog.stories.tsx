@@ -29,8 +29,8 @@ type Story = StoryObj<typeof AlertDialog>;
 export const Default: Story = {
   name: 'AlertDialog',
   args: {},
-  render: () => (
-    <AlertDialog>
+  render: (args) => (
+    <AlertDialog {...args}>
       <AlertDialogTrigger>
         <Button variant='danger'>Revoke Access</Button>
       </AlertDialogTrigger>

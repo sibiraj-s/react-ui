@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from '@stitches/react';
+import { BookmarkIcon } from '@radix-ui/react-icons';
 
 import { Button, Flex, Link } from '../index';
 import { disableControls } from './utils';
-import { BookmarkIcon } from '@radix-ui/react-icons';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -17,7 +17,7 @@ const meta: Meta<typeof Button> = {
     disabled: {
       control: 'boolean',
     },
-    ...disableControls(['size', 'ref', 'variantType']),
+    ...disableControls(['size', 'ref', 'variantType', 'as', 'isFocusVisible', 'onClick']),
   },
 };
 

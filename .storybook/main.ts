@@ -9,6 +9,9 @@ const config: StorybookConfig = {
       strictMode: true,
     },
   },
+  docs: {
+    autodocs: false,
+  },
   core: {
     disableTelemetry: true,
   },
