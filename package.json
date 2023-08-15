@@ -20,7 +20,7 @@
     "test": "vitest",
     "build:watch": "rollup -c -w",
     "build": "rollup -c",
-    "dev": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006 --no-open",
     "build:storybook": "storybook build",
     "lint": "eslint . --ignore-path=.gitignore --ext=.js,.ts,.tsx",
     "prepare": "husky install"
