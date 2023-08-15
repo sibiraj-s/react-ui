@@ -34,9 +34,8 @@ const StyledCounterContainer = styled('label', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontWeight: '$semiBold',
   fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
-  paddingLeft: 'calc(var(--rx-progress-circle-size) / 20)',
+  fontWeight: '$semiBold',
 });
 
 const StyledCircle = styled('circle', {
