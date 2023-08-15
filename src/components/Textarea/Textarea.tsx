@@ -9,7 +9,7 @@ export const StyledTextarea = styled('textarea', {
   borderRadius: '$rounded',
   border: '1px solid',
   borderColor: '$neutralBorderHover',
-  backgroundColor: '$white',
+  backgroundColor: 'transparent',
   resize: 'vertical',
 
   '&:focus': {
