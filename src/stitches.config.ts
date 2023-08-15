@@ -170,7 +170,7 @@ export const { styled, createTheme, globalCss, keyframes, config, getCssText, cs
       neutralTextContrast: '$gray12',
 
       // other colors
-      muted: '$neutralSolid',
+      muted: '$neutralText',
       default: '$neutralTextContrast',
     },
     space: {

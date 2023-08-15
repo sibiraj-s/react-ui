@@ -21,12 +21,12 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
       <Label {...labelProps}>{props.label}</Label>
       <Input {...inputProps} ref={inputRef} isInvalid={props.isInvalid} prepend={prepend} append={append} />
       {props.description && (
-        <Text size='xs' variant='muted' {...descriptionProps}>
+        <Text size='sm' variant='muted' {...descriptionProps}>
           {props.description}
         </Text>
       )}
       {props.errorMessage && (
-        <Text size='xs' variant='danger' {...errorMessageProps}>
+        <Text size='sm' variant='danger' {...errorMessageProps}>
           {props.errorMessage}
         </Text>
       )}

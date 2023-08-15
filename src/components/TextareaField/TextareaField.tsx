@@ -25,12 +25,12 @@ export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFie
       <Label {...labelProps}>{props.label}</Label>
       <Textarea {...inputProps} ref={inputRef} isInvalid={props.isInvalid} />
       {props.description && (
-        <Text size='xs' variant='muted' {...descriptionProps}>
+        <Text size='sm' variant='muted' {...descriptionProps}>
           {props.description}
         </Text>
       )}
       {props.errorMessage && (
-        <Text size='xs' variant='danger' {...errorMessageProps}>
+        <Text size='sm' variant='danger' {...errorMessageProps}>
           {props.errorMessage}
         </Text>
       )}
