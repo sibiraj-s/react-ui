@@ -7,8 +7,9 @@ import { styled, VariantProps, CSS } from '../../stitches.config';
 export const StyledLink = styled('a', {
   color: '$accentSolid',
 
-  '&:focus': {
+  '&:focus-visible': {
     outline: '$accentSolid auto 1px',
+    outlineOffset: '2px',
   },
 });
 

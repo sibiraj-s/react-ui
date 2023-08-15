@@ -47,6 +47,8 @@ export const StyledButton = styled('button', {
         color: '$white',
         backgroundColor: '$accentSolid',
         borderColor: '$accentSolid',
+        $$outlineShadowFrom: '$colors$accentBgSubtle',
+        $$outlineShadowTo: '$colors$accentSolid',
 
         '&:hover': {
           backgroundColor: '$accentSolidHover',
@@ -62,6 +64,8 @@ export const StyledButton = styled('button', {
         color: '$white',
         backgroundColor: '$secondarySolid',
         borderColor: '$secondarySolid',
+        $$outlineShadowFrom: '$colors$secondaryBgSubtle',
+        $$outlineShadowTo: '$colors$secondarySolid',
 
         '&:hover': {
           backgroundColor: '$secondarySolidHover',
@@ -77,6 +81,8 @@ export const StyledButton = styled('button', {
         color: '$white',
         backgroundColor: '$successSolid',
         borderColor: '$successSolid',
+        $$outlineShadowFrom: '$colors$successBgSubtle',
+        $$outlineShadowTo: '$colors$successSolid',
 
         '&:hover': {
           backgroundColor: '$successSolidHover',
@@ -92,6 +98,8 @@ export const StyledButton = styled('button', {
         color: '$white',
         backgroundColor: '$dangerSolid',
         borderColor: '$dangerSolid',
+        $$outlineShadowFrom: '$colors$dangerBgSubtle',
+        $$outlineShadowTo: '$colors$dangerSolid',
 
         '&:hover': {
           backgroundColor: '$dangerSolidHover',
@@ -118,26 +126,10 @@ export const StyledButton = styled('button', {
   compoundVariants: [
     {
       variant: 'primary',
-      isFocusVisible: true,
-      css: {
-        outline: '2px solid $accentSolid',
-        outlineOffset: '2px',
-      },
-    },
-    {
-      variant: 'primary',
       variantType: 'outline',
       css: {
         backgroundColor: '$white',
         color: '$accentSolid',
-      },
-    },
-    {
-      variant: 'secondary',
-      isFocusVisible: true,
-      css: {
-        outline: '2px solid $secondarySolid',
-        outlineOffset: '2px',
       },
     },
     {
@@ -150,14 +142,6 @@ export const StyledButton = styled('button', {
     },
     {
       variant: 'success',
-      isFocusVisible: true,
-      css: {
-        outline: '2px solid $successSolid',
-        outlineOffset: '2px',
-      },
-    },
-    {
-      variant: 'success',
       variantType: 'outline',
       css: {
         backgroundColor: '$white',
@@ -166,18 +150,16 @@ export const StyledButton = styled('button', {
     },
     {
       variant: 'danger',
-      isFocusVisible: true,
-      css: {
-        outline: '2px solid $dangerSolid',
-        outlineOffset: '2px',
-      },
-    },
-    {
-      variant: 'danger',
       variantType: 'outline',
       css: {
         backgroundColor: '$white',
         color: '$dangerSolid',
+      },
+    },
+    {
+      isFocusVisible: true,
+      css: {
+        boxShadow: '0 0 0 2px $$outlineShadowFrom, 0 0 0 4px $$outlineShadowTo',
       },
     },
   ],
