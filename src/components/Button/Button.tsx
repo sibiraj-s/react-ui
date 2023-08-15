@@ -128,7 +128,6 @@ export const StyledButton = styled('button', {
       variant: 'primary',
       variantType: 'outline',
       css: {
-        backgroundColor: '$white',
         color: '$accentSolid',
       },
     },
@@ -136,7 +135,6 @@ export const StyledButton = styled('button', {
       variant: 'secondary',
       variantType: 'outline',
       css: {
-        backgroundColor: '$white',
         color: '$secondarySolid',
       },
     },
@@ -144,7 +142,6 @@ export const StyledButton = styled('button', {
       variant: 'success',
       variantType: 'outline',
       css: {
-        backgroundColor: '$white',
         color: '$successSolid',
       },
     },
@@ -152,8 +149,13 @@ export const StyledButton = styled('button', {
       variant: 'danger',
       variantType: 'outline',
       css: {
-        backgroundColor: '$white',
         color: '$dangerSolid',
+      },
+    },
+    {
+      variantType: 'outline',
+      css: {
+        backgroundColor: 'transparent',
       },
     },
     {
