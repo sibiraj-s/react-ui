@@ -5,7 +5,7 @@ import { styled } from 'styled-system/jsx';
 
 const StyledAlertDialogOverlay = styled(AlertDialogPrimitive.Overlay, {
   base: {
-    backgroundColor: '$whiteA3',
+    backgroundColor: 'color-mix(in srgb, white 40%, transparent)',
     position: 'fixed',
     inset: 0,
     backdropFilter: 'blur(4px)',

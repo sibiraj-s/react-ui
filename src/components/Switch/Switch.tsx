@@ -26,10 +26,10 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
     alignItems: 'center',
     width: '10',
     height: '5',
-    backgroundColor: '$neutralLine',
+    backgroundColor: '$neutralBg',
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: '$neutralBorder',
+    borderColor: '$neutralBg',
     borderRadius: 'full',
     padding: '1px',
 

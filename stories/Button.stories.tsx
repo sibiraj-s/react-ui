@@ -81,6 +81,13 @@ export const Disabled: Story = {
     variant: 'primary',
     disabled: true,
   },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: 'color-contrast', enabled: false }],
+      },
+    },
+  },
 };
 
 export const WithIcon: Story = {

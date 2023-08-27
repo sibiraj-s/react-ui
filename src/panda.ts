@@ -3,7 +3,6 @@ import { PropertyValue } from 'styled-system/types/csstype';
 
 import createTokenValues from './theme/utils/create-token-values';
 import normalize from './normalize';
-import colors from './theme/colors';
 import fonts from './theme/fonts';
 import fontSizes from './theme/font-sizes';
 import zIndices from './theme/zIndices';
@@ -13,7 +12,6 @@ export const preset = definePreset({
   theme: {
     extend: {
       tokens: {
-        colors: createTokenValues(colors),
         fontSizes: createTokenValues(fontSizes),
         zIndex: createTokenValues(zIndices),
         fonts: createTokenValues(fonts),
@@ -21,32 +19,28 @@ export const preset = definePreset({
       semanticTokens: {
         colors: createTokenValues({
           // primary shades
-          accentBase: '{colors.$indigo1}',
-          accentBgSubtle: '{colors.$indigo2}',
-          accentBg: '{colors.$indigo3}',
-          accentBgHover: '{colors.$indigo4}',
-          accentBgActive: '{colors.$indigo5}',
-          accentLine: '{colors.$indigo6}',
-          accentBorder: '{colors.$indigo7}',
-          accentBorderHover: '{colors.$indigo8}',
-          accentSolid: '{colors.$indigo9}',
-          accentSolidHover: '{colors.$indigo10}',
-          accentText: '{colors.$indigo11}',
-          accentTextContrast: '{colors.$indigo12}',
+          accentBase: '{colors.blue.100}',
+          accentBgSubtle: '{colors.blue.200}',
+          accentBg: '{colors.blue.300}',
+          accentBgHover: '{colors.blue.400}',
+          accentBgActive: '{colors.blue.500}',
+          accentLine: '{colors.blue.600}',
+          accentSolid: '{colors.blue.700}',
+          accentSolidHover: '{colors.blue.800}',
+          accentText: '{colors.blue.900}',
+          accentTextContrast: '{colors.blue.950}',
 
           // secondary shades
-          secondaryBase: '{colors.$slate1}',
-          secondaryBgSubtle: '{colors.$slate2}',
-          secondaryBg: '{colors.$slate3}',
-          secondaryBgHover: '{colors.$slate4}',
-          secondaryBgActive: '{colors.$slate5}',
-          secondaryLine: '{colors.$slate6}',
-          secondaryBorder: '{colors.$slate7}',
-          secondaryBorderHover: '{colors.$slate8}',
-          secondarySolid: '{colors.$slate9}',
-          secondarySolidHover: '{colors.$slate10}',
-          secondaryText: '{colors.$slate11}',
-          secondaryTextContrast: '{colors.$slate12}',
+          secondaryBase: '{colors.slate.100}',
+          secondaryBgSubtle: '{colors.slate.200}',
+          secondaryBg: '{colors.slate.300}',
+          secondaryBgHover: '{colors.slate.400}',
+          secondaryBgActive: '{colors.slate.500}',
+          secondaryLine: '{colors.slate.600}',
+          secondarySolid: '{colors.slate.700}',
+          secondarySolidHover: '{colors.slate.800}',
+          secondaryText: '{colors.slate.900}',
+          secondaryTextContrast: '{colors.slate.950}',
 
           // success
           successBase: '{colors.$green1}',
@@ -55,44 +49,38 @@ export const preset = definePreset({
           successBgHover: '{colors.$green4}',
           successBgActive: '{colors.$green5}',
           successLine: '{colors.$green6}',
-          successBorder: '{colors.$green7}',
-          successBorderHover: '{colors.$green8}',
-          successSolid: '{colors.$green9}',
+          successSolid: '{colors.emerald.700}',
           successSolidHover: '{colors.$green10}',
           successText: '{colors.$green11}',
           successTextContrast: '{colors.$green12}',
 
           // danger
-          dangerBase: '{colors.$tomato1}',
-          dangerBgSubtle: '{colors.$tomato2}',
-          dangerBg: '{colors.$tomato3}',
-          dangerBgHover: '{colors.$tomato4}',
-          dangerBgActive: '{colors.$tomato5}',
-          dangerLine: '{colors.$tomato6}',
-          dangerBorder: '{colors.$tomato7}',
-          dangerBorderHover: '{colors.$tomato8}',
-          dangerSolid: '{colors.$tomato9}',
-          dangerSolidHover: '{colors.$tomato10}',
-          dangerText: '{colors.$tomato11}',
-          dangerTextContrast: '{colors.$tomato12}',
+          dangerBase: '{colors.red.100}',
+          dangerBgSubtle: '{colors.red.200}',
+          dangerBg: '{colors.red.300}',
+          dangerBgHover: '{colors.red.400}',
+          dangerBgActive: '{colors.red.500}',
+          dangerLine: '{colors.red.600}',
+          dangerSolid: '{colors.red.700}',
+          dangerSolidHover: '{colors.red.800}',
+          dangerText: '{colors.red.900}',
+          dangerTextContrast: '{colors.red.950}',
 
           // primary shades
-          neutralBase: '{colors.$gray1}',
-          neutralBgSubtle: '{colors.$gray2}',
-          neutralBg: '{colors.$gray3}',
-          neutralBgHover: '{colors.$gray4}',
-          neutralBgActive: '{colors.$gray5}',
-          neutralLine: '{colors.$gray6}',
-          neutralBorder: '{colors.$gray7}',
-          neutralBorderHover: '{colors.$gray8}',
-          neutralSolid: '{colors.$gray9}',
-          neutralSolidHover: '{colors.$gray10}',
-          neutralText: '{colors.$gray11}',
-          neutralTextContrast: '{colors.$gray12}',
+          neutralBase: '{colors.gray.100}',
+          neutralBgSubtle: '{colors.gray.200}',
+          neutralBg: '{colors.gray.300}',
+          neutralBgHover: '{colors.gray.400}',
+          neutralBgActive: '{colors.gray.500}',
+          neutralLine: '{colors.gray.600}',
+          neutralSolid: '{colors.gray.700}',
+          neutralSolidHover: '{colors.gray.800}',
+          neutralText: '{colors.gray.900}',
+          neutralTextContrast: '{colors.gray.950}',
 
           // other colors
-          muted: '{colors.$gray11}',
-          body: '{colors.$gray12}',
+          muted: '{colors.gray.500}',
+          body: '{colors.gray.950}',
         }),
       },
       keyframes: {

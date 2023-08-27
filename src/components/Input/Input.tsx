@@ -35,8 +35,9 @@ const StyledInputGroup = styled('div', {
     alignItems: 'center',
     width: '100%',
     borderRadius: 'md',
-    border: '1px solid',
-    borderColor: '$neutralBorderHover',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: '$neutralBgHover',
 
     '&:focus-within': {
       outline: '1px solid',

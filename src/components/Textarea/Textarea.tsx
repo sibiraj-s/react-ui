@@ -8,8 +8,9 @@ export const StyledTextarea = styled('textarea', {
     px: '3',
     width: '100%',
     borderRadius: 'md',
-    border: '1px solid',
-    borderColor: '$neutralBorderHover',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: '$neutralBgHover',
     backgroundColor: 'transparent',
     resize: 'vertical',
 
