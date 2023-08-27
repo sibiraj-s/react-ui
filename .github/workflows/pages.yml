@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   build:
-    name: Build storybook
+    name: Build Storybook
     runs-on: ubuntu-latest
 
     steps:
@@ -44,6 +44,7 @@ jobs:
 
   deploy:
     needs: build
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
 
     permissions:
@@ -55,6 +56,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
