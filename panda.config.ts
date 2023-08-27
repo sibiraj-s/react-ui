@@ -6,6 +6,9 @@ export default defineConfig({
   // Whether to use css reset
   preflight: true,
 
+  // The namespace prefix for the generated css classes and css variables.
+  prefix: 'rxui',
+
   // Where to look for your css declarations
   include: ['./src/**/*.{js,jsx,ts,tsx}', './stories/**/*.{js,jsx,ts,tsx}'],
 
@@ -18,6 +21,9 @@ export default defineConfig({
   theme: {
     extend: {},
   },
+
+  // Whether to emit the artifacts to node_modules as a package.
+  emitPackage: false,
 
   // The output directory for your css system
   outdir: 'styled-system',
