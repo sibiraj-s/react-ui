@@ -2,10 +2,12 @@ import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { styled } from 'styled-system/jsx';
 
 import { textStyle } from '../Text';
+import { RecipeVariantProps } from 'styled-system/css';
 
 const StyledLabel = styled('label', textStyle);
 
-type LabelOwnProps = ComponentProps<typeof StyledLabel>;
+type LabelVariantProps = RecipeVariantProps<typeof textStyle>;
+type LabelOwnProps = ComponentProps<'label'> & LabelVariantProps;
 
 type LabelElement = ElementRef<typeof StyledLabel>;
 type LabelProps = LabelOwnProps;
