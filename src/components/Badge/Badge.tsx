@@ -12,7 +12,7 @@ export const Badge = styled('span', {
     fontSize: 'xs',
     fontWeight: 'medium',
     letterSpacing: 'wide',
-    lineHeight: 'snug',
+    lineHeight: 'tight',
     color: 'white',
     minWidth: '10',
     userSelect: 'none',
