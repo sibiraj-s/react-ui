@@ -9,7 +9,7 @@ const StyledAlertDialogOverlay = styled(AlertDialogPrimitive.Overlay, {
     position: 'fixed',
     inset: 0,
     backdropFilter: 'blur(4px)',
-    zIndex: '$0_5',
+    zIndex: '$0.5',
   },
 });
 
