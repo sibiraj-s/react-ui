@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Stack } from 'styled-system/jsx';
 
-import { Flex, Heading, Text } from '../index';
+import { Heading, Text } from '../index';
 
 const meta: Meta<typeof Heading> = {
   title: 'Typography/Typography',
@@ -11,7 +12,7 @@ export default meta;
 type Story = StoryObj;
 
 const Template = () => (
-  <Flex direction='c' gap='2'>
+  <Stack gap='4'>
     <Heading size='1'>h1: This is a heading level 1</Heading>
     <Heading size='2'>h2: This is a heading level 2</Heading>
     <Heading size='3'>h3: This is a heading level 3</Heading>
@@ -25,7 +26,7 @@ const Template = () => (
       dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
       deserunt mollit anim id est laborum.
     </Text>
-  </Flex>
+  </Stack>
 );
 
 export const Default: Story = {

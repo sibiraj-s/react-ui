@@ -1,5 +1,5 @@
-import { ElementRef, forwardRef } from 'react';
-import { CSS, VariantProps, styled } from '../../stitches.config';
+import { ComponentProps, ElementRef, forwardRef } from 'react';
+import { styled } from 'styled-system/jsx';
 
 export const StyledSpinner = styled('div', {
   variants: {
@@ -16,19 +16,19 @@ export const StyledSpinner = styled('div', {
     },
     size: {
       xxs: {
-        size: '$3',
+        size: '4',
       },
       xs: {
-        size: '$4',
+        size: '5',
       },
       sm: {
-        size: '$6',
+        size: '8',
       },
       md: {
-        size: '$8',
+        size: '12',
       },
       lg: {
-        size: '$12',
+        size: '14',
       },
     },
   },
@@ -39,15 +39,15 @@ export const StyledSpinner = styled('div', {
   },
 });
 
-type SpinnerVariantProps = VariantProps<typeof StyledSpinner>;
+type SpinnerVariantProps = ComponentProps<typeof StyledSpinner>;
 type SpinnerExtraProps = {
-  css?: CSS;
   strokeWidth?: number;
   percents?: number;
 };
+type SpinnerOwnProps = SpinnerVariantProps & SpinnerExtraProps;
 
 type SpinnerElementRef = ElementRef<typeof StyledSpinner>;
-type SpinnerProps = SpinnerVariantProps & SpinnerExtraProps;
+type SpinnerProps = SpinnerOwnProps;
 
 export const Spinner = forwardRef<SpinnerElementRef, SpinnerProps>((props, forwardedRef) => {
   const { strokeWidth = 10, percents = 75 } = props;

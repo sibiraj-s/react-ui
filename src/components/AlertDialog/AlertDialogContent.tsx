@@ -1,8 +1,8 @@
 import { ComponentProps, ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { motion } from 'framer-motion';
+import { styled } from 'styled-system/jsx';
 
-import { styled } from '../../stitches.config';
 import AlertDialogPortal from './AlertDialogPortal';
 import AlertDialogOverlay from './AlertDialogOverlay';
 
@@ -13,14 +13,16 @@ interface AlertDialogContentProps extends ComponentPropsWithoutRef<typeof AlertD
 }
 
 const StyledAlertDialogContent = styled(AlertDialogPrimitive.Content, {
-  zIndex: 100,
-  backgroundColor: 'white',
-  borderRadius: '$roundedSm',
-  boxShadow: '$lg',
-  position: 'fixed',
-  width: '90vw',
-  maxWidth: '32rem',
-  padding: '$4',
+  base: {
+    zIndex: '$1',
+    backgroundColor: 'white',
+    borderRadius: 'md',
+    boxShadow: 'lg',
+    position: 'fixed',
+    width: '90vw',
+    maxWidth: '32rem',
+    padding: '4',
+  },
 });
 
 const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDialogContentProps>((props, forwardedRef) => {
@@ -30,7 +32,7 @@ const AlertDialogContent = forwardRef<AlertDialogContentElement, AlertDialogCont
     <AlertDialogPortal container={container} forceMount={forceMount}>
       <AlertDialogOverlay />
       <StyledAlertDialogContent {...contentProps} ref={forwardedRef} asChild>
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>
+        <motion.div initial={{ scale: 0, opacity: 0.9 }} animate={{ scale: 1, opacity: 1 }}>
           {children}
         </motion.div>
       </StyledAlertDialogContent>

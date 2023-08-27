@@ -1,21 +1,19 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { useLink, AriaLinkOptions } from 'react-aria';
 import { useObjectRef } from '@react-aria/utils';
-
-import { styled, VariantProps, CSS } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
 
 export const StyledLink = styled('a', {
-  color: '$accentSolid',
+  base: {
+    color: 'inherit',
 
-  '&:focus-visible': {
-    outline: '$accentSolid auto 1px',
-    outlineOffset: '2px',
+    '&:focus-visible': {
+      outline: 'none',
+    },
   },
 });
 
-type LinkVariants = VariantProps<typeof StyledLink>;
-type LinkExtraProps = { css?: CSS };
-type LinkOwnProps = LinkVariants & LinkExtraProps & ComponentProps<typeof StyledLink>;
+type LinkOwnProps = ComponentProps<typeof StyledLink>;
 
 type LinkProps = LinkOwnProps & AriaLinkOptions;
 

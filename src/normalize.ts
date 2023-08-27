@@ -1,16 +1,14 @@
-import { globalCss } from './stitches.config';
+import { defineGlobalStyles } from '@pandacss/dev';
 
-const normalize = (): ReturnType<typeof globalCss> => {
-  return globalCss({
-    html: {
-      fontSize: '$html',
-    },
-    body: {
-      fontSize: '$regular',
-      fontFamily: '$body',
-      color: '$default',
-    },
-  });
-};
+const normalize = defineGlobalStyles({
+  html: {
+    fontSize: '$html',
+  },
+  body: {
+    fontSize: '$body',
+    fontFamily: '$body',
+    color: '$body',
+  },
+});
 
 export default normalize;

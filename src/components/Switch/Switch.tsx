@@ -1,35 +1,43 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 import { ElementRef, forwardRef, ComponentProps } from 'react';
 import { mergeProps, useFocusRing } from 'react-aria';
-
-import { styled, VariantProps, CSS } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
 
 const StyledThumb = styled(SwitchPrimitive.Thumb, {
-  height: '100%',
-  aspectRatio: '1 / 1',
-  backgroundColor: '$white',
-  borderRadius: '$circle',
-  transition: 'transform 300ms',
-  transform: 'translateX(0)',
-  willChange: 'transform',
+  base: {
+    height: '100%',
+    aspectRatio: '1 / 1',
+    backgroundColor: 'white',
+    borderRadius: 'full',
+    transition: 'transform 300ms',
+    transform: 'translateX(0)',
+    willChange: 'transform',
 
-  '&[data-state="checked"]': {
-    transform: 'translateX(100%)',
+    '&[data-state="checked"]': {
+      transform: 'translateX(100%)',
+    },
   },
 });
 
 const StyledSwitch = styled(SwitchPrimitive.Root, {
-  all: 'unset',
-  display: 'flex',
-  alignItems: 'center',
-  width: '$10',
-  height: '$5',
-  backgroundColor: '$neutralLine',
-  borderRadius: '$pill',
-  border: '1px solid',
-  borderColor: '$neutralBorder',
-  boxSizing: 'content-box',
-  padding: '$px',
+  base: {
+    boxSizing: 'content-box',
+    display: 'flex',
+    alignItems: 'center',
+    width: '10',
+    height: '5',
+    backgroundColor: '$neutralLine',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: '$neutralBorder',
+    borderRadius: 'full',
+    padding: '1px',
+
+    '&[data-state="checked"]': {
+      backgroundColor: 'currentColor',
+      borderColor: 'currentColor',
+    },
+  },
 
   variants: {
     variant: {
@@ -53,12 +61,12 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
     },
     size: {
       sm: {
-        width: '$8',
-        height: '$4',
+        width: '8',
+        height: '4',
       },
       lg: {
-        width: '$12',
-        height: '$6',
+        width: '12',
+        height: '6',
       },
     },
     isFocusVisible: {
@@ -69,20 +77,14 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
     },
   },
 
-  '&[data-state="checked"]': {
-    backgroundColor: 'currentColor',
-    borderColor: 'currentColor',
-  },
-
   defaultVariants: {
     variant: 'primary',
   },
 });
 
 type UserIgnoredProps = 'isFocusVisible';
-type SwitchVariants = VariantProps<typeof StyledSwitch>;
-type SwitchExtraProps = { css?: CSS };
-type SwitchOwnProps = ComponentProps<typeof StyledSwitch> & SwitchVariants & SwitchExtraProps;
+type SwitchVariants = ComponentProps<typeof StyledSwitch>;
+type SwitchOwnProps = ComponentProps<typeof StyledSwitch> & SwitchVariants;
 
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 

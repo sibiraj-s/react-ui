@@ -9,8 +9,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
-  Flex,
 } from '../index';
+import { HStack } from 'styled-system/jsx';
 
 const meta: Meta<typeof AlertDialog> = {
   title: 'Components/AlertDialog',
@@ -39,14 +39,14 @@ export const Default: Story = {
         <AlertDialogDescription>
           Are you sure? this application will no longer be accessible and any existing sessions will be expired.
         </AlertDialogDescription>
-        <Flex gap='2' justify='end' mt='$4'>
+        <HStack gap='2' justify='end' mt='4'>
           <AlertDialogCancel>
             <Button variant='secondary'>Cancel</Button>
           </AlertDialogCancel>
           <AlertDialogAction>
             <Button variant='danger'>Revoke access</Button>
           </AlertDialogAction>
-        </Flex>
+        </HStack>
       </AlertDialogContent>
     </AlertDialog>
   ),

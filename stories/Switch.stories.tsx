@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ComponentProps } from '@stitches/react';
+import { ComponentProps } from 'react';
+import { HStack } from 'styled-system/jsx';
 
-import { Switch, Flex } from '../index';
+import { Switch } from '../index';
 import { disableControls } from './utils';
 
 const meta: Meta<typeof Switch> = {
@@ -21,11 +22,11 @@ export default meta;
 type Story = StoryObj<typeof Switch>;
 
 const Template = (args: ComponentProps<typeof Switch>) => (
-  <Flex align='center' spacing='md'>
+  <HStack gap='4'>
     <Switch {...args} size='sm' />
     <Switch {...args} />
     <Switch {...args} size='lg' />
-  </Flex>
+  </HStack>
 );
 
 export const Default: Story = {

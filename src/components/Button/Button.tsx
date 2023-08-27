@@ -1,24 +1,27 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
+import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { AriaButtonProps, useButton, useFocusRing } from 'react-aria';
 import { useObjectRef, mergeProps } from '@react-aria/utils';
 import { Slot } from '@radix-ui/react-slot';
+import { RecipeVariantProps, cva, cx } from 'styled-system/css';
 
-import { styled, VariantProps, CSS } from '../../stitches.config';
-
-export const StyledButton = styled('button', {
-  all: 'unset',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: '1px solid',
-  gap: '$2',
-  borderRadius: '$rounded',
-  fontWeight: '$semiBold',
-  padding: '$1_5 $3',
-  userSelect: 'none',
-  whiteSpace: 'nowrap',
-  textAlign: 'center',
-  cursor: 'default',
+const buttonStyle = cva({
+  base: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderRadius: 'md',
+    gap: '2',
+    fontWeight: 'semibold',
+    py: '1.5',
+    px: '3',
+    userSelect: 'none',
+    outline: 'none',
+    whiteSpace: 'nowrap',
+    textAlign: 'center',
+    cursor: 'default',
+  },
 
   // variants
   variants: {
@@ -26,29 +29,31 @@ export const StyledButton = styled('button', {
       solid: {},
       outline: {
         '&:hover': {
-          color: '$white',
+          color: 'white',
         },
       },
     },
     size: {
       sm: {
-        padding: '$1 $2',
-        borderRadius: '$roundedSm',
-        fontSize: '$sm',
+        py: '1',
+        px: '2',
+        borderRadius: 'sm',
+        fontSize: 'sm',
       },
       xs: {
-        padding: '0 $1_5',
-        borderRadius: '$roundedSm',
-        fontSize: '$sm',
+        py: '0',
+        px: '1.5',
+        borderRadius: 'sm',
+        fontSize: 'sm',
       },
     },
     variant: {
       primary: {
-        color: '$white',
+        color: 'white',
         backgroundColor: '$accentSolid',
         borderColor: '$accentSolid',
-        $$outlineShadowFrom: '$colors$accentBgSubtle',
-        $$outlineShadowTo: '$colors$accentSolid',
+        '--outline-shadowFrom': 'colors.$accentBgSubtle',
+        '--outline-shadowTo': 'colors.$accentSolid',
 
         '&:hover': {
           backgroundColor: '$accentSolidHover',
@@ -61,11 +66,11 @@ export const StyledButton = styled('button', {
         },
       },
       secondary: {
-        color: '$white',
+        color: 'white',
         backgroundColor: '$secondarySolid',
         borderColor: '$secondarySolid',
-        $$outlineShadowFrom: '$colors$secondaryBgSubtle',
-        $$outlineShadowTo: '$colors$secondarySolid',
+        '--outline-shadowFrom': 'colors.$secondaryBgSubtle',
+        '--outline-shadowTo': 'colors.$secondarySolid',
 
         '&:hover': {
           backgroundColor: '$secondarySolidHover',
@@ -78,11 +83,11 @@ export const StyledButton = styled('button', {
         },
       },
       success: {
-        color: '$white',
+        color: 'white',
         backgroundColor: '$successSolid',
         borderColor: '$successSolid',
-        $$outlineShadowFrom: '$colors$successBgSubtle',
-        $$outlineShadowTo: '$colors$successSolid',
+        '--outline-shadowFrom': 'colors.$successBgSubtle',
+        '--outline-shadowTo': 'colors.$successSolid',
 
         '&:hover': {
           backgroundColor: '$successSolidHover',
@@ -95,11 +100,11 @@ export const StyledButton = styled('button', {
         },
       },
       danger: {
-        color: '$white',
+        color: 'white',
         backgroundColor: '$dangerSolid',
         borderColor: '$dangerSolid',
-        $$outlineShadowFrom: '$colors$dangerBgSubtle',
-        $$outlineShadowTo: '$colors$dangerSolid',
+        '--outline-shadowFrom': 'colors.$dangerBgSubtle',
+        '--outline-shadowTo': 'colors.$dangerSolid',
 
         '&:hover': {
           backgroundColor: '$dangerSolidHover',
@@ -161,7 +166,7 @@ export const StyledButton = styled('button', {
     {
       isFocusVisible: true,
       css: {
-        boxShadow: '0 0 0 2px $$outlineShadowFrom, 0 0 0 4px $$outlineShadowTo',
+        boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
       },
     },
   ],
@@ -172,39 +177,38 @@ export const StyledButton = styled('button', {
   },
 });
 
-type UserIgnoredProps = 'isFocusVisible';
-type ButtonVariants = VariantProps<typeof StyledButton>;
-type ButtonExtraProps = { css?: CSS; asChild?: boolean };
-type ButtonOwnProps = Omit<ButtonVariants, UserIgnoredProps> & ButtonExtraProps;
+type ButtonVariantProps = RecipeVariantProps<typeof buttonStyle>;
+type ButtonExtraProps = { asChild?: boolean };
+type ButtonOwnProps = ButtonVariantProps & ButtonExtraProps & ComponentProps<'button'>;
 
-type ButtonProps = AriaButtonProps & ComponentPropsWithoutRef<'button'> & ButtonOwnProps;
+type ButtonElement = ElementRef<'button'>;
+type ButtonProps = AriaButtonProps & ButtonOwnProps;
 
-export const Button = forwardRef<ElementRef<'button'>, ButtonProps>((props, forwardedRef) => {
-  const { asChild, variant, variantType, size, css, children, ...rest } = props;
-
-  const variantProps = { variant, variantType, size, css, disabled: props.disabled };
-  const Comp = asChild ? Slot : 'button';
+export const Button = forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
+  const { asChild, children, className, ...rest } = props;
 
   const buttonRef = useObjectRef(forwardedRef);
   const { isFocusVisible, focusProps } = useFocusRing();
 
+  const Component = asChild ? Slot : 'button';
+  const [variantProps] = buttonStyle.splitVariantProps(props);
+
   const { buttonProps } = useButton(
     {
       ...rest,
-      elementType: Comp,
+      elementType: Component,
     },
     buttonRef
   );
 
   return (
-    <StyledButton
-      {...mergeProps(buttonProps, focusProps, variantProps)}
-      isFocusVisible={isFocusVisible}
+    <Component
+      className={cx(buttonStyle({ ...variantProps, isFocusVisible }), className)}
+      {...mergeProps(buttonProps, focusProps)}
       ref={buttonRef}
-      as={Comp}
     >
       {children}
-    </StyledButton>
+    </Component>
   );
 });
 

@@ -1,8 +1,8 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { AriaTextFieldProps, useTextField } from 'react-aria';
 import { useObjectRef } from '@react-aria/utils';
+import { Stack } from 'styled-system/jsx';
 
-import { Flex } from '../../layouts';
 import Label from '../Label';
 import Input from '../Input';
 import Text from '../Text';
@@ -17,7 +17,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
   const { labelProps, inputProps, descriptionProps, errorMessageProps } = useTextField(rest, inputRef);
 
   return (
-    <Flex direction='c' spacing='xs'>
+    <Stack gap='1'>
       <Label {...labelProps}>{props.label}</Label>
       <Input {...inputProps} ref={inputRef} isInvalid={props.isInvalid} prepend={prepend} append={append} />
       {props.description && (
@@ -30,7 +30,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
           {props.errorMessage}
         </Text>
       )}
-    </Flex>
+    </Stack>
   );
 });
 

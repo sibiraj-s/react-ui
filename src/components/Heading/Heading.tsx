@@ -1,21 +1,11 @@
 import { ComponentPropsWithoutRef, forwardRef } from 'react';
-
-import { StyledText } from '../Text';
-import { styled, VariantProps, CSS } from '../../stitches.config';
 import { Slot } from '@radix-ui/react-slot';
+import { RecipeVariantProps } from 'styled-system/css';
 
-export const StyledHeading = styled(StyledText, {
-  lineHeight: '$2',
-  marginBottom: '$2',
+import { textStyle } from '../Text';
 
-  defaultVariants: {
-    size: '1',
-    weight: 'bold',
-  },
-});
-
-type HeadingVariants = VariantProps<typeof StyledText>;
-type HeadingExtraProps = { css?: CSS; asChild?: boolean };
+type HeadingVariants = RecipeVariantProps<typeof textStyle>;
+type HeadingExtraProps = { asChild?: boolean };
 type HeadingOwnProps = HeadingVariants & HeadingExtraProps;
 
 type HeadingProps = HeadingOwnProps & ComponentPropsWithoutRef<'h1'>;
@@ -23,10 +13,14 @@ type HeadingProps = HeadingOwnProps & ComponentPropsWithoutRef<'h1'>;
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, forwardedRef) => {
   const { asChild, ...rest } = props;
 
-  const tag = props.size ? `h${rest.size}` : 'h1';
-  const Comp = asChild ? Slot : tag;
+  const tag = rest.size ? `h${rest.size}` : 'h1';
 
-  return <StyledHeading as={Comp} {...rest} ref={forwardedRef} />;
+  const [variantProps] = textStyle.splitVariantProps(props);
+  const Component = asChild ? Slot : tag;
+
+  return (
+    <Component className={textStyle({ size: '1', weight: 'bold', ...variantProps })} {...rest} ref={forwardedRef} />
+  );
 });
 
 Heading.displayName = 'Heading';

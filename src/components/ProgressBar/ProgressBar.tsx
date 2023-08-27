@@ -1,16 +1,18 @@
-import { FC } from 'react';
+import { ComponentProps, FC } from 'react';
 import { motion } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
-
-import { VariantProps, keyframes, styled } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
+import { cva } from 'styled-system/css';
 
 const Bar = styled('div', {
-  width: '100%',
-  border: '1px solid',
-  height: '1.5rem',
-  borderRadius: '$rounded',
-  overflow: 'hidden',
-  borderColor: 'CurrentColor',
+  base: {
+    width: '100%',
+    border: '1px solid',
+    height: '1.5rem',
+    borderRadius: 'md',
+    overflow: 'hidden',
+    borderColor: 'currentcolor',
+  },
 
   variants: {
     variant: {
@@ -33,14 +35,11 @@ const Bar = styled('div', {
   },
 });
 
-const progressStripes = keyframes({
-  '0%': { backgroundPosition: '1rem 0' },
-  '100%': { backgroundPosition: '0 0' },
-});
-
-const BarFiling = styled(motion.div, {
-  backgroundColor: 'CurrentColor',
-  height: '100%',
+const barFilingStyle = cva({
+  base: {
+    backgroundColor: 'currentColor',
+    height: '100%',
+  },
 
   variants: {
     striped: {
@@ -59,7 +58,7 @@ const BarFiling = styled(motion.div, {
       striped: true,
       animated: true,
       css: {
-        animation: `${progressStripes} 1s linear infinite`,
+        animation: `stripedBg 1s linear infinite`,
       },
     },
   ],
@@ -71,9 +70,9 @@ interface ProgressBarProps {
   max?: number;
   duration?: number;
   delay?: number;
-  variant?: VariantProps<typeof Bar>['variant'];
-  striped?: VariantProps<typeof BarFiling>['striped'];
-  animated?: VariantProps<typeof BarFiling>['animated'];
+  variant?: ComponentProps<typeof Bar>['variant'];
+  striped?: boolean;
+  animated?: boolean;
 }
 
 const getValidPercents = (value: number, min: number, max: number): number => {
@@ -97,11 +96,11 @@ const ProgressBar: FC<ProgressBarProps> = ({
   duration = 3,
   delay = 0.5,
   variant,
-  striped = false,
-  animated = false,
+  ...rest
 }) => {
   const percents = getValidPercents(value, min, max);
   const barWidth = `${percents}%`;
+  const [barFilingVariantProps] = barFilingStyle.splitVariantProps(rest);
 
   const { progressBarProps } = useProgressBar({
     value,
@@ -112,14 +111,13 @@ const ProgressBar: FC<ProgressBarProps> = ({
 
   return (
     <Bar {...progressBarProps} variant={variant}>
-      <BarFiling
+      <motion.div
+        className={barFilingStyle(barFilingVariantProps)}
         initial={{ width: 0 }}
         animate={{
           width: barWidth,
         }}
         transition={{ duration, delay }}
-        striped={striped}
-        animated={animated}
       />
     </Bar>
   );

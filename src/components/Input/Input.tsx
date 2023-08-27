@@ -1,43 +1,48 @@
 import { ComponentProps, ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from 'react';
 
-import { styled, VariantProps, CSS } from '../../stitches.config';
 import { useObjectRef } from '@react-aria/utils';
+import { styled } from 'styled-system/jsx';
 
 export const StyledInput = styled('input', {
-  flex: 1,
-  display: 'block',
-  padding: '$1_5 $3',
-  borderRadius: '$rounded',
-  border: 'none',
-  outline: 'none',
-  backgroundColor: 'transparent',
+  base: {
+    flex: 1,
+    display: 'block',
+    py: '1.5',
+    px: '3',
+    borderRadius: 'md',
+    border: 'none',
+    outline: 'none',
+    backgroundColor: 'transparent',
+  },
 
   variants: {
     prepend: {
       true: {
-        paddingLeft: '$0_5',
+        paddingLeft: '0.5',
       },
     },
     append: {
       true: {
-        paddingRight: '$0_5',
+        paddingRight: '0.5',
       },
     },
   },
 });
 
 const StyledInputGroup = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  width: '100%',
-  borderRadius: '$rounded',
-  border: '1px solid',
-  borderColor: '$neutralBorderHover',
+  base: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    borderRadius: 'md',
+    border: '1px solid',
+    borderColor: '$neutralBorderHover',
 
-  '&:focus-within': {
-    outline: '1px solid',
-    outlineColor: '$accentSolid',
-    borderColor: '$accentSolid',
+    '&:focus-within': {
+      outline: '1px solid',
+      outlineColor: '$accentSolid',
+      borderColor: '$accentSolid',
+    },
   },
 
   variants: {
@@ -55,16 +60,18 @@ const StyledInputGroup = styled('div', {
 });
 
 const StyledInputGroupItem = styled('div', {
-  display: 'flex',
-  padding: '0 $2',
+  base: {
+    display: 'flex',
+    py: '0',
+    px: '2',
+  },
 });
 
-type InputVariants = VariantProps<typeof StyledInput>;
+type InputVariants = ComponentProps<typeof StyledInput>;
 type InputExtraProps = {
-  css?: CSS;
   prepend?: ReactElement[] | ReactElement;
   append?: ReactElement[] | ReactElement;
-  isInvalid: VariantProps<typeof StyledInputGroup>['isInvalid'];
+  isInvalid: ComponentProps<typeof StyledInputGroup>['isInvalid'];
 };
 
 type InputOwnProps = Omit<InputVariants, 'prepend' | 'append'> & InputExtraProps;

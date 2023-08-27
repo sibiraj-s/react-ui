@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ComponentProps } from '@stitches/react';
+import { ComponentProps } from 'react';
+import { HStack } from 'styled-system/jsx';
 
-import { Spinner, Flex } from '../index';
+import { Spinner } from '../index';
 
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
@@ -18,13 +19,13 @@ export default meta;
 type Story = StoryObj<typeof Spinner>;
 
 const Template = (args: ComponentProps<typeof Spinner>) => (
-  <Flex align='center' spacing='md'>
+  <HStack gap='4'>
     <Spinner {...args} size='xxs' />
     <Spinner {...args} size='xs' />
     <Spinner {...args} size='sm' />
     <Spinner {...args} />
     <Spinner {...args} size='lg' />
-  </Flex>
+  </HStack>
 );
 
 export const Default: Story = {

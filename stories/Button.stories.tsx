@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ComponentProps } from '@stitches/react';
+import { ComponentProps } from 'react';
 import { BookmarkIcon } from '@radix-ui/react-icons';
+import { HStack } from 'styled-system/jsx';
 
-import { Button, Flex, Link } from '../index';
+import { Button, Link } from '../index';
 import { disableControls } from './utils';
 
 const meta: Meta<typeof Button> = {
@@ -25,7 +26,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const Template = (args: ComponentProps<typeof Button>) => (
-  <Flex spacing='md' align='center'>
+  <HStack gap='3'>
     <Button {...args} size='xs'>
       Extra Small Button
     </Button>
@@ -41,7 +42,7 @@ const Template = (args: ComponentProps<typeof Button>) => (
         Visit Github (Link Button)
       </Link>
     </Button>
-  </Flex>
+  </HStack>
 );
 
 const Default: Story = {

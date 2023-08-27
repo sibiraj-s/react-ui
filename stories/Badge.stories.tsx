@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ComponentProps } from '@stitches/react';
+import { ComponentProps } from 'react';
+import { HStack } from 'styled-system/jsx';
 
-import { Badge, Flex } from '../index';
+import { Badge } from '../index';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
@@ -18,7 +19,7 @@ export default meta;
 type Story = StoryObj<typeof Badge>;
 
 const Template = (args: ComponentProps<typeof Badge>) => (
-  <Flex spacing='sm' align='center'>
+  <HStack gap='2'>
     <Badge {...args}>Premium</Badge>
     <Badge {...args} variant='secondary'>
       Pro
@@ -29,7 +30,7 @@ const Template = (args: ComponentProps<typeof Badge>) => (
     <Badge {...args} variant='danger'>
       Danger Zone!
     </Badge>
-  </Flex>
+  </HStack>
 );
 
 export const Default: Story = {

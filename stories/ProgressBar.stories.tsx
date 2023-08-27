@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { Flex, ProgressBar } from '../index';
+import { ProgressBar } from '../index';
+import { HStack, Stack } from 'styled-system/jsx';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Components/ProgressBar',
@@ -21,9 +22,9 @@ export const Default: Story = {
   },
   render: (args) => {
     return (
-      <Flex css={{ width: '70%' }}>
+      <HStack css={{ width: '70%' }}>
         <ProgressBar {...args} />
-      </Flex>
+      </HStack>
     );
   },
 };
@@ -61,13 +62,13 @@ export const Variants: Story = {
   },
   render: (args) => {
     return (
-      <Flex css={{ width: '70%' }} direction='c' gap='8'>
+      <Stack css={{ width: '70%' }} gap='8'>
         <ProgressBar {...args} value={rand()} variant='success' />
         <ProgressBar {...args} value={rand()} variant='primary' />
         <ProgressBar {...args} value={rand()} variant='danger' />
         <ProgressBar {...args} value={rand()} variant='muted' />
         <ProgressBar {...args} value={rand()} />
-      </Flex>
+      </Stack>
     );
   },
 };

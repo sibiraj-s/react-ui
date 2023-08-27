@@ -1,12 +1,15 @@
-import { type FC, useRef } from 'react';
+import { type FC, useRef, ComponentProps } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
 
 import Counter from './Counter';
-import { VariantProps, styled } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
+import { css, cva } from 'styled-system/css';
 
 const StyledContainer = styled('div', {
-  position: 'relative',
+  base: {
+    position: 'relative',
+  },
   variants: {
     variant: {
       primary: {
@@ -29,24 +32,30 @@ const StyledContainer = styled('div', {
 });
 
 const StyledCounterContainer = styled('label', {
-  position: 'absolute',
-  size: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
-  fontWeight: '$semiBold',
+  base: {
+    position: 'absolute',
+    size: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
+    fontWeight: 'semibold',
+  },
 });
 
 const StyledCircle = styled('circle', {
-  stroke: 'CurrentColor',
-  strokeOpacity: 0.1,
-  fill: 'transparent',
+  base: {
+    stroke: 'currentColor',
+    strokeOpacity: 0.1,
+    fill: 'transparent',
+  },
 });
 
-const StyledProgressCircle = styled(motion.circle, {
-  stroke: 'CurrentColor',
-  fill: 'transparent',
+const progressCircleStyle = cva({
+  base: {
+    stroke: 'currentColor',
+    fill: 'transparent',
+  },
 });
 
 interface ProgressCircleProps {
@@ -58,7 +67,7 @@ interface ProgressCircleProps {
   spin?: boolean;
   size?: number;
   strokeWidth?: number;
-  variant?: VariantProps<typeof StyledContainer>['variant'];
+  variant?: ComponentProps<typeof StyledContainer>['variant'];
 }
 
 const getPercents = (value: number, min: number, max: number): number => {
@@ -123,10 +132,11 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
 
   return (
     <StyledContainer
-      css={{ size, '--rx-progress-circle-size': `${size}px` }}
-      ref={ref}
       {...progressBarProps}
+      className={css({ size: `${size}px`, '--rx-progress-circle-size': `${size}px` })}
+      ref={ref}
       variant={variant}
+      id='container'
     >
       <StyledCounterContainer {...labelProps}>
         <Counter from={0} to={percents} duration={duration + delay} />%
@@ -134,7 +144,8 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
 
       <svg viewBox={`0 0 ${size} ${size}`} version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
         <StyledCircle role='presentation' cx={center} cy={center} r={radius} strokeWidth={strokeWidth} />
-        <StyledProgressCircle
+        <motion.circle
+          className={progressCircleStyle()}
           role='presentation'
           cx={center}
           cy={center}
@@ -158,7 +169,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
               repeatCount='indefinite'
             />
           )}
-        </StyledProgressCircle>
+        </motion.circle>
       </svg>
     </StyledContainer>
   );

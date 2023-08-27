@@ -1,37 +1,33 @@
-import { ComponentPropsWithRef, ElementRef, forwardRef } from 'react';
-
-import { styled, VariantProps, CSS } from '../../stitches.config';
+import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
+import { RecipeVariantProps, cva, cx } from 'styled-system/css';
 
-export const StyledText = styled('p', {
+export const textStyle = cva({
   variants: {
     size: {
-      regular: {
-        fontSize: '$regular',
-      },
       sm: {
-        fontSize: '$sm',
+        fontSize: 'sm',
       },
       xs: {
-        fontSize: '$xs',
+        fontSize: 'xs',
       },
       '1': {
-        fontSize: '$xxxxl',
+        fontSize: '4xl',
       },
       '2': {
-        fontSize: '$xxxl',
+        fontSize: '3xl',
       },
       '3': {
-        fontSize: '$xxl',
+        fontSize: '2xl',
       },
       '4': {
-        fontSize: '$xl',
+        fontSize: 'xl',
       },
       '5': {
-        fontSize: '$l',
+        fontSize: 'lg',
       },
       '6': {
-        fontSize: '$regular',
+        fontSize: '$base',
       },
     },
     variant: {
@@ -53,29 +49,29 @@ export const StyledText = styled('p', {
     },
     weight: {
       bold: {
-        fontWeight: '$bold',
+        fontWeight: 'bold',
       },
     },
   },
-  defaultVariants: {
-    size: 'regular',
-  },
 });
 
-type TextVariants = Omit<VariantProps<typeof StyledText>, 'as'>;
-type TextExtraProps = { css?: CSS; asChild?: boolean };
-type TextOwnProps = TextVariants & TextExtraProps & ComponentPropsWithRef<'p'>;
+type TextExtraProps = { asChild?: boolean };
+type TextVariantProps = RecipeVariantProps<typeof textStyle>;
+type TextOwnProps = TextVariantProps & ComponentProps<'p'> & TextExtraProps;
 
-type TextProps = TextOwnProps & ComponentPropsWithRef<'p'>;
+type TextElement = ElementRef<'p'>;
+type TextProps = TextOwnProps;
 
-export const Text = forwardRef<ElementRef<typeof StyledText>, TextProps>((props, forwardedRef) => {
-  const { asChild = false, children, ...rest } = props;
+export const Text = forwardRef<TextElement, TextProps>((props, forwardedRef) => {
+  const { asChild, children, className, ...rest } = props;
+
+  const [variantProps] = textStyle.splitVariantProps(props);
   const Component = asChild ? Slot : 'p';
 
   return (
-    <StyledText as={Component} {...rest} ref={forwardedRef}>
+    <Component className={cx(textStyle(variantProps), className)} {...rest} ref={forwardedRef}>
       {children}
-    </StyledText>
+    </Component>
   );
 });
 

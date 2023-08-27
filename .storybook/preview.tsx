@@ -1,16 +1,5 @@
-import { Decorator, Parameters } from '@storybook/react';
-import { normalize, reset } from '../index';
-
-const resetStyles = reset();
-const normalizeStyles = normalize();
-
-export const decorators: Decorator[] = [
-  (Story) => {
-    resetStyles();
-    normalizeStyles();
-    return <>{Story()}</>;
-  },
-];
+import { Parameters } from '@storybook/react';
+import '../src/index.css';
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

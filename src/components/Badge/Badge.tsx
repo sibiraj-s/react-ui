@@ -1,19 +1,22 @@
-import { styled } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
 
 export const Badge = styled('span', {
-  display: 'inline-block',
-  border: '1px solid',
-  borderRadius: '$roundedSm',
-  padding: '$0_5 $1_5',
-  whiteSpace: 'nowrap',
-  textAlign: 'center',
-  fontSize: '$xs',
-  fontWeight: '$medium',
-  letterSpacing: '$space',
-  lineHeight: '$sm',
-  color: '$white',
-  minWidth: '$10',
-  userSelect: 'none',
+  base: {
+    display: 'inline-block',
+    borderWidth: '1px',
+    borderRadius: 'sm',
+    py: '0.5',
+    px: '1.5',
+    whiteSpace: 'nowrap',
+    textAlign: 'center',
+    fontSize: 'xs',
+    fontWeight: 'medium',
+    letterSpacing: 'wide',
+    lineHeight: 'snug',
+    color: 'white',
+    minWidth: '10',
+    userSelect: 'none',
+  },
 
   // variants
   variants: {

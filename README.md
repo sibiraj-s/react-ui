@@ -1,6 +1,6 @@
 # React UI
 
-> My React UI Components using [stitches] and utilities
+> React UI Components and utilities, built with [panda css][panda]
 
 ## Usage
 
@@ -38,18 +38,8 @@ npm run dev
 - ProgressBar
 - ProgressCircle
 
-### Layout
-
-- Box
-- Flex
-- Grid
-
 ### Hooks
 
 - useConst
 
-### Keyframes
-
-- Spinner
-
-[stitches]: https://stitches.dev
+[panda]: https://panda-css.com/

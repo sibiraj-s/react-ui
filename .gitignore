@@ -454,3 +454,7 @@ $RECYCLE.BIN/
 
 # and uncomment the following lines
 # .pnp.*
+
+### Panda CSS ###
+styled-system/
+styled-system-studio/

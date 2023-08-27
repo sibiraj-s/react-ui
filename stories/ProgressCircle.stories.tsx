@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { Flex, ProgressCircle } from '../index';
+import { ProgressCircle } from '../index';
+import { HStack } from 'styled-system/jsx';
 
 const meta: Meta<typeof ProgressCircle> = {
   title: 'Components/ProgressCircle',
@@ -43,13 +44,13 @@ export const Variants: Story = {
   },
   render: (args) => {
     return (
-      <Flex gap='4'>
+      <HStack gap='4'>
         <ProgressCircle {...args} value={rand()} />
         <ProgressCircle {...args} value={rand()} variant='primary' />
         <ProgressCircle {...args} value={rand()} variant='danger' />
         <ProgressCircle {...args} value={rand()} variant='muted' />
         <ProgressCircle {...args} value={rand()} variant='success' />
-      </Flex>
+      </HStack>
     );
   },
 };

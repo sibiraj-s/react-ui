@@ -1,15 +1,16 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { motion } from 'framer-motion';
-
-import { styled } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
 
 const StyledAlertDialogOverlay = styled(AlertDialogPrimitive.Overlay, {
-  backgroundColor: '$whiteA3',
-  position: 'fixed',
-  inset: 0,
-  backdropFilter: 'blur(4px)',
-  zIndex: 50,
+  base: {
+    backgroundColor: '$whiteA3',
+    position: 'fixed',
+    inset: 0,
+    backdropFilter: 'blur(4px)',
+    zIndex: '$0_5',
+  },
 });
 
 const AlertDialogOverlay = forwardRef<

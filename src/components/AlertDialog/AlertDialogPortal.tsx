@@ -1,14 +1,15 @@
 import { type FC } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
-
-import { styled } from '../../stitches.config';
+import { styled } from 'styled-system/jsx';
 
 const StyledPortalContainer = styled('div', {
-  position: 'fixed',
-  inset: 0,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  base: {
+    position: 'fixed',
+    inset: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 const AlertDialogPortal: FC<AlertDialogPrimitive.AlertDialogPortalProps> = ({ children, ...props }) => (
