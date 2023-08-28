@@ -86,9 +86,10 @@ type UserIgnoredProps = 'isFocusVisible';
 type SwitchVariants = ComponentProps<typeof StyledSwitch>;
 type SwitchOwnProps = SwitchVariants;
 
+type SwithElement = ElementRef<typeof StyledSwitch>;
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 
-export const Switch = forwardRef<ElementRef<typeof StyledSwitch>, SwitchProps>((props, ref) => {
+export const Switch = forwardRef<SwithElement, SwitchProps>((props, ref) => {
   const { isFocusVisible, focusProps } = useFocusRing();
 
   return (
