@@ -84,7 +84,7 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
 
 type UserIgnoredProps = 'isFocusVisible';
 type SwitchVariants = ComponentProps<typeof StyledSwitch>;
-type SwitchOwnProps = ComponentProps<typeof StyledSwitch> & SwitchVariants;
+type SwitchOwnProps = SwitchVariants;
 
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 
