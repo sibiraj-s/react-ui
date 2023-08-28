@@ -55,7 +55,7 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
       true: {
         opacity: 0.7,
         pointerEvents: 'none',
-        borderColor: '$neutralLine',
+        borderColor: '$neutralBg',
         backgroundColor: '$neutralBg',
       },
     },
