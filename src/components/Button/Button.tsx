@@ -53,7 +53,7 @@ const buttonStyle = cva({
         color: 'white',
         backgroundColor: '$accentSolid',
         borderColor: '$accentSolid',
-        '--outline-shadowFrom': 'colors.$accentBgSubtle',
+        '--outline-shadowFrom': 'colors.$accentBase',
         '--outline-shadowTo': 'colors.$accentSolid',
 
         _hover: {
@@ -70,7 +70,7 @@ const buttonStyle = cva({
         color: 'white',
         backgroundColor: '$secondarySolid',
         borderColor: '$secondarySolid',
-        '--outline-shadowFrom': 'colors.$secondaryBgSubtle',
+        '--outline-shadowFrom': 'colors.$secondaryBase',
         '--outline-shadowTo': 'colors.$secondarySolid',
 
         _hover: {
@@ -87,7 +87,7 @@ const buttonStyle = cva({
         color: 'white',
         backgroundColor: '$successSolid',
         borderColor: '$successSolid',
-        '--outline-shadowFrom': 'colors.$successBgSubtle',
+        '--outline-shadowFrom': 'colors.$successBase',
         '--outline-shadowTo': 'colors.$successSolid',
 
         _hover: {
@@ -104,7 +104,7 @@ const buttonStyle = cva({
         color: 'white',
         backgroundColor: '$dangerSolid',
         borderColor: '$dangerSolid',
-        '--outline-shadowFrom': 'colors.$dangerBgSubtle',
+        '--outline-shadowFrom': 'colors.$dangerBase',
         '--outline-shadowTo': 'colors.$dangerSolid',
 
         _hover: {
