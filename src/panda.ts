@@ -43,16 +43,16 @@ export const preset = definePreset({
           secondaryTextContrast: '{colors.slate.950}',
 
           // success
-          successBase: '{colors.$green1}',
-          successBgSubtle: '{colors.$green2}',
-          successBg: '{colors.$green3}',
-          successBgHover: '{colors.$green4}',
-          successBgActive: '{colors.$green5}',
-          successLine: '{colors.$green6}',
+          successBase: '{colors.green.100}',
+          successBgSubtle: '{colors.green.200}',
+          successBg: '{colors.green.300}',
+          successBgHover: '{colors.green.400}',
+          successBgActive: '{colors.green.500}',
+          successLine: '{colors.green.600}',
           successSolid: '{colors.emerald.700}',
-          successSolidHover: '{colors.$green10}',
-          successText: '{colors.$green11}',
-          successTextContrast: '{colors.$green12}',
+          successSolidHover: '{colors.green.800}',
+          successText: '{colors.green.900}',
+          successTextContrast: '{colors.green.950}',
 
           // danger
           dangerBase: '{colors.red.100}',
