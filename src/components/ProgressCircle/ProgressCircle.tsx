@@ -1,10 +1,10 @@
 import { type FC, useRef, ComponentProps } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
-
-import Counter from './Counter';
 import { styled } from 'styled-system/jsx';
 import { css, cva } from 'styled-system/css';
+
+import Counter from './Counter';
 
 const StyledContainer = styled('div', {
   base: {
