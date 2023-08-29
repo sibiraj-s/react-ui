@@ -1,8 +1,9 @@
-import { ComponentProps, ElementRef, forwardRef } from 'react';
+import { ElementRef, forwardRef } from 'react';
 import { AriaButtonProps, useButton, useFocusRing } from 'react-aria';
 import { useObjectRef, mergeProps } from '@react-aria/utils';
 import { Slot } from '@radix-ui/react-slot';
 import { RecipeVariantProps, cva, cx } from 'styled-system/css';
+import { HTMLStyledProps } from 'styled-system/jsx';
 
 const buttonStyle = cva({
   base: {
@@ -28,7 +29,7 @@ const buttonStyle = cva({
     variantType: {
       solid: {},
       outline: {
-        '&:hover': {
+        _hover: {
           color: 'white',
         },
       },
@@ -55,12 +56,12 @@ const buttonStyle = cva({
         '--outline-shadowFrom': 'colors.$accentBgSubtle',
         '--outline-shadowTo': 'colors.$accentSolid',
 
-        '&:hover': {
+        _hover: {
           backgroundColor: '$accentSolidHover',
           borderColor: '$accentSolidHover',
         },
 
-        '&:active': {
+        _active: {
           backgroundColor: '$accentSolidHover',
           borderColor: '$accentSolidHover',
         },
@@ -72,12 +73,12 @@ const buttonStyle = cva({
         '--outline-shadowFrom': 'colors.$secondaryBgSubtle',
         '--outline-shadowTo': 'colors.$secondarySolid',
 
-        '&:hover': {
+        _hover: {
           backgroundColor: '$secondarySolidHover',
           borderColor: '$secondarySolidHover',
         },
 
-        '&:active': {
+        _active: {
           backgroundColor: '$secondarySolidHover',
           borderColor: '$secondarySolidHover',
         },
@@ -89,12 +90,12 @@ const buttonStyle = cva({
         '--outline-shadowFrom': 'colors.$successBgSubtle',
         '--outline-shadowTo': 'colors.$successSolid',
 
-        '&:hover': {
+        _hover: {
           backgroundColor: '$successSolidHover',
           borderColor: '$successSolidHover',
         },
 
-        '&:active': {
+        _active: {
           backgroundColor: '$successSolidHover',
           borderColor: '$successSolidHover',
         },
@@ -106,12 +107,12 @@ const buttonStyle = cva({
         '--outline-shadowFrom': 'colors.$dangerBgSubtle',
         '--outline-shadowTo': 'colors.$dangerSolid',
 
-        '&:hover': {
+        _hover: {
           backgroundColor: '$dangerSolidHover',
           borderColor: '$dangerSolidHover',
         },
 
-        '&:active': {
+        _active: {
           backgroundColor: '$dangerSolidHover',
           borderColor: '$dangerSolidHover',
         },
@@ -179,7 +180,7 @@ const buttonStyle = cva({
 
 type ButtonVariantProps = RecipeVariantProps<typeof buttonStyle>;
 type ButtonExtraProps = { asChild?: boolean };
-type ButtonOwnProps = ButtonVariantProps & ButtonExtraProps & ComponentProps<'button'>;
+type ButtonOwnProps = ButtonVariantProps & ButtonExtraProps & HTMLStyledProps<'button'>;
 
 type ButtonElement = ElementRef<'button'>;
 type ButtonProps = AriaButtonProps & ButtonOwnProps;
