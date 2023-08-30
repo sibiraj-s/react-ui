@@ -98,8 +98,8 @@ export const preset = definePreset({
   },
   utilities: {
     extend: {
-      size: {
-        className: 'size',
+      hw: {
+        className: 'hw',
         values: 'sizes',
         transform(value: PropertyValue<'size'>) {
           return { height: value, width: value };

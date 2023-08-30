@@ -1,10 +1,10 @@
-import { ElementRef, forwardRef, ComponentPropsWithoutRef } from 'react';
+import { ElementRef, forwardRef } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
-import Heading from '../Heading';
+import Heading, { HeadingProps } from '../Heading';
 
 type AlertDialogTitleElement = ElementRef<typeof Heading>;
-type AlertDialogTitleProps = ComponentPropsWithoutRef<typeof Heading>;
+type AlertDialogTitleProps = HeadingProps;
 
 const AlertDialogTitle = forwardRef<AlertDialogTitleElement, AlertDialogTitleProps>(
   ({ size = '5', ...props }, forwardedRef) => (

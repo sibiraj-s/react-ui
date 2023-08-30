@@ -1,6 +1,6 @@
-import { ComponentProps, ElementRef, forwardRef } from 'react';
-import { Slot } from '@radix-ui/react-slot';
-import { RecipeVariantProps, cva, cx } from 'styled-system/css';
+import { cva } from 'styled-system/css';
+import { HTMLStyledProps, styled } from 'styled-system/jsx';
+import rx from '@/utils/factory';
 
 export const textStyle = cva({
   variants: {
@@ -10,6 +10,9 @@ export const textStyle = cva({
       },
       xs: {
         fontSize: 'xs',
+      },
+      md: {
+        fontSize: 'md',
       },
       '1': {
         fontSize: '4xl',
@@ -55,26 +58,7 @@ export const textStyle = cva({
   },
 });
 
-type TextExtraProps = { asChild?: boolean };
-type TextVariantProps = RecipeVariantProps<typeof textStyle>;
-type TextOwnProps = TextVariantProps & ComponentProps<'p'> & TextExtraProps;
-
-type TextElement = ElementRef<'p'>;
-type TextProps = TextOwnProps;
-
-export const Text = forwardRef<TextElement, TextProps>((props, forwardedRef) => {
-  const { asChild, children, className, ...rest } = props;
-
-  const [variantProps] = textStyle.splitVariantProps(props);
-  const Component = asChild ? Slot : 'p';
-
-  return (
-    <Component className={cx(textStyle(variantProps), className)} {...rest} ref={forwardedRef}>
-      {children}
-    </Component>
-  );
-});
-
-Text.displayName = 'Text';
+export const Text = styled(rx.p, textStyle);
+export type TextProps = HTMLStyledProps<typeof Text>;
 
 export default Text;
