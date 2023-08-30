@@ -1,17 +1,18 @@
-import { expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import { renderHook } from '@testing-library/react';
 
 import useConst from './use-const';
 
-const UseConstTestComponent = () => {
-  const welcome = useConst('Hello world!');
+describe('UseConst', () => {
+  it('should return the given constant', () => {
+    const { result } = renderHook(() => useConst('Hello world!'));
+    expect(result.current).toBe('Hello world!');
+  });
 
-  return <p>Greet: {welcome} 👋</p>;
-};
-
-it('should return the given constant', () => {
-  render(<UseConstTestComponent />);
-
-  const text = screen.getByText(/Hello world!/i);
-  expect(text).toBeTruthy();
+  it('should call the inital function value', () => {
+    const initalValue = vi.fn(() => 'Hey');
+    const { result } = renderHook(() => useConst(initalValue));
+    expect(initalValue).toHaveBeenCalled();
+    expect(result.current).toBe('Hey');
+  });
 });
