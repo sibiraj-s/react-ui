@@ -27,6 +27,11 @@ const buttonStyle = cva({
     _focusVisible: {
       boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
     },
+
+    _disabled: {
+      opacity: 0.7,
+      pointerEvents: 'none',
+    },
   },
 
   // variants
@@ -123,15 +128,6 @@ const buttonStyle = cva({
         },
       },
     },
-    isFocusVisible: {
-      true: {},
-    },
-    disabled: {
-      true: {
-        opacity: 0.7,
-        pointerEvents: 'none',
-      },
-    },
   },
 
   compoundVariants: [
@@ -185,7 +181,13 @@ type ButtonProps = ButtonOwnProps & AriaButtonProps;
 
 export const Button = forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
   const buttonRef = useObjectRef(forwardedRef);
-  const { buttonProps } = useButton(props, buttonRef);
+  const { buttonProps } = useButton(
+    {
+      ...props,
+      isDisabled: props.disabled,
+    },
+    buttonRef
+  );
 
   return <StyledButton {...props} {...buttonProps} ref={buttonRef} />;
 });
