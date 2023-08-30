@@ -1,9 +1,10 @@
-import { ElementRef, forwardRef } from 'react';
-import { AriaButtonProps, useButton, useFocusRing } from 'react-aria';
-import { useObjectRef, mergeProps } from '@react-aria/utils';
-import { Slot } from '@radix-ui/react-slot';
-import { RecipeVariantProps, cva, cx } from 'styled-system/css';
-import { HTMLStyledProps } from 'styled-system/jsx';
+import { ComponentProps, ElementRef, forwardRef } from 'react';
+import { AriaButtonProps, useButton } from 'react-aria';
+import { cva } from 'styled-system/css';
+import { styled } from 'styled-system/jsx';
+
+import useObjectRef from '@/hooks/use-object-ref';
+import rx from '@/utils/factory';
 
 const buttonStyle = cva({
   base: {
@@ -22,6 +23,10 @@ const buttonStyle = cva({
     whiteSpace: 'nowrap',
     textAlign: 'center',
     cursor: 'default',
+
+    _focusVisible: {
+      boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
+    },
   },
 
   // variants
@@ -164,12 +169,6 @@ const buttonStyle = cva({
         backgroundColor: 'transparent',
       },
     },
-    {
-      isFocusVisible: true,
-      css: {
-        boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
-      },
-    },
   ],
 
   // defaults
@@ -178,39 +177,17 @@ const buttonStyle = cva({
   },
 });
 
-type ButtonVariantProps = RecipeVariantProps<typeof buttonStyle>;
-type ButtonExtraProps = { asChild?: boolean };
-type ButtonOwnProps = ButtonVariantProps & ButtonExtraProps & HTMLStyledProps<'button'>;
+const StyledButton = styled(rx.button, buttonStyle);
+type ButtonOwnProps = ComponentProps<typeof StyledButton>;
 
 type ButtonElement = ElementRef<'button'>;
-type ButtonProps = AriaButtonProps & ButtonOwnProps;
+type ButtonProps = ButtonOwnProps & AriaButtonProps;
 
 export const Button = forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
-  const { asChild, children, className, ...rest } = props;
-
   const buttonRef = useObjectRef(forwardedRef);
-  const { isFocusVisible, focusProps } = useFocusRing();
+  const { buttonProps } = useButton(props, buttonRef);
 
-  const Component = asChild ? Slot : 'button';
-  const [variantProps] = buttonStyle.splitVariantProps(props);
-
-  const { buttonProps } = useButton(
-    {
-      ...rest,
-      elementType: Component,
-    },
-    buttonRef
-  );
-
-  return (
-    <Component
-      className={cx(buttonStyle({ ...variantProps, isFocusVisible }), className)}
-      {...mergeProps(buttonProps, focusProps)}
-      ref={buttonRef}
-    >
-      {children}
-    </Component>
-  );
+  return <StyledButton {...props} {...buttonProps} ref={buttonRef} />;
 });
 
 Button.displayName = 'Button';
