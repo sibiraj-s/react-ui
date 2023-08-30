@@ -1,6 +1,7 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { useLink, AriaLinkOptions } from 'react-aria';
-import { useObjectRef } from '@react-aria/utils';
+
+import useObjectRef from '@/hooks/use-object-ref';
 
 type LinkElement = ElementRef<'a'>;
 type LinkOwnProps = ComponentProps<'a'>;

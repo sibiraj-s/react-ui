@@ -1,7 +1,7 @@
 import { ComponentProps, ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from 'react';
-
-import { useObjectRef } from '@react-aria/utils';
 import { styled } from 'styled-system/jsx';
+
+import useObjectRef from '@/hooks/use-object-ref';
 
 export const StyledInput = styled('input', {
   base: {
