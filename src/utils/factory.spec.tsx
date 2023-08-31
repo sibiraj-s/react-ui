@@ -59,6 +59,16 @@ describe('RxFactory', () => {
     expect(ref2.current?.tagName).toBe('A');
   });
 
+  it('should retain the original ref with asChild', () => {
+    const ref = createRef<HTMLAnchorElement>();
+    render(
+      <TestComponent asChild>
+        <a ref={ref} />
+      </TestComponent>
+    );
+    expect(ref.current?.tagName).toBe('A');
+  });
+
   it('should throw errors for multiple child', () => {
     const restoreConsole = mockConsoleError();
 

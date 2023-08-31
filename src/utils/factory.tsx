@@ -15,12 +15,10 @@ type AsChildProp = { asChild?: boolean };
 type RxPropsWithRef<E extends ElementType> = ComponentPropsWithRef<E> & AsChildProp;
 type RxForwardRefComponent<E extends ElementType> = ForwardRefExoticComponent<RxPropsWithRef<E>>;
 type JsxElements = { [E in keyof JSX.IntrinsicElements]: RxForwardRefComponent<E> };
-
 type RxComponent<T extends ElementType> = {
   (props: ComponentProps<T>): JSX.Element;
   displayName?: string;
 };
-
 type JsxFactory = <T extends ElementType>(component: T) => RxComponent<T>;
 
 const withAsChild = (Component: ElementType) => {
