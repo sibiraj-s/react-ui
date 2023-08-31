@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage --reporter=verbose",
     "build": "tsup",
     "studio": "panda studio",
     "dev": "storybook dev -p 6006 --no-open",
