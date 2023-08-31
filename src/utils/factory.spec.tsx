@@ -18,6 +18,14 @@ describe('RxFactory', () => {
     expect(isValidElement(<rx.a />)).toBe(true);
   });
 
+  it('should create element by invoking rx function', () => {
+    const Button = rx('button');
+    expect(isValidElement(<Button />)).toBe(true);
+
+    const { getByTestId } = render(<TestComponent data-testid='buttonElement' />);
+    expect(getByTestId('buttonElement')).toBeTruthy();
+  });
+
   it('should set all props correctly', () => {
     const { getByTestId } = render(<TestComponent data-testid='a' />);
     expect(getByTestId('a')).toBeTruthy();
