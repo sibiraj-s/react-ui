@@ -33,4 +33,7 @@ export default defineConfig({
 
   // File extension for generated javascript files.
   outExtension: 'js',
+
+  // hash the generated class names
+  hash: process.env.CI === 'true',
 });
