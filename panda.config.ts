@@ -15,9 +15,10 @@ export default defineConfig({
   // Files to exclude
   exclude: [],
 
+  // Set of reusable and shareable configuration presets
   presets: ['@pandacss/dev/presets', reactUIPreset],
 
-  // Useful for theme customization
+  // Theme customization
   theme: {
     extend: {},
   },

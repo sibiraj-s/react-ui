@@ -1,6 +1,6 @@
 # React UI
 
-> React UI Components and utilities, built with [panda css][panda]
+> React UI components built with [panda css][panda] and utilities.
 
 ## Usage
 
@@ -25,16 +25,16 @@ npm run dev
 - AlertDialog
 - Badge
 - Button
+- Link
 - Text
 - Heading
 - Input
 - Textarea
 - Label
-- Link
-- Spinner
-- Switch
 - TextField
 - TextareaField
+- Switch
+- Spinner
 - ProgressBar
 - ProgressCircle
 
