@@ -2,6 +2,8 @@ import { defineConfig } from '@pandacss/dev';
 
 import reactUIPreset from './src/panda';
 
+const isProd = process.env.CI === 'true';
+
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
@@ -36,5 +38,5 @@ export default defineConfig({
   outExtension: 'js',
 
   // hash the generated class names
-  hash: process.env.CI === 'true',
+  hash: isProd,
 });
