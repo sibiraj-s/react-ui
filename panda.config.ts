@@ -5,7 +5,10 @@ import reactUIPreset from './src/panda';
 const isProd = process.env.CI === 'true';
 
 export default defineConfig({
-  // Whether to use css reset
+  // Clean the output directory before generating the css.
+  clean: true,
+
+  // Use css reset
   preflight: true,
 
   // The namespace prefix for the generated css classes and css variables.
@@ -25,7 +28,7 @@ export default defineConfig({
     extend: {},
   },
 
-  // Whether to emit the artifacts to node_modules as a package.
+  // Emit the artifacts to node_modules as a package.
   emitPackage: false,
 
   // The output directory for your css system
@@ -37,6 +40,6 @@ export default defineConfig({
   // File extension for generated javascript files.
   outExtension: 'js',
 
-  // hash the generated class names
+  // Hash the generated class names and variables
   hash: isProd,
 });
