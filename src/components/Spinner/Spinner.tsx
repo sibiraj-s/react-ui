@@ -16,19 +16,19 @@ export const StyledSpinner = styled('div', {
     },
     size: {
       xxs: {
-        size: '4',
+        hw: '4',
       },
       xs: {
-        size: '5',
+        hw: '5',
       },
       sm: {
-        size: '8',
+        hw: '8',
       },
       md: {
-        size: '12',
+        hw: '12',
       },
       lg: {
-        size: '14',
+        hw: '14',
       },
     },
   },
