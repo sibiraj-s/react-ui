@@ -17,3 +17,5 @@ export * from './TextField';
 export * from './Spinner';
 export * from './ProgressCircle';
 export * from './ProgressBar';
+
+export * from './TimeField';
