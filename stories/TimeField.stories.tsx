@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TimeField } from '../index';
 
 const meta: Meta<typeof TimeField> = {
-  title: 'Components/TimeField',
+  title: 'Components/Calendar/TimeField',
   component: TimeField,
 };
 

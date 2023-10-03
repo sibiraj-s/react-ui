@@ -19,3 +19,4 @@ export * from './ProgressCircle';
 export * from './ProgressBar';
 
 export * from './TimeField';
+export * from './DateField';
