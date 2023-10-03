@@ -31,6 +31,7 @@ const TimeField: FC<TimeFieldProps> = (props) => {
         borderRadius='md'
         p='1'
         pr='8'
+        transition='colors'
         _hover={{
           borderColor: '$accentSolid',
         }}
