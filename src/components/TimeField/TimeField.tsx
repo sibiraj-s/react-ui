@@ -3,7 +3,7 @@ import { AriaTimeFieldProps, TimeValue, useLocale, useTimeField } from 'react-ar
 import { useTimeFieldState, TimeFieldStateOptions } from 'react-stately';
 import { styled } from 'styled-system/jsx';
 
-import DateSegment from './DateSegment';
+import DateSegment from '../_base/DateSegment';
 import Label from '../Label';
 
 type TimeFieldProps = TimeFieldStateOptions & AriaTimeFieldProps<TimeValue>;

@@ -4,7 +4,7 @@ import { useDateFieldState } from 'react-stately';
 import { createCalendar } from '@internationalized/date';
 import { styled } from 'styled-system/jsx';
 
-import DateSegment from '../TimeField/DateSegment';
+import DateSegment from '../_base/DateSegment';
 import Label from '../Label';
 
 type DateFieldProps = AriaDateFieldProps<DateValue>;
