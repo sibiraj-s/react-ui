@@ -4,7 +4,7 @@ import { Link } from '../index';
 import { disableControls } from './utils';
 
 const meta: Meta<typeof Link> = {
-  title: 'Components/Link',
+  title: 'Components/Navigation/Link',
   component: Link,
   argTypes: {
     ...disableControls(['ref']),
