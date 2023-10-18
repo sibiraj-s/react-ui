@@ -25,7 +25,7 @@
     "test:coverage": "vitest run --coverage --reporter=verbose",
     "build": "tsup",
     "studio": "panda studio",
-    "dev": "storybook dev -p 4004 --no-open",
+    "dev": "storybook dev -p 4004 --no-open --no-version-updates",
     "build:storybook": "storybook build",
     "lint": "eslint . --ignore-path=.gitignore --ext=.js,.ts,.tsx",
     "prepare": "husky install && panda codegen"
