@@ -1,5 +1,4 @@
 import { definePreset } from '@pandacss/dev';
-import { PropertyValue } from 'styled-system/types/csstype';
 
 import normalize from './normalize';
 
@@ -21,15 +20,7 @@ export const preset = definePreset({
     },
   },
   utilities: {
-    extend: {
-      hw: {
-        className: 'hw',
-        values: 'sizes',
-        transform(value: PropertyValue<'size'>) {
-          return { height: value, width: value };
-        },
-      },
-    },
+    extend: {},
   },
 });
 

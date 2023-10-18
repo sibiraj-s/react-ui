@@ -34,7 +34,8 @@ const StyledContainer = styled('div', {
 const StyledCounterContainer = styled('label', {
   base: {
     position: 'absolute',
-    hw: '100%',
+    height: 'full',
+    width: 'full',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -133,7 +134,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   return (
     <StyledContainer
       {...progressBarProps}
-      className={css({ hw: `${size}px`, '--rx-progress-circle-size': `${size}px` })}
+      className={css({ height: `${size}px`, width: `${size}px`, '--rx-progress-circle-size': `${size}px` })}
       ref={ref}
       variant={variant}
       id='container'

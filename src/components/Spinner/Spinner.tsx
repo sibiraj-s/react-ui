@@ -2,6 +2,9 @@ import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { styled } from 'styled-system/jsx';
 
 export const StyledSpinner = styled('div', {
+  base: {
+    aspectRatio: 'square',
+  },
   variants: {
     variant: {
       primary: {
@@ -16,19 +19,25 @@ export const StyledSpinner = styled('div', {
     },
     size: {
       xxs: {
-        hw: '4',
+        width: '4',
       },
       xs: {
-        hw: '5',
+        width: '5',
       },
       sm: {
-        hw: '8',
+        width: '8',
       },
       md: {
-        hw: '12',
+        width: '12',
       },
       lg: {
-        hw: '14',
+        width: '14',
+      },
+      xl: {
+        width: '20',
+      },
+      '2xl': {
+        width: '24',
       },
     },
   },
