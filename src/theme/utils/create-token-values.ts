@@ -1,5 +1,3 @@
-/* eslint-disable no-continue */
-
 import { Token, Recursive } from 'styled-system/types/composition';
 
 const createTokenValues = (
@@ -9,17 +7,12 @@ const createTokenValues = (
 ): Recursive<Token> => {
   const tokens: Recursive<Token> = {};
 
-  for (const key in properties) {
-    if (!key) {
-      continue;
-    }
-
+  Object.entries(properties).forEach(([key, value]) => {
     const k = prefix ? `$${key}` : key;
-    const value = properties[k];
 
     if (typeof value === 'object') {
       tokens[k] = createTokenValues(value, prefix, solidAsDefault);
-      continue;
+      return;
     }
 
     if (solidAsDefault && k === 'solid') {
@@ -31,7 +24,7 @@ const createTokenValues = (
     tokens[k] = {
       value: properties[k],
     };
-  }
+  });
 
   return tokens;
 };
