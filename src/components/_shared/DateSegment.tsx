@@ -27,7 +27,7 @@ const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
       outline='none'
       rounded='sm'
       color={!segment.isEditable ? 'neutral.line' : 'neutral.text'}
-      _focus={{ bg: 'accent', color: 'white' }}
+      _focus={{ bg: 'primary', color: 'white' }}
       className='group'
     >
       {/* reserve space for the placeholder, to prevent layout shift while editing. */}

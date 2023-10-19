@@ -24,7 +24,7 @@ const Template = () => (
 
 const ColorsTemplate = () => (
   <Stack gap='4'>
-    <Heading level='1' color='accent'>
+    <Heading level='1' color='primary'>
       h1: This is a primary color scheme heading level 1
     </Heading>
     <Heading level='2' color='secondary'>

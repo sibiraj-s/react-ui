@@ -47,7 +47,7 @@ const Template = (args: ComponentProps<typeof Button>) => (
 
 const Default: Story = {
   args: {
-    colorScheme: 'accent',
+    colorScheme: 'primary',
   },
   render: (args) => <Template {...args} />,
 };

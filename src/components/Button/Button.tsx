@@ -78,8 +78,8 @@ const buttonStyle = cva({
       },
     },
     colorScheme: {
-      accent: {
-        colorPalette: 'accent',
+      primary: {
+        colorPalette: 'primary',
       },
       secondary: {
         colorPalette: 'secondary',
@@ -96,7 +96,7 @@ const buttonStyle = cva({
   // defaults
   defaultVariants: {
     variant: 'solid',
-    colorScheme: 'accent',
+    colorScheme: 'primary',
   },
 });
 

@@ -36,7 +36,7 @@ const StyledInputGroup = styled('div', {
     width: '100%',
     borderRadius: 'md',
     border: '1px solid token(colors.neutral.bgHover)',
-    colorPalette: 'accent',
+    colorPalette: 'primary',
 
     '&:focus-within': {
       outline: '1px solid token(colorPalette.solid)',

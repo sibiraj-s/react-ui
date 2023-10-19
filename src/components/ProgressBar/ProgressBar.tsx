@@ -12,7 +12,7 @@ const barStyle = cva({
     borderRadius: 'md',
     overflow: 'hidden',
     borderColor: 'currentcolor',
-    color: 'accent',
+    color: 'primary',
   },
 });
 

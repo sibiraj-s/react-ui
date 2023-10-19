@@ -30,7 +30,7 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
     border: '1px solid token(colors.neutral.bg)',
     borderRadius: 'full',
     padding: '1px',
-    color: 'accent',
+    color: 'primary',
 
     '&[data-state="checked"]': {
       backgroundColor: 'currentColor',

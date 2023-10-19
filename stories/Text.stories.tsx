@@ -45,7 +45,7 @@ const Template = (args: ComponentProps<typeof Text>) => (
 
 const TemplateColors = (args: ComponentProps<typeof Text>) => (
   <Stack gap='4'>
-    <Text {...args} color='accent'>
+    <Text {...args} color='primary'>
       Default: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua. Id ornare arcu odio ut sem. Elit at imperdiet dui accumsan. Id volutpat lacus laoreet non.
       Tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse. Tellus integer feugiat scelerisque

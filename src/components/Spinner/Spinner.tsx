@@ -4,7 +4,7 @@ import { styled } from 'styled-system/jsx';
 export const StyledSpinner = styled('div', {
   base: {
     aspectRatio: 'square',
-    color: 'accent',
+    color: 'primary',
   },
   variants: {
     size: {

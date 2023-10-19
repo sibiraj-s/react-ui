@@ -46,7 +46,7 @@ export const Colors: Story = {
     return (
       <HStack gap='4'>
         <ProgressCircle {...args} value={rand()} />
-        <ProgressCircle {...args} value={rand()} color='accent' />
+        <ProgressCircle {...args} value={rand()} color='primary' />
         <ProgressCircle {...args} value={rand()} color='danger' />
         <ProgressCircle {...args} value={rand()} color='muted' />
         <ProgressCircle {...args} value={rand()} color='success' />

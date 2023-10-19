@@ -13,7 +13,7 @@ export const StyledTextarea = styled('textarea', {
     borderWidth: '1px',
     borderStyle: 'solid',
     borderColor: 'neutral.bgHover',
-    colorPalette: 'accent',
+    colorPalette: 'primary',
 
     '&:focus-within': {
       outlineWidth: '1px',

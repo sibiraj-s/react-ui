@@ -33,7 +33,7 @@ const TimeField: FC<TimeFieldProps> = (props) => {
         pr='8'
         transition='colors'
         _hover={{
-          borderColor: 'accent',
+          borderColor: 'primary',
         }}
       >
         {state.segments.map((segment, i) => (

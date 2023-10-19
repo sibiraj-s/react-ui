@@ -9,7 +9,7 @@ import Counter from './Counter';
 const StyledContainer = styled('div', {
   base: {
     position: 'relative',
-    color: 'accent',
+    color: 'primary',
   },
   defaultVariants: {
     variant: 'success',

@@ -10,7 +10,7 @@ const normalize = defineGlobalStyles({
     color: '$body',
   },
   a: {
-    color: 'accent',
+    color: 'primary',
     '&:focus-visible': {
       outline: '2px solid currentcolor',
       outlineOffset: '2px',

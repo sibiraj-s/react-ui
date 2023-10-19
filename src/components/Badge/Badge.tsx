@@ -23,8 +23,8 @@ export const Badge = styled('span', {
   // variants
   variants: {
     colorScheme: {
-      accent: {
-        colorPalette: 'accent',
+      primary: {
+        colorPalette: 'primary',
       },
       secondary: {
         colorPalette: 'secondary',
@@ -40,7 +40,7 @@ export const Badge = styled('span', {
 
   // defaults
   defaultVariants: {
-    colorScheme: 'accent',
+    colorScheme: 'primary',
   },
 });
 

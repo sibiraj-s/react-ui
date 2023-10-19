@@ -4,8 +4,8 @@ import createTokenValues from './utils/create-token-values';
 const semanticTokens = defineSemanticTokens({
   colors: createTokenValues(
     {
-      // accent/primary shades
-      accent: {
+      // primary shades
+      primary: {
         base: '{colors.blue.50}',
         bgSubtle: '{colors.blue.100}',
         bg: '{colors.blue.200}',
