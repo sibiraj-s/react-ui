@@ -35,26 +35,20 @@ const StyledInputGroup = styled('div', {
     alignItems: 'center',
     width: '100%',
     borderRadius: 'md',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: '$neutralBgHover',
+    border: '1px solid token(colors.neutral.bgHover)',
+    colorPalette: 'accent',
 
     '&:focus-within': {
-      outline: '1px solid',
-      outlineColor: '$accentSolid',
-      borderColor: '$accentSolid',
+      outline: '1px solid token(colorPalette.solid)',
+      borderColor: 'colorPalette.solid',
     },
   },
 
   variants: {
     isInvalid: {
       true: {
-        borderColor: '$dangerSolid',
-
-        '&:focus-within': {
-          outlineColor: '$dangerSolid',
-          borderColor: '$dangerSolid',
-        },
+        colorPalette: 'danger',
+        borderColor: 'danger.border',
       },
     },
   },

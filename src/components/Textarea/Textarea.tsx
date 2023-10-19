@@ -8,28 +8,26 @@ export const StyledTextarea = styled('textarea', {
     px: '3',
     width: '100%',
     borderRadius: 'md',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: '$neutralBgHover',
     backgroundColor: 'transparent',
     resize: 'vertical',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'neutral.bgHover',
+    colorPalette: 'accent',
 
-    '&:focus': {
-      outline: '1px solid',
-      outlineColor: '$accentSolid',
-      borderColor: '$accentSolid',
+    '&:focus-within': {
+      outlineWidth: '1px',
+      outlineStyle: 'solid',
+      outlineColor: 'colorPalette.solid',
+      borderColor: 'colorPalette.solid',
     },
   },
 
   variants: {
     isInvalid: {
       true: {
-        borderColor: '$dangerSolid',
-
-        '&:focus': {
-          outlineColor: '$dangerSolid',
-          borderColor: '$dangerSolid',
-        },
+        colorPalette: 'danger',
+        borderColor: 'danger.border',
       },
     },
   },

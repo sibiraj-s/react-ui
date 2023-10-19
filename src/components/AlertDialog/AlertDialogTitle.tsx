@@ -7,9 +7,9 @@ type AlertDialogTitleElement = ElementRef<typeof Heading>;
 type AlertDialogTitleProps = HeadingProps;
 
 const AlertDialogTitle = forwardRef<AlertDialogTitleElement, AlertDialogTitleProps>(
-  ({ size = '5', ...props }, forwardedRef) => (
+  ({ level = '5', ...props }, forwardedRef) => (
     <AlertDialogPrimitive.Title asChild>
-      <Heading size={size} {...props} ref={forwardedRef} />
+      <Heading level={level} {...props} ref={forwardedRef} />
     </AlertDialogPrimitive.Title>
   )
 );

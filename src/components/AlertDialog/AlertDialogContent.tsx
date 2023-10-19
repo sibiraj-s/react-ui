@@ -16,7 +16,7 @@ const StyledAlertDialogContent = styled(AlertDialogPrimitive.Content, {
   base: {
     zIndex: '$1',
     backgroundColor: 'white',
-    border: '1px solid token(colors.$neutralBgSubtle)',
+    border: '1px solid token(colors.neutral.bgSubtle)',
     borderRadius: 'md',
     boxShadow: 'lg',
     position: 'fixed',

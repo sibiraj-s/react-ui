@@ -1,7 +1,7 @@
-import { type FC, useRef, ComponentProps } from 'react';
+import { type FC, useRef } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
-import { styled } from 'styled-system/jsx';
+import { HTMLStyledProps, styled } from 'styled-system/jsx';
 import { css, cva } from 'styled-system/css';
 
 import Counter from './Counter';
@@ -9,22 +9,7 @@ import Counter from './Counter';
 const StyledContainer = styled('div', {
   base: {
     position: 'relative',
-  },
-  variants: {
-    variant: {
-      primary: {
-        color: '$accentSolid',
-      },
-      success: {
-        color: '$successSolid',
-      },
-      danger: {
-        color: '$dangerSolid',
-      },
-      muted: {
-        color: '$neutralSolid',
-      },
-    },
+    color: 'accent',
   },
   defaultVariants: {
     variant: 'success',
@@ -68,7 +53,7 @@ interface ProgressCircleProps {
   spin?: boolean;
   size?: number;
   strokeWidth?: number;
-  variant?: ComponentProps<typeof StyledContainer>['variant'];
+  color?: HTMLStyledProps<typeof StyledContainer>['color'];
 }
 
 const getPercents = (value: number, min: number, max: number): number => {
@@ -94,7 +79,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   spin = false,
   size = 100,
   strokeWidth = 6,
-  variant,
+  ...rest
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useInView(ref);
@@ -136,7 +121,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
       {...progressBarProps}
       className={css({ height: `${size}px`, width: `${size}px`, '--rx-progress-circle-size': `${size}px` })}
       ref={ref}
-      variant={variant}
+      {...rest}
       id='container'
     >
       <StyledCounterContainer {...labelProps}>

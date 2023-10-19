@@ -26,8 +26,8 @@ const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
       fontVariantNumeric='tabular-nums'
       outline='none'
       rounded='sm'
-      color={!segment.isEditable ? '$neutralLine' : '$neutralText'}
-      _focus={{ bg: '$accentSolid', color: 'white' }}
+      color={!segment.isEditable ? 'neutral.line' : 'neutral.text'}
+      _focus={{ bg: 'accent', color: 'white' }}
       className='group'
     >
       {/* reserve space for the placeholder, to prevent layout shift while editing. */}
@@ -35,7 +35,7 @@ const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
         aria-hidden='true'
         display='block'
         textAlign='center'
-        color='$neutralLine'
+        color='neutral.line'
         _groupFocus={{
           color: 'white',
         }}

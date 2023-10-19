@@ -8,7 +8,7 @@ const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
   component: Spinner,
   argTypes: {
-    variant: {
+    colorScheme: {
       control: 'select',
       options: ['primary', 'success', 'danger'],
     },
@@ -21,28 +21,17 @@ type Story = StoryObj<typeof Spinner>;
 const Template = (args: ComponentProps<typeof Spinner>) => (
   <HStack gap='4'>
     <Spinner {...args} size='xxs' />
-    <Spinner {...args} size='xs' />
-    <Spinner {...args} size='sm' />
-    <Spinner {...args} />
-    <Spinner {...args} size='lg' />
+    <Spinner {...args} size='xs' color='danger' />
+    <Spinner {...args} size='sm' color='success' />
+    <Spinner {...args} color='muted' />
+    <Spinner {...args} size='lg' color='neutral' />
+    <Spinner {...args} size='xl' />
+    <Spinner {...args} size='2xl' />
   </HStack>
 );
 
 export const Default: Story = {
+  name: 'Spinner',
   args: {},
   render: (args) => <Template {...args} />,
-};
-
-export const Success: Story = {
-  ...Default,
-  args: {
-    variant: 'success',
-  },
-};
-
-export const Danger: Story = {
-  ...Default,
-  args: {
-    variant: 'danger',
-  },
 };

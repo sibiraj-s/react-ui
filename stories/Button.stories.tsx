@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     onClick: { action: 'click' },
-    variant: {
+    colorScheme: {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'danger'],
     },
@@ -34,10 +34,10 @@ const Template = (args: ComponentProps<typeof Button>) => (
       Small Button
     </Button>
     <Button {...args}>Default Button</Button>
-    <Button {...args} variantType='outline'>
+    <Button {...args} variant='outline'>
       Outline Button
     </Button>
-    <Button {...args} variantType='outline' asChild>
+    <Button {...args} variant='outline' asChild>
       <Link href='https://sibiraj.dev' target='_blank'>
         Visit Github (Link Button)
       </Link>
@@ -47,7 +47,7 @@ const Template = (args: ComponentProps<typeof Button>) => (
 
 const Default: Story = {
   args: {
-    variant: 'primary',
+    colorScheme: 'accent',
   },
   render: (args) => <Template {...args} />,
 };
@@ -57,28 +57,27 @@ export const Primary: Story = Default;
 export const Secondary: Story = {
   ...Default,
   args: {
-    variant: 'secondary',
+    colorScheme: 'secondary',
   },
 };
 
 export const Success: Story = {
   ...Default,
   args: {
-    variant: 'success',
+    colorScheme: 'success',
   },
 };
 
 export const Danger: Story = {
   ...Default,
   args: {
-    variant: 'danger',
+    colorScheme: 'danger',
   },
 };
 
 export const Disabled: Story = {
   ...Default,
   args: {
-    variant: 'primary',
     disabled: true,
   },
   parameters: {
@@ -92,9 +91,6 @@ export const Disabled: Story = {
 
 export const WithIcon: Story = {
   ...Default,
-  args: {
-    variant: 'primary',
-  },
   render: (args) => {
     return (
       <Button {...args}>

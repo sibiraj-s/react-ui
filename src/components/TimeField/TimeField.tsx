@@ -27,13 +27,13 @@ const TimeField: FC<TimeFieldProps> = (props) => {
         {...fieldProps}
         ref={ref}
         display='flex'
-        border='1px solid token(colors.$neutralBgHover)'
+        border='1px solid token(colors.neutral.bgHover)'
         borderRadius='md'
         p='1'
         pr='8'
         transition='colors'
         _hover={{
-          borderColor: '$accentSolid',
+          borderColor: 'accent',
         }}
       >
         {state.segments.map((segment, i) => (

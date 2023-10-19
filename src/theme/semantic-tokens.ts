@@ -2,76 +2,90 @@ import { defineSemanticTokens } from '@pandacss/dev';
 import createTokenValues from './utils/create-token-values';
 
 const semanticTokens = defineSemanticTokens({
-  colors: createTokenValues({
-    // primary shades
-    accentBase: '{colors.blue.50}',
-    accentBgSubtle: '{colors.blue.100}',
-    accentBg: '{colors.blue.200}',
-    accentBgHover: '{colors.blue.300}',
-    accentBgActive: '{colors.blue.400}',
-    accentLine: '{colors.blue.500}',
-    accentBorder: '{colors.blue.600}',
-    accentSolid: '{colors.blue.700}',
-    accentSolidHover: '{colors.blue.800}',
-    accentText: '{colors.blue.900}',
-    accentTextContrast: '{colors.blue.950}',
+  colors: createTokenValues(
+    {
+      // accent/primary shades
+      accent: {
+        base: '{colors.blue.50}',
+        bgSubtle: '{colors.blue.100}',
+        bg: '{colors.blue.200}',
+        bgHover: '{colors.blue.300}',
+        bgActive: '{colors.blue.400}',
+        line: '{colors.blue.500}',
+        border: '{colors.blue.600}',
+        solid: '{colors.blue.700}',
+        solidHover: '{colors.blue.800}',
+        text: '{colors.blue.900}',
+        textContrast: '{colors.blue.950}',
+      },
 
-    // secondary shades
-    secondaryBase: '{colors.slate.50}',
-    secondaryBgSubtle: '{colors.slate.100}',
-    secondaryBg: '{colors.slate.200}',
-    secondaryBgHover: '{colors.slate.300}',
-    secondaryBgActive: '{colors.slate.400}',
-    secondaryLine: '{colors.slate.500}',
-    secondaryBorder: '{colors.slate.600}',
-    secondarySolid: '{colors.slate.700}',
-    secondarySolidHover: '{colors.slate.800}',
-    secondaryText: '{colors.slate.900}',
-    secondaryTextContrast: '{colors.slate.950}',
+      // secondary shades
+      secondary: {
+        base: '{colors.slate.50}',
+        bgSubtle: '{colors.slate.100}',
+        bg: '{colors.slate.200}',
+        bgHover: '{colors.slate.300}',
+        bgActive: '{colors.slate.400}',
+        line: '{colors.slate.500}',
+        border: '{colors.slate.600}',
+        solid: '{colors.slate.700}',
+        solidHover: '{colors.slate.800}',
+        text: '{colors.slate.900}',
+        textContrast: '{colors.slate.950}',
+      },
 
-    // success
-    successBase: '{colors.green.50}',
-    successBgSubtle: '{colors.green.100}',
-    successBg: '{colors.green.200}',
-    successBgHover: '{colors.green.300}',
-    successBgActive: '{colors.green.400}',
-    successLine: '{colors.green.500}',
-    successBorder: '{colors.green.600}',
-    successSolid: '{colors.emerald.700}',
-    successSolidHover: '{colors.green.800}',
-    successText: '{colors.green.900}',
-    successTextContrast: '{colors.green.950}',
+      // success
+      success: {
+        base: '{colors.green.50}',
+        bgSubtle: '{colors.green.100}',
+        bg: '{colors.green.200}',
+        bgHover: '{colors.green.300}',
+        bgActive: '{colors.green.400}',
+        line: '{colors.green.500}',
+        border: '{colors.green.600}',
+        solid: '{colors.emerald.700}',
+        solidHover: '{colors.green.800}',
+        text: '{colors.green.900}',
+        textContrast: '{colors.green.950}',
+      },
 
-    // danger
-    dangerBase: '{colors.red.50}',
-    dangerBgSubtle: '{colors.red.100}',
-    dangerBg: '{colors.red.200}',
-    dangerBgHover: '{colors.red.300}',
-    dangerBgActive: '{colors.red.400}',
-    dangerLine: '{colors.red.500}',
-    dangerBorder: '{colors.red.600}',
-    dangerSolid: '{colors.red.700}',
-    dangerSolidHover: '{colors.red.800}',
-    dangerText: '{colors.red.900}',
-    dangerTextContrast: '{colors.red.950}',
+      // danger
+      danger: {
+        base: '{colors.red.50}',
+        bgSubtle: '{colors.red.100}',
+        bg: '{colors.red.200}',
+        bgHover: '{colors.red.300}',
+        bgActive: '{colors.red.400}',
+        line: '{colors.red.500}',
+        border: '{colors.red.600}',
+        solid: '{colors.red.700}',
+        solidHover: '{colors.red.800}',
+        text: '{colors.red.900}',
+        textContrast: '{colors.red.950}',
+      },
 
-    // primary shades
-    neutralBase: '{colors.gray.50}',
-    neutralBgSubtle: '{colors.gray.100}',
-    neutralBg: '{colors.gray.200}',
-    neutralBgHover: '{colors.gray.300}',
-    neutralBgActive: '{colors.gray.400}',
-    neutralLine: '{colors.gray.500}',
-    neutralBorder: '{colors.gray.600}',
-    neutralSolid: '{colors.gray.700}',
-    neutralSolidHover: '{colors.gray.800}',
-    neutralText: '{colors.gray.900}',
-    neutralTextContrast: '{colors.gray.950}',
+      // primary shades
+      neutral: {
+        base: '{colors.gray.50}',
+        bgSubtle: '{colors.gray.100}',
+        bg: '{colors.gray.200}',
+        bgHover: '{colors.gray.300}',
+        bgActive: '{colors.gray.400}',
+        line: '{colors.gray.500}',
+        border: '{colors.gray.600}',
+        solid: '{colors.gray.700}',
+        solidHover: '{colors.gray.800}',
+        text: '{colors.gray.900}',
+        textContrast: '{colors.gray.950}',
+      },
 
-    // other colors
-    muted: '{colors.gray.500}',
-    body: '{colors.gray.950}',
-  }),
+      // other colors
+      muted: '{colors.gray.500}',
+      body: '{colors.gray.950}',
+    },
+    false,
+    true
+  ),
 });
 
 export default semanticTokens;

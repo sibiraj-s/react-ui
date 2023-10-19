@@ -26,12 +26,11 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
     alignItems: 'center',
     width: '10',
     height: '5',
-    backgroundColor: '$neutralBg',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: '$neutralBg',
+    backgroundColor: 'neutral.bg',
+    border: '1px solid token(colors.neutral.bg)',
     borderRadius: 'full',
     padding: '1px',
+    color: 'accent',
 
     '&[data-state="checked"]': {
       backgroundColor: 'currentColor',
@@ -40,23 +39,12 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
   },
 
   variants: {
-    variant: {
-      primary: {
-        color: '$accentSolid',
-      },
-      danger: {
-        color: '$dangerSolid',
-      },
-      success: {
-        color: '$successSolid',
-      },
-    },
     disabled: {
       true: {
         opacity: 0.7,
         pointerEvents: 'none',
-        borderColor: '$neutralBg',
-        backgroundColor: '$neutralBg',
+        borderColor: 'neutral.bg',
+        backgroundColor: 'neutral.bg',
       },
     },
     size: {
@@ -75,10 +63,6 @@ const StyledSwitch = styled(SwitchPrimitive.Root, {
         outline: '2px solid currentColor',
       },
     },
-  },
-
-  defaultVariants: {
-    variant: 'primary',
   },
 });
 

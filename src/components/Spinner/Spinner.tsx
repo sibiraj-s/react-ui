@@ -4,19 +4,9 @@ import { styled } from 'styled-system/jsx';
 export const StyledSpinner = styled('div', {
   base: {
     aspectRatio: 'square',
+    color: 'accent',
   },
   variants: {
-    variant: {
-      primary: {
-        color: '$accentSolid',
-      },
-      success: {
-        color: '$successSolid',
-      },
-      danger: {
-        color: '$dangerSolid',
-      },
-    },
     size: {
       xxs: {
         width: '4',
@@ -43,7 +33,6 @@ export const StyledSpinner = styled('div', {
   },
 
   defaultVariants: {
-    variant: 'primary',
     size: 'md',
   },
 });

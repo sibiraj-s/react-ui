@@ -5,49 +5,44 @@ import rx from '@/utils/factory';
 export const textStyle = cva({
   variants: {
     size: {
-      sm: {
-        fontSize: 'sm',
-      },
       xs: {
-        fontSize: 'xs',
+        textStyle: 'xs',
+      },
+      sm: {
+        textStyle: 'sm',
       },
       md: {
-        fontSize: 'md',
+        textStyle: 'md',
       },
-      '1': {
-        fontSize: '4xl',
+      lg: {
+        textStyle: 'lg',
       },
-      '2': {
-        fontSize: '3xl',
+      xl: {
+        textStyle: 'xl',
       },
-      '3': {
-        fontSize: '2xl',
+      '2xl': {
+        textStyle: '2xl',
       },
-      '4': {
-        fontSize: 'xl',
+      '3xl': {
+        textStyle: '3xl',
       },
-      '5': {
-        fontSize: 'lg',
+      '4xl': {
+        textStyle: '4xl',
       },
-      '6': {
-        fontSize: '$base',
+      '5xl': {
+        textStyle: '5xl',
       },
-    },
-    variant: {
-      primary: {
-        color: '$accentSolid',
+      '6xl': {
+        textStyle: '6xl',
       },
-      secondary: {
-        color: '$secondarySolid',
+      '7xl': {
+        textStyle: '7xl',
       },
-      success: {
-        color: '$successSolid',
+      '8xl': {
+        textStyle: '8xl',
       },
-      danger: {
-        color: '$dangerSolid',
-      },
-      muted: {
-        color: '$muted',
+      '9xl': {
+        textStyle: '9xl',
       },
     },
     weight: {

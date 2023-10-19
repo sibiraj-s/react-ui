@@ -37,7 +37,7 @@ export const Spin: Story = {
   },
 };
 
-export const Variants: Story = {
+export const Colors: Story = {
   args: {
     min: 0,
     max: 200,
@@ -46,10 +46,10 @@ export const Variants: Story = {
     return (
       <HStack gap='4'>
         <ProgressCircle {...args} value={rand()} />
-        <ProgressCircle {...args} value={rand()} variant='primary' />
-        <ProgressCircle {...args} value={rand()} variant='danger' />
-        <ProgressCircle {...args} value={rand()} variant='muted' />
-        <ProgressCircle {...args} value={rand()} variant='success' />
+        <ProgressCircle {...args} value={rand()} color='accent' />
+        <ProgressCircle {...args} value={rand()} color='danger' />
+        <ProgressCircle {...args} value={rand()} color='muted' />
+        <ProgressCircle {...args} value={rand()} color='success' />
       </HStack>
     );
   },

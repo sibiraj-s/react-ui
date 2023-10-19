@@ -1,10 +1,10 @@
-import { ComponentProps, FC } from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
-import { styled } from 'styled-system/jsx';
+import { HTMLStyledProps, styled } from 'styled-system/jsx';
 import { cva } from 'styled-system/css';
 
-const Bar = styled('div', {
+const barStyle = cva({
   base: {
     width: '100%',
     border: '1px solid',
@@ -12,26 +12,7 @@ const Bar = styled('div', {
     borderRadius: 'md',
     overflow: 'hidden',
     borderColor: 'currentcolor',
-  },
-
-  variants: {
-    variant: {
-      primary: {
-        color: '$accentSolid',
-      },
-      success: {
-        color: '$successSolid',
-      },
-      danger: {
-        color: '$dangerSolid',
-      },
-      muted: {
-        color: '$neutralSolid',
-      },
-    },
-  },
-  defaultVariants: {
-    variant: 'primary',
+    color: 'accent',
   },
 });
 
@@ -64,13 +45,14 @@ const barFilingStyle = cva({
   ],
 });
 
-interface ProgressBarProps {
+const Bar = styled('div', barStyle);
+
+interface ProgressBarProps extends HTMLStyledProps<typeof Bar> {
   value: number;
   min?: number;
   max?: number;
   duration?: number;
   delay?: number;
-  variant?: ComponentProps<typeof Bar>['variant'];
   striped?: boolean;
   animated?: boolean;
 }
@@ -89,18 +71,10 @@ const getValidPercents = (value: number, min: number, max: number): number => {
   return percents;
 };
 
-const ProgressBar: FC<ProgressBarProps> = ({
-  min = 0,
-  max = 100,
-  value = 0,
-  duration = 3,
-  delay = 0.5,
-  variant,
-  ...rest
-}) => {
+const ProgressBar: FC<ProgressBarProps> = ({ min = 0, max = 100, value = 0, duration = 3, delay = 0.5, ...rest }) => {
   const percents = getValidPercents(value, min, max);
   const barWidth = `${percents}%`;
-  const [barFilingVariantProps] = barFilingStyle.splitVariantProps(rest);
+  const [barFilingVariantProps, progressBarRestProps] = barFilingStyle.splitVariantProps(rest);
 
   const { progressBarProps } = useProgressBar({
     value,
@@ -110,7 +84,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
   });
 
   return (
-    <Bar {...progressBarProps} variant={variant}>
+    <Bar {...progressBarRestProps} {...progressBarProps}>
       <motion.div
         className={barFilingStyle(barFilingVariantProps)}
         initial={{ width: 0 }}

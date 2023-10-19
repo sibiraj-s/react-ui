@@ -21,13 +21,13 @@ type Story = StoryObj<typeof Badge>;
 const Template = (args: ComponentProps<typeof Badge>) => (
   <HStack gap='2'>
     <Badge {...args}>Premium</Badge>
-    <Badge {...args} variant='secondary'>
+    <Badge {...args} colorScheme='secondary'>
       Pro
     </Badge>
-    <Badge {...args} variant='success'>
+    <Badge {...args} colorScheme='success'>
       Available Now
     </Badge>
-    <Badge {...args} variant='danger'>
+    <Badge {...args} colorScheme='danger'>
       Danger Zone!
     </Badge>
   </HStack>

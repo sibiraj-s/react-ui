@@ -1,19 +1,36 @@
-import { Token } from 'styled-system/types/composition';
+/* eslint-disable no-continue */
+
+import { Token, Recursive } from 'styled-system/types/composition';
 
 const createTokenValues = (
-  properties: Record<string | number, string | number>,
-  prefix = true
-): Record<string, Token> => {
-  const tokens: Record<string, Token> = {};
+  properties: Record<string | number, string | number | Record<string, string>>,
+  prefix = true,
+  solidAsDefault = false
+): Recursive<Token> => {
+  const tokens: Recursive<Token> = {};
 
   for (const key in properties) {
-    if (key) {
-      const k = prefix ? `$${key}` : key;
+    if (!key) {
+      continue;
+    }
 
-      tokens[k] = {
-        value: properties[key],
+    const k = prefix ? `$${key}` : key;
+    const value = properties[k];
+
+    if (typeof value === 'object') {
+      tokens[k] = createTokenValues(value, prefix, solidAsDefault);
+      continue;
+    }
+
+    if (solidAsDefault && k === 'solid') {
+      tokens.DEFAULT = {
+        value: properties[k],
       };
     }
+
+    tokens[k] = {
+      value: properties[k],
+    };
   }
 
   return tokens;

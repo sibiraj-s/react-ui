@@ -54,7 +54,7 @@ export const WithStipesAnimation: Story = {
   },
 };
 
-export const Variants: Story = {
+export const Colors: Story = {
   ...WithStipes,
   args: {
     ...WithStipes.args,
@@ -63,10 +63,10 @@ export const Variants: Story = {
   render: (args) => {
     return (
       <Stack css={{ width: '70%' }} gap='8'>
-        <ProgressBar {...args} value={rand()} variant='success' />
-        <ProgressBar {...args} value={rand()} variant='primary' />
-        <ProgressBar {...args} value={rand()} variant='danger' />
-        <ProgressBar {...args} value={rand()} variant='muted' />
+        <ProgressBar {...args} value={rand()} color='success' />
+        <ProgressBar {...args} value={rand()} color='primary' />
+        <ProgressBar {...args} value={rand()} color='danger' />
+        <ProgressBar {...args} value={rand()} color='muted' />
         <ProgressBar {...args} value={rand()} />
       </Stack>
     );

@@ -1,16 +1,11 @@
-import { ComponentProps, ElementRef, forwardRef } from 'react';
-import { styled } from 'styled-system/jsx';
-
+import { ElementRef, forwardRef } from 'react';
+import { styled, HTMLStyledProps } from 'styled-system/jsx';
 import { textStyle } from '../Text';
-import { RecipeVariantProps } from 'styled-system/css';
+
+type LabelElement = ElementRef<typeof styled.label>;
 
 const StyledLabel = styled('label', textStyle);
-
-type LabelVariantProps = RecipeVariantProps<typeof textStyle>;
-type LabelOwnProps = ComponentProps<'label'> & LabelVariantProps;
-
-type LabelElement = ElementRef<typeof StyledLabel>;
-type LabelProps = LabelOwnProps;
+type LabelProps = HTMLStyledProps<typeof StyledLabel>;
 
 export const Label = forwardRef<LabelElement, LabelProps>((props, forwardedRef) => {
   return <StyledLabel {...props} ref={forwardedRef} />;

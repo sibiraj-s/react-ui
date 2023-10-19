@@ -13,36 +13,34 @@ export const Badge = styled('span', {
     fontWeight: 'medium',
     letterSpacing: 'wide',
     lineHeight: 'tight',
-    color: 'white',
     minWidth: '10',
     userSelect: 'none',
+    color: 'white',
+    backgroundColor: 'colorPalette.solid',
+    borderColor: 'colorPalette.solid',
   },
 
   // variants
   variants: {
-    variant: {
-      primary: {
-        backgroundColor: '$accentSolid',
-        borderColor: '$accentSolid',
+    colorScheme: {
+      accent: {
+        colorPalette: 'accent',
       },
       secondary: {
-        backgroundColor: '$secondarySolid',
-        borderColor: '$secondarySolid',
+        colorPalette: 'secondary',
       },
       success: {
-        backgroundColor: '$successSolid',
-        borderColor: '$successSolid',
+        colorPalette: 'success',
       },
       danger: {
-        backgroundColor: '$dangerSolid',
-        borderColor: '$dangerSolid',
+        colorPalette: 'danger',
       },
     },
   },
 
   // defaults
   defaultVariants: {
-    variant: 'primary',
+    colorScheme: 'accent',
   },
 });
 

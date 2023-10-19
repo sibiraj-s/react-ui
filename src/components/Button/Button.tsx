@@ -11,8 +11,7 @@ const buttonStyle = cva({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: '1px',
-    borderStyle: 'solid',
+    border: '1px solid token(colors.neutral.950)',
     borderRadius: 'md',
     gap: '2',
     fontWeight: 'semibold',
@@ -36,140 +35,68 @@ const buttonStyle = cva({
 
   // variants
   variants: {
-    variantType: {
-      solid: {},
+    variant: {
+      solid: {
+        color: 'white',
+        backgroundColor: 'colorPalette.solid',
+        borderColor: 'colorPalette.solid',
+        '--outline-shadowFrom': 'colors.colorPalette.base',
+        '--outline-shadowTo': 'colors.colorPalette.solid',
+
+        _hover: {
+          backgroundColor: 'colorPalette.solidHover',
+          borderColor: 'colorPalette.solidHover',
+        },
+
+        _active: {
+          backgroundColor: 'colorPalette.solidHover',
+          borderColor: 'colorPalette.solidHover',
+        },
+      },
       outline: {
+        borderColor: 'colorPalette.solid',
+        color: 'colorPalette.solid',
+        backgroundColor: 'transparent',
+
         _hover: {
           color: 'white',
         },
       },
     },
     size: {
-      sm: {
-        py: '1',
-        px: '2',
-        borderRadius: 'sm',
-        fontSize: 'sm',
-      },
       xs: {
         py: '0',
         px: '1.5',
         borderRadius: 'sm',
         fontSize: 'sm',
       },
+      sm: {
+        py: '1',
+        px: '2',
+        borderRadius: 'sm',
+        fontSize: 'sm',
+      },
     },
-    variant: {
-      primary: {
-        color: 'white',
-        backgroundColor: '$accentSolid',
-        borderColor: '$accentSolid',
-        '--outline-shadowFrom': 'colors.$accentBase',
-        '--outline-shadowTo': 'colors.$accentSolid',
-
-        _hover: {
-          backgroundColor: '$accentSolidHover',
-          borderColor: '$accentSolidHover',
-        },
-
-        _active: {
-          backgroundColor: '$accentSolidHover',
-          borderColor: '$accentSolidHover',
-        },
+    colorScheme: {
+      accent: {
+        colorPalette: 'accent',
       },
       secondary: {
-        color: 'white',
-        backgroundColor: '$secondarySolid',
-        borderColor: '$secondarySolid',
-        '--outline-shadowFrom': 'colors.$secondaryBase',
-        '--outline-shadowTo': 'colors.$secondarySolid',
-
-        _hover: {
-          backgroundColor: '$secondarySolidHover',
-          borderColor: '$secondarySolidHover',
-        },
-
-        _active: {
-          backgroundColor: '$secondarySolidHover',
-          borderColor: '$secondarySolidHover',
-        },
+        colorPalette: 'secondary',
       },
       success: {
-        color: 'white',
-        backgroundColor: '$successSolid',
-        borderColor: '$successSolid',
-        '--outline-shadowFrom': 'colors.$successBase',
-        '--outline-shadowTo': 'colors.$successSolid',
-
-        _hover: {
-          backgroundColor: '$successSolidHover',
-          borderColor: '$successSolidHover',
-        },
-
-        _active: {
-          backgroundColor: '$successSolidHover',
-          borderColor: '$successSolidHover',
-        },
+        colorPalette: 'success',
       },
       danger: {
-        color: 'white',
-        backgroundColor: '$dangerSolid',
-        borderColor: '$dangerSolid',
-        '--outline-shadowFrom': 'colors.$dangerBase',
-        '--outline-shadowTo': 'colors.$dangerSolid',
-
-        _hover: {
-          backgroundColor: '$dangerSolidHover',
-          borderColor: '$dangerSolidHover',
-        },
-
-        _active: {
-          backgroundColor: '$dangerSolidHover',
-          borderColor: '$dangerSolidHover',
-        },
+        colorPalette: 'danger',
       },
     },
   },
 
-  compoundVariants: [
-    {
-      variant: 'primary',
-      variantType: 'outline',
-      css: {
-        color: '$accentSolid',
-      },
-    },
-    {
-      variant: 'secondary',
-      variantType: 'outline',
-      css: {
-        color: '$secondarySolid',
-      },
-    },
-    {
-      variant: 'success',
-      variantType: 'outline',
-      css: {
-        color: '$successSolid',
-      },
-    },
-    {
-      variant: 'danger',
-      variantType: 'outline',
-      css: {
-        color: '$dangerSolid',
-      },
-    },
-    {
-      variantType: 'outline',
-      css: {
-        backgroundColor: 'transparent',
-      },
-    },
-  ],
-
   // defaults
   defaultVariants: {
-    variant: 'primary',
+    variant: 'solid',
+    colorScheme: 'accent',
   },
 });
 
