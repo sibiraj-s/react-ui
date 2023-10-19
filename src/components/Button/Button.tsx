@@ -11,7 +11,7 @@ const buttonStyle = cva({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px solid token(colors.neutral.950)',
+    border: '1px solid token(colors.neutral.textContrast)',
     borderRadius: 'md',
     gap: '2',
     fontWeight: 'semibold',

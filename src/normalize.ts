@@ -6,8 +6,8 @@ const normalize = defineGlobalStyles({
   },
   body: {
     fontSize: '$body',
-    fontFamily: '$body',
-    color: '$body',
+    fontFamily: 'sans',
+    color: 'neutral.textContrast',
   },
   a: {
     color: 'primary',

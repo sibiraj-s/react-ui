@@ -81,7 +81,6 @@ const semanticTokens = defineSemanticTokens({
 
       // other colors
       muted: '{colors.gray.500}',
-      body: '{colors.gray.950}',
     },
     false,
     true
