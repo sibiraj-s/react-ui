@@ -20,3 +20,5 @@ export * from './ProgressBar';
 
 export * from './TimeField';
 export * from './DateField';
+
+export * from './Portal';
