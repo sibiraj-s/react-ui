@@ -60,6 +60,7 @@ const buttonStyle = cva({
 
         _hover: {
           color: 'white',
+          backgroundColor: 'colorPalette.solid',
         },
       },
     },
