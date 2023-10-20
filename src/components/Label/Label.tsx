@@ -8,7 +8,7 @@ const StyledLabel = styled('label', textStyle);
 type LabelProps = HTMLStyledProps<typeof StyledLabel>;
 
 export const Label = forwardRef<LabelElement, LabelProps>((props, forwardedRef) => {
-  return <StyledLabel {...props} ref={forwardedRef} />;
+  return <StyledLabel fontWeight='medium' {...props} ref={forwardedRef} />;
 });
 Label.displayName = 'Label';
 

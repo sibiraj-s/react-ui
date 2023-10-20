@@ -20,7 +20,7 @@ const TimeField: FC<TimeFieldProps> = (props) => {
 
   return (
     <styled.div display='flex' flexDir='column' alignItems='start'>
-      <Label size='sm' {...labelProps}>
+      <Label size='sm' {...labelProps} mb='0.5'>
         {props.label}
       </Label>
       <styled.div

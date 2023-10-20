@@ -22,7 +22,7 @@ const DateField: FC<DateFieldProps> = (props) => {
 
   return (
     <styled.div display='flex' flexDir='column' alignItems='start'>
-      <Label {...labelProps} size='sm'>
+      <Label {...labelProps} size='sm' mb='0.5'>
         {props.label}
       </Label>
       <styled.div
