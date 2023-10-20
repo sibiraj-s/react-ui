@@ -22,6 +22,7 @@ const buttonStyle = cva({
     whiteSpace: 'nowrap',
     textAlign: 'center',
     cursor: 'default',
+    lineHeight: 'snug',
 
     _focusVisible: {
       boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',

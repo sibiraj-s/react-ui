@@ -36,13 +36,17 @@ export const Default: Story = {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <Stack gap='1'>
-          <AlertDialogTitle level='4'>Revoke access</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle level='5' mb='2'>
+            Revoke access
+          </AlertDialogTitle>
+          <AlertDialogDescription size='sm'>
             Are you sure? this application will no longer be accessible and any existing sessions will be expired.
           </AlertDialogDescription>
-          <HStack gap='2' justify='end' mt='2'>
+          <HStack gap='2' justify='end' mt='4'>
             <AlertDialogCancel>
-              <Button colorScheme='secondary'>Cancel</Button>
+              <Button variant='outline' colorScheme='secondary'>
+                Cancel
+              </Button>
             </AlertDialogCancel>
             <AlertDialogAction>
               <Button colorScheme='danger'>Revoke access</Button>
