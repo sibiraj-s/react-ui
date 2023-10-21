@@ -1,12 +1,38 @@
 import { FC, useRef } from 'react';
 import { useDateSegment } from 'react-aria';
 import * as Stately from 'react-stately';
+import { sva } from 'styled-system/css';
 import { styled } from 'styled-system/jsx';
 
 interface DateSegmentProps {
   segment: Stately.DateSegment;
   state: Stately.DateFieldState;
 }
+
+export const dateStyle = sva({
+  slots: ['root', 'label', 'segment'],
+  base: {
+    root: {
+      display: 'flex',
+      flexDir: 'column',
+      alignItems: 'start',
+    },
+    label: {
+      mb: '0.5',
+    },
+    segment: {
+      display: 'flex',
+      border: '1px solid token(colors.neutral.bgHover)',
+      borderRadius: 'md',
+      p: '1',
+      pr: '8',
+      transition: 'colors',
+      _hover: {
+        borderColor: 'primary',
+      },
+    },
+  },
+});
 
 const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
   const ref = useRef(null);

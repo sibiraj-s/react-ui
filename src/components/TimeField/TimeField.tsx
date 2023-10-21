@@ -3,7 +3,7 @@ import { AriaTimeFieldProps, TimeValue, useLocale, useTimeField } from 'react-ar
 import { useTimeFieldState, TimeFieldStateOptions } from 'react-stately';
 import { styled } from 'styled-system/jsx';
 
-import DateSegment from '../_shared/DateSegment';
+import DateSegment, { dateStyle } from '../_shared/DateSegment';
 import Label from '../Label';
 
 type TimeFieldProps = TimeFieldStateOptions & AriaTimeFieldProps<TimeValue>;
@@ -18,24 +18,14 @@ const TimeField: FC<TimeFieldProps> = (props) => {
   const ref = useRef(null);
   const { labelProps, fieldProps } = useTimeField(props, state, ref);
 
+  const styles = dateStyle();
+
   return (
-    <styled.div display='flex' flexDir='column' alignItems='start'>
-      <Label size='sm' {...labelProps} mb='0.5'>
+    <styled.div className={styles.root}>
+      <Label size='sm' {...labelProps} className={styles.label}>
         {props.label}
       </Label>
-      <styled.div
-        {...fieldProps}
-        ref={ref}
-        display='flex'
-        border='1px solid token(colors.neutral.bgHover)'
-        borderRadius='md'
-        p='1'
-        pr='8'
-        transition='colors'
-        _hover={{
-          borderColor: 'primary',
-        }}
-      >
+      <styled.div {...fieldProps} ref={ref} className={styles.segment}>
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
