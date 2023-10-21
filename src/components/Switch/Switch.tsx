@@ -1,85 +1,101 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 import { ElementRef, forwardRef, ComponentProps } from 'react';
 import { mergeProps, useFocusRing } from 'react-aria';
-import { styled } from 'styled-system/jsx';
+import { RecipeVariantProps, cx, sva } from 'styled-system/css';
 
-const StyledThumb = styled(SwitchPrimitive.Thumb, {
+const switchStyle = sva({
+  slots: ['root', 'thumb'],
   base: {
-    height: '100%',
-    aspectRatio: '1 / 1',
-    backgroundColor: 'white',
-    borderRadius: 'full',
-    transition: 'transform 300ms',
-    transform: 'translateX(0)',
-    willChange: 'transform',
+    root: {
+      display: 'flex',
+      boxSizing: 'content-box',
+      width: '10',
+      height: '5',
+      backgroundColor: 'neutral.bg',
+      border: '1px solid token(colors.neutral.bg)',
+      borderRadius: 'full',
+      padding: '1px',
+      color: 'primary',
 
-    '&[data-state="checked"]': {
-      transform: 'translateX(100%)',
+      _checked: {
+        backgroundColor: 'currentColor',
+        borderColor: 'currentColor',
+      },
+    },
+    thumb: {
+      height: '100%',
+      aspectRatio: '1 / 1',
+      backgroundColor: 'white',
+      borderRadius: 'full',
+      transition: 'transform 300ms',
+      transform: 'translateX(0)',
+      willChange: 'transform',
+
+      _checked: {
+        transform: 'translateX(100%)',
+      },
     },
   },
-});
-
-const StyledSwitch = styled(SwitchPrimitive.Root, {
-  base: {
-    boxSizing: 'content-box',
-    display: 'flex',
-    alignItems: 'center',
-    width: '10',
-    height: '5',
-    backgroundColor: 'neutral.bg',
-    border: '1px solid token(colors.neutral.bg)',
-    borderRadius: 'full',
-    padding: '1px',
-    color: 'primary',
-
-    '&[data-state="checked"]': {
-      backgroundColor: 'currentColor',
-      borderColor: 'currentColor',
-    },
-  },
-
   variants: {
     disabled: {
       true: {
-        opacity: 0.7,
-        pointerEvents: 'none',
-        borderColor: 'neutral.bg',
-        backgroundColor: 'neutral.bg',
+        root: {
+          opacity: 0.7,
+          pointerEvents: 'none',
+          borderColor: 'neutral.bg',
+          backgroundColor: 'neutral.bg',
+        },
       },
     },
     size: {
       sm: {
-        width: '8',
-        height: '4',
+        root: {
+          width: '8',
+          height: '4',
+        },
       },
       lg: {
-        width: '12',
-        height: '6',
+        root: {
+          width: '12',
+          height: '6',
+        },
       },
     },
     isFocusVisible: {
       true: {
-        outlineOffset: '1px',
-        outline: '2px solid currentColor',
+        root: {
+          outlineOffset: '1px',
+          outline: '2px solid currentColor',
+        },
       },
     },
   },
 });
 
-type UserIgnoredProps = 'isFocusVisible';
-type SwitchVariants = ComponentProps<typeof StyledSwitch>;
-type SwitchOwnProps = SwitchVariants;
+const SwitchRoot = SwitchPrimitive.Root;
+const SwitchThumb = SwitchPrimitive.Thumb;
 
-type SwithElement = ElementRef<typeof StyledSwitch>;
+type SwitchVariants = RecipeVariantProps<typeof switchStyle>;
+type SwitchOwnProps = ComponentProps<typeof SwitchRoot> & SwitchVariants;
+type UserIgnoredProps = 'isFocusVisible';
+
+type SwithElement = ElementRef<typeof SwitchRoot>;
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 
 export const Switch = forwardRef<SwithElement, SwitchProps>((props, ref) => {
   const { isFocusVisible, focusProps } = useFocusRing();
 
+  const [variantProps, switchProps] = switchStyle.splitVariantProps(props);
+  const switchClasses = switchStyle({ isFocusVisible, ...variantProps });
+
   return (
-    <StyledSwitch {...mergeProps(props, focusProps)} isFocusVisible={isFocusVisible} ref={ref}>
-      <StyledThumb />
-    </StyledSwitch>
+    <SwitchPrimitive.Root
+      {...mergeProps(switchProps, focusProps)}
+      className={cx(switchClasses.root, switchProps.className)}
+      ref={ref}
+    >
+      <SwitchThumb className={switchClasses.thumb} />
+    </SwitchPrimitive.Root>
   );
 });
 
