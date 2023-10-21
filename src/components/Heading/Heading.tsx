@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { styled, HTMLStyledProps } from 'styled-system/jsx';
-import { css, cva, RecipeVariantProps } from 'styled-system/css';
+import { cva, cx, RecipeVariantProps } from 'styled-system/css';
 
 import rx from '@/utils/factory';
 import { textStyle } from '../Text';
@@ -54,17 +54,10 @@ export type HeadingProps = HTMLStyledProps<'h1'> &
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, forwardedRef) => {
   const level = props.level ?? '1';
   const tag = rx[`h${level}`];
-  const Component = styled(tag);
-  const [headingStyleProps] = headingStyle.splitVariantProps(props);
+  const Component = styled(tag, headingStyle);
   const [textStyleProps] = textStyle.splitVariantProps(props);
 
-  return (
-    <Component
-      {...props}
-      className={css(headingStyle.raw(headingStyleProps), textStyle.raw(textStyleProps))}
-      ref={forwardedRef}
-    />
-  );
+  return <Component {...props} className={cx(textStyle(textStyleProps), props.className)} ref={forwardedRef} />;
 });
 
 Heading.displayName = 'Heading';
