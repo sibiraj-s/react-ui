@@ -2,10 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Stack } from 'styled-system/jsx';
 
 import { Heading } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Heading> = {
   title: 'Typography/Heading',
   component: Heading,
+  parameters: {
+    controls: {
+      exclude: showOnlyControls([]),
+    },
+  },
 };
 
 export default meta;
@@ -44,9 +50,11 @@ const ColorsTemplate = () => (
 );
 
 export const Default: Story = {
-  render: () => <Template />,
+  args: {},
+  render: (args) => <Template {...args} />,
 };
 
 export const Colors: Story = {
-  render: () => <ColorsTemplate />,
+  args: {},
+  render: (args) => <ColorsTemplate {...args} />,
 };

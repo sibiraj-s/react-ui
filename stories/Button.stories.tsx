@@ -3,22 +3,30 @@ import { ComponentProps } from 'react';
 import { BookmarkIcon } from '@radix-ui/react-icons';
 import { HStack } from 'styled-system/jsx';
 
-import { Button, Link } from '../index';
-import { disableControls } from './utils';
+import { Button, Link, buttonStyle } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    controls: {
+      exclude: showOnlyControls([...buttonStyle.variantKeys, 'disabled', 'onClick']),
+    },
+  },
   argTypes: {
     onClick: { action: 'click' },
     colorScheme: {
       control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger'],
+      options: buttonStyle.variantMap.colorScheme,
+    },
+    size: {
+      control: 'select',
+      options: buttonStyle.variantMap.size,
     },
     disabled: {
       control: 'boolean',
     },
-    ...disableControls(['size', 'ref', 'variantType', 'as', 'isFocusVisible', 'onClick']),
   },
 };
 
@@ -27,19 +35,19 @@ type Story = StoryObj<typeof Button>;
 
 const Template = (args: ComponentProps<typeof Button>) => (
   <HStack gap='3'>
-    <Button {...args} size='xs'>
+    <Button size='xs' {...args}>
       Extra Small Button
     </Button>
-    <Button {...args} size='sm'>
+    <Button size='sm' {...args}>
       Small Button
     </Button>
     <Button {...args}>Default Button</Button>
-    <Button {...args} variant='outline'>
+    <Button variant='outline' {...args}>
       Outline Button
     </Button>
-    <Button {...args} variant='outline' asChild>
+    <Button variant='outline' {...args} asChild>
       <Link href='https://sibiraj.dev' target='_blank'>
-        Visit Github (Link Button)
+        Visit Github (link as button)
       </Link>
     </Button>
   </HStack>

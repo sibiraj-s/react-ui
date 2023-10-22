@@ -2,45 +2,35 @@ import { type FC, useRef } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
 import { HTMLStyledProps, styled } from 'styled-system/jsx';
-import { css, cva } from 'styled-system/css';
+import { sva } from 'styled-system/css';
 
 import Counter from './Counter';
 
-const StyledContainer = styled('div', {
+const progressCircleStyle = sva({
+  slots: ['container', 'label', 'circle', 'progress'],
   base: {
-    position: 'relative',
-    color: 'primary',
-  },
-  defaultVariants: {
-    variant: 'success',
-  },
-});
-
-const StyledCounterContainer = styled('label', {
-  base: {
-    position: 'absolute',
-    height: 'full',
-    width: 'full',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
-    fontWeight: 'semibold',
-  },
-});
-
-const StyledCircle = styled('circle', {
-  base: {
-    stroke: 'currentColor',
-    strokeOpacity: 0.1,
-    fill: 'transparent',
-  },
-});
-
-const progressCircleStyle = cva({
-  base: {
-    stroke: 'currentColor',
-    fill: 'transparent',
+    container: {
+      position: 'relative',
+    },
+    label: {
+      position: 'absolute',
+      height: 'full',
+      width: 'full',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
+      fontWeight: 'semibold',
+    },
+    circle: {
+      stroke: 'currentColor',
+      strokeOpacity: 0.1,
+      fill: 'transparent',
+    },
+    progress: {
+      stroke: 'currentColor',
+      fill: 'transparent',
+    },
   },
 });
 
@@ -53,7 +43,7 @@ interface ProgressCircleProps {
   spin?: boolean;
   size?: number;
   strokeWidth?: number;
-  color?: HTMLStyledProps<typeof StyledContainer>['color'];
+  color?: HTMLStyledProps<'div'>['color'];
 }
 
 const getPercents = (value: number, min: number, max: number): number => {
@@ -70,17 +60,19 @@ const getPercents = (value: number, min: number, max: number): number => {
   return percents;
 };
 
-export const ProgressCircle: FC<ProgressCircleProps> = ({
-  min = 0,
-  max = 100,
-  value = 0,
-  duration = 3,
-  delay = 0.5,
-  spin = false,
-  size = 100,
-  strokeWidth = 6,
-  ...rest
-}) => {
+export const ProgressCircle: FC<ProgressCircleProps> = (props) => {
+  const {
+    value = 0,
+    min = 0,
+    max = 100,
+    duration = 3,
+    delay = 0.5,
+    spin = false,
+    size = 100,
+    strokeWidth = 6,
+    color,
+  } = props;
+
   const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useInView(ref);
 
@@ -116,22 +108,35 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
     },
   };
 
+  const styleClasses = progressCircleStyle();
+
   return (
-    <StyledContainer
+    <styled.div
       {...progressBarProps}
-      className={css({ height: `${size}px`, width: `${size}px`, '--rx-progress-circle-size': `${size}px` })}
+      css={{
+        height: `${size}px`,
+        width: `${size}px`,
+        '--rx-progress-circle-size': `${size}px`,
+        color: color ?? 'primary',
+      }}
       ref={ref}
-      {...rest}
-      id='container'
+      className={styleClasses.container}
     >
-      <StyledCounterContainer {...labelProps}>
+      <label {...labelProps} className={styleClasses.label}>
         <Counter from={0} to={percents} duration={duration + delay} />%
-      </StyledCounterContainer>
+      </label>
 
       <svg viewBox={`0 0 ${size} ${size}`} version='1.1' xmlns='http://www.w3.org/2000/svg' width={size} height={size}>
-        <StyledCircle role='presentation' cx={center} cy={center} r={radius} strokeWidth={strokeWidth} />
+        <circle
+          className={styleClasses.circle}
+          role='presentation'
+          cx={center}
+          cy={center}
+          r={radius}
+          strokeWidth={strokeWidth}
+        />
         <motion.circle
-          className={progressCircleStyle()}
+          className={styleClasses.progress}
           role='presentation'
           cx={center}
           cy={center}
@@ -157,7 +162,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
           )}
         </motion.circle>
       </svg>
-    </StyledContainer>
+    </styled.div>
   );
 };
 

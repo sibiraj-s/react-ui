@@ -2,12 +2,31 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { TextField } from '../index';
 import { DotsHorizontalIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof TextField> = {
   title: 'Components/Forms/TextField',
   component: TextField,
+  parameters: {
+    controls: {
+      exclude: showOnlyControls([
+        'onChange',
+        'label',
+        'placeholder',
+        'description',
+        'isInvalid',
+        'errorMessage',
+        'autoFocus',
+      ]),
+    },
+  },
   argTypes: {
-    onChange: { action: 'change' },
+    onChange: {
+      action: 'change',
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 

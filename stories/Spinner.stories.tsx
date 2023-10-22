@@ -2,15 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { HStack } from 'styled-system/jsx';
 
-import { Spinner } from '../index';
+import { Spinner, spinnerStyle } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
   component: Spinner,
+  parameters: {
+    controls: {
+      exclude: showOnlyControls(spinnerStyle.variantKeys),
+    },
+  },
   argTypes: {
-    colorScheme: {
+    size: {
       control: 'select',
-      options: ['primary', 'success', 'danger'],
+      options: spinnerStyle.variantMap.size,
     },
   },
 };

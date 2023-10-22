@@ -1,7 +1,8 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
+import { cva } from 'styled-system/css';
 import { styled } from 'styled-system/jsx';
 
-export const StyledSpinner = styled('div', {
+export const spinnerStyle = cva({
   base: {
     aspectRatio: 'square',
     color: 'primary',
@@ -36,6 +37,8 @@ export const StyledSpinner = styled('div', {
     size: 'md',
   },
 });
+
+const StyledSpinner = styled('div', spinnerStyle);
 
 type SpinnerVariantProps = ComponentProps<typeof StyledSpinner>;
 type SpinnerExtraProps = {

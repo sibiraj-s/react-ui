@@ -3,7 +3,7 @@ import { ElementRef, forwardRef, ComponentProps } from 'react';
 import { mergeProps, useFocusRing } from 'react-aria';
 import { RecipeVariantProps, cx, sva } from 'styled-system/css';
 
-const switchStyle = sva({
+export const switchStyle = sva({
   slots: ['root', 'thumb'],
   base: {
     root: {

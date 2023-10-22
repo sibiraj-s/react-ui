@@ -2,15 +2,23 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { HStack } from 'styled-system/jsx';
 
-import { Switch } from '../index';
-import { disableControls } from './utils';
+import { Switch, switchStyle } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
+  parameters: {
+    controls: {
+      exclude: showOnlyControls([...switchStyle.variantKeys]),
+    },
+  },
   argTypes: {
-    ...disableControls(['size']),
-    onCheckedChange: { action: 'checked' },
+    size: {
+      control: 'radio',
+      options: switchStyle.variantMap.size,
+    },
+    onCheckedChange: { action: 'checked', table: { disable: true } },
   },
 };
 

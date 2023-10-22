@@ -1,12 +1,18 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { ProgressBar } from '../index';
+import { ProgressBar, progressBarStyle } from '../index';
 import { HStack, Stack } from 'styled-system/jsx';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Components/ProgressBar',
   component: ProgressBar,
   tags: ['autodocs'],
+  parameters: {
+    controls: {
+      exclude: showOnlyControls(progressBarStyle.variantKeys),
+    },
+  },
   argTypes: {},
 };
 

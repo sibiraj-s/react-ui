@@ -1,6 +1,7 @@
+import { cva } from 'styled-system/css';
 import { styled } from 'styled-system/jsx';
 
-export const Badge = styled('span', {
+export const badgeStyle = cva({
   base: {
     display: 'inline-block',
     borderWidth: '1px',
@@ -43,5 +44,7 @@ export const Badge = styled('span', {
     colorScheme: 'primary',
   },
 });
+
+export const Badge = styled('span', badgeStyle);
 
 export default Badge;

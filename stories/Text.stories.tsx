@@ -2,18 +2,26 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { Stack } from 'styled-system/jsx';
 
-import { Text } from '../index';
-import { disableControls } from './utils';
+import { Text, textStyle } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Text> = {
   title: 'Typography/Text',
   component: Text,
-  argTypes: {
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger', 'muted'],
+  parameters: {
+    controls: {
+      exclude: showOnlyControls(textStyle.variantKeys),
     },
-    ...disableControls(['size', 'spacing', 'css', 'as', 'ref']),
+  },
+  argTypes: {
+    size: {
+      control: 'select',
+      options: textStyle.variantMap.size,
+    },
+    weight: {
+      control: 'select',
+      options: textStyle.variantMap.weight,
+    },
   },
 };
 

@@ -5,7 +5,7 @@ import { cva, cx, RecipeVariantProps } from 'styled-system/css';
 import rx from '@/utils/factory';
 import { textStyle } from '../Text';
 
-const headingStyle = cva({
+export const headingStyle = cva({
   variants: {
     level: {
       '1': {

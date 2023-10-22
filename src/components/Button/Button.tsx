@@ -6,7 +6,7 @@ import { styled } from 'styled-system/jsx';
 import useObjectRef from '@/hooks/use-object-ref';
 import rx from '@/utils/factory';
 
-const buttonStyle = cva({
+export const buttonStyle = cva({
   base: {
     display: 'flex',
     alignItems: 'center',

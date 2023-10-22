@@ -2,15 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { HStack } from 'styled-system/jsx';
 
-import { Badge } from '../index';
+import { Badge, badgeStyle } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
-  argTypes: {},
   parameters: {
     controls: {
-      disabled: true,
+      exclude: showOnlyControls(badgeStyle.variantKeys),
+    },
+  },
+  argTypes: {
+    colorScheme: {
+      control: 'select',
+      options: badgeStyle.variantMap.colorScheme,
     },
   },
 };
@@ -35,6 +41,8 @@ const Template = (args: ComponentProps<typeof Badge>) => (
 
 export const Default: Story = {
   name: 'Badge',
-  args: {},
-  render: () => <Template />,
+  args: {
+    colorScheme: 'primary',
+  },
+  render: (args) => <Template {...args} />,
 };

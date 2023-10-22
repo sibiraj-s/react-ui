@@ -1,12 +1,31 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { TextareaField } from '../index';
+import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof TextareaField> = {
   title: 'Components/Forms/TextareaField',
   component: TextareaField,
+  parameters: {
+    controls: {
+      exclude: showOnlyControls([
+        'onChange',
+        'label',
+        'placeholder',
+        'description',
+        'isInvalid',
+        'errorMessage',
+        'autoFocus',
+      ]),
+    },
+  },
   argTypes: {
-    onChange: { action: 'change' },
+    onChange: {
+      action: 'change',
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
