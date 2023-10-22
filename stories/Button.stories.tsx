@@ -15,7 +15,12 @@ const meta: Meta<typeof Button> = {
     },
   },
   argTypes: {
-    onClick: { action: 'click' },
+    onClick: {
+      action: 'click',
+      table: {
+        disable: true,
+      },
+    },
     colorScheme: {
       control: 'select',
       options: buttonStyle.variantMap.colorScheme,
@@ -35,13 +40,7 @@ type Story = StoryObj<typeof Button>;
 
 const Template = (args: ComponentProps<typeof Button>) => (
   <HStack gap='3'>
-    <Button size='xs' {...args}>
-      Extra Small Button
-    </Button>
-    <Button size='sm' {...args}>
-      Small Button
-    </Button>
-    <Button {...args}>Default Button</Button>
+    <Button {...args}>Regular Button</Button>
     <Button variant='outline' {...args}>
       Outline Button
     </Button>
@@ -50,6 +49,18 @@ const Template = (args: ComponentProps<typeof Button>) => (
         Visit Github (link as button)
       </Link>
     </Button>
+  </HStack>
+);
+
+const TemplateSizes = (args: ComponentProps<typeof Button>) => (
+  <HStack gap='3'>
+    <Button size='xs' {...args}>
+      Click Me!
+    </Button>
+    <Button size='sm' {...args}>
+      Click Me!
+    </Button>
+    <Button {...args}>Click Me!</Button>
   </HStack>
 );
 
@@ -95,6 +106,12 @@ export const Disabled: Story = {
       },
     },
   },
+};
+
+export const Sizes: Story = {
+  ...Default,
+  args: {},
+  render: (args) => <TemplateSizes {...args} />,
 };
 
 export const WithIcon: Story = {

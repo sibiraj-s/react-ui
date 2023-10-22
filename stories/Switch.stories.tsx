@@ -10,7 +10,7 @@ const meta: Meta<typeof Switch> = {
   component: Switch,
   parameters: {
     controls: {
-      exclude: showOnlyControls([...switchStyle.variantKeys]),
+      exclude: showOnlyControls([...switchStyle.variantKeys, 'isFocusVisible']),
     },
   },
   argTypes: {
@@ -25,17 +25,28 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
-const Template = (args: ComponentProps<typeof Switch>) => (
+const TemplateSizes = (args: ComponentProps<typeof Switch>) => (
   <HStack gap='4'>
-    <Switch {...args} size='sm' />
+    <Switch size='sm' {...args} />
     <Switch {...args} />
-    <Switch {...args} size='lg' />
+    <Switch size='lg' {...args} />
+  </HStack>
+);
+
+const TemplateColors = (args: ComponentProps<typeof Switch>) => (
+  <HStack gap='4'>
+    <Switch color='danger' {...args} defaultChecked />
+    <Switch {...args} defaultChecked />
+    <Switch color='muted' {...args} defaultChecked />
+    <Switch color='neutral' {...args} defaultChecked />
   </HStack>
 );
 
 export const Default: Story = {
-  args: {},
-  render: (args) => <Template {...args} />,
+  args: {
+    size: 'regular',
+  },
+  render: (args) => <Switch {...args} />,
 };
 
 export const Disabled: Story = {
@@ -43,4 +54,16 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+};
+
+export const Sizes: Story = {
+  ...Default,
+  args: {},
+  render: (args) => <TemplateSizes {...args} />,
+};
+
+export const Colors: Story = {
+  ...Default,
+  args: {},
+  render: (args) => <TemplateColors {...args} />,
 };

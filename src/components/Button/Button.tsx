@@ -78,6 +78,7 @@ export const buttonStyle = cva({
         borderRadius: 'sm',
         fontSize: 'sm',
       },
+      regular: {},
     },
     colorScheme: {
       primary: {
