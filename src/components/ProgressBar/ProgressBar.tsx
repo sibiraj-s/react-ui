@@ -14,6 +14,7 @@ export const progressBarStyle = sva({
       borderRadius: 'md',
       overflow: 'hidden',
       borderColor: 'currentcolor',
+      color: 'primary',
     },
     filing: {
       backgroundColor: 'currentColor',
@@ -98,7 +99,6 @@ export const ProgressBar: FC<ProgressBarProps> = ({
       {...progressBarRestProps}
       {...progressBarProps}
       className={cx(styleClasses.container, progressBarRestProps.className)}
-      color={progressBarRestProps.color ?? 'primary'}
     >
       <motion.div
         className={styleClasses.filing}

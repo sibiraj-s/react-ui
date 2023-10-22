@@ -32,5 +32,5 @@ const Template = () => (
 export const Default: Story = {
   name: 'Typography',
   args: {},
-  render: () => <Template />,
+  render: (args) => <Template {...args} />,
 };

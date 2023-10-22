@@ -14,6 +14,7 @@ export const switchStyle = sva({
       border: '1px solid token(colors.neutral.bg)',
       borderRadius: 'full',
       padding: '1px',
+      color: 'primary',
 
       _checked: {
         backgroundColor: 'currentColor',
@@ -99,7 +100,6 @@ export const Switch = forwardRef<SwithElement, SwitchProps>((props, ref) => {
     <SwitchRoot
       className={cx(switchClasses.root, switchProps.className)}
       {...mergeProps(switchProps, focusProps)}
-      color={switchProps.color ?? 'primary'}
       ref={ref}
     >
       <SwitchThumb className={switchClasses.thumb} />

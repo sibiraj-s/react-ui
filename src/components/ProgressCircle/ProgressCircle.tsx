@@ -11,6 +11,7 @@ const progressCircleStyle = sva({
   base: {
     container: {
       position: 'relative',
+      color: 'primary',
     },
     label: {
       position: 'absolute',
@@ -70,7 +71,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = (props) => {
     spin = false,
     size = 100,
     strokeWidth = 6,
-    color,
+    ...rest
   } = props;
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -117,10 +118,10 @@ export const ProgressCircle: FC<ProgressCircleProps> = (props) => {
         height: `${size}px`,
         width: `${size}px`,
         '--rx-progress-circle-size': `${size}px`,
-        color: color ?? 'primary',
       }}
       ref={ref}
       className={styleClasses.container}
+      {...rest}
     >
       <label {...labelProps} className={styleClasses.label}>
         <Counter from={0} to={percents} duration={duration + delay} />%
