@@ -37,7 +37,9 @@ export const WithIcons: Story = {
   args: {
     placeholder: 'Type something...',
   },
-  render: (args) => <Input {...args} prepend={<MagnifyingGlassIcon />} append={<DotsHorizontalIcon />} />,
+  render: (args) => (
+    <Input {...args} prepend={<MagnifyingGlassIcon color='gray' />} append={<DotsHorizontalIcon color='gray' />} />
+  ),
 };
 
 export const Invalid: Story = {

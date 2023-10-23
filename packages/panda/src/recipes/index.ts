@@ -1,5 +1,7 @@
 import badgeRecipe from './badge';
 import buttonRecipe from './button';
+import headingRecipe from './heading';
+import spinnerRecipe from './spinner';
 import textRecipe from './text';
 import textareaRecipe from './textarea';
 
@@ -9,17 +11,15 @@ import progressBarRecipe from './progress-bar';
 import progressCircleRecipe from './progress-circle';
 import switchRecipe from './switch';
 import alertDialogRecipe from './alert-dialog';
-import spinnerRecipe from './spinner';
 import inputRecipe from './input';
-import headingRecipe from './heading';
 
 export const recipes = {
-  buttonRecipe,
   badgeRecipe,
-  textRecipe,
-  spinnerRecipe,
-  textareaRecipe,
+  buttonRecipe,
   headingRecipe,
+  spinnerRecipe,
+  textRecipe,
+  textareaRecipe,
 };
 
 export const slotRecipes = {

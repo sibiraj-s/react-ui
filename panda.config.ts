@@ -1,6 +1,6 @@
 import { defineConfig } from '@pandacss/dev';
-
-import reactUIPreset from './src/panda';
+import reactUIPreset from '@rxui/panda';
+import { configureStaticCss } from '@rxui/panda/utils';
 
 const isProd = process.env.CI === 'true';
 
@@ -42,4 +42,6 @@ export default defineConfig({
 
   // Hash the generated class names and variables
   hash: isProd,
+
+  staticCss: configureStaticCss(),
 });

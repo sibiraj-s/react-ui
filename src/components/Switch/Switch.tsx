@@ -9,7 +9,8 @@ import { SwitchRecipeVariantProps, switchRecipe } from 'styled-system/recipes';
 const SwitchRoot = styled(SwitchPrimitive.Root);
 const SwitchThumb = SwitchPrimitive.Thumb;
 
-type SwitchOwnProps = HTMLStyledProps<typeof SwitchRoot> & SwitchRecipeVariantProps;
+type SwitchRootProps = Omit<HTMLStyledProps<typeof SwitchRoot>, keyof SwitchRecipeVariantProps>;
+type SwitchOwnProps = SwitchRootProps & SwitchRecipeVariantProps;
 type UserIgnoredProps = 'isFocusVisible';
 
 type SwithElement = ElementRef<typeof SwitchRoot>;

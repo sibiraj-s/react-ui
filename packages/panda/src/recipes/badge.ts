@@ -17,7 +17,7 @@ const badgeRecipe = defineRecipe({
     lineHeight: 'tight',
     minWidth: '10',
     userSelect: 'none',
-    color: 'white',
+    color: 'colorPalette.base',
     backgroundColor: 'colorPalette.solid',
     borderColor: 'colorPalette.solid',
   },
@@ -44,7 +44,6 @@ const badgeRecipe = defineRecipe({
   defaultVariants: {
     colorScheme: 'primary',
   },
-  jsx: ['Badge'],
 });
 
 export default badgeRecipe;

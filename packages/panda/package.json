@@ -1,0 +1,28 @@
+{
+  "name": "@rxui/panda",
+  "version": "0.0.0",
+  "description": "Panda preset for react-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sibiraj-s/react-ui.git",
+    "directory": "packages/panda"
+  },
+  "author": "sibiraj-s",
+  "private": true,
+  "bugs": "https://github.com/sibiraj-s/react-ui/issues",
+  "homepage": "https://github.com/sibiraj-s/react-ui#readme",
+  "type": "module",
+  "main": "./index.ts",
+  "keywords": [
+    "react-ui",
+    "panda-preset"
+  ],
+  "peerDependencies": {
+    "@pandacss/dev": "^0.17.0",
+    "@pandacss/types": "^0.17.0"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.17.0",
+    "@pandacss/types": "^0.17.0"
+  }
+}

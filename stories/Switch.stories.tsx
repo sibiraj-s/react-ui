@@ -52,9 +52,9 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   ...Default,
-  args: {
+  args: switchRecipe.raw({
     disabled: true,
-  },
+  }),
 };
 
 export const Sizes: Story = {

@@ -97,7 +97,6 @@ const buttonRecipe = defineRecipe({
     variant: 'solid',
     colorScheme: 'primary',
   },
-  jsx: ['Button'],
 });
 
 export default buttonRecipe;
