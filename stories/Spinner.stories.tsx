@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { HStack } from 'styled-system/jsx';
+import { spinnerRecipe } from 'styled-system/recipes';
 
-import { Spinner, spinnerStyle } from '../index';
+import { Spinner } from '../index';
 import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Spinner> = {
@@ -10,13 +11,13 @@ const meta: Meta<typeof Spinner> = {
   component: Spinner,
   parameters: {
     controls: {
-      exclude: showOnlyControls(spinnerStyle.variantKeys),
+      exclude: showOnlyControls(spinnerRecipe.variantKeys),
     },
   },
   argTypes: {
     size: {
       control: 'select',
-      options: spinnerStyle.variantMap.size,
+      options: spinnerRecipe.variantMap.size,
     },
   },
 };
@@ -32,7 +33,7 @@ const Template = (args: ComponentProps<typeof Spinner>) => (
     <Spinner {...args} color='muted' />
     <Spinner {...args} size='lg' color='neutral' />
     <Spinner {...args} size='xl' />
-    <Spinner {...args} size='2xl' />
+    <Spinner {...args} size='2xl' color='danger' />
   </HStack>
 );
 

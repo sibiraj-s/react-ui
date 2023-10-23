@@ -21,7 +21,7 @@ export default defineConfig({
   exclude: [],
 
   // Set of reusable and shareable configuration presets
-  presets: ['@pandacss/dev/presets', reactUIPreset],
+  presets: [reactUIPreset],
 
   // Theme customization
   theme: {

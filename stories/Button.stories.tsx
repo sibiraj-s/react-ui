@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { BookmarkIcon } from '@radix-ui/react-icons';
 import { HStack } from 'styled-system/jsx';
+import { buttonRecipe } from 'styled-system/recipes';
 
-import { Button, Link, buttonStyle } from '../index';
+import { Button, Link } from '../index';
 import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Button> = {
@@ -11,7 +12,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   parameters: {
     controls: {
-      exclude: showOnlyControls([...buttonStyle.variantKeys, 'disabled', 'onClick']),
+      exclude: showOnlyControls([...buttonRecipe.variantKeys, 'disabled', 'onClick']),
     },
   },
   argTypes: {
@@ -23,11 +24,11 @@ const meta: Meta<typeof Button> = {
     },
     colorScheme: {
       control: 'select',
-      options: buttonStyle.variantMap.colorScheme,
+      options: buttonRecipe.variantMap.colorScheme,
     },
     size: {
       control: 'select',
-      options: buttonStyle.variantMap.size,
+      options: buttonRecipe.variantMap.size,
     },
     disabled: {
       control: 'boolean',
@@ -41,10 +42,10 @@ type Story = StoryObj<typeof Button>;
 const Template = (args: ComponentProps<typeof Button>) => (
   <HStack gap='3'>
     <Button {...args}>Regular Button</Button>
-    <Button variant='outline' {...args}>
+    <Button {...args} variant='outline'>
       Outline Button
     </Button>
-    <Button variant='outline' {...args} asChild>
+    <Button {...args} variant='outline' asChild>
       <Link href='https://sibiraj.dev' target='_blank'>
         Visit Github (link as button)
       </Link>
@@ -54,10 +55,10 @@ const Template = (args: ComponentProps<typeof Button>) => (
 
 const TemplateSizes = (args: ComponentProps<typeof Button>) => (
   <HStack gap='3'>
-    <Button size='xs' {...args}>
+    <Button {...args} size='xs'>
       Click Me!
     </Button>
-    <Button size='sm' {...args}>
+    <Button {...args} size='sm'>
       Click Me!
     </Button>
     <Button {...args}>Click Me!</Button>
@@ -65,9 +66,9 @@ const TemplateSizes = (args: ComponentProps<typeof Button>) => (
 );
 
 const Default: Story = {
-  args: {
+  args: buttonRecipe.raw({
     colorScheme: 'primary',
-  },
+  }),
   render: (args) => <Template {...args} />,
 };
 
@@ -75,23 +76,23 @@ export const Primary: Story = Default;
 
 export const Secondary: Story = {
   ...Default,
-  args: {
+  args: buttonRecipe.raw({
     colorScheme: 'secondary',
-  },
+  }),
 };
 
 export const Success: Story = {
   ...Default,
-  args: {
+  args: buttonRecipe.raw({
     colorScheme: 'success',
-  },
+  }),
 };
 
 export const Danger: Story = {
   ...Default,
-  args: {
+  args: buttonRecipe.raw({
     colorScheme: 'danger',
-  },
+  }),
 };
 
 export const Disabled: Story = {

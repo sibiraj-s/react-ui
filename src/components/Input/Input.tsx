@@ -1,76 +1,19 @@
 import { ComponentProps, ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from 'react';
-import { styled } from 'styled-system/jsx';
 
 import useObjectRef from '@/hooks/use-object-ref';
+import { InputRecipeVariantProps, inputRecipe } from 'styled-system/recipes';
+import { cx } from 'styled-system/css';
 
-export const StyledInput = styled('input', {
-  base: {
-    flex: 1,
-    display: 'block',
-    py: '1.5',
-    px: '3',
-    borderRadius: 'md',
-    border: 'none',
-    outline: 'none',
-    backgroundColor: 'transparent',
-  },
-
-  variants: {
-    prepend: {
-      true: {
-        paddingLeft: '0.5',
-      },
-    },
-    append: {
-      true: {
-        paddingRight: '0.5',
-      },
-    },
-  },
-});
-
-const StyledInputGroup = styled('div', {
-  base: {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    borderRadius: 'md',
-    border: '1px solid token(colors.neutral.bgHover)',
-    colorPalette: 'primary',
-
-    '&:focus-within': {
-      outline: '1px solid token(colorPalette.solid)',
-      borderColor: 'colorPalette.solid',
-    },
-  },
-
-  variants: {
-    isInvalid: {
-      true: {
-        colorPalette: 'danger',
-        borderColor: 'danger.border',
-      },
-    },
-  },
-});
-
-const StyledInputGroupItem = styled('div', {
-  base: {
-    display: 'flex',
-    py: '0',
-    px: '2',
-  },
-});
-
-type InputVariants = ComponentProps<typeof StyledInput>;
+type InputVariants = ComponentProps<'input'>;
 type InputExtraProps = {
   prepend?: ReactElement[] | ReactElement;
   append?: ReactElement[] | ReactElement;
-  isInvalid: ComponentProps<typeof StyledInputGroup>['isInvalid'];
+  isInvalid: InputRecipeVariantProps['isInvalid'];
 };
 
 type InputOwnProps = Omit<InputVariants, 'prepend' | 'append'> & InputExtraProps;
 type InputProps = InputOwnProps & ComponentProps<'input'>;
+type InputElementType = ElementRef<'input'>;
 
 const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
   if (!items) {
@@ -80,7 +23,7 @@ const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
   return Array.isArray(items) ? items : [items];
 };
 
-export const Input = forwardRef<ElementRef<typeof StyledInput>, InputProps>((props, ref) => {
+export const Input = forwardRef<InputElementType, InputProps>((props, ref) => {
   const { prepend, append, isInvalid, ...rest } = props;
 
   const inputRef = useObjectRef(ref);
@@ -108,16 +51,26 @@ export const Input = forwardRef<ElementRef<typeof StyledInput>, InputProps>((pro
     });
   };
 
+  const inputClasses = inputRecipe({
+    isInvalid,
+    prepend: prependItems.length > 0,
+    append: appendItems.length > 0,
+  });
+
   return (
-    <StyledInputGroup isInvalid={isInvalid} onPointerDown={handlePointerDown}>
+    <div className={inputClasses.root} onPointerDown={handlePointerDown}>
       {prependItems.map((item, i) => (
-        <StyledInputGroupItem key={`${uniq}_prepend__${i}`}>{item}</StyledInputGroupItem>
+        <div className={inputClasses.item} key={`${uniq}_prepend__${i}`}>
+          {item}
+        </div>
       ))}
-      <StyledInput {...rest} ref={inputRef} prepend={prependItems.length > 0} append={appendItems.length > 0} />
+      <input {...rest} className={cx(inputClasses.input, props.className)} ref={inputRef} />
       {appendItems.map((item, i) => (
-        <StyledInputGroupItem key={`${uniq}_append__${i}`}>{item}</StyledInputGroupItem>
+        <div className={inputClasses.item} key={`${uniq}_append__${i}`}>
+          {item}
+        </div>
       ))}
-    </StyledInputGroup>
+    </div>
   );
 });
 

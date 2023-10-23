@@ -2,52 +2,8 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
 import { HTMLStyledProps, styled } from 'styled-system/jsx';
-import { cx, sva } from 'styled-system/css';
-
-export const progressBarStyle = sva({
-  slots: ['container', 'filing'],
-  base: {
-    container: {
-      width: '100%',
-      border: '1px solid',
-      height: '1.5rem',
-      borderRadius: 'md',
-      overflow: 'hidden',
-      borderColor: 'currentcolor',
-      color: 'primary',
-    },
-    filing: {
-      backgroundColor: 'currentColor',
-      height: '100%',
-    },
-  },
-  variants: {
-    animated: {
-      true: {},
-    },
-    striped: {
-      true: {
-        filing: {
-          backgroundImage:
-            'linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)',
-          backgroundSize: '1rem 1rem',
-        },
-      },
-    },
-  },
-  compoundVariants: [
-    {
-      striped: true,
-      animated: true,
-      css: {
-        filing: {
-          animation: `stripedBg 1s linear infinite`,
-        },
-      },
-    },
-  ],
-  defaultVariants: {},
-});
+import { cx } from 'styled-system/css';
+import { progressBarRecipe } from 'styled-system/recipes';
 
 interface ProgressBarProps extends HTMLStyledProps<'div'> {
   value: number;
@@ -84,8 +40,8 @@ export const ProgressBar: FC<ProgressBarProps> = ({
   const percents = getValidPercents(value, min, max);
   const barWidth = `${percents}%`;
 
-  const [barFilingVariantProps, progressBarRestProps] = progressBarStyle.splitVariantProps(rest);
-  const styleClasses = progressBarStyle(barFilingVariantProps);
+  const [barFilingVariantProps, progressBarRestProps] = progressBarRecipe.splitVariantProps(rest);
+  const styleClasses = progressBarRecipe(barFilingVariantProps);
 
   const { progressBarProps } = useProgressBar({
     value,

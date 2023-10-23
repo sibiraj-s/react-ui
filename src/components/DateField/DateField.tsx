@@ -3,8 +3,9 @@ import { useLocale, useDateField, AriaDateFieldProps, DateValue } from 'react-ar
 import { useDateFieldState } from 'react-stately';
 import { createCalendar } from '@internationalized/date';
 import { styled } from 'styled-system/jsx';
+import { dateFieldRecipe } from 'styled-system/recipes';
 
-import DateSegment, { dateStyle } from '../_shared/DateSegment';
+import DateSegment from '../_shared/DateSegment';
 import Label from '../Label';
 
 type DateFieldProps = AriaDateFieldProps<DateValue>;
@@ -20,14 +21,14 @@ const DateField: FC<DateFieldProps> = (props) => {
   const ref = useRef(null);
   const { labelProps, fieldProps } = useDateField(props, state, ref);
 
-  const styles = dateStyle();
+  const dateFieldClasses = dateFieldRecipe();
 
   return (
-    <styled.div className={styles.root}>
-      <Label {...labelProps} size='sm' className={styles.label}>
+    <styled.div className={dateFieldClasses.root}>
+      <Label {...labelProps} size='sm' className={dateFieldClasses.label}>
         {props.label}
       </Label>
-      <styled.div {...fieldProps} ref={ref} className={styles.segment}>
+      <styled.div {...fieldProps} ref={ref} className={dateFieldClasses.container}>
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}

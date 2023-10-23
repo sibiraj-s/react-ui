@@ -1,8 +1,8 @@
 import { defineSemanticTokens } from '@pandacss/dev';
-import createTokenValues from './utils/create-token-values';
+import createTokenValues from '../utils/create-token-values';
 
-const semanticTokens = defineSemanticTokens({
-  colors: createTokenValues(
+const colors = defineSemanticTokens.colors(
+  createTokenValues(
     {
       // primary shades
       primary: {
@@ -84,7 +84,7 @@ const semanticTokens = defineSemanticTokens({
     },
     false,
     true
-  ),
-});
+  )
+);
 
-export default semanticTokens;
+export default colors;

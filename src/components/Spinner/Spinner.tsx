@@ -1,44 +1,8 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
-import { cva } from 'styled-system/css';
 import { styled } from 'styled-system/jsx';
+import { spinnerRecipe } from 'styled-system/recipes';
 
-export const spinnerStyle = cva({
-  base: {
-    aspectRatio: 'square',
-    color: 'primary',
-  },
-  variants: {
-    size: {
-      xxs: {
-        width: '4',
-      },
-      xs: {
-        width: '5',
-      },
-      sm: {
-        width: '8',
-      },
-      md: {
-        width: '12',
-      },
-      lg: {
-        width: '14',
-      },
-      xl: {
-        width: '20',
-      },
-      '2xl': {
-        width: '24',
-      },
-    },
-  },
-
-  defaultVariants: {
-    size: 'md',
-  },
-});
-
-const StyledSpinner = styled('div', spinnerStyle);
+const StyledSpinner = styled('div', spinnerRecipe);
 
 type SpinnerVariantProps = ComponentProps<typeof StyledSpinner>;
 type SpinnerExtraProps = {
@@ -52,6 +16,7 @@ type SpinnerProps = SpinnerOwnProps;
 
 export const Spinner = forwardRef<SpinnerElementRef, SpinnerProps>((props, forwardedRef) => {
   const { strokeWidth = 10, percents = 75 } = props;
+  const [spinnerVariantProps] = spinnerRecipe.splitVariantProps(props);
 
   const size = 100;
   const center = size / 2;
@@ -61,7 +26,7 @@ export const Spinner = forwardRef<SpinnerElementRef, SpinnerProps>((props, forwa
   const fillPercents = Math.abs(Math.ceil((circumference / 100) * (percents - 100)));
 
   return (
-    <StyledSpinner {...props} ref={forwardedRef}>
+    <StyledSpinner {...props} className={spinnerRecipe(spinnerVariantProps)} ref={forwardedRef}>
       <svg viewBox={`0 0 ${size} ${size}`} version='1.1' xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
         <circle
           role='presentation'

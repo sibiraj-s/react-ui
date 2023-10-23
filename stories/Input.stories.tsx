@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DotsHorizontalIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { inputRecipe } from 'styled-system/recipes';
 
 import { Input } from '../index';
 import { showOnlyControls } from './utils';
@@ -43,7 +44,9 @@ export const Invalid: Story = {
   ...Default,
   args: {
     placeholder: 'Type something...',
-    isInvalid: true,
     autoFocus: true,
+    isInvalid: inputRecipe.raw({
+      isInvalid: true,
+    }).isInvalid,
   },
 };

@@ -1,37 +1,8 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { styled } from 'styled-system/jsx';
+import { textareaRecipe } from 'styled-system/recipes';
 
-export const StyledTextarea = styled('textarea', {
-  base: {
-    display: 'block',
-    py: '1.5',
-    px: '3',
-    width: '100%',
-    borderRadius: 'md',
-    backgroundColor: 'transparent',
-    resize: 'vertical',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: 'neutral.bgHover',
-    colorPalette: 'primary',
-
-    '&:focus-within': {
-      outlineWidth: '1px',
-      outlineStyle: 'solid',
-      outlineColor: 'colorPalette.solid',
-      borderColor: 'colorPalette.solid',
-    },
-  },
-
-  variants: {
-    isInvalid: {
-      true: {
-        colorPalette: 'danger',
-        borderColor: 'danger.border',
-      },
-    },
-  },
-});
+export const StyledTextarea = styled('textarea', textareaRecipe);
 
 type TextareaVariants = ComponentProps<typeof StyledTextarea>;
 type TextareaOwnProps = TextareaVariants;

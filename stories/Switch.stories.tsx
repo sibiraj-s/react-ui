@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 import { HStack } from 'styled-system/jsx';
+import { switchRecipe } from 'styled-system/recipes';
 
-import { Switch, switchStyle } from '../index';
+import { Switch } from '../index';
 import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Switch> = {
@@ -10,13 +11,13 @@ const meta: Meta<typeof Switch> = {
   component: Switch,
   parameters: {
     controls: {
-      exclude: showOnlyControls([...switchStyle.variantKeys, 'isFocusVisible']),
+      exclude: showOnlyControls([...switchRecipe.variantKeys, 'isFocusVisible']),
     },
   },
   argTypes: {
     size: {
       control: 'radio',
-      options: switchStyle.variantMap.size,
+      options: switchRecipe.variantMap.size,
     },
     onCheckedChange: { action: 'checked', table: { disable: true } },
   },

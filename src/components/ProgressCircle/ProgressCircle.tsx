@@ -1,39 +1,11 @@
 import { type FC, useRef } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
 import { useProgressBar } from 'react-aria';
-import { HTMLStyledProps, styled } from 'styled-system/jsx';
-import { sva } from 'styled-system/css';
+import { styled } from 'styled-system/jsx';
+import { progressCircleRecipe } from 'styled-system/recipes';
+import { JsxStyleProps } from 'styled-system/types';
 
 import Counter from './Counter';
-
-const progressCircleStyle = sva({
-  slots: ['container', 'label', 'circle', 'progress'],
-  base: {
-    container: {
-      position: 'relative',
-      color: 'primary',
-    },
-    label: {
-      position: 'absolute',
-      height: 'full',
-      width: 'full',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: 'calc(var(--rx-progress-circle-size) / 5)',
-      fontWeight: 'semibold',
-    },
-    circle: {
-      stroke: 'currentColor',
-      strokeOpacity: 0.1,
-      fill: 'transparent',
-    },
-    progress: {
-      stroke: 'currentColor',
-      fill: 'transparent',
-    },
-  },
-});
 
 interface ProgressCircleProps {
   value: number;
@@ -44,7 +16,7 @@ interface ProgressCircleProps {
   spin?: boolean;
   size?: number;
   strokeWidth?: number;
-  color?: HTMLStyledProps<'div'>['color'];
+  color?: JsxStyleProps['color'];
 }
 
 const getPercents = (value: number, min: number, max: number): number => {
@@ -109,7 +81,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = (props) => {
     },
   };
 
-  const styleClasses = progressCircleStyle();
+  const styleClasses = progressCircleRecipe();
 
   return (
     <styled.div

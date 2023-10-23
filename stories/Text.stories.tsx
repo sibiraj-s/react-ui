@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
+import { textRecipe } from 'styled-system/recipes';
 
-import { Text, textStyle } from '../index';
+import { Text } from '../index';
 import { showOnlyControls } from './utils';
 
 const meta: Meta<typeof Text> = {
@@ -9,17 +10,17 @@ const meta: Meta<typeof Text> = {
   component: Text,
   parameters: {
     controls: {
-      exclude: showOnlyControls(textStyle.variantKeys),
+      exclude: showOnlyControls(textRecipe.variantKeys),
     },
   },
   argTypes: {
     size: {
       control: 'select',
-      options: textStyle.variantMap.size,
+      options: textRecipe.variantMap.size,
     },
     weight: {
       control: 'select',
-      options: textStyle.variantMap.weight,
+      options: textRecipe.variantMap.weight,
     },
   },
 };
@@ -43,8 +44,8 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   ...Default,
-  args: {
+  args: textRecipe.raw({
     size: 'xl',
     weight: 'bold',
-  },
+  }),
 };

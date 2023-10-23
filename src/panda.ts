@@ -4,19 +4,19 @@ import normalize from './normalize';
 
 import semanticTokens from './theme/semantic-tokens';
 import tokens from './theme/tokens';
+import { keyframes } from './theme/keyframes';
+import { recipes, slotRecipes } from './theme/recipes';
 
 export const preset = definePreset({
   globalCss: normalize,
+  presets: ['@pandacss/dev/presets'],
   theme: {
     extend: {
       tokens,
       semanticTokens,
-      keyframes: {
-        stripedBg: {
-          '0%': { backgroundPosition: '1rem 0' },
-          '100%': { backgroundPosition: '0 0' },
-        },
-      },
+      keyframes,
+      recipes,
+      slotRecipes,
     },
   },
   utilities: {

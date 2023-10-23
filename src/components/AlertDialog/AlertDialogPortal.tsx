@@ -1,22 +1,18 @@
 import { type FC } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
-import { styled } from 'styled-system/jsx';
+import { alertDialogRecipe } from 'styled-system/recipes';
 
-const StyledPortalContainer = styled('div', {
-  base: {
-    position: 'fixed',
-    inset: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export type { AlertDialogPortalProps } from '@radix-ui/react-alert-dialog';
 
-const AlertDialogPortal: FC<AlertDialogPrimitive.AlertDialogPortalProps> = ({ children, ...props }) => (
-  <AlertDialogPrimitive.Portal {...props}>
-    <StyledPortalContainer>{children}</StyledPortalContainer>
-  </AlertDialogPrimitive.Portal>
-);
+const AlertDialogPortal: FC<AlertDialogPrimitive.AlertDialogPortalProps> = ({ children, ...props }) => {
+  const adStyles = alertDialogRecipe();
+
+  return (
+    <AlertDialogPrimitive.Portal {...props}>
+      <div className={adStyles.portal}>{children}</div>
+    </AlertDialogPrimitive.Portal>
+  );
+};
 
 AlertDialogPortal.displayName = AlertDialogPrimitive.Portal.displayName;
 

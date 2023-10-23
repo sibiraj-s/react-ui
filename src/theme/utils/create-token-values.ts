@@ -1,11 +1,13 @@
-import { Token, Recursive } from 'styled-system/types/composition';
+import { Recursive } from 'styled-system/types/composition';
+
+type TokenValue = any;
 
 const createTokenValues = (
-  properties: Record<string | number, string | number | Record<string, string>>,
+  properties: Record<string | number, TokenValue | Record<string, TokenValue>>,
   prefix = true,
   solidAsDefault = false
-): Recursive<Token> => {
-  const tokens: Recursive<Token> = {};
+): Recursive<TokenValue> => {
+  const tokens: Recursive<TokenValue> = {};
 
   Object.entries(properties).forEach(([key, value]) => {
     const k = prefix ? `$${key}` : key;
