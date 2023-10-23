@@ -19,6 +19,9 @@ const meta: Meta<typeof Switch> = {
       control: 'radio',
       options: switchRecipe.variantMap.size,
     },
+    disabled: {
+      control: 'boolean',
+    },
     onCheckedChange: { action: 'checked', table: { disable: true } },
   },
 };
