@@ -8,8 +8,8 @@ const switchRecipe = defineSlotRecipe({
     root: {
       display: 'flex',
       boxSizing: 'content-box',
-      backgroundColor: 'neutral.bg',
-      border: '1px solid token(colors.neutral.bg)',
+      backgroundColor: 'neutral.bgActive',
+      border: '1px solid token(colors.neutral.bgActive)',
       borderRadius: 'full',
       padding: '1px',
       color: 'primary',
