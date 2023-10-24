@@ -9,6 +9,7 @@ const textareaRecipe = defineRecipe({
     px: '3',
     width: '100%',
     borderRadius: 'md',
+    color: 'inherit',
     backgroundColor: 'transparent',
     resize: 'vertical',
     borderWidth: '1px',

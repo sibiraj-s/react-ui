@@ -28,6 +28,7 @@ const inputRecipe = defineSlotRecipe({
       borderRadius: 'md',
       border: 'none',
       outline: 'none',
+      color: 'inherit',
       backgroundColor: 'transparent',
     },
     item: {

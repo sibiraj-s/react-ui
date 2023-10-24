@@ -8,12 +8,22 @@ const normalize = defineGlobalStyles({
     fontSize: '$body',
     fontFamily: 'sans',
     color: 'neutral.textContrast',
+
+    _dark: {
+      color: 'neutral.base',
+    },
   },
   a: {
     color: 'primary',
+    textDecoration: 'underline',
+
     '&:focus-visible': {
       outline: '2px solid currentcolor',
       outlineOffset: '2px',
+    },
+
+    _dark: {
+      color: 'primary.base',
     },
   },
 });

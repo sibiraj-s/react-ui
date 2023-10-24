@@ -19,6 +19,7 @@ const buttonRecipe = defineRecipe({
     textAlign: 'center',
     cursor: 'default',
     lineHeight: 'snug',
+    textDecoration: 'none',
 
     _focusVisible: {
       boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
