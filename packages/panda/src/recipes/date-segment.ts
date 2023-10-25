@@ -12,15 +12,24 @@ export const dateSegmentRecipe = defineSlotRecipe({
       fontVariantNumeric: 'tabular-nums',
       outline: 'none',
       rounded: 'sm',
-      _focus: { bg: 'primary', color: 'white' },
+      _focus: { bg: 'primary', color: 'primary.base' },
       color: 'neutral.line',
     },
     input: {
       display: 'block',
       textAlign: 'center',
-      color: 'neutral.line',
+      color: 'neutral.text',
+
+      _dark: {
+        color: 'neutral.base',
+      },
+
       _groupFocus: {
-        color: 'white',
+        color: 'neutral.bg',
+
+        _dark: {
+          color: 'neutral.base',
+        },
       },
     },
   },
@@ -29,6 +38,14 @@ export const dateSegmentRecipe = defineSlotRecipe({
       true: {
         segment: {
           color: 'neutral.text',
+
+          _focus: {
+            color: 'neutral.bg',
+          },
+
+          _dark: {
+            color: 'neutral.bg',
+          },
         },
       },
     },
