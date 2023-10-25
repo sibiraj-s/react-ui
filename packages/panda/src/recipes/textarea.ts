@@ -33,7 +33,6 @@ const textareaRecipe = defineRecipe({
       },
     },
   },
-  jsx: ['Textarea'],
 });
 
 export default textareaRecipe;

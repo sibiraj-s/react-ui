@@ -36,7 +36,6 @@ const spinnerRecipe = defineRecipe({
   defaultVariants: {
     size: 'md',
   },
-  jsx: ['Spinner'],
 });
 
 export default spinnerRecipe;

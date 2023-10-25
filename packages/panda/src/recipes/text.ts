@@ -52,7 +52,6 @@ const textRecipe = defineRecipe({
       },
     },
   },
-  jsx: ['Text'],
 });
 
 export default textRecipe;

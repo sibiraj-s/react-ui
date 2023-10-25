@@ -42,7 +42,6 @@ const headingRecipe = defineRecipe({
   defaultVariants: {
     level: '1',
   },
-  jsx: ['Heading'],
 });
 
 export default headingRecipe;
