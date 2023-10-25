@@ -12,6 +12,7 @@ const normalize = defineGlobalStyles({
     _dark: {
       color: 'neutral.base',
       backgroundColor: 'neutral.textContrast',
+      colorScheme: 'dark',
     },
   },
   a: {
