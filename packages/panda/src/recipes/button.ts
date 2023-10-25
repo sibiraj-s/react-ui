@@ -64,6 +64,10 @@ const buttonRecipe = defineRecipe({
         _dark: {
           borderColor: 'colorPalette.bg',
           color: 'colorPalette.bg',
+
+          _hover: {
+            borderColor: 'colorPalette.solid',
+          },
         },
       },
     },
