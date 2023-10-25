@@ -1,90 +1,77 @@
 import { defineSemanticTokens } from '@pandacss/dev';
-import createTokenValues from '../utils/create-token-values';
 
-const colors = defineSemanticTokens.colors(
-  createTokenValues(
-    {
-      // primary shades
-      primary: {
-        base: '{colors.blue.50}',
-        bgSubtle: '{colors.blue.100}',
-        bg: '{colors.blue.200}',
-        bgHover: '{colors.blue.300}',
-        bgActive: '{colors.blue.400}',
-        line: '{colors.blue.500}',
-        border: '{colors.blue.600}',
-        solid: '{colors.blue.700}',
-        solidHover: '{colors.blue.800}',
-        text: '{colors.blue.900}',
-        textContrast: '{colors.blue.950}',
-      },
-
-      // secondary shades
-      secondary: {
-        base: '{colors.slate.50}',
-        bgSubtle: '{colors.slate.100}',
-        bg: '{colors.slate.200}',
-        bgHover: '{colors.slate.300}',
-        bgActive: '{colors.slate.400}',
-        line: '{colors.slate.500}',
-        border: '{colors.slate.600}',
-        solid: '{colors.slate.700}',
-        solidHover: '{colors.slate.800}',
-        text: '{colors.slate.900}',
-        textContrast: '{colors.slate.950}',
-      },
-
-      // success
-      success: {
-        base: '{colors.green.50}',
-        bgSubtle: '{colors.green.100}',
-        bg: '{colors.green.200}',
-        bgHover: '{colors.green.300}',
-        bgActive: '{colors.green.400}',
-        line: '{colors.green.500}',
-        border: '{colors.green.600}',
-        solid: '{colors.emerald.700}',
-        solidHover: '{colors.green.800}',
-        text: '{colors.green.900}',
-        textContrast: '{colors.green.950}',
-      },
-
-      // danger
-      danger: {
-        base: '{colors.red.50}',
-        bgSubtle: '{colors.red.100}',
-        bg: '{colors.red.200}',
-        bgHover: '{colors.red.300}',
-        bgActive: '{colors.red.400}',
-        line: '{colors.red.500}',
-        border: '{colors.red.600}',
-        solid: '{colors.red.700}',
-        solidHover: '{colors.red.800}',
-        text: '{colors.red.900}',
-        textContrast: '{colors.red.950}',
-      },
-
-      // primary shades
-      neutral: {
-        base: '{colors.gray.50}',
-        bgSubtle: '{colors.gray.100}',
-        bg: '{colors.gray.200}',
-        bgHover: '{colors.gray.300}',
-        bgActive: '{colors.gray.400}',
-        line: '{colors.gray.500}',
-        border: '{colors.gray.600}',
-        solid: '{colors.gray.700}',
-        solidHover: '{colors.gray.800}',
-        text: '{colors.gray.900}',
-        textContrast: '{colors.gray.950}',
-      },
-
-      // other colors
-      muted: '{colors.gray.500}',
-    },
-    false,
-    true
-  )
-);
+const colors = defineSemanticTokens.colors({
+  primary: {
+    base: { value: '{colors.blue.50}' },
+    bgSubtle: { value: '{colors.blue.100}' },
+    bg: { value: '{colors.blue.200}' },
+    bgHover: { value: '{colors.blue.300}' },
+    bgActive: { value: '{colors.blue.400}' },
+    line: { value: '{colors.blue.500}' },
+    border: { value: '{colors.blue.600}' },
+    DEFAULT: { value: '{colors.blue.700}' },
+    solid: { value: '{colors.blue.700}' },
+    solidHover: { value: '{colors.blue.800}' },
+    text: { value: '{colors.blue.900}' },
+    textContrast: { value: '{colors.blue.950}' },
+  },
+  secondary: {
+    base: { value: '{colors.slate.50}' },
+    bgSubtle: { value: '{colors.slate.100}' },
+    bg: { value: '{colors.slate.200}' },
+    bgHover: { value: '{colors.slate.300}' },
+    bgActive: { value: '{colors.slate.400}' },
+    line: { value: '{colors.slate.500}' },
+    border: { value: '{colors.slate.600}' },
+    DEFAULT: { value: '{colors.slate.700}' },
+    solid: { value: '{colors.slate.700}' },
+    solidHover: { value: '{colors.slate.800}' },
+    text: { value: '{colors.slate.900}' },
+    textContrast: { value: '{colors.slate.950}' },
+  },
+  success: {
+    base: { value: '{colors.green.50}' },
+    bgSubtle: { value: '{colors.green.100}' },
+    bg: { value: '{colors.green.200}' },
+    bgHover: { value: '{colors.green.300}' },
+    bgActive: { value: '{colors.green.400}' },
+    line: { value: '{colors.green.500}' },
+    border: { value: '{colors.green.600}' },
+    DEFAULT: { value: '{colors.emerald.700}' },
+    solid: { value: '{colors.emerald.700}' },
+    solidHover: { value: '{colors.green.800}' },
+    text: { value: '{colors.green.900}' },
+    textContrast: { value: '{colors.green.950}' },
+  },
+  danger: {
+    base: { value: '{colors.red.50}' },
+    bgSubtle: { value: '{colors.red.100}' },
+    bg: { value: '{colors.red.200}' },
+    bgHover: { value: '{colors.red.300}' },
+    bgActive: { value: '{colors.red.400}' },
+    line: { value: '{colors.red.500}' },
+    border: { value: '{colors.red.600}' },
+    DEFAULT: { value: '{colors.red.700}' },
+    solid: { value: '{colors.red.700}' },
+    solidHover: { value: '{colors.red.800}' },
+    text: { value: '{colors.red.900}' },
+    textContrast: { value: '{colors.red.950}' },
+  },
+  neutral: {
+    base: { value: '{colors.gray.50}' },
+    bgSubtle: { value: '{colors.gray.100}' },
+    bg: { value: '{colors.gray.200}' },
+    bgHover: { value: '{colors.gray.300}' },
+    bgActive: { value: '{colors.gray.400}' },
+    line: { value: '{colors.gray.500}' },
+    border: { value: '{colors.gray.600}' },
+    DEFAULT: { value: '{colors.gray.700}' },
+    solid: { value: '{colors.gray.700}' },
+    solidHover: { value: '{colors.gray.800}' },
+    text: { value: '{colors.gray.900}' },
+    textContrast: { value: '{colors.gray.950}' },
+  },
+  muted: { value: { base: '{colors.gray.500}', _dark: '{colors.gray.200}' } },
+});
 
 export default colors;

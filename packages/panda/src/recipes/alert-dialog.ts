@@ -11,7 +11,7 @@ const alertDialogRecipe = defineSlotRecipe({
       position: 'fixed',
       inset: 0,
       backdropFilter: 'blur(4px)',
-      zIndex: '$0.5',
+      zIndex: '0',
 
       _dark: {
         '--ad-bg-color': 'black',
@@ -25,7 +25,7 @@ const alertDialogRecipe = defineSlotRecipe({
       alignItems: 'center',
     },
     content: {
-      zIndex: '$1',
+      zIndex: '1',
       backgroundColor: 'white',
       border: '1px solid token(colors.neutral.bgSubtle)',
       borderRadius: 'md',

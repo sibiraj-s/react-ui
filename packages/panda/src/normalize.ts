@@ -2,10 +2,10 @@ import { defineGlobalStyles } from '@pandacss/dev';
 
 const normalize = defineGlobalStyles({
   html: {
-    fontSize: '$html',
+    fontSize: 'root',
   },
   body: {
-    fontSize: '$body',
+    fontSize: 'body',
     fontFamily: 'sans',
     color: 'neutral.textContrast',
 
