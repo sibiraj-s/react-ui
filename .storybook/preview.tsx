@@ -1,4 +1,7 @@
-import { Parameters } from '@storybook/react';
+import { Decorator, Parameters } from '@storybook/react';
+import { FC, PropsWithChildren, useEffect } from 'react';
+import { useDarkMode } from 'storybook-dark-mode';
+
 import '../src/index.css';
 
 export const parameters: Parameters = {
@@ -14,3 +17,19 @@ export const parameters: Parameters = {
     disable: true,
   },
 };
+
+const ThemeWrapper: FC<PropsWithChildren> = (props) => {
+  const isDarkMode = useDarkMode();
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
+
+  return props.children;
+};
+
+export const decorators: Decorator[] = [
+  (renderStory) => {
+    return <ThemeWrapper>{renderStory()}</ThemeWrapper>;
+  },
+];

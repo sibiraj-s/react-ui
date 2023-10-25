@@ -60,6 +60,11 @@ const buttonRecipe = defineRecipe({
           color: 'white',
           backgroundColor: 'colorPalette.solid',
         },
+
+        _dark: {
+          borderColor: 'colorPalette.bg',
+          color: 'colorPalette.bg',
+        },
       },
     },
     size: {

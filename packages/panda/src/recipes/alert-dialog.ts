@@ -6,11 +6,16 @@ const alertDialogRecipe = defineSlotRecipe({
   slots: ['overaly', 'content', 'portal'],
   base: {
     overaly: {
-      backgroundColor: 'color-mix(in srgb, white 40%, transparent)',
+      '--ad-bg-color': 'white',
+      backgroundColor: 'color-mix(in srgb, var(--ad-bg-color) 40%, transparent)',
       position: 'fixed',
       inset: 0,
       backdropFilter: 'blur(4px)',
       zIndex: '$0.5',
+
+      _dark: {
+        '--ad-bg-color': 'black',
+      },
     },
     portal: {
       position: 'fixed',
@@ -29,6 +34,11 @@ const alertDialogRecipe = defineSlotRecipe({
       width: '90vw',
       maxWidth: '32rem',
       padding: '4',
+
+      _dark: {
+        backgroundColor: 'black',
+        border: '1px solid token(colors.neutral.solid)',
+      },
     },
   },
 });
