@@ -10,7 +10,8 @@ const inputRecipe = defineSlotRecipe({
       alignItems: 'center',
       width: '100%',
       borderRadius: 'md',
-      border: '1px solid token(colors.neutral.bgHover)',
+      border: '1px solid',
+      borderColor: 'neutral.bgHover',
       colorPalette: 'primary',
 
       _focusWithin: {

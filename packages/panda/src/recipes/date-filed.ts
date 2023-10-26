@@ -15,7 +15,8 @@ export const dateFieldRecipe = defineSlotRecipe({
     },
     container: {
       display: 'flex',
-      border: '1px solid token(colors.neutral.bgHover)',
+      border: '1px solid',
+      borderColor: 'neutral.bgHover',
       borderRadius: 'md',
       p: '1',
       pr: '8',

@@ -7,7 +7,7 @@ const buttonRecipe = defineRecipe({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px solid token(colors.neutral.textContrast)',
+    border: '1px solid',
     borderRadius: 'md',
     gap: '2',
     fontWeight: 'semibold',
@@ -20,6 +20,9 @@ const buttonRecipe = defineRecipe({
     cursor: 'default',
     lineHeight: 'snug',
     textDecoration: 'none',
+    borderColor: 'neutral.textContrast',
+    '--outline-shadowFrom': 'colors.colorPalette.base',
+    '--outline-shadowTo': 'colors.colorPalette.solid',
 
     _focusVisible: {
       boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
@@ -38,8 +41,6 @@ const buttonRecipe = defineRecipe({
         color: 'white',
         backgroundColor: 'colorPalette.solid',
         borderColor: 'colorPalette.solid',
-        '--outline-shadowFrom': 'colors.colorPalette.base',
-        '--outline-shadowTo': 'colors.colorPalette.solid',
 
         _hover: {
           backgroundColor: 'colorPalette.solidHover',
