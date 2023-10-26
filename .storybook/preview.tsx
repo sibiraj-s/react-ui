@@ -1,8 +1,9 @@
-import { Decorator, Parameters } from '@storybook/react';
+import { Decorator, Parameters, Preview } from '@storybook/react';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import '../src/index.css';
+import { Token, token } from 'styled-system/tokens';
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,6 +19,42 @@ export const parameters: Parameters = {
   },
 };
 
+export const globalTypes: Preview['globalTypes'] = {
+  accent: {
+    description: 'Accent color for components',
+    defaultValue: 'blue',
+    toolbar: {
+      title: 'Accent Color',
+      icon: 'circlehollow',
+      items: [
+        'rose',
+        'pink',
+        'fuchsia',
+        'purple',
+        'violet',
+        'indigo',
+        'blue',
+        'sky',
+        'cyan',
+        'teal',
+        'emerald',
+        'green',
+        'lime',
+        'yellow',
+        'amber',
+        'orange',
+        'red',
+        'neutral',
+        'stone',
+        'zinc',
+        'gray',
+        'slate',
+      ],
+      dynamicTitle: true,
+    },
+  },
+};
+
 const ThemeWrapper: FC<PropsWithChildren> = (props) => {
   const isDarkMode = useDarkMode();
 
@@ -28,8 +65,20 @@ const ThemeWrapper: FC<PropsWithChildren> = (props) => {
   return props.children;
 };
 
-export const decorators: Decorator[] = [
-  (renderStory) => {
-    return <ThemeWrapper>{renderStory()}</ThemeWrapper>;
-  },
-];
+const paletteRange = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+
+const withThemeProvider: Decorator = (Story, context) => {
+  paletteRange.forEach((range) => {
+    const tokenPath = `colors.${context.globals.accent}.${range}` as Token;
+    const tokenValue = token(tokenPath);
+    document.body.style.setProperty(`--rxui-colors-accent-${range}`, tokenValue);
+  });
+
+  return (
+    <ThemeWrapper>
+      <Story />
+    </ThemeWrapper>
+  );
+};
+
+export const decorators: Decorator[] = [withThemeProvider];
