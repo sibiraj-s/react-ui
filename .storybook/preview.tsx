@@ -69,9 +69,17 @@ const paletteRange = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
 const withThemeProvider: Decorator = (Story, context) => {
   paletteRange.forEach((range) => {
-    const tokenPath = `colors.${context.globals.accent}.${range}` as Token;
-    const tokenValue = token(tokenPath);
-    document.body.style.setProperty(`--rxui-colors-accent-${range}`, tokenValue);
+    const tokenValue = token(`colors.${context.globals.accent}.${range}` as Token);
+    const accentTokenVar = token.var(`colors.accent.${range}` as Token);
+
+    const match = accentTokenVar.match(/var\((?<accentVar>[^)]+)\)/);
+
+    if (match === null) {
+      return;
+    }
+
+    const [, accentVar] = match;
+    document.body.style.setProperty(accentVar, tokenValue);
   });
 
   return (
