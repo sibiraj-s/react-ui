@@ -32,7 +32,7 @@ export const Default: Story = {
   render: (args) => (
     <AlertDialog {...args}>
       <AlertDialogTrigger>
-        <Button colorScheme='danger'>Revoke Access</Button>
+        <Button colorPalette='red'>Revoke Access</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <Stack gap='1'>
@@ -44,12 +44,12 @@ export const Default: Story = {
           </AlertDialogDescription>
           <HStack gap='2' justify='end' mt='4'>
             <AlertDialogCancel>
-              <Button variant='outline' colorScheme='secondary'>
+              <Button variant='outline' colorPalette='gray'>
                 Cancel
               </Button>
             </AlertDialogCancel>
             <AlertDialogAction>
-              <Button colorScheme='danger'>Revoke access</Button>
+              <Button colorPalette='red'>Revoke access</Button>
             </AlertDialogAction>
           </HStack>
         </Stack>

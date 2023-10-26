@@ -7,16 +7,16 @@ const normalize = defineGlobalStyles({
   body: {
     fontSize: 'body',
     fontFamily: 'sans',
-    color: 'neutral.textContrast',
+    color: 'neutral.950',
 
     _dark: {
-      color: 'neutral.base',
-      backgroundColor: 'neutral.textContrast',
+      color: 'neutral.50',
+      backgroundColor: 'neutral.950',
       colorScheme: 'dark',
     },
   },
   a: {
-    color: 'primary',
+    color: 'accent',
     textDecoration: 'underline',
 
     '&:focus-visible': {
@@ -25,7 +25,7 @@ const normalize = defineGlobalStyles({
     },
 
     _dark: {
-      color: 'primary.base',
+      color: 'accent.50',
     },
   },
 });

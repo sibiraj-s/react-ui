@@ -27,7 +27,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
         </Text>
       )}
       {props.errorMessage && (
-        <Text size='sm' color='danger' {...errorMessageProps}>
+        <Text size='sm' color='error' {...errorMessageProps}>
           {props.errorMessage}
         </Text>
       )}

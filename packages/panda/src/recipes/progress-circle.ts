@@ -7,7 +7,8 @@ const progressCircleRecipe = defineSlotRecipe({
   base: {
     container: {
       position: 'relative',
-      color: 'primary',
+      colorPalette: 'accent',
+      color: 'colorPalette.700',
     },
     label: {
       position: 'absolute',
@@ -23,6 +24,10 @@ const progressCircleRecipe = defineSlotRecipe({
       stroke: 'currentColor',
       strokeOpacity: 0.1,
       fill: 'transparent',
+
+      _dark: {
+        strokeOpacity: 0.4,
+      },
     },
     progress: {
       stroke: 'currentColor',

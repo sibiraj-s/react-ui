@@ -14,22 +14,22 @@ const textareaRecipe = defineRecipe({
     resize: 'vertical',
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: 'neutral.bgHover',
-    colorPalette: 'primary',
+    borderColor: 'border',
+    colorPalette: 'accent',
 
     '&:focus-within': {
       outlineWidth: '1px',
       outlineStyle: 'solid',
-      outlineColor: 'colorPalette.solid',
-      borderColor: 'colorPalette.solid',
+      outlineColor: 'colorPalette.700',
+      borderColor: 'colorPalette.700',
     },
   },
 
   variants: {
     isInvalid: {
       true: {
-        colorPalette: 'danger',
-        borderColor: 'danger.border',
+        colorPalette: 'red',
+        borderColor: 'colorPalette.500',
       },
     },
   },

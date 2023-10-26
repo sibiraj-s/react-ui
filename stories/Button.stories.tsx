@@ -22,10 +22,6 @@ const meta: Meta<typeof Button> = {
         disable: true,
       },
     },
-    colorScheme: {
-      control: 'select',
-      options: buttonRecipe.variantMap.colorScheme,
-    },
     size: {
       control: 'select',
       options: buttonRecipe.variantMap.size,
@@ -66,34 +62,10 @@ const TemplateSizes = (args: ComponentProps<typeof Button>) => (
 );
 
 const Default: Story = {
-  args: buttonRecipe.raw({
-    colorScheme: 'primary',
-  }),
   render: (args) => <Template {...args} />,
 };
 
-export const Primary: Story = Default;
-
-export const Secondary: Story = {
-  ...Default,
-  args: buttonRecipe.raw({
-    colorScheme: 'secondary',
-  }),
-};
-
-export const Success: Story = {
-  ...Default,
-  args: buttonRecipe.raw({
-    colorScheme: 'success',
-  }),
-};
-
-export const Danger: Story = {
-  ...Default,
-  args: buttonRecipe.raw({
-    colorScheme: 'danger',
-  }),
-};
+export const Variants: Story = Default;
 
 export const Disabled: Story = {
   ...Default,
@@ -112,14 +84,14 @@ export const Disabled: Story = {
 export const Sizes: Story = {
   ...Default,
   args: {},
-  render: (args) => <TemplateSizes {...args} />,
+  render: (args) => <TemplateSizes {...args} colorPalette='green' />,
 };
 
 export const WithIcon: Story = {
   ...Default,
   render: (args) => {
     return (
-      <Button {...args}>
+      <Button {...args} colorPalette='amber'>
         <BookmarkIcon />
         Bookmark
       </Button>

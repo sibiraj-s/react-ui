@@ -8,12 +8,13 @@ const switchRecipe = defineSlotRecipe({
     root: {
       display: 'flex',
       boxSizing: 'content-box',
-      backgroundColor: 'neutral.bgActive',
       border: '1px solid',
-      borderColor: 'neutral.bgActive',
       borderRadius: 'full',
       padding: '1px',
-      color: 'primary',
+      colorPalette: 'accent',
+      color: 'colorPalette.700',
+      backgroundColor: 'neutral.300',
+      borderColor: 'neutral.300',
 
       _checked: {
         backgroundColor: 'currentColor',
@@ -40,8 +41,6 @@ const switchRecipe = defineSlotRecipe({
         root: {
           opacity: 0.7,
           pointerEvents: 'none',
-          borderColor: 'neutral.bg',
-          backgroundColor: 'neutral.bg',
         },
       },
     },

@@ -28,7 +28,7 @@ const alertDialogRecipe = defineSlotRecipe({
       zIndex: '1',
       backgroundColor: 'white',
       border: '1px solid',
-      borderColor: 'neutral.bgSubtle',
+      borderColor: 'border.light',
       borderRadius: 'md',
       boxShadow: 'lg',
       position: 'fixed',
@@ -38,7 +38,6 @@ const alertDialogRecipe = defineSlotRecipe({
 
       _dark: {
         backgroundColor: 'black',
-        borderColor: 'neutral.solid',
       },
     },
   },

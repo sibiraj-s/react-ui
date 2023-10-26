@@ -39,10 +39,10 @@ const TemplateSizes = (args: ComponentProps<typeof Switch>) => (
 
 const TemplateColors = (args: ComponentProps<typeof Switch>) => (
   <HStack gap='4'>
-    <Switch color='danger' {...args} defaultChecked />
+    <Switch colorPalette='red' {...args} defaultChecked />
     <Switch {...args} defaultChecked />
-    <Switch color='muted' {...args} defaultChecked />
-    <Switch color='neutral' {...args} defaultChecked />
+    <Switch colorPalette='amber' {...args} defaultChecked />
+    <Switch colorPalette='teal' {...args} defaultChecked />
   </HStack>
 );
 

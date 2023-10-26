@@ -1,34 +1,64 @@
-import { defineRecipe } from '@pandacss/dev';
+import { defineSlotRecipe } from '@pandacss/dev';
 
-const spinnerRecipe = defineRecipe({
+const spinnerRecipe = defineSlotRecipe({
   className: 'spinner',
   description: 'The styles for the Spinner component',
+  slots: ['container', 'circle', 'spinner'],
   base: {
-    aspectRatio: 'square',
-    color: 'primary',
+    container: {
+      aspectRatio: 'square',
+      colorPalette: 'accent',
+      color: 'colorPalette.700',
+    },
+    circle: {
+      stroke: 'currentcolor',
+      fill: 'transparent',
+      strokeOpacity: 0.1,
+      _dark: {
+        strokeOpacity: 0.2,
+      },
+    },
+    spinner: {
+      stroke: 'currentcolor',
+      fill: 'transparent',
+    },
   },
   variants: {
     size: {
       xxs: {
-        width: '4',
+        container: {
+          width: '4',
+        },
       },
       xs: {
-        width: '5',
+        container: {
+          width: '5',
+        },
       },
       sm: {
-        width: '8',
+        container: {
+          width: '8',
+        },
       },
       md: {
-        width: '12',
+        container: {
+          width: '12',
+        },
       },
       lg: {
-        width: '14',
+        container: {
+          width: '14',
+        },
       },
       xl: {
-        width: '20',
+        container: {
+          width: '20',
+        },
       },
       '2xl': {
-        width: '24',
+        container: {
+          width: '24',
+        },
       },
     },
   },

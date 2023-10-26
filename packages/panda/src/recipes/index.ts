@@ -17,7 +17,6 @@ export const recipes = {
   badgeRecipe,
   buttonRecipe,
   headingRecipe,
-  spinnerRecipe,
   textRecipe,
   textareaRecipe,
 };
@@ -25,6 +24,7 @@ export const recipes = {
 export const slotRecipes = {
   switchRecipe,
   progressCircleRecipe,
+  spinnerRecipe,
   progressBarRecipe,
   dateSegmentRecipe,
   dateFieldRecipe,

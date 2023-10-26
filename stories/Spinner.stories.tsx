@@ -28,12 +28,12 @@ type Story = StoryObj<typeof Spinner>;
 const Template = (args: ComponentProps<typeof Spinner>) => (
   <HStack gap='4'>
     <Spinner {...args} size='xxs' />
-    <Spinner {...args} size='xs' color='danger' />
-    <Spinner {...args} size='sm' color='success' />
-    <Spinner {...args} color='muted' />
-    <Spinner {...args} size='lg' color='neutral' />
+    <Spinner {...args} size='xs' colorPalette='red' />
+    <Spinner {...args} size='sm' colorPalette='green' />
+    <Spinner {...args} colorPalette='lime' />
+    <Spinner {...args} size='lg' colorPalette='gray' />
     <Spinner {...args} size='xl' />
-    <Spinner {...args} size='2xl' color='danger' />
+    <Spinner {...args} size='2xl' colorPalette='teal' />
   </HStack>
 );
 

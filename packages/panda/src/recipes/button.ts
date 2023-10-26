@@ -20,9 +20,11 @@ const buttonRecipe = defineRecipe({
     cursor: 'default',
     lineHeight: 'snug',
     textDecoration: 'none',
-    borderColor: 'neutral.textContrast',
-    '--outline-shadowFrom': 'colors.colorPalette.base',
-    '--outline-shadowTo': 'colors.colorPalette.solid',
+    colorPalette: 'accent',
+    borderColor: 'colorPalette.700',
+
+    '--outline-shadowFrom': 'colors.colorPalette.50',
+    '--outline-shadowTo': 'colors.colorPalette.700',
 
     _focusVisible: {
       boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
@@ -39,35 +41,33 @@ const buttonRecipe = defineRecipe({
     variant: {
       solid: {
         color: 'white',
-        backgroundColor: 'colorPalette.solid',
-        borderColor: 'colorPalette.solid',
+        backgroundColor: 'colorPalette.700',
 
         _hover: {
-          backgroundColor: 'colorPalette.solidHover',
-          borderColor: 'colorPalette.solidHover',
+          backgroundColor: 'colorPalette.800',
+          borderColor: 'colorPalette.800',
         },
 
         _active: {
-          backgroundColor: 'colorPalette.solidHover',
-          borderColor: 'colorPalette.solidHover',
+          backgroundColor: 'colorPalette.800',
+          borderColor: 'colorPalette.800',
         },
       },
       outline: {
-        borderColor: 'colorPalette.solid',
-        color: 'colorPalette.solid',
+        color: 'colorPalette.700',
         backgroundColor: 'transparent',
 
         _hover: {
-          color: 'white',
-          backgroundColor: 'colorPalette.solid',
+          color: 'colorPalette.50',
+          backgroundColor: 'colorPalette.700',
         },
 
         _dark: {
-          borderColor: 'colorPalette.bg',
-          color: 'colorPalette.bg',
+          borderColor: 'colorPalette.200',
+          color: 'colorPalette.200',
 
           _hover: {
-            borderColor: 'colorPalette.solid',
+            borderColor: 'colorPalette.700',
           },
         },
       },
@@ -87,26 +87,11 @@ const buttonRecipe = defineRecipe({
       },
       regular: {},
     },
-    colorScheme: {
-      primary: {
-        colorPalette: 'primary',
-      },
-      secondary: {
-        colorPalette: 'secondary',
-      },
-      success: {
-        colorPalette: 'success',
-      },
-      danger: {
-        colorPalette: 'danger',
-      },
-    },
   },
 
   // defaults
   defaultVariants: {
     variant: 'solid',
-    colorScheme: 'primary',
   },
 });
 

@@ -11,14 +11,14 @@ const inputRecipe = defineSlotRecipe({
       width: '100%',
       borderRadius: 'md',
       border: '1px solid',
-      borderColor: 'neutral.bgHover',
-      colorPalette: 'primary',
+      borderColor: 'border',
+      colorPalette: 'accent',
 
       _focusWithin: {
         outlineWidth: '1px',
         outlineStyle: 'solid',
-        outlineColor: 'colorPalette.solid',
-        borderColor: 'colorPalette.solid',
+        outlineColor: 'colorPalette.700',
+        borderColor: 'colorPalette.700',
       },
     },
     input: {
@@ -42,8 +42,8 @@ const inputRecipe = defineSlotRecipe({
     isInvalid: {
       true: {
         root: {
-          colorPalette: 'danger',
-          borderColor: 'danger.border',
+          colorPalette: 'red',
+          borderColor: 'colorPalette.500',
         },
       },
     },

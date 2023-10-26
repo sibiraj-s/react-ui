@@ -12,7 +12,8 @@ const progressBarRecipe = defineSlotRecipe({
       borderRadius: 'md',
       overflow: 'hidden',
       borderColor: 'currentcolor',
-      color: 'primary',
+      colorPalette: 'accent',
+      color: 'colorPalette.700',
     },
     filing: {
       backgroundColor: 'currentColor',

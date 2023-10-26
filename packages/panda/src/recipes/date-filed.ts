@@ -16,13 +16,16 @@ export const dateFieldRecipe = defineSlotRecipe({
     container: {
       display: 'flex',
       border: '1px solid',
-      borderColor: 'neutral.bgHover',
+      borderColor: 'border',
       borderRadius: 'md',
       p: '1',
       pr: '8',
       transition: 'colors',
       _hover: {
-        borderColor: 'primary',
+        borderColor: 'accent',
+      },
+      _focusWithin: {
+        borderColor: 'accent',
       },
     },
   },

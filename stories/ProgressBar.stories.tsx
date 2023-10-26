@@ -67,11 +67,10 @@ export const Colors: Story = {
   render: (args) => {
     return (
       <Stack css={{ width: '70%' }} gap='8'>
-        <ProgressBar {...args} value={rand()} color='success' />
-        <ProgressBar {...args} value={rand()} color='primary' />
-        <ProgressBar {...args} value={rand()} color='danger' />
-        <ProgressBar {...args} value={rand()} color='muted' />
+        <ProgressBar {...args} value={rand()} colorPalette='green' />
         <ProgressBar {...args} value={rand()} />
+        <ProgressBar {...args} value={rand()} colorPalette='red' />
+        <ProgressBar {...args} value={rand()} colorPalette='gray' />
       </Stack>
     );
   },

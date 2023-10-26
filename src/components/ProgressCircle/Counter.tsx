@@ -23,7 +23,11 @@ const Counter: FC<CounterProps> = ({ from, to, duration }) => {
     }
   }, [count, inView, to, duration]);
 
-  return <motion.span ref={ref}>{rounded}</motion.span>;
+  return (
+    <motion.span ref={ref} role='presentation'>
+      {rounded}
+    </motion.span>
+  );
 };
 
 export default Counter;

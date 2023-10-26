@@ -17,6 +17,7 @@ interface ProgressCircleProps {
   size?: number;
   strokeWidth?: number;
   color?: JsxStyleProps['color'];
+  colorPalette?: JsxStyleProps['colorPalette'];
 }
 
 const getPercents = (value: number, min: number, max: number): number => {

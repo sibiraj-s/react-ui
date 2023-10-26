@@ -14,7 +14,7 @@ const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
   const ref = useRef(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
 
-  const dateSegmentClasses = dateSegmentRecipe({ isEditable: segment.isEditable });
+  const dateSegmentClasses = dateSegmentRecipe({ isLiteral: segment.type === 'literal' });
 
   return (
     <styled.div
