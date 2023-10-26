@@ -1,7 +1,6 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 import { ElementRef, forwardRef } from 'react';
 import { mergeProps, useFocusRing } from 'react-aria';
-
 import { cx } from 'styled-system/css';
 import { HTMLStyledProps, styled } from 'styled-system/jsx';
 import { SwitchRecipeVariantProps, switchRecipe } from 'styled-system/recipes';
@@ -17,15 +16,15 @@ type SwithElement = ElementRef<typeof SwitchRoot>;
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 
 export const Switch = forwardRef<SwithElement, SwitchProps>((props, ref) => {
+  const [variantProps, switchRestProps] = switchRecipe.splitVariantProps(props);
   const { isFocusVisible, focusProps } = useFocusRing();
 
-  const [variantProps, switchProps] = switchRecipe.splitVariantProps(props);
   const switchClasses = switchRecipe({ isFocusVisible, ...variantProps });
 
   return (
     <SwitchRoot
-      className={cx(switchClasses.root, switchProps.className)}
-      {...mergeProps(switchProps, focusProps)}
+      className={cx(switchClasses.root, switchRestProps.className)}
+      {...mergeProps(switchRestProps, focusProps)}
       ref={ref}
     >
       <SwitchThumb className={switchClasses.thumb} />
