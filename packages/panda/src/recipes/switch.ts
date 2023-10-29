@@ -7,6 +7,7 @@ const switchRecipe = defineSlotRecipe({
   base: {
     root: {
       display: 'flex',
+      justifyContent: 'flex-start',
       boxSizing: 'content-box',
       border: '1px solid',
       borderRadius: 'full',
@@ -19,6 +20,7 @@ const switchRecipe = defineSlotRecipe({
       _checked: {
         backgroundColor: 'currentColor',
         borderColor: 'currentColor',
+        justifyContent: 'flex-end',
       },
     },
     thumb: {
@@ -26,13 +28,6 @@ const switchRecipe = defineSlotRecipe({
       aspectRatio: '1 / 1',
       backgroundColor: 'white',
       borderRadius: 'full',
-      transition: 'transform 300ms',
-      transform: 'translateX(0)',
-      willChange: 'transform',
-
-      _checked: {
-        transform: 'translateX(100%)',
-      },
     },
   },
   variants: {
