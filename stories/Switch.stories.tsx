@@ -31,18 +31,18 @@ type Story = StoryObj<typeof Switch>;
 
 const TemplateSizes = (args: ComponentProps<typeof Switch>) => (
   <HStack gap='4'>
-    <Switch size='sm' {...args} />
-    <Switch {...args} />
-    <Switch size='lg' {...args} />
+    <Switch size='sm' {...args} aria-label='Small switch' />
+    <Switch {...args} aria-label='Regular Sized switch' />
+    <Switch size='lg' {...args} aria-label='Big switch' />
   </HStack>
 );
 
 const TemplateColors = (args: ComponentProps<typeof Switch>) => (
   <HStack gap='4'>
-    <Switch colorPalette='red' {...args} defaultChecked />
-    <Switch {...args} defaultChecked />
-    <Switch colorPalette='amber' {...args} defaultChecked />
-    <Switch colorPalette='teal' {...args} defaultChecked />
+    <Switch colorPalette='red' {...args} defaultChecked aria-label='Red color switch' />
+    <Switch {...args} defaultChecked aria-label='Default color switch' />
+    <Switch colorPalette='amber' {...args} defaultChecked aria-label='Amber color switch' />
+    <Switch colorPalette='teal' {...args} defaultChecked aria-label='Teal color switch' />
   </HStack>
 );
 
@@ -50,7 +50,7 @@ export const Default: Story = {
   args: {
     size: 'regular',
   },
-  render: (args) => <Switch {...args} />,
+  render: (args) => <Switch {...args} aria-label='Airplane Mode' />,
 };
 
 export const Disabled: Story = {
