@@ -11,7 +11,7 @@ const meta: Meta<typeof Switch> = {
   component: Switch,
   parameters: {
     controls: {
-      exclude: showOnlyControls([...switchRecipe.variantKeys, 'isFocusVisible']),
+      exclude: showOnlyControls([...switchRecipe.variantKeys, 'onCheckedChange', 'isFocusVisible']),
     },
   },
   argTypes: {
@@ -49,8 +49,8 @@ const TemplateColors = (args: ComponentProps<typeof Switch>) => (
 export const Default: Story = {
   args: {
     size: 'regular',
+    'aria-label': 'Airplane Mode',
   },
-  render: (args) => <Switch {...args} aria-label='Airplane Mode' />,
 };
 
 export const Disabled: Story = {
