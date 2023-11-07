@@ -11,9 +11,11 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, forw
   const level = props.level ?? '1';
   const tag = rx[`h${level}`];
   const Component = styled(tag, headingRecipe);
-  const [textStyleProps] = textRecipe.splitVariantProps(props);
+  const [textStyleProps, restHeadingProps] = textRecipe.splitVariantProps(props);
 
-  return <Component {...props} className={cx(textRecipe(textStyleProps), props.className)} ref={forwardedRef} />;
+  return (
+    <Component {...restHeadingProps} className={cx(textRecipe(textStyleProps), props.className)} ref={forwardedRef} />
+  );
 });
 
 Heading.displayName = 'Heading';
