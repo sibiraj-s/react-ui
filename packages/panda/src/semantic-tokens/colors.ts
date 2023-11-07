@@ -17,8 +17,8 @@ const colors = defineSemanticTokens.colors({
   },
 
   border: {
-    DEFAULT: { value: '{colors.gray.400}', _dark: '{colors.gray.300}' },
-    light: { value: '{colors.gray.100}', _dark: '{colors.gray.300}' },
+    DEFAULT: { value: { base: '{colors.gray.400}', _dark: '{colors.gray.100}' } },
+    light: { value: { base: '{colors.gray.100}', _dark: '{colors.gray.400}' } },
   },
   placeholder: { value: { base: '{colors.neutral.500}', _dark: '{colors.neutral.300}' } },
   error: { value: { base: '{colors.red.500}', _dark: '{colors.red.400}' } },
