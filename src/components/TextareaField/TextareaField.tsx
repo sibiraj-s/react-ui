@@ -13,13 +13,30 @@ type TextareaFieldProps = TextareaFieldOwnProps & AriaTextFieldProps;
 
 export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFieldProps>((props, ref) => {
   const inputRef = useObjectRef(ref);
-  const { labelProps, inputProps, descriptionProps, errorMessageProps } = useTextField(
+  const {
+    labelProps,
+    inputProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid,
+    validationErrors,
+    validationDetails,
+  } = useTextField(
     {
       ...props,
       inputElementType: 'textarea',
     },
     inputRef
   );
+
+  const errorMessage =
+    typeof props.errorMessage === 'function'
+      ? props.errorMessage({
+          isInvalid,
+          validationDetails,
+          validationErrors,
+        })
+      : props.errorMessage;
 
   return (
     <Stack gap='1'>
@@ -30,9 +47,9 @@ export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFie
           {props.description}
         </Text>
       )}
-      {props.errorMessage && (
+      {errorMessage && (
         <Text size='sm' color='error' {...errorMessageProps}>
-          {props.errorMessage}
+          {errorMessage}
         </Text>
       )}
     </Stack>

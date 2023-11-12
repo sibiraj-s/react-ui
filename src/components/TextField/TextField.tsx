@@ -15,7 +15,24 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
   const inputRef = useObjectRef(ref);
   const { prepend, append, ...rest } = props;
 
-  const { labelProps, inputProps, descriptionProps, errorMessageProps } = useTextField(rest, inputRef);
+  const {
+    labelProps,
+    inputProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid,
+    validationDetails,
+    validationErrors,
+  } = useTextField(rest, inputRef);
+
+  const errorMessage =
+    typeof props.errorMessage === 'function'
+      ? props.errorMessage({
+          isInvalid,
+          validationDetails,
+          validationErrors,
+        })
+      : props.errorMessage;
 
   return (
     <Stack gap='1'>
@@ -26,9 +43,9 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
           {props.description}
         </Text>
       )}
-      {props.errorMessage && (
+      {errorMessage && (
         <Text size='sm' color='error' {...errorMessageProps}>
-          {props.errorMessage}
+          {errorMessage}
         </Text>
       )}
     </Stack>
