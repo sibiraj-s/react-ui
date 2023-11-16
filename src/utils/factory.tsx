@@ -26,7 +26,11 @@ const withAsChild = (Component: ElementType) => {
     const { asChild, children, ...restProps } = props;
 
     if (asChild !== true) {
-      return <Component {...props} ref={forwardedRef} />;
+      return (
+        <Component {...restProps} ref={forwardedRef}>
+          {children}
+        </Component>
+      );
     }
 
     try {
