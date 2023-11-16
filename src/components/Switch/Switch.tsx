@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { SwitchAria, useFocusRing, useSwitch } from 'react-aria';
+import { AriaSwitchProps, useFocusRing, useSwitch } from 'react-aria';
 import { ToggleProps, useToggleState } from 'react-stately';
 import { cx } from 'styled-system/css';
 import { HTMLStyledProps, VisuallyHidden, splitCssProps, styled } from 'styled-system/jsx';
@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 import { useObjectRef } from '@/hooks';
 
-type SwitchOwnProps = HTMLStyledProps<'label'> & SwitchRecipeVariantProps & SwitchAria & ToggleProps;
+type SwitchOwnProps = HTMLStyledProps<'label'> & SwitchRecipeVariantProps & AriaSwitchProps & ToggleProps;
 type UserIgnoredProps = 'isFocusVisible' | 'disabled';
 
 type SwithElement = HTMLInputElement;
