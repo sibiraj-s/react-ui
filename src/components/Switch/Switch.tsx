@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
-import { AriaSwitchProps, useFocusRing, useSwitch } from 'react-aria';
-import { ToggleProps, useToggleState } from 'react-stately';
+import { AriaSwitchProps, useSwitch } from '@react-aria/switch';
+import { useFocusRing } from '@react-aria/focus';
+import { ToggleProps, useToggleState } from '@react-stately/toggle';
 import { cx } from 'styled-system/css';
 import { HTMLStyledProps, VisuallyHidden, splitCssProps, styled } from 'styled-system/jsx';
 import { SwitchRecipeVariantProps, switchRecipe } from 'styled-system/recipes';

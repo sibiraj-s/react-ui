@@ -1,6 +1,7 @@
 import { FC, useRef } from 'react';
-import { useLocale, useDateField, AriaDateFieldProps, DateValue } from 'react-aria';
-import { useDateFieldState } from 'react-stately';
+import { useDateField, AriaDateFieldProps, DateValue } from '@react-aria/datepicker';
+import { useLocale } from '@react-aria/i18n';
+import { useDateFieldState } from '@react-stately/datepicker';
 import { createCalendar } from '@internationalized/date';
 import { styled } from 'styled-system/jsx';
 import { dateFieldRecipe } from 'styled-system/recipes';

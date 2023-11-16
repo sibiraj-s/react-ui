@@ -1,6 +1,7 @@
 import { FC, useRef } from 'react';
-import { AriaTimeFieldProps, TimeValue, useLocale, useTimeField } from 'react-aria';
-import { useTimeFieldState, TimeFieldStateOptions } from 'react-stately';
+import { useLocale } from '@react-aria/i18n';
+import { AriaTimeFieldProps, TimeValue, useTimeField } from '@react-aria/datepicker';
+import { useTimeFieldState, TimeFieldStateOptions } from '@react-stately/datepicker';
 import { styled } from 'styled-system/jsx';
 import { dateFieldRecipe } from 'styled-system/recipes';
 

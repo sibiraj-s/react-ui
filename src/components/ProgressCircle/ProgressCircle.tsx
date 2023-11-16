@@ -1,6 +1,6 @@
 import { type FC, useRef } from 'react';
 import { type Variants, motion, useInView, Transition } from 'framer-motion';
-import { useProgressBar } from 'react-aria';
+import { useProgressBar } from '@react-aria/progress';
 import { styled } from 'styled-system/jsx';
 import { progressCircleRecipe } from 'styled-system/recipes';
 import { JsxStyleProps } from 'styled-system/types';

@@ -1,5 +1,5 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
-import { AriaTextFieldProps, useTextField } from 'react-aria';
+import { AriaTextFieldProps, useTextField } from '@react-aria/textfield';
 import { Stack } from 'styled-system/jsx';
 
 import useObjectRef from '@/hooks/use-object-ref';

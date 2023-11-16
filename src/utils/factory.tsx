@@ -7,7 +7,7 @@ import {
   cloneElement,
   forwardRef,
 } from 'react';
-import { mergeProps } from 'react-aria';
+import { mergeProps } from '@react-aria/utils';
 
 import composeRefs from './compose-refs';
 

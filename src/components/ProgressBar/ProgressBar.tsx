@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-import { useProgressBar } from 'react-aria';
+import { useProgressBar } from '@react-aria/progress';
 import { HTMLStyledProps, styled } from 'styled-system/jsx';
 import { cx } from 'styled-system/css';
 import { progressBarRecipe } from 'styled-system/recipes';

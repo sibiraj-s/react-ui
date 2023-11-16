@@ -1,5 +1,5 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
-import { AriaButtonProps, useButton } from 'react-aria';
+import { AriaButtonProps, useButton } from '@react-aria/button';
 import { splitCssProps, styled } from 'styled-system/jsx';
 import { buttonRecipe, ButtonRecipeVariantProps } from 'styled-system/recipes';
 

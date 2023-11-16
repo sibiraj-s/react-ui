@@ -1,5 +1,5 @@
 import { ElementRef, forwardRef } from 'react';
-import { useLink, AriaLinkOptions } from 'react-aria';
+import { useLink, AriaLinkOptions } from '@react-aria/link';
 import useObjectRef from '@/hooks/use-object-ref';
 import { HTMLStyledProps } from 'styled-system/types';
 import { styled } from 'styled-system/jsx';
