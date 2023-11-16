@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
-    "@pandacss/dev": "^0.18.2",
+    "@pandacss/dev": "^0.18.3",
     "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-actions": "^7.5.3",
     "@storybook/addon-essentials": "^7.5.3",
