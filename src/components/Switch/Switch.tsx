@@ -1,19 +1,17 @@
-import * as SwitchPrimitive from '@radix-ui/react-switch';
-import { ElementRef, forwardRef } from 'react';
-import { mergeProps, useFocusRing } from 'react-aria';
+import { forwardRef } from 'react';
+import { SwitchAria, useFocusRing, useSwitch } from 'react-aria';
+import { ToggleProps, useToggleState } from 'react-stately';
 import { cx } from 'styled-system/css';
-import { HTMLStyledProps, styled } from 'styled-system/jsx';
+import { HTMLStyledProps, VisuallyHidden, splitCssProps, styled } from 'styled-system/jsx';
 import { SwitchRecipeVariantProps, switchRecipe } from 'styled-system/recipes';
 import { motion } from 'framer-motion';
 
-const SwitchRoot = styled(SwitchPrimitive.Root);
-const SwitchThumb = SwitchPrimitive.Thumb;
+import { useObjectRef } from '@/hooks';
 
-type SwitchRootProps = Omit<HTMLStyledProps<typeof SwitchRoot>, keyof SwitchRecipeVariantProps>;
-type SwitchOwnProps = SwitchRootProps & SwitchRecipeVariantProps;
-type UserIgnoredProps = 'isFocusVisible';
+type SwitchOwnProps = HTMLStyledProps<'label'> & SwitchRecipeVariantProps & SwitchAria & ToggleProps;
+type UserIgnoredProps = 'isFocusVisible' | 'disabled';
 
-type SwithElement = ElementRef<typeof SwitchRoot>;
+type SwithElement = HTMLInputElement;
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
 
 const spring = {
@@ -22,22 +20,29 @@ const spring = {
   damping: 30,
 };
 
-export const Switch = forwardRef<SwithElement, SwitchProps>((props, ref) => {
-  const [variantProps, switchRestProps] = switchRecipe.splitVariantProps(props);
+export const Switch = forwardRef<SwithElement, SwitchProps>((props, forwardedRef) => {
+  const [cssProps, restProps] = splitCssProps(props);
+  const [variantProps, switchRestProps] = switchRecipe.splitVariantProps(restProps);
+
+  const state = useToggleState(switchRestProps);
+  const ref = useObjectRef<HTMLInputElement>(forwardedRef);
+  const { inputProps, isSelected, isDisabled } = useSwitch(switchRestProps, state, ref);
   const { isFocusVisible, focusProps } = useFocusRing();
 
-  const switchClasses = switchRecipe({ isFocusVisible, ...variantProps });
+  const switchClasses = switchRecipe({ isFocusVisible, disabled: isDisabled, ...variantProps });
 
   return (
-    <SwitchRoot
-      className={cx(switchClasses.root, switchRestProps.className)}
-      {...mergeProps(switchRestProps, focusProps)}
-      ref={ref}
+    <styled.label
+      {...cssProps}
+      className={cx(switchClasses.root, cssProps.className)}
+      data-state={isSelected ? 'checked' : 'unchecked'}
     >
-      <SwitchThumb className={switchClasses.thumb} asChild>
-        <motion.span layout transition={spring} />
-      </SwitchThumb>
-    </SwitchRoot>
+      <VisuallyHidden>
+        <input {...inputProps} {...focusProps} ref={ref} />
+      </VisuallyHidden>
+      <motion.span className={switchClasses.thumb} layout transition={spring} />
+      {props.children}
+    </styled.label>
   );
 });
 

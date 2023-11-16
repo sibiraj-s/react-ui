@@ -11,7 +11,7 @@ const meta: Meta<typeof Switch> = {
   component: Switch,
   parameters: {
     controls: {
-      exclude: showOnlyControls([...switchRecipe.variantKeys, 'onCheckedChange', 'isFocusVisible']),
+      exclude: showOnlyControls([...switchRecipe.variantKeys, 'onChange', 'isDisabled']),
     },
   },
   argTypes: {
@@ -19,10 +19,10 @@ const meta: Meta<typeof Switch> = {
       control: 'radio',
       options: switchRecipe.variantMap.size,
     },
-    disabled: {
+    isDisabled: {
       control: 'boolean',
     },
-    onCheckedChange: { action: 'checked', table: { disable: true } },
+    onChange: { action: 'checked', table: { disable: true } },
   },
 };
 
@@ -39,10 +39,10 @@ const TemplateSizes = (args: ComponentProps<typeof Switch>) => (
 
 const TemplateColors = (args: ComponentProps<typeof Switch>) => (
   <HStack gap='4'>
-    <Switch colorPalette='red' {...args} defaultChecked aria-label='Red color switch' />
-    <Switch {...args} defaultChecked aria-label='Default color switch' />
-    <Switch colorPalette='amber' {...args} defaultChecked aria-label='Amber color switch' />
-    <Switch colorPalette='teal' {...args} defaultChecked aria-label='Teal color switch' />
+    <Switch colorPalette='red' {...args} defaultSelected aria-label='Red color switch' />
+    <Switch {...args} defaultSelected aria-label='Default color switch' />
+    <Switch colorPalette='amber' {...args} defaultSelected aria-label='Amber color switch' />
+    <Switch colorPalette='teal' {...args} defaultSelected aria-label='Teal color switch' />
   </HStack>
 );
 
@@ -55,9 +55,10 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   ...Default,
-  args: switchRecipe.raw({
-    disabled: true,
-  }),
+  args: {
+    isDisabled: true,
+    'aria-label': 'Airplane Mode',
+  },
 };
 
 export const Sizes: Story = {
