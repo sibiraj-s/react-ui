@@ -1,6 +1,6 @@
 import { ComponentProps, ElementRef, forwardRef } from 'react';
 import { AriaButtonProps, useButton } from 'react-aria';
-import { styled } from 'styled-system/jsx';
+import { splitCssProps, styled } from 'styled-system/jsx';
 import { buttonRecipe, ButtonRecipeVariantProps } from 'styled-system/recipes';
 
 import useObjectRef from '@/hooks/use-object-ref';
@@ -14,6 +14,8 @@ type ButtonProps = ButtonOwnProps & AriaButtonProps;
 
 export const Button = forwardRef<ButtonElement, ButtonProps>((props, forwardedRef) => {
   const buttonRef = useObjectRef(forwardedRef);
+  const [variantProps, { children, asChild, ...restProps }] = buttonRecipe.splitVariantProps(props);
+  const [cssProps] = splitCssProps(restProps);
 
   const { buttonProps } = useButton(
     {
@@ -23,7 +25,11 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, forwardedRe
     buttonRef
   );
 
-  return <StyledButton {...props} {...buttonProps} ref={buttonRef} />;
+  return (
+    <StyledButton {...variantProps} {...cssProps} {...buttonProps} ref={buttonRef} asChild={asChild}>
+      {children}
+    </StyledButton>
+  );
 });
 
 Button.displayName = 'Button';
