@@ -43,7 +43,6 @@
     "@react-aria/datepicker": "^3.9.0",
     "@react-aria/focus": "^3.15.0",
     "@react-aria/i18n": "^3.9.0",
-    "@react-aria/link": "^3.6.2",
     "@react-aria/progress": "^3.4.8",
     "@react-aria/switch": "^3.5.7",
     "@react-aria/textfield": "^3.13.0",

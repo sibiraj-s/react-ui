@@ -1,19 +1,16 @@
-import { ElementRef, forwardRef } from 'react';
-import { useLink, AriaLinkOptions } from '@react-aria/link';
-import useObjectRef from '@/hooks/use-object-ref';
+import { forwardRef } from 'react';
 import { HTMLStyledProps } from 'styled-system/types';
 import { styled } from 'styled-system/jsx';
+import { TextRecipeVariantProps, textRecipe } from 'styled-system/recipes';
+import { cx } from 'styled-system/css';
 
-type LinkElement = ElementRef<'a'>;
-type LinkOwnProps = HTMLStyledProps<'a'>;
+type LinkStyledProps = HTMLStyledProps<'a'>;
+type LinkProps = LinkStyledProps & TextRecipeVariantProps;
 
-type LinkProps = LinkOwnProps & AriaLinkOptions;
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, forwardedRef) => {
+  const [textVariants, restProps] = textRecipe.splitVariantProps(props);
 
-export const Link = forwardRef<LinkElement, LinkProps>((props, ref) => {
-  const linkRef = useObjectRef(ref);
-  const { linkProps } = useLink(props, linkRef);
-
-  return <styled.a {...props} {...linkProps} ref={linkRef} />;
+  return <styled.a {...restProps} className={cx(textRecipe(textVariants), restProps.className)} ref={forwardedRef} />;
 });
 
 Link.displayName = 'Link';
