@@ -91,7 +91,7 @@ export const WithIcon: Story = {
   ...Default,
   render: (args) => {
     return (
-      <Button {...args} colorPalette='amber'>
+      <Button {...args}>
         <BookmarkIcon />
         Bookmark
       </Button>
