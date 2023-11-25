@@ -22,10 +22,12 @@ export const dateFieldRecipe = defineSlotRecipe({
       pr: '8',
       transition: 'colors',
       _hover: {
-        borderColor: 'accent',
+        colorPalette: 'accent',
+        borderColor: 'colorPalette.700',
       },
       _focusWithin: {
-        borderColor: 'accent',
+        colorPalette: 'accent',
+        borderColor: 'colorPalette.700',
       },
     },
   },
