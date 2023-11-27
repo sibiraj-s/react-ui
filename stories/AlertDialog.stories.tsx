@@ -32,24 +32,25 @@ export const Default: Story = {
   render: (args) => (
     <AlertDialog {...args}>
       <AlertDialogTrigger>
-        <Button colorPalette='red'>Revoke Access</Button>
+        <Button>Open Alert Dialog</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <Stack gap='1'>
-          <AlertDialogTitle level='5' mb='2'>
-            Revoke access
+          <AlertDialogTitle level='5' mb='1'>
+            Confirm Action
           </AlertDialogTitle>
           <AlertDialogDescription size='sm'>
-            Are you sure? this application will no longer be accessible and any existing sessions will be expired.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere, erat quis finibus euismod, magna
+            enim pulvinar risus, id maximus.
           </AlertDialogDescription>
           <HStack gap='2' justify='end' mt='4'>
             <AlertDialogCancel>
-              <Button variant='outline' colorPalette='gray'>
+              <Button variant='outline' colorPalette='neutral'>
                 Cancel
               </Button>
             </AlertDialogCancel>
             <AlertDialogAction>
-              <Button colorPalette='red'>Revoke access</Button>
+              <Button>Yes. Go ahead!</Button>
             </AlertDialogAction>
           </HStack>
         </Stack>
