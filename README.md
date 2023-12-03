@@ -23,6 +23,8 @@ npm run dev
 ## Components
 
 - AlertDialog
+- AspectRatio
+- Avatar
 - Badge
 - Button
 - Link
