@@ -1,5 +1,6 @@
 export * from './AlertDialog';
 export * from './Badge';
+export * from './Avatar';
 
 export * from './Link';
 export * from './Button';

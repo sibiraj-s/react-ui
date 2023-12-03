@@ -12,6 +12,7 @@ import progressCircleRecipe from './progress-circle';
 import switchRecipe from './switch';
 import alertDialogRecipe from './alert-dialog';
 import inputRecipe from './input';
+import avatarRecipe from './avatar';
 
 export const recipes = {
   badgeRecipe,
@@ -30,4 +31,5 @@ export const slotRecipes = {
   dateFieldRecipe,
   alertDialogRecipe,
   inputRecipe,
+  avatarRecipe,
 };
