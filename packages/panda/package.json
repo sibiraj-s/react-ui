@@ -18,11 +18,11 @@
     "panda-preset"
   ],
   "peerDependencies": {
-    "@pandacss/dev": "^0.17.5",
-    "@pandacss/types": "^0.17.5"
+    "@pandacss/dev": "^0.21.0",
+    "@pandacss/types": "^0.21.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.17.5",
-    "@pandacss/types": "^0.17.5"
+    "@pandacss/dev": "^0.21.0",
+    "@pandacss/types": "^0.21.0"
   }
 }

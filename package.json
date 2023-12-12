@@ -27,7 +27,6 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage --reporter=verbose",
     "build": "tsup",
-    "studio": "panda studio",
     "dev": "storybook dev -p 4004 --no-open",
     "build:storybook": "storybook build",
     "lint": "eslint . --ignore-path=.gitignore --ext=.js,.ts,.tsx",
