@@ -1,17 +1,15 @@
-import { ComponentProps, ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from 'react';
+import { ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from 'react';
 import useObjectRef from '@/hooks/use-object-ref';
 import { InputRecipeVariantProps, inputRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
+import { ComponentProps } from 'styled-system/types';
 
-type InputVariants = ComponentProps<'input'>;
-type InputExtraProps = {
+export interface InputVariantProps extends Omit<InputRecipeVariantProps, 'prepend' | 'append'> {
   prepend?: ReactElement[] | ReactElement;
   append?: ReactElement[] | ReactElement;
-  isInvalid: InputRecipeVariantProps['isInvalid'];
-};
+}
 
-type InputOwnProps = Omit<InputVariants, 'prepend' | 'append'> & InputExtraProps;
-type InputProps = InputOwnProps & ComponentProps<'input'>;
+type InputProps = InputVariantProps & ComponentProps<'input'>;
 type InputElementType = ElementRef<'input'>;
 
 const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {

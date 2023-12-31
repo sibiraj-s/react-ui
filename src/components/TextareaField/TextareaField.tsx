@@ -1,6 +1,7 @@
-import { ComponentProps, ElementRef, forwardRef } from 'react';
+import { ElementRef, forwardRef } from 'react';
 import { AriaTextFieldProps, useTextField } from '@react-aria/textfield';
 import { Stack } from 'styled-system/jsx';
+import { TextareaRecipeVariantProps } from 'styled-system/recipes';
 
 import useObjectRef from '@/hooks/use-object-ref';
 
@@ -8,8 +9,7 @@ import Label from '../Label';
 import Textarea from '../Textarea';
 import Text from '../Text';
 
-type TextareaFieldOwnProps = ComponentProps<typeof Textarea>;
-type TextareaFieldProps = TextareaFieldOwnProps & AriaTextFieldProps;
+type TextareaFieldProps = AriaTextFieldProps & TextareaRecipeVariantProps;
 
 export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFieldProps>((props, ref) => {
   const inputRef = useObjectRef(ref);
