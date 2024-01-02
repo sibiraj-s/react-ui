@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
 
-import { Avatar, AvatarFallback, AvatarImage } from '../index';
+import { Avatar } from '../index';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Components/Avatar',
@@ -15,8 +15,8 @@ type Story = StoryObj<typeof Avatar>;
 
 const Template = (args: ComponentProps<typeof Avatar>) => (
   <Avatar {...args}>
-    <AvatarImage src='https://i.pravatar.cc/300' alt='Avatar' />
-    <AvatarFallback>AV</AvatarFallback>
+    <Avatar.Image src='https://i.pravatar.cc/300' alt='Avatar' />
+    <Avatar.Fallback>AV</Avatar.Fallback>
   </Avatar>
 );
 export const Default: Story = {

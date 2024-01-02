@@ -9,9 +9,9 @@ import AlertDialogOverlay from './AlertDialogOverlay';
 
 type AlertDialogContentElement = ElementRef<typeof AlertDialogPrimitive.Content>;
 
-interface AlertDialogContentProps extends ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> {
+type AlertDialogContentProps = ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> & {
   container?: AlertDialogPortalProps['container'];
-}
+};
 
 const StyledAlertDialogContent = AlertDialogPrimitive.Content;
 
