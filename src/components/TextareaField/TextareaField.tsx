@@ -11,8 +11,8 @@ import Text from '../Text';
 
 type TextareaFieldProps = AriaTextFieldProps & TextareaRecipeVariantProps;
 
-export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFieldProps>((props, ref) => {
-  const inputRef = useObjectRef(ref);
+export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFieldProps>((props, forwardedRef) => {
+  const inputRef = useObjectRef(forwardedRef);
   const {
     labelProps,
     inputProps,

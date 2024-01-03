@@ -10,8 +10,8 @@ import Text from '../Text';
 
 type TextFieldProps = AriaTextFieldProps & InputVariantProps;
 
-export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((props, ref) => {
-  const inputRef = useObjectRef(ref);
+export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((props, forwardedRef) => {
+  const inputRef = useObjectRef(forwardedRef);
   const { prepend, append, ...rest } = props;
 
   const {

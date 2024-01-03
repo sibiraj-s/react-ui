@@ -1,9 +1,9 @@
 import { FC, useRef } from 'react';
 import { useDateSegment } from '@react-aria/datepicker';
 import * as Stately from '@react-stately/datepicker';
-import { cx } from 'styled-system/css';
-import { styled } from 'styled-system/jsx';
 import { dateSegmentRecipe } from 'styled-system/recipes';
+import { styled } from 'styled-system/jsx';
+import { cx } from 'styled-system/css';
 
 interface DateSegmentProps {
   segment: Stately.DateSegment;

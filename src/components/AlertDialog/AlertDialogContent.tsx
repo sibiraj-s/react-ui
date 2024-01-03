@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
+import { ComponentPropsWithRef, ElementRef, forwardRef } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { motion } from 'framer-motion';
 import { alertDialogRecipe } from 'styled-system/recipes';
@@ -9,7 +9,7 @@ import AlertDialogOverlay from './AlertDialogOverlay';
 
 type AlertDialogContentElement = ElementRef<typeof AlertDialogPrimitive.Content>;
 
-type AlertDialogContentProps = ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> & {
+type AlertDialogContentProps = ComponentPropsWithRef<typeof AlertDialogPrimitive.Content> & {
   container?: AlertDialogPortalProps['container'];
 };
 

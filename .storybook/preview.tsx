@@ -2,8 +2,8 @@ import { Decorator, Parameters, Preview } from '@storybook/react';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import '../src/index.css';
 import { Token, token } from 'styled-system/tokens';
+import '../src/index.css';
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

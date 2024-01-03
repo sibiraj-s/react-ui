@@ -1,8 +1,8 @@
 import { definePreset } from '@pandacss/dev';
 
 import normalize from './src/normalize';
-import semanticTokens from './src/semantic-tokens';
 import tokens from './src/tokens';
+import semanticTokens from './src/semantic-tokens';
 import { keyframes } from './src/keyframes';
 import { recipes, slotRecipes } from './src/recipes';
 

@@ -20,10 +20,10 @@ const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
   return Array.isArray(items) ? items : [items];
 };
 
-export const Input = forwardRef<InputElementType, InputProps>((props, ref) => {
+export const Input = forwardRef<InputElementType, InputProps>((props, forwardedRef) => {
   const { prepend, append, isInvalid, ...rest } = props;
 
-  const inputRef = useObjectRef(ref);
+  const inputRef = useObjectRef(forwardedRef);
   const uniq = useId();
 
   const prependItems = useMemo(() => getItems(prepend), [prepend]);
