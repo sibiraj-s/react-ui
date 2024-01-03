@@ -27,7 +27,8 @@ const buttonRecipe = defineRecipe({
     '--outline-shadowTo': 'colors.colorPalette.700',
 
     _focusVisible: {
-      boxShadow: '0 0 0 2px var(--outline-shadowFrom), 0 0 0 4px var(--outline-shadowTo)',
+      outline: '2px solid',
+      outlineColor: 'colorPalette.700',
     },
 
     _disabled: {
@@ -42,6 +43,7 @@ const buttonRecipe = defineRecipe({
       solid: {
         color: 'white',
         backgroundColor: 'colorPalette.700',
+        outlineOffset: '2px',
 
         _hover: {
           backgroundColor: 'colorPalette.800',
@@ -56,6 +58,7 @@ const buttonRecipe = defineRecipe({
       outline: {
         color: 'colorPalette.700',
         backgroundColor: 'transparent',
+        outlineOffset: '-1px',
 
         _hover: {
           color: 'colorPalette.50',
