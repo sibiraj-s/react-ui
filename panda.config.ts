@@ -1,6 +1,5 @@
 import { defineConfig } from '@pandacss/dev';
 import reactUIPreset from '@rxui/panda';
-import { configureStaticCss } from '@rxui/panda/utils';
 
 const isProd = process.env.CI === 'true';
 
@@ -43,5 +42,9 @@ export default defineConfig({
   // Hash the generated class names and variables
   hash: isProd,
 
-  staticCss: configureStaticCss(),
+  // Generate static css
+  staticCss: {
+    // Generate static css for all recipes, since panda can't parse storybook args
+    recipes: '*',
+  },
 });
