@@ -8,6 +8,6 @@ export const Button = styled(rx.button, buttonRecipe, {
     type: 'button',
   },
 });
-Button.displayName = 'button';
+Button.displayName = 'Button';
 
 export default Button;
