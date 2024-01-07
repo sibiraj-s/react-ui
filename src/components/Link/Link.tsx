@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
-import { HTMLStyledProps } from 'styled-system/types';
-import { styled } from 'styled-system/jsx';
+import { styled, HTMLStyledProps } from 'styled-system/jsx';
 import { TextRecipeVariantProps, textRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
 
