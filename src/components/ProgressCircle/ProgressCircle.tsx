@@ -7,7 +7,9 @@ import { JsxStyleProps } from 'styled-system/types';
 
 import Counter from './Counter';
 
-interface ProgressCircleProps {
+type ProgressCircleStyleProps = Pick<JsxStyleProps, 'color' | 'colorPalette'>;
+
+interface ProgressCircleOwnProps {
   value: number;
   min?: number;
   max?: number;
@@ -16,9 +18,9 @@ interface ProgressCircleProps {
   spin?: boolean;
   size?: number;
   strokeWidth?: number;
-  color?: JsxStyleProps['color'];
-  colorPalette?: JsxStyleProps['colorPalette'];
 }
+
+type ProgressCircleProps = ProgressCircleOwnProps & ProgressCircleStyleProps;
 
 const getPercents = (value: number, min: number, max: number): number => {
   const percents = ((value - min) / (max - min)) * 100;
