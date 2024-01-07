@@ -1,18 +1,20 @@
 import { ElementRef, forwardRef } from 'react';
 import { AriaTextFieldProps, useTextField } from '@react-aria/textfield';
-import { Stack } from 'styled-system/jsx';
+import { Stack, StackProps, splitCssProps } from 'styled-system/jsx';
 
 import useObjectRef from '@/hooks/use-object-ref';
 
 import Label from '../Label';
-import Input, { InputVariantProps } from '../Input';
+import Input, { InputExtraProps } from '../Input';
 import Text from '../Text';
 
-type TextFieldProps = AriaTextFieldProps & InputVariantProps;
+type TextFieldOwnProps = AriaTextFieldProps & InputExtraProps;
+type TextFieldProps = TextFieldOwnProps & Omit<StackProps, keyof TextFieldOwnProps>;
 
 export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((props, forwardedRef) => {
   const inputRef = useObjectRef(forwardedRef);
   const { prepend, append, ...rest } = props;
+  const [cssProps, restProps] = splitCssProps(rest);
 
   const {
     labelProps,
@@ -22,7 +24,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
     isInvalid,
     validationDetails,
     validationErrors,
-  } = useTextField(rest, inputRef);
+  } = useTextField(restProps, inputRef);
 
   const errorMessage =
     typeof props.errorMessage === 'function'
@@ -34,7 +36,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
       : props.errorMessage;
 
   return (
-    <Stack gap='1'>
+    <Stack gap='1' {...cssProps}>
       <Label {...labelProps}>{props.label}</Label>
       <Input {...inputProps} ref={inputRef} isInvalid={props.isInvalid} prepend={prepend} append={append} />
       {props.description && (

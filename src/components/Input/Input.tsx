@@ -2,14 +2,17 @@ import { ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from
 import useObjectRef from '@/hooks/use-object-ref';
 import { InputRecipeVariantProps, inputRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
-import { ComponentProps } from 'styled-system/types';
+import { ComponentProps, HTMLStyledProps } from 'styled-system/types';
+import { splitCssProps, styled } from 'styled-system/jsx';
 
-export interface InputVariantProps extends Omit<InputRecipeVariantProps, 'prepend' | 'append'> {
+export type InputExtraProps = {
   prepend?: ReactElement[] | ReactElement;
   append?: ReactElement[] | ReactElement;
-}
+};
 
-type InputProps = InputVariantProps & ComponentProps<'input'>;
+type InputOwnProps = ComponentProps<'input'> & InputRecipeVariantProps & InputExtraProps;
+
+type InputProps = InputOwnProps & Omit<HTMLStyledProps<'div'>, keyof InputOwnProps>;
 type InputElementType = ElementRef<'input'>;
 
 const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
@@ -22,6 +25,7 @@ const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
 
 export const Input = forwardRef<InputElementType, InputProps>((props, forwardedRef) => {
   const { prepend, append, isInvalid, ...rest } = props;
+  const [cssProps, restProps] = splitCssProps(rest);
 
   const inputRef = useObjectRef(forwardedRef);
   const uniq = useId();
@@ -55,19 +59,19 @@ export const Input = forwardRef<InputElementType, InputProps>((props, forwardedR
   });
 
   return (
-    <div className={inputClasses.root} onPointerDown={handlePointerDown}>
+    <styled.div {...cssProps} className={inputClasses.root} onPointerDown={handlePointerDown}>
       {prependItems.map((item, i) => (
         <div className={inputClasses.item} key={`${uniq}_prepend__${i}`}>
           {item}
         </div>
       ))}
-      <input {...rest} className={cx(inputClasses.input, props.className)} ref={inputRef} />
+      <input {...restProps} className={cx(inputClasses.input, props.className)} ref={inputRef} />
       {appendItems.map((item, i) => (
         <div className={inputClasses.item} key={`${uniq}_append__${i}`}>
           {item}
         </div>
       ))}
-    </div>
+    </styled.div>
   );
 });
 
