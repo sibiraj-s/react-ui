@@ -36,7 +36,7 @@ export const Default: Story = {
           </AlertDialog.Description>
           <HStack gap='2' justify='end' mt='4'>
             <AlertDialog.Cancel>
-              <Button variant='outline' colorPalette='neutral'>
+              <Button variant='outline' colorPalette='gray'>
                 Cancel
               </Button>
             </AlertDialog.Cancel>
