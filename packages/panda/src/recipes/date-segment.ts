@@ -6,8 +6,8 @@ export const dateSegmentRecipe = defineSlotRecipe({
   slots: ['segment', 'input'],
   base: {
     segment: {
-      px: '0.5',
       boxSizing: 'content-box',
+      px: '0.5',
       textAlign: 'right',
       fontVariantNumeric: 'tabular-nums',
       outline: 'none',
