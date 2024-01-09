@@ -15,7 +15,7 @@ export const dateSegmentRecipe = defineSlotRecipe({
       colorPalette: 'accent',
       _focus: { bg: 'colorPalette.700', color: 'colorPalette.50' },
 
-      '&[data-placeholder=true]': {
+      _placeholder: {
         color: 'placeholder',
       },
     },
