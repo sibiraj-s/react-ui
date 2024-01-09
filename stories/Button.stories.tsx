@@ -84,7 +84,7 @@ export const Disabled: Story = {
 export const Sizes: Story = {
   ...Default,
   args: {},
-  render: (args) => <TemplateSizes {...args} colorPalette='green' />,
+  render: (args) => <TemplateSizes {...args} />,
 };
 
 export const WithIcon: Story = {
