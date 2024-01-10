@@ -3,7 +3,7 @@ import { useDateField, AriaDateFieldProps, DateValue } from '@react-aria/datepic
 import { useLocale } from '@react-aria/i18n';
 import { useDateFieldState } from '@react-stately/datepicker';
 import { createCalendar } from '@internationalized/date';
-import { styled } from 'styled-system/jsx';
+import { Box } from 'styled-system/jsx';
 import { dateFieldRecipe } from 'styled-system/recipes';
 
 import DateSegment from '../_shared/DateSegment';
@@ -25,16 +25,16 @@ const DateField: FC<DateFieldProps> = (props) => {
   const dateFieldClasses = dateFieldRecipe();
 
   return (
-    <styled.div className={dateFieldClasses.root}>
+    <Box className={dateFieldClasses.root}>
       <Label {...labelProps} size='sm' className={dateFieldClasses.label}>
         {props.label}
       </Label>
-      <styled.div {...fieldProps} ref={ref} className={dateFieldClasses.container}>
+      <Box {...fieldProps} ref={ref} className={dateFieldClasses.container}>
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
-      </styled.div>
-    </styled.div>
+      </Box>
+    </Box>
   );
 };
 

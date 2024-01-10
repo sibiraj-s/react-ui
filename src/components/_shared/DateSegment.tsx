@@ -2,7 +2,7 @@ import { FC, useRef } from 'react';
 import { useDateSegment } from '@react-aria/datepicker';
 import * as Stately from '@react-stately/datepicker';
 import { dateSegmentRecipe } from 'styled-system/recipes';
-import { styled } from 'styled-system/jsx';
+import { Box, styled } from 'styled-system/jsx';
 import { cx } from 'styled-system/css';
 
 interface DateSegmentProps {
@@ -17,7 +17,7 @@ const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
   const dateSegmentClasses = dateSegmentRecipe({ isLiteral: segment.type === 'literal' });
 
   return (
-    <styled.div
+    <Box
       {...segmentProps}
       ref={ref}
       style={{
@@ -39,7 +39,7 @@ const DateSegment: FC<DateSegmentProps> = ({ segment, state }) => {
         {segment.placeholder}
       </styled.span>
       {segment.isPlaceholder ? '' : segment.text}
-    </styled.div>
+    </Box>
   );
 };
 

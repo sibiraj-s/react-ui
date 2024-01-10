@@ -2,8 +2,8 @@ import { ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from
 import useObjectRef from '@/hooks/use-object-ref';
 import { InputRecipeVariantProps, inputRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
-import { ComponentProps, HTMLStyledProps } from 'styled-system/types';
-import { splitCssProps, styled } from 'styled-system/jsx';
+import { ComponentProps } from 'styled-system/types';
+import { Box, BoxProps, splitCssProps } from 'styled-system/jsx';
 
 export type InputExtraProps = {
   prepend?: ReactElement[] | ReactElement;
@@ -12,7 +12,7 @@ export type InputExtraProps = {
 
 type InputOwnProps = ComponentProps<'input'> & InputRecipeVariantProps & InputExtraProps;
 
-type InputProps = InputOwnProps & Omit<HTMLStyledProps<'div'>, keyof InputOwnProps>;
+type InputProps = InputOwnProps & Omit<BoxProps, keyof InputOwnProps>;
 type InputElementType = ElementRef<'input'>;
 
 const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
@@ -59,7 +59,7 @@ export const Input = forwardRef<InputElementType, InputProps>((props, forwardedR
   });
 
   return (
-    <styled.div {...cssProps} className={inputClasses.root} onPointerDown={handlePointerDown}>
+    <Box {...cssProps} className={inputClasses.root} onPointerDown={handlePointerDown}>
       {prependItems.map((item, i) => (
         <div className={inputClasses.item} key={`${uniq}_prepend__${i}`}>
           {item}
@@ -71,7 +71,7 @@ export const Input = forwardRef<InputElementType, InputProps>((props, forwardedR
           {item}
         </div>
       ))}
-    </styled.div>
+    </Box>
   );
 });
 

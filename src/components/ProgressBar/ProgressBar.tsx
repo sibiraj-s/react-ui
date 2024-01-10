@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { useProgressBar } from '@react-aria/progress';
-import { HTMLStyledProps, styled } from 'styled-system/jsx';
+import { Box, BoxProps } from 'styled-system/jsx';
 import { cx } from 'styled-system/css';
 import { progressBarRecipe } from 'styled-system/recipes';
 
-interface ProgressBarProps extends HTMLStyledProps<'div'> {
+interface ProgressBarProps extends BoxProps {
   value: number;
   min?: number;
   max?: number;
@@ -51,7 +51,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
   });
 
   return (
-    <styled.div
+    <Box
       {...progressBarRestProps}
       {...progressBarProps}
       className={cx(styleClasses.container, progressBarRestProps.className)}
@@ -64,7 +64,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
         }}
         transition={{ duration, delay }}
       />
-    </styled.div>
+    </Box>
   );
 };
 

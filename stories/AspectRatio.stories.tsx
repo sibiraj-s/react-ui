@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { styled } from 'styled-system/jsx';
+import { Box, styled } from 'styled-system/jsx';
 
 import { AspectRatio } from '../index';
 
@@ -17,7 +17,7 @@ export const Default: Story = {
   name: 'AspectRatio',
   args: {},
   render: (args) => (
-    <styled.div w='96' overflow='hidden' rounded='md' shadow='md' shadowColor='black'>
+    <Box w='96' overflow='hidden' rounded='md' shadow='md' shadowColor='black'>
       <AspectRatio {...args} ratio={16 / 9}>
         <styled.img
           src='https://source.unsplash.com/random/?city,night?w=300&dpr=2&q=80'
@@ -27,6 +27,6 @@ export const Default: Story = {
           objectFit='cover'
         />
       </AspectRatio>
-    </styled.div>
+    </Box>
   ),
 };
