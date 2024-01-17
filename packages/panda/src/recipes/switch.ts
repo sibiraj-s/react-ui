@@ -25,7 +25,7 @@ const switchRecipe = defineSlotRecipe({
     },
     thumb: {
       height: '100%',
-      aspectRatio: '1 / 1',
+      aspectRatio: 'square',
       backgroundColor: 'white',
       borderRadius: 'full',
     },
