@@ -35,7 +35,7 @@ export const Switch = forwardRef<SwithElement, SwitchProps>((props, forwardedRef
   return (
     <styled.label
       {...cssProps}
-      className={cx(switchClasses.root, cssProps.className)}
+      className={cx(switchClasses.root, restProps.className)}
       data-state={isSelected ? 'checked' : 'unchecked'}
     >
       <VisuallyHidden>
