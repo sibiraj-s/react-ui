@@ -45,7 +45,7 @@
     "@react-aria/i18n": "^3.10.0",
     "@react-aria/progress": "^3.4.9",
     "@react-aria/switch": "^3.6.0",
-    "@react-aria/textfield": "^3.14.0",
+    "@react-aria/textfield": "^3.14.1",
     "@react-aria/utils": "^3.23.0",
     "@react-stately/datepicker": "^3.9.1",
     "@react-stately/toggle": "^3.7.0",
