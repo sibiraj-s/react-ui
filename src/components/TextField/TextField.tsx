@@ -1,5 +1,5 @@
 import { ElementRef, forwardRef } from 'react';
-import { AriaTextFieldProps, useTextField } from '@react-aria/textfield';
+import { AriaTextFieldOptions, AriaTextFieldProps, useTextField } from '@react-aria/textfield';
 import { Stack, StackProps, splitCssProps } from 'styled-system/jsx';
 
 import useObjectRef from '@/hooks/use-object-ref';
@@ -8,13 +8,17 @@ import Label from '../Label';
 import Input, { InputExtraProps } from '../Input';
 import Text from '../Text';
 
-type TextFieldOwnProps = AriaTextFieldProps & InputExtraProps;
+type AriaConflictingProps = {
+  autoCapitalize: AriaTextFieldOptions<'input'>['autoCapitalize'];
+};
+type TextFieldOwnProps = InputExtraProps & AriaTextFieldProps & AriaConflictingProps;
 type TextFieldProps = TextFieldOwnProps & Omit<StackProps, keyof TextFieldOwnProps>;
 
 export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((props, forwardedRef) => {
+  const [cssProps, restProps] = splitCssProps(props);
+  const { prepend, append, ...rest } = restProps;
+
   const inputRef = useObjectRef(forwardedRef);
-  const { prepend, append, ...rest } = props;
-  const [cssProps, restProps] = splitCssProps(rest);
 
   const {
     labelProps,
@@ -24,7 +28,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
     isInvalid,
     validationDetails,
     validationErrors,
-  } = useTextField(restProps, inputRef);
+  } = useTextField(rest, inputRef);
 
   const errorMessage =
     typeof props.errorMessage === 'function'
