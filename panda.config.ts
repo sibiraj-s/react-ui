@@ -5,7 +5,7 @@ const isProd = process.env.CI === 'true';
 
 export default defineConfig({
   // Clean the output directory before generating the css.
-  clean: true,
+  clean: isProd,
 
   // Use css reset
   preflight: true,
