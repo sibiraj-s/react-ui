@@ -27,9 +27,6 @@ export default defineConfig({
     extend: {},
   },
 
-  // Emit the artifacts to node_modules as a package.
-  emitPackage: false,
-
   // The output directory for your css system
   outdir: 'styled-system',
 
