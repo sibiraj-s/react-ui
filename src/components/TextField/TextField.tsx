@@ -40,7 +40,7 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
       : props.errorMessage;
 
   return (
-    <Stack gap='1' {...cssProps}>
+    <Stack gap='1' {...cssProps} direction='column'>
       <Label {...labelProps}>{props.label}</Label>
       <Input {...inputProps} ref={inputRef} isInvalid={props.isInvalid} prepend={prepend} append={append} />
       {props.description && (
