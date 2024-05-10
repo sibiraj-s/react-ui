@@ -37,7 +37,7 @@ const alertDialogRecipe = defineSlotRecipe({
       padding: '4',
 
       _dark: {
-        backgroundColor: 'black',
+        backgroundColor: 'neutral.950',
       },
     },
   },

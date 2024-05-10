@@ -59,7 +59,8 @@ const ThemeWrapper: FC<PropsWithChildren> = (props) => {
   const isDarkMode = useDarkMode();
 
   useEffect(() => {
-    document.body.classList.toggle('dark', isDarkMode);
+    document.body.classList.remove('dark', 'light');
+    document.documentElement.classList.toggle('dark', isDarkMode);
   }, [isDarkMode]);
 
   return props.children;
