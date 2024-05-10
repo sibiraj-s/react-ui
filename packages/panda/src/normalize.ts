@@ -28,6 +28,10 @@ const normalize = defineGlobalStyles({
       color: 'accent.50',
     },
   },
+  '.icon': {
+    width: '1em',
+    height: '1em',
+  },
 });
 
 export default normalize;

@@ -46,7 +46,13 @@ export const WithIcons: Story = {
     label: 'Enter your name',
     placeholder: 'Type something...',
   },
-  render: (args) => <TextField {...args} prepend={<MagnifyingGlassIcon />} append={<DotsHorizontalIcon />} />,
+  render: (args) => (
+    <TextField
+      {...args}
+      prepend={<MagnifyingGlassIcon className='icon' />}
+      append={<DotsHorizontalIcon className='icon' />}
+    />
+  ),
 };
 
 export const WithFormText: Story = {

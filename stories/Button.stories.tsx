@@ -92,7 +92,7 @@ export const WithIcon: Story = {
   render: (args) => {
     return (
       <Button {...args}>
-        <BookmarkIcon />
+        <BookmarkIcon className='icon' />
         Bookmark
       </Button>
     );
