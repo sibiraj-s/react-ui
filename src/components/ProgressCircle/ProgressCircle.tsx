@@ -89,7 +89,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = (props) => {
   return (
     <Box
       {...progressBarProps}
-      css={{
+      style={{
         height: `${size}px`,
         width: `${size}px`,
         '--rx-progress-circle-size': `${size}px`,

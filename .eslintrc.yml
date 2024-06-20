@@ -4,6 +4,7 @@ extends:
   - pegasus
   - pegasus/browser
   - pegasus/node
+  - plugin:@pandacss/recommended
 
 overrides:
   - files:
