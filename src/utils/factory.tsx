@@ -6,10 +6,12 @@ import {
   ForwardRefExoticComponent,
   cloneElement,
   forwardRef,
+  isValidElement,
 } from 'react';
 import { mergeProps } from '@react-aria/utils';
 
 import composeRefs from './compose-refs';
+import getRef from './get-ref';
 
 type AsChildProp = { asChild?: boolean };
 type RxPropsWithRef<E extends ElementType> = ComponentPropsWithRef<E> & AsChildProp;
@@ -36,9 +38,15 @@ const withAsChild = (Component: ElementType) => {
     try {
       const onlyChild = Children.only(children);
 
+      if (!isValidElement(onlyChild)) {
+        return null;
+      }
+
+      const childRef = getRef(onlyChild);
+
       return cloneElement(onlyChild, {
         ...mergeProps(restProps, onlyChild.props),
-        ref: forwardedRef ? composeRefs(forwardedRef, onlyChild.ref) : onlyChild.ref,
+        ref: forwardedRef ? composeRefs(forwardedRef, childRef) : childRef,
       });
     } catch (err) {
       // eslint-disable-next-line no-console
