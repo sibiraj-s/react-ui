@@ -1,5 +1,5 @@
 import { Decorator, Parameters, Preview } from '@storybook/react';
-import { FC, PropsWithChildren, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import { Token, token } from 'styled-system/tokens';
@@ -55,20 +55,11 @@ export const globalTypes: Preview['globalTypes'] = {
   },
 };
 
-const ThemeWrapper: FC<PropsWithChildren> = (props) => {
-  const isDarkMode = useDarkMode();
-
-  useEffect(() => {
-    document.body.classList.remove('dark', 'light');
-    document.documentElement.classList.toggle('dark', isDarkMode);
-  }, [isDarkMode]);
-
-  return props.children;
-};
-
 const paletteRange = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
-const withThemeProvider: Decorator = (Story, context) => {
+const WithThemeProvider: Decorator = (Story, context) => {
+  const isDarkMode = useDarkMode();
+
   paletteRange.forEach((range) => {
     const tokenValue = token(`colors.${context.globals.accent}.${range}` as Token);
     const accentTokenVar = token.var(`colors.accent.${range}` as Token);
@@ -83,11 +74,12 @@ const withThemeProvider: Decorator = (Story, context) => {
     document.body.style.setProperty(accentVar, tokenValue);
   });
 
-  return (
-    <ThemeWrapper>
-      <Story />
-    </ThemeWrapper>
-  );
+  useEffect(() => {
+    document.body.classList.remove('dark', 'light');
+    document.documentElement.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
+
+  return <Story />;
 };
 
-export const decorators: Decorator[] = [withThemeProvider];
+export const decorators: Decorator[] = [WithThemeProvider];
