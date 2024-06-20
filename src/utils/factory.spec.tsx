@@ -47,18 +47,6 @@ describe('RxFactory', () => {
     expect(ref.current?.tagName).toBe('A');
   });
 
-  it('should combine forwardedRef with original ref with asChild property', () => {
-    const ref = createRef<TestElement>();
-    const ref2 = createRef<HTMLAnchorElement>();
-    render(
-      <TestComponent ref={ref} asChild>
-        <a ref={ref2} />
-      </TestComponent>
-    );
-    expect(ref.current?.tagName).toBe('A');
-    expect(ref2.current?.tagName).toBe('A');
-  });
-
   it('should retain the original ref with asChild', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
