@@ -7,6 +7,7 @@ import { keyframes } from './src/keyframes';
 import { recipes, slotRecipes } from './src/recipes';
 
 export const preset = definePreset({
+  name: 'react-ui',
   globalCss: normalize,
   presets: ['@pandacss/dev/presets'],
   theme: {
