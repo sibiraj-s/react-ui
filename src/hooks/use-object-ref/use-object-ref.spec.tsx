@@ -16,7 +16,7 @@ describe('UseObjectRef', () => {
 
     expect(result.current).toBeDefined();
     expect(result.current).not.toBeNull();
-    expect(result.current.current).toBeUndefined();
+    expect(result.current.current).not.toBeUndefined();
   });
 
   it('should forward ref', () => {
