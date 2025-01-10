@@ -1,19 +1,16 @@
-import { ElementRef, forwardRef } from 'react';
+import { FC } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
 import Text, { TextProps } from '../Text';
 
-type AlertDialogDescriptionElement = ElementRef<typeof Text>;
 type AlertDialogDescriptionProps = TextProps;
 
-const AlertDialogDescription = forwardRef<AlertDialogDescriptionElement, AlertDialogDescriptionProps>(
-  (props, forwardedRef) => (
+const AlertDialogDescription: FC<AlertDialogDescriptionProps> = (props) => {
+  return (
     <AlertDialogPrimitive.Description asChild>
-      <Text {...props} ref={forwardedRef} />
+      <Text {...props} />
     </AlertDialogPrimitive.Description>
-  )
-);
-
-AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName;
+  );
+};
 
 export default AlertDialogDescription;

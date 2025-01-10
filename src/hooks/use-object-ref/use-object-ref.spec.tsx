@@ -1,13 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, renderHook } from '@testing-library/react';
-import { ComponentProps, createRef, forwardRef } from 'react';
+import { ComponentProps, createRef, FC } from 'react';
 
 import useObjectRef from './use-object-ref';
 
-const TestComponent = forwardRef<HTMLDivElement, ComponentProps<'div'>>((props, forwardedRef) => {
-  const ref = useObjectRef(forwardedRef);
+const TestComponent: FC<ComponentProps<'div'>> = (props) => {
+  const ref = useObjectRef<HTMLDivElement>(props.ref);
   return <div {...props} ref={ref} />;
-});
+};
 TestComponent.displayName = 'TestComponent';
 
 describe('UseObjectRef', () => {
@@ -27,7 +27,14 @@ describe('UseObjectRef', () => {
 
   it('should forward function ref', () => {
     let htmlEl: HTMLDivElement | null = null;
-    render(<TestComponent id='ab' ref={(node) => (htmlEl = node)} />);
+    render(
+      <TestComponent
+        id='ab'
+        ref={(node) => {
+          htmlEl = node;
+        }}
+      />
+    );
     expect((htmlEl as unknown as HTMLDivElement).id).toBe('ab');
   });
 

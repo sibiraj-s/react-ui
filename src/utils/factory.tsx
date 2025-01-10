@@ -7,6 +7,8 @@ import {
   cloneElement,
   forwardRef,
   isValidElement,
+  JSX,
+  ReactElement,
 } from 'react';
 import { mergeProps } from '@react-aria/utils';
 
@@ -23,6 +25,11 @@ type RxComponent<T extends ElementType> = {
 };
 type JsxFactory = <T extends ElementType>(component: T) => RxComponent<T>;
 
+interface Props {
+  [key: string]: any;
+}
+type PropsArg = Props | null | undefined;
+
 const withAsChild = (Component: ElementType) => {
   const WrappedComponent = forwardRef<unknown, RxPropsWithRef<typeof Component>>((props, forwardedRef) => {
     const { asChild, children, ...restProps } = props;
@@ -36,7 +43,7 @@ const withAsChild = (Component: ElementType) => {
     }
 
     try {
-      const onlyChild = Children.only(children);
+      const onlyChild = Children.only<ReactElement<Props>>(children);
 
       if (!isValidElement(onlyChild)) {
         return null;
@@ -45,7 +52,7 @@ const withAsChild = (Component: ElementType) => {
       const childRef = getRef(onlyChild);
 
       return cloneElement(onlyChild, {
-        ...mergeProps(restProps, onlyChild.props),
+        ...mergeProps(restProps, onlyChild.props as PropsArg[]),
         ref: forwardedRef ? composeRefs(forwardedRef, childRef) : childRef,
       });
     } catch (err) {

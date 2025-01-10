@@ -3,7 +3,7 @@ import { MutableRefObject, useMemo, useRef } from 'react';
 import setRef, { PossibleRef } from '../../utils/set-ref';
 
 const useObjectRef = <T>(forwardedRef?: PossibleRef<T>): MutableRefObject<T> => {
-  const ref = useRef<T>();
+  const ref = useRef<T>(null);
 
   const objRef = useMemo(
     () => ({

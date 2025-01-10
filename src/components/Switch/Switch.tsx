@@ -1,19 +1,18 @@
-import { forwardRef } from 'react';
+import { FC, Ref } from 'react';
 import { AriaSwitchProps, useSwitch } from '@react-aria/switch';
 import { useFocusRing } from '@react-aria/focus';
 import { ToggleProps, useToggleState } from '@react-stately/toggle';
 import { cx } from 'styled-system/css';
 import { HTMLStyledProps, VisuallyHidden, splitCssProps, styled } from 'styled-system/jsx';
 import { SwitchRecipeVariantProps, switchRecipe } from 'styled-system/recipes';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { useObjectRef } from '@/hooks';
 
 type SwitchOwnProps = HTMLStyledProps<'label'> & SwitchRecipeVariantProps & AriaSwitchProps & ToggleProps;
 type UserIgnoredProps = 'isFocusVisible' | 'disabled';
 
-type SwithElement = HTMLInputElement;
-type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps>;
+type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps> & { ref?: Ref<HTMLInputElement> };
 
 const spring = {
   type: 'spring',
@@ -21,12 +20,12 @@ const spring = {
   damping: 30,
 };
 
-export const Switch = forwardRef<SwithElement, SwitchProps>((props, forwardedRef) => {
+export const Switch: FC<SwitchProps> = (props) => {
   const [cssProps, restProps] = splitCssProps(props);
   const [variantProps, switchRestProps] = switchRecipe.splitVariantProps(restProps);
 
   const state = useToggleState(switchRestProps);
-  const ref = useObjectRef<HTMLInputElement>(forwardedRef);
+  const ref = useObjectRef<HTMLInputElement>(props.ref);
   const { inputProps, isSelected, isDisabled } = useSwitch(switchRestProps, state, ref);
   const { isFocusVisible, focusProps } = useFocusRing();
 
@@ -45,7 +44,6 @@ export const Switch = forwardRef<SwithElement, SwitchProps>((props, forwardedRef
       {props.children}
     </styled.label>
   );
-});
+};
 
-Switch.displayName = 'Switch';
 export default Switch;

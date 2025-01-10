@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ComponentProps, ElementRef, createRef, forwardRef, isValidElement } from 'react';
+import { ComponentProps, ElementRef, FC, createRef, isValidElement } from 'react';
 import { render } from '@testing-library/react';
 
 import rx from './factory';
@@ -8,10 +8,9 @@ import { mockConsoleError } from '../../test/console';
 type TestElement = ElementRef<typeof rx.button>;
 type TestComponentProps = ComponentProps<typeof rx.button>;
 
-const TestComponent = forwardRef<TestElement, TestComponentProps>((props, forwardedRef) => {
-  return <rx.button {...props} ref={forwardedRef} />;
-});
-TestComponent.displayName = 'TestComponent';
+const TestComponent: FC<TestComponentProps> = (props) => {
+  return <rx.button {...props} />;
+};
 
 describe('RxFactory', () => {
   it('should create element', () => {

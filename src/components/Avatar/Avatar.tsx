@@ -1,15 +1,12 @@
-import { ComponentPropsWithRef, forwardRef } from 'react';
+import { ComponentPropsWithRef, FC } from 'react';
 import { avatarRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
 
 type AvatarProps = ComponentPropsWithRef<'div'>;
 
-const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(props, forwardedRef) {
+const Avatar: FC<AvatarProps> = (props) => {
   const avatarClasses = avatarRecipe();
-
-  return <div {...props} className={cx(avatarClasses.root, props.className)} ref={forwardedRef} />;
-});
-
-Avatar.displayName = 'Avatar';
+  return <div {...props} className={cx(avatarClasses.root, props.className)} />;
+};
 
 export default Avatar;

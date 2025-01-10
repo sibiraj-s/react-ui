@@ -1,19 +1,14 @@
-import { ElementRef, forwardRef } from 'react';
+import { FC } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
 import Heading, { HeadingProps } from '../Heading';
 
-type AlertDialogTitleElement = ElementRef<typeof Heading>;
-type AlertDialogTitleProps = HeadingProps;
-
-const AlertDialogTitle = forwardRef<AlertDialogTitleElement, AlertDialogTitleProps>(
-  ({ level = '5', ...props }, forwardedRef) => (
+const AlertDialogTitle: FC<HeadingProps> = (props) => {
+  return (
     <AlertDialogPrimitive.Title asChild>
-      <Heading level={level} {...props} ref={forwardedRef} />
+      <Heading level={props.level} {...props} />
     </AlertDialogPrimitive.Title>
-  )
-);
-
-AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
+  );
+};
 
 export default AlertDialogTitle;

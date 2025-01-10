@@ -1,4 +1,4 @@
-import { ElementRef, forwardRef } from 'react';
+import { FC, Ref } from 'react';
 import { AriaTextFieldOptions, AriaTextFieldProps, useTextField } from '@react-aria/textfield';
 import { Stack, StackProps, splitCssProps } from 'styled-system/jsx';
 
@@ -11,14 +11,14 @@ import Text from '../Text';
 type AriaConflictingProps = {
   autoCapitalize: AriaTextFieldOptions<'input'>['autoCapitalize'];
 };
-type TextFieldOwnProps = InputExtraProps & AriaTextFieldProps & AriaConflictingProps;
+type TextFieldOwnProps = InputExtraProps & AriaTextFieldProps & AriaConflictingProps & { ref?: Ref<HTMLInputElement> };
 type TextFieldProps = TextFieldOwnProps & Omit<StackProps, keyof TextFieldOwnProps>;
 
-export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((props, forwardedRef) => {
+export const TextField: FC<TextFieldProps> = (props) => {
   const [cssProps, restProps] = splitCssProps(props);
   const { prepend, append, ...rest } = restProps;
 
-  const inputRef = useObjectRef(forwardedRef);
+  const inputRef = useObjectRef<HTMLInputElement>(props.ref);
 
   const {
     labelProps,
@@ -55,8 +55,6 @@ export const TextField = forwardRef<ElementRef<typeof Input>, TextFieldProps>((p
       )}
     </Stack>
   );
-});
-
-TextField.displayName = 'TextField';
+};
 
 export default TextField;

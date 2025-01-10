@@ -1,4 +1,4 @@
-import { ElementRef, MouseEvent, ReactElement, forwardRef, useId, useMemo } from 'react';
+import { FC, MouseEvent, ReactElement, useId, useMemo } from 'react';
 import useObjectRef from '@/hooks/use-object-ref';
 import { InputRecipeVariantProps, inputRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
@@ -13,7 +13,6 @@ export type InputExtraProps = {
 type InputOwnProps = ComponentProps<'input'> & InputRecipeVariantProps & InputExtraProps;
 
 type InputProps = InputOwnProps & Omit<BoxProps, keyof InputOwnProps>;
-type InputElementType = ElementRef<'input'>;
 
 const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
   if (!items) {
@@ -23,11 +22,11 @@ const getItems = (items?: ReactElement[] | ReactElement): ReactElement[] => {
   return Array.isArray(items) ? items : [items];
 };
 
-export const Input = forwardRef<InputElementType, InputProps>((props, forwardedRef) => {
+export const Input: FC<InputProps> = (props) => {
   const { prepend, append, isInvalid, ...rest } = props;
   const [cssProps, restProps] = splitCssProps(rest);
 
-  const inputRef = useObjectRef(forwardedRef);
+  const inputRef = useObjectRef(props.ref);
   const uniq = useId();
 
   const prependItems = useMemo(() => getItems(prepend), [prepend]);
@@ -73,8 +72,6 @@ export const Input = forwardRef<InputElementType, InputProps>((props, forwardedR
       ))}
     </Box>
   );
-});
-
-Input.displayName = 'Input';
+};
 
 export default Input;

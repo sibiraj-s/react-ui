@@ -1,5 +1,5 @@
-import { ElementRef, forwardRef } from 'react';
-import { AriaTextFieldProps, useTextField } from '@react-aria/textfield';
+import { FC, Ref } from 'react';
+import { AriaTextFieldOptions, useTextField } from '@react-aria/textfield';
 import { Stack } from 'styled-system/jsx';
 import { TextareaRecipeVariantProps } from 'styled-system/recipes';
 
@@ -9,10 +9,11 @@ import Label from '../Label';
 import Textarea from '../Textarea';
 import Text from '../Text';
 
-type TextareaFieldProps = AriaTextFieldProps & TextareaRecipeVariantProps;
+type TextareaFieldProps = AriaTextFieldOptions<'textarea'> &
+  TextareaRecipeVariantProps & { ref?: Ref<HTMLTextAreaElement> };
 
-export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFieldProps>((props, forwardedRef) => {
-  const inputRef = useObjectRef(forwardedRef);
+export const TextareaField: FC<TextareaFieldProps> = (props) => {
+  const inputRef = useObjectRef<HTMLTextAreaElement>(props.ref);
   const {
     labelProps,
     inputProps,
@@ -21,7 +22,7 @@ export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFie
     isInvalid,
     validationErrors,
     validationDetails,
-  } = useTextField(
+  } = useTextField<'textarea'>(
     {
       ...props,
       inputElementType: 'textarea',
@@ -54,8 +55,6 @@ export const TextareaField = forwardRef<ElementRef<typeof Textarea>, TextareaFie
       )}
     </Stack>
   );
-});
-
-TextareaField.displayName = 'TextareaField';
+};
 
 export default TextareaField;

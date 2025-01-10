@@ -49,7 +49,7 @@
     "@react-aria/utils": "^3.26.0",
     "@react-stately/datepicker": "^3.11.0",
     "@react-stately/toggle": "^3.8.0",
-    "framer-motion": "^11.16.6"
+    "motion": "^11.16.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",

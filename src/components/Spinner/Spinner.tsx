@@ -1,4 +1,4 @@
-import { ComponentProps, ElementRef, forwardRef } from 'react';
+import { ComponentProps, FC } from 'react';
 import { styled } from 'styled-system/jsx';
 import { spinnerRecipe } from 'styled-system/recipes';
 
@@ -11,10 +11,9 @@ type SpinnerExtraProps = {
 };
 type SpinnerOwnProps = SpinnerVariantProps & SpinnerExtraProps;
 
-type SpinnerElementRef = ElementRef<typeof StyledSpinner>;
 type SpinnerProps = SpinnerOwnProps;
 
-export const Spinner = forwardRef<SpinnerElementRef, SpinnerProps>((props, forwardedRef) => {
+export const Spinner: FC<SpinnerProps> = (props) => {
   const { strokeWidth = 10, percents = 75 } = props;
   const [spinnerVariantProps] = spinnerRecipe.splitVariantProps(props);
 
@@ -27,7 +26,7 @@ export const Spinner = forwardRef<SpinnerElementRef, SpinnerProps>((props, forwa
   const spinnerClasses = spinnerRecipe(spinnerVariantProps);
 
   return (
-    <StyledSpinner {...props} className={spinnerClasses.container} ref={forwardedRef}>
+    <StyledSpinner {...props} className={spinnerClasses.container}>
       <svg viewBox={`0 0 ${size} ${size}`} version='1.1' xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'>
         <circle
           role='presentation'
@@ -61,8 +60,6 @@ export const Spinner = forwardRef<SpinnerElementRef, SpinnerProps>((props, forwa
       </svg>
     </StyledSpinner>
   );
-});
-
-Spinner.displayName = 'Spinner';
+};
 
 export default Spinner;
