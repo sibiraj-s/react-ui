@@ -20,7 +20,7 @@ export const Default: Story = {
     <Box w='96' overflow='hidden' rounded='md' shadow='md' shadowColor='black'>
       <AspectRatio {...args} ratio={16 / 9}>
         <styled.img
-          src='https://source.unsplash.com/random/?city,night?w=300&dpr=2&q=80'
+          src='https://picsum.photos/seed/picsum/300/200'
           alt='City Night'
           h='full'
           w='full'
