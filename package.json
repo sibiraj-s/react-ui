@@ -83,7 +83,7 @@
     "storybook-dark-mode": "^4.0.2",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vite": "^6.2.2",
+    "vite": "^6.3.5",
     "vitest": "^3.0.9"
   }
 }
