@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useProgressBar } from '@react-aria/progress';
 import { Box, BoxProps } from 'styled-system/jsx';
 import { cx } from 'styled-system/css';

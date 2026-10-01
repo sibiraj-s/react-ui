@@ -2,7 +2,8 @@ import { Decorator, Parameters, Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import { Token, token } from 'styled-system/tokens';
+import { token } from 'styled-system/tokens';
+import type { Token } from 'styled-system/tokens/tokens';
 import '../src/index.css';
 
 export const parameters: Parameters = {

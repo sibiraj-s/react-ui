@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { alertDialogRecipe } from 'styled-system/recipes';
 import { cx } from 'styled-system/css';
 

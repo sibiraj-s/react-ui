@@ -4,8 +4,8 @@ import path from 'node:path';
 export default defineConfig({
   resolve: {
     alias: {
-      'styled-system': `${path.resolve(__dirname, './styled-system/')}`,
-      '@': `${path.resolve(__dirname, './src/')}`,
+      'styled-system': `${path.resolve(import.meta.dirname, './styled-system/')}`,
+      '@': `${path.resolve(import.meta.dirname, './src/')}`,
     },
   },
   test: {
