@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentProps } from 'react';
 import { BookmarkIcon } from '@radix-ui/react-icons';
 import { HStack } from 'styled-system/jsx';
