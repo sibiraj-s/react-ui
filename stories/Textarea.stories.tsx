@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Textarea } from '../index';
 import { showOnlyControls } from './utils';
-import { textareaRecipe } from 'styled-system/recipes';
 
 const meta: Meta<typeof Textarea> = {
   title: 'Components/Forms/Textarea',
@@ -37,8 +36,6 @@ export const Invalid: Story = {
   args: {
     placeholder: 'Type something...',
     autoFocus: true,
-    ...textareaRecipe.raw({
-      isInvalid: true,
-    }),
+    isInvalid: true,
   },
 };

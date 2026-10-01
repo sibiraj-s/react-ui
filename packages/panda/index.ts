@@ -9,7 +9,7 @@ import { recipes, slotRecipes } from './src/recipes';
 export const preset = definePreset({
   name: 'react-ui',
   globalCss: normalize,
-  presets: ['@pandacss/dev/presets'],
+  presets: ['@pandacss/preset-base', '@pandacss/preset-panda'],
   theme: {
     extend: {
       tokens,

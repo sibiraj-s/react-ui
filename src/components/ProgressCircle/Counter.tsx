@@ -1,4 +1,4 @@
-import { animate, motion, useInView, useMotionValue, useTransform } from 'framer-motion';
+import { animate, motion, useInView, useMotionValue, useTransform } from 'motion/react';
 import { type FC, useEffect, useRef } from 'react';
 
 interface CounterProps {

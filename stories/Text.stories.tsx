@@ -44,8 +44,8 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   ...Default,
-  args: textRecipe.raw({
+  args: {
     size: 'xl',
     weight: 'bold',
-  }),
+  },
 };

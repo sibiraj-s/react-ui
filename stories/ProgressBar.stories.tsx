@@ -47,19 +47,19 @@ export const WithCustomRange: Story = {
 
 export const WithStipes: Story = {
   ...Default,
-  args: progressBarRecipe.raw({
+  args: {
     ...Default.args,
     striped: true,
-  }),
+  },
 };
 
 export const WithStipesAnimation: Story = {
   ...WithStipes,
-  args: progressBarRecipe.raw({
+  args: {
     ...Default.args,
     striped: true,
     animated: true,
-  }),
+  },
 };
 
 export const Colors: Story = {

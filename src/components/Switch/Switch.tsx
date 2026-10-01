@@ -15,7 +15,7 @@ type UserIgnoredProps = 'isFocusVisible' | 'disabled';
 type SwitchProps = Omit<SwitchOwnProps, UserIgnoredProps> & { ref?: Ref<HTMLInputElement> };
 
 const spring = {
-  type: 'spring',
+  type: 'spring' as const,
   stiffness: 700,
   damping: 30,
 };
