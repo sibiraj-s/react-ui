@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { ProgressCircle } from '../index';
 import { HStack } from 'styled-system/jsx';

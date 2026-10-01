@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ComponentProps } from 'react';
 import { HStack } from 'styled-system/jsx';
 import { spinnerRecipe } from 'styled-system/recipes';

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { HStack, Stack } from 'styled-system/jsx';
 import { progressBarRecipe } from 'styled-system/recipes';
 

@@ -1,4 +1,4 @@
-import { Decorator, Parameters, Preview } from '@storybook/react';
+import { Decorator, Parameters, Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 

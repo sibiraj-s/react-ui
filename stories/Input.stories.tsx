@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { DotsHorizontalIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { inputRecipe } from 'styled-system/recipes';
 
